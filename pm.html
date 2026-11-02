@@ -615,10 +615,10 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
 <!-- 2+단계: 실시간 라이브 대시보드 -->
 <section id="live">
   <h2 class="sec">2+ 실시간 라이브 대시보드 · 감이 아니라 근거로 다음을 정하다</h2>
-  <p class="lead">설문 응답이 쌓인 구글 시트를 <b>앱스 스크립트로 주소(API)</b>를 붙여 내보내고, <b>제미나이 캔버스</b>가 그 주소를 30초마다 불러와 KPI와 차트를 그립니다. 응답이 하나 들어오면 화면이 바로 바뀌어요. 오전반 3단원에서 만든 폼이 여기서 <b>“데이터가 쌓이는 곳”</b>으로 다시 쓰입니다.</p>
+  <p class="lead">설문 응답이 쌓인 구글 시트를 <b>앱스 스크립트로 주소(API)</b>를 붙여 내보내고, <b>제미나이 캔버스</b>가 그 주소를 30초마다 불러와 KPI와 차트를 그립니다. 응답이 하나 들어오면 화면이 바로 바뀌어요. 오전반 3단원에서 만든 폼(카드 A 중간 수업 피드백)이 여기서 <b>“데이터가 쌓이는 곳”</b>으로 다시 쓰입니다.</p>
 
   <div class="trio">
-    <div><span>1</span><b>라이브 체험</b><p>오늘 오전 연수 피드백을 휴대폰으로 남기고, 강사 대시보드가 차오르는 걸 함께 봐요.</p></div>
+    <div><span>1</span><b>라이브 체험</b><p>교수님이 학생이 되어 휴대폰으로 중간 강의 점검 폼에 응답하고, 강사 대시보드가 바뀌는 걸 함께 봐요.</p></div>
     <div><span>2</span><b>시트 + 가상 응답</b><p>트랙을 고르고 가상 응답 40건을 새 시트에 붙여 넣어요.</p></div>
     <div><span>3</span><b>앱스 스크립트 주소</b><p>코드를 붙여 넣고 웹 앱으로 배포해 …/exec 주소를 받아요.</p></div>
     <div><span>4</span><b>캔버스 대시보드</b><p>주소를 프롬프트에 넣어 대시보드를 만들고, 한 줄씩 더해 고쳐요.</p></div>
@@ -627,17 +627,10 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
   <h3 class="caseh" style="margin-top:56px">👀 먼저 보기 · 오늘 만들 대시보드는 이렇게 나와요</h3>
   <p>가상 응답으로 미리 만든 <b>완성 예시</b>예요. 위쪽 <b>[응답 1개 들어오기]</b>를 누르면 새 응답이 들어올 때 숫자와 차트가 어떻게 바뀌는지 볼 수 있어요.</p>
   <p><a class="dl" href="files/live/course-check-demo.html" target="_blank" rel="noopener">👩‍🏫 교수님 예시 · Mid-term Course Check 열기 ↗</a> &nbsp; <a class="dl" href="files/live/event-check-demo.html" target="_blank" rel="noopener">🗂️ 교직원 예시 · Event Check 열기 ↗</a></p>
-  <h3 class="caseh" style="margin-top:72px">1 · 라이브 체험 — 방금 들은 오전 연수가 데이터가 된다</h3>
-  <p>휴대폰으로 아래 폼에 응답해 주세요. 강사 화면의 대시보드에 <b>여러분의 응답이 실시간으로</b> 차오릅니다. 교수님 수업을 평가하는 게 아니라 <b>강사의 오전 연수</b>를 평가하는 시간이에요.</p>
-  <div class="slot">📝 라이브 체험 폼 링크 · 📊 강사 데모 대시보드 링크 자리 [강사 준비]</div>
-  <details class="ex case"><summary><b>강사용 · 라이브 체험 폼 문항</b> <span class="needs">미리 만들어 두기</span></summary><div class="body"><div class="prompt"><div class="label">라이브 체험 폼</div><button class="copy">복사</button><pre>[라이브 체험용 폼 · 강사가 미리 만들어 둠]
-제목: 오늘 오전반 연수, 한 줄 피드백 (익명)
-1. 소속: 객관식 (교수 / 직원 / 조교)
-2. 오늘 이해도: 1~5 척도
-3. 가장 쓸모 있던 것: 객관식 (크롬 잘쓰기 / 제미나이 인 크롬 / 앱 스킬 / 폼·시트 AI)
-4. 진행 속도: 객관식 (느림 / 적당 / 빠름)
-5. 한 줄 소감: 단답형(선택)
-→ 응답 시트에 위 doGet 코드를 붙여 배포하고, 대시보드는 이 문서의 교수 트랙 프롬프트를 열 이름만 바꿔 미리 만들어 둡니다.</pre></div></div></details>
+  <h3 class="caseh" style="margin-top:72px">1 · 라이브 체험 — 학생이 되어 응답해 보기</h3>
+  <p>지금부터 교수님들은 <b>[가상] 경영통계 8주차 수업을 듣는 학생</b>이에요. 휴대폰으로 아래 폼에 응답해 주세요. 강사 화면의 <b>Mid-term Course Check 대시보드</b>에 여러분의 응답이 <b>실시간으로</b> 더해지고, 평균 이해도와 “다시 설명할 개념”이 바뀌는 걸 함께 봅니다.</p>
+  <div class="slot">📝 Mid-term Course Check 폼 (학생 응답용) 링크·QR · 📊 강사 데모 대시보드 링크 자리 [강사 준비]</div>
+  <p class="tip">강사 시트에는 가상 응답 40건이 먼저 들어 있어요. 교수님들 응답이 더해질 때마다 숫자가 움직여요. 체험이 끝나면 2단계부터 같은 폼과 대시보드를 <b>내 것으로</b> 만들어 봅니다.</p>
 
   <h3 class="caseh" style="margin-top:72px">2 · 트랙 고르고 시트에 가상 응답 붙여 넣기</h3>
   <div class="lvsw"><button type="button" class="on" data-to="prof">👩‍🏫 교수님 트랙<small>Mid-term Course Check</small></button><button type="button" data-to="staff">🗂️ 교직원 트랙<small>Event Check</small></button></div>
@@ -646,7 +639,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <div class="callout gold"><b class="t">Mid-term Course Check · 강의 개선 의사결정 보드</b> 학기 중간에 받는 <b>익명 수업 피드백</b>으로 다음 수업에서 <b>무엇을 다시 설명하고, 속도와 활동을 어떻게 바꿀지</b> 정해요. 오전반 3단원 <b>카드 A(중간 수업 피드백)</b>와 같은 문항이에요.</div>
   </div>
   <div data-lv="staff">
-    <div class="callout gold"><b class="t">Event Check · 행사 개선 의사결정 보드</b> 행사·연수가 끝나고 받는 <b>만족도 조사</b>로 다음 행사의 <b>주제·순서·시간</b>을 정하고, <b>결과보고서 숫자</b>를 바로 뽑아요. 방금 응답하신 라이브 체험 폼이 바로 이 만족도 조사예요.</div>
+    <div class="callout gold"><b class="t">Event Check · 행사 개선 의사결정 보드</b> 행사·연수가 끝나고 받는 <b>만족도 조사</b>로 다음 행사의 <b>주제·순서·시간</b>을 정하고, <b>결과보고서 숫자</b>를 바로 뽑아요.</div>
   </div>
 
   <div class="callout blue" style="margin-top:20px"><b class="t">🚀 빠른 길 · 강사 예시 사본 만들기 (추천)</b>
