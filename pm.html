@@ -560,6 +560,294 @@ p.use{background:var(--gold-bg);border-radius:10px;padding:10px 12px;margin:6px 
     <p style="margin:4px 0 0">"어, 공식이 우리 수업이랑 다르네?" "예제 답이 틀렸어요." 캔버스는 <b>제목만 듣고 일반적인 내용으로</b> 만들기 때문이에요. 내 수업 자료를 알려 주면 해결됩니다. → <a href="#nlm"><b>3단계 노트북LM</b></a>으로 넘어가요.</p></div>
 </section>
 
+
+<!-- 2+단계: 실시간 라이브 대시보드 -->
+<section id="live">
+  <h2 class="sec">2+ 실시간 라이브 대시보드 · 감이 아니라 근거로 다음을 정하다</h2>
+  <p class="lead">설문 응답이 쌓인 구글 시트를 <b>앱스 스크립트로 주소(API)</b>를 붙여 내보내고, <b>제미나이 캔버스</b>가 그 주소를 30초마다 불러와 KPI와 차트를 그립니다. 응답이 하나 들어오면 화면이 바로 바뀌어요. 오전반 3단원에서 만든 폼이 여기서 <b>“데이터가 쌓이는 곳”</b>으로 다시 쓰입니다.</p>
+
+  <div class="trio">
+    <div><span>1</span><b>라이브 체험</b><p>오늘 오전 연수 피드백을 휴대폰으로 남기고, 강사 대시보드가 차오르는 걸 함께 봐요.</p></div>
+    <div><span>2</span><b>시트 + 가상 응답</b><p>트랙을 고르고 가상 응답 40건을 새 시트에 붙여 넣어요.</p></div>
+    <div><span>3</span><b>앱스 스크립트 주소</b><p>코드를 붙여 넣고 웹 앱으로 배포해 …/exec 주소를 받아요.</p></div>
+    <div><span>4</span><b>캔버스 대시보드</b><p>주소를 프롬프트에 넣어 대시보드를 만들고, 한 줄씩 더해 고쳐요.</p></div>
+  </div>
+
+  <h3 class="caseh" style="margin-top:72px">1 · 라이브 체험 — 방금 들은 오전 연수가 데이터가 된다</h3>
+  <p>휴대폰으로 아래 폼에 응답해 주세요. 강사 화면의 대시보드에 <b>여러분의 응답이 실시간으로</b> 차오릅니다. 교수님 수업을 평가하는 게 아니라 <b>강사의 오전 연수</b>를 평가하는 시간이에요.</p>
+  <div class="slot">📝 라이브 체험 폼 링크 · 📊 강사 데모 대시보드 링크 자리 [강사 준비]</div>
+  <details class="ex case"><summary><b>강사용 · 라이브 체험 폼 문항</b> <span class="needs">미리 만들어 두기</span></summary><div class="body"><div class="prompt"><div class="label">라이브 체험 폼</div><button class="copy">복사</button><pre>[라이브 체험용 폼 · 강사가 미리 만들어 둠]
+제목: 오늘 오전반 연수, 한 줄 피드백 (익명)
+1. 소속: 객관식 (교수 / 직원 / 조교)
+2. 오늘 이해도: 1~5 척도
+3. 가장 쓸모 있던 것: 객관식 (크롬 잘쓰기 / 제미나이 인 크롬 / 앱 스킬 / 폼·시트 AI)
+4. 진행 속도: 객관식 (느림 / 적당 / 빠름)
+5. 한 줄 소감: 단답형(선택)
+→ 응답 시트에 위 doGet 코드를 붙여 배포하고, 대시보드는 이 문서의 교수 트랙 프롬프트를 열 이름만 바꿔 미리 만들어 둡니다.</pre></div></div></details>
+
+  <h3 class="caseh" style="margin-top:72px">2 · 트랙 고르고 시트에 가상 응답 붙여 넣기</h3>
+  <div class="lvsw"><button type="button" class="on" data-to="prof">👩‍🏫 교수님 트랙<small>Mid-term Course Check</small></button><button type="button" data-to="staff">🗂️ 교직원 트랙<small>Event Check</small></button></div>
+
+  <div data-lv="prof">
+    <div class="callout gold"><b class="t">Mid-term Course Check · 강의 개선 의사결정 보드</b> 학기 중간에 받는 <b>익명 수업 피드백</b>으로 다음 수업에서 <b>무엇을 다시 설명하고, 속도와 활동을 어떻게 바꿀지</b> 정해요. 오전반 3단원 <b>카드 A(중간 수업 피드백)</b>와 같은 문항이에요.</div>
+  </div>
+  <div data-lv="staff">
+    <div class="callout gold"><b class="t">Event Check · 행사 개선 의사결정 보드</b> 행사·연수가 끝나고 받는 <b>만족도 조사</b>로 다음 행사의 <b>주제·순서·시간</b>을 정하고, <b>결과보고서 숫자</b>를 바로 뽑아요. 방금 응답하신 라이브 체험 폼이 바로 이 만족도 조사예요.</div>
+  </div>
+
+  <ol style="margin-top:20px">
+    <li>주소창에 <b>sheet.new</b>를 입력해 새 시트를 엽니다. 이름은 트랙에 맞게 바꿔 두세요.</li>
+    <li>아래 <b>가상 응답 복사</b>를 누르고, 시트의 <b>A1 칸을 클릭한 뒤 붙여넣기(Ctrl+V)</b>합니다. 1행은 항목 이름, 2행부터 40명의 응답이에요.</li>
+    <li>오전반에서 만든 내 폼의 응답 시트를 써도 돼요. 그때는 4단계 프롬프트의 <b>항목 이름을 내 시트 1행과 똑같이</b> 바꿔 주세요.</li>
+  </ol>
+  <div data-lv="prof"><div class="prompt"><div class="label">가상 응답 40건 · 교수님 트랙 ([가상] 경영통계 8주차, 익명)</div><button class="copy">복사</button><pre style="max-height:360px;overflow:auto">타임스탬프	학년	전공 구분	이해도	수업 속도	가장 어려웠던 개념	도움이 된 활동	개선 제안
+2026-10-27 11:47:00	3학년	전공	2	적당	회귀분석	퀴즈	예제를 하나 더 풀어 주시면 좋겠어요
+2026-10-27 12:21:00	2학년	전공	3	빠름	회귀분석	실습	
+2026-10-27 13:51:00	3학년	전공	2	적당	p-값	사례 토론, 퀴즈	예제를 하나 더 풀어 주시면 좋겠어요
+2026-10-27 13:56:00	4학년	전공	4	느림	신뢰구간	사례 토론, 퀴즈	퀴즈가 복습에 도움이 돼요. 계속해 주세요
+2026-10-27 14:06:00	3학년	전공	4	빠름	p-값	실습, 강의 영상	진도가 조금 빨라요
+2026-10-27 14:37:00	4학년	전공	4	느림	신뢰구간	실습, 퀴즈	엑셀 실습 파일을 미리 받고 싶어요
+2026-10-27 16:46:00	1학년	전공	4	적당	p-값	강의 영상	
+2026-10-27 18:48:00	3학년	전공	2	빠름	가설검정	실습	퀴즈가 복습에 도움이 돼요. 계속해 주세요
+2026-10-27 19:04:00	4학년	타 학과	3	빠름	p-값	사례 토론, 조별 활동, 강의 영상	실습 시간이 조금 더 있었으면 해요
+2026-10-27 19:46:00	3학년	타 학과	3	적당	상관과 인과	조별 활동, 강의 영상	엑셀 실습 파일을 미리 받고 싶어요
+2026-10-27 20:51:00	2학년	복수·부전공	3	빠름	신뢰구간	사례 토론, 조별 활동	진도가 조금 빨라요
+2026-10-27 21:28:00	2학년	복수·부전공	3	적당	p-값	실습	퀴즈가 복습에 도움이 돼요. 계속해 주세요
+2026-10-27 22:46:00	3학년	전공	3	적당	신뢰구간	강의 영상	사례가 실제 기업 데이터라 좋았어요
+2026-10-27 22:47:00	3학년	전공	2	적당	회귀분석	실습, 사례 토론	실습 시간이 조금 더 있었으면 해요
+2026-10-27 23:54:00	1학년	전공	2	빠름	가설검정	퀴즈	엑셀 실습 파일을 미리 받고 싶어요
+2026-10-28 01:35:00	2학년	전공	4	적당	p-값	사례 토론	
+2026-10-28 02:38:00	1학년	타 학과	2	적당	가설검정	퀴즈	조별 활동에서 역할이 겹쳐요
+2026-10-28 02:58:00	1학년	전공	3	빠름	회귀분석	퀴즈, 조별 활동, 강의 영상	실습 시간이 조금 더 있었으면 해요
+2026-10-28 03:27:00	1학년	전공	2	적당	가설검정	퀴즈	
+2026-10-28 03:48:00	2학년	전공	4	적당	회귀분석	실습, 조별 활동	용어 정리표가 있으면 좋겠어요
+2026-10-28 05:30:00	1학년	전공	3	느림	표준편차	사례 토론, 강의 영상	예제를 하나 더 풀어 주시면 좋겠어요
+2026-10-28 05:34:00	2학년	전공	4	적당	회귀분석	실습, 사례 토론	조별 활동에서 역할이 겹쳐요
+2026-10-28 05:39:00	3학년	전공	3	빠름	표준편차	실습	회귀분석 전에 기초 복습이 필요해요
+2026-10-28 07:23:00	3학년	타 학과	4	빠름	가설검정	실습	p-값 설명을 그림으로 다시 해 주세요
+2026-10-28 07:30:00	4학년	전공	4	빠름	p-값	실습, 사례 토론	예제를 하나 더 풀어 주시면 좋겠어요
+2026-10-28 08:14:00	3학년	복수·부전공	2	빠름	가설검정	실습, 퀴즈	진도가 조금 빨라요
+2026-10-28 08:25:00	2학년	전공	4	빠름	p-값	사례 토론, 강의 영상	슬라이드를 미리 올려 주시면 좋겠어요
+2026-10-28 08:31:00	4학년	전공	3	빠름	표준편차	퀴즈	슬라이드를 미리 올려 주시면 좋겠어요
+2026-10-28 09:24:00	2학년	전공	4	적당	p-값	퀴즈	퀴즈가 복습에 도움이 돼요. 계속해 주세요
+2026-10-28 09:58:00	2학년	타 학과	1	적당	가설검정	조별 활동	엑셀 실습 파일을 미리 받고 싶어요
+2026-10-28 11:53:00	3학년	전공	3	빠름	상관과 인과	강의 영상	엑셀 실습 파일을 미리 받고 싶어요
+2026-10-28 11:58:00	3학년	전공	2	빠름	신뢰구간	실습, 사례 토론	회귀분석 전에 기초 복습이 필요해요
+2026-10-28 12:15:00	2학년	타 학과	1	적당	상관과 인과	실습, 사례 토론	사례가 실제 기업 데이터라 좋았어요
+2026-10-28 12:25:00	4학년	타 학과	3	적당	회귀분석	강의 영상	
+2026-10-28 14:14:00	4학년	전공	3	적당	가설검정	강의 영상	용어 정리표가 있으면 좋겠어요
+2026-10-28 14:32:00	2학년	전공	1	적당	p-값	사례 토론, 퀴즈, 강의 영상	회귀분석 전에 기초 복습이 필요해요
+2026-10-28 15:04:00	1학년	전공	1	적당	p-값	실습, 사례 토론, 조별 활동	엑셀 실습 파일을 미리 받고 싶어요
+2026-10-28 15:05:00	4학년	전공	1	적당	회귀분석	조별 활동	
+2026-10-28 15:26:00	1학년	전공	2	빠름	회귀분석	강의 영상	
+2026-10-28 15:57:00	4학년	전공	4	빠름	상관과 인과	조별 활동	</pre></div></div>
+  <div data-lv="staff"><div class="prompt"><div class="label">가상 응답 40건 · 교직원 트랙 ([가상] 교직원 AI 업무 연수 만족도)</div><button class="copy">복사</button><pre style="max-height:360px;overflow:auto">타임스탬프	소속	부서	전반 만족도	가장 유익했던 순서	시간·장소 적절성	다시 참여 의향	다음 희망 주제	아쉬웠던 점
+2026-10-29 17:00:00	직원	기획처	4	3부 폼·시트 AI	보통	예	시트 자동화, 민원 응대	속도가 조금 빨랐어요
+2026-10-29 17:19:00	직원	정보전산원	4	3부 폼·시트 AI	적절	예	시트 자동화, 회의록 정리	와이파이가 자주 끊겼어요
+2026-10-29 17:19:00	교원	교무처	5	3부 폼·시트 AI	부적절	예	공문·보고서 AI, 시트 자동화	노트북이 없어 따라가기 어려웠어요
+2026-10-29 17:31:00	직원	정보전산원	3	3부 폼·시트 AI	적절	아니요	시트 자동화, 노트북LM	속도가 조금 빨랐어요
+2026-10-29 18:47:00	직원	정보전산원	1	3부 폼·시트 AI	보통	예	시트 자동화, 회의록 정리, 민원 응대	실습 시간이 부족했어요
+2026-10-29 18:57:00	교원	학과 사무실	4	3부 폼·시트 AI	보통	예	공문·보고서 AI, 민원 응대	속도가 조금 빨랐어요
+2026-10-29 19:25:00	직원	정보전산원	4	2부 앱 스킬	적절	예	회의록 정리, 노트북LM	자료를 미리 받고 싶어요
+2026-10-29 19:28:00	조교	학과 사무실	4	3부 폼·시트 AI	적절	예	공문·보고서 AI, 회의록 정리, 민원 응대	
+2026-10-29 19:38:00	직원	교무처	3	3부 폼·시트 AI	보통	예	노트북LM	부서별 사례가 더 있었으면 해요
+2026-10-29 19:54:00	조교	학과 사무실	5	2부 앱 스킬	보통	예	공문·보고서 AI, 민원 응대, 노트북LM	부서별 사례가 더 있었으면 해요
+2026-10-29 20:01:00	직원	교무처	4	2부 앱 스킬	부적절	예	시트 자동화, 민원 응대	노트북이 없어 따라가기 어려웠어요
+2026-10-29 20:13:00	교원	학과 사무실	4	2부 앱 스킬	적절	예	민원 응대, 노트북LM	
+2026-10-29 20:22:00	직원	학생처	3	2부 앱 스킬	보통	잘 모르겠음	민원 응대	
+2026-10-29 20:57:00	교원	학과 사무실	3	1부 제미나이 인 크롬	보통	예	시트 자동화, 회의록 정리, 노트북LM	
+2026-10-29 21:11:00	교원	교무처	1	3부 폼·시트 AI	적절	아니요	공문·보고서 AI, 회의록 정리	오후 시간대라 집중이 어려웠어요
+2026-10-29 21:20:00	조교	학과 사무실	5	1부 제미나이 인 크롬	보통	예	민원 응대	
+2026-10-29 21:47:00	교원	학과 사무실	4	3부 폼·시트 AI	적절	예	공문·보고서 AI, 시트 자동화, 민원 응대	
+2026-10-29 22:02:00	교원	교무처	4	1부 제미나이 인 크롬	부적절	예	공문·보고서 AI	속도가 조금 빨랐어요
+2026-10-29 22:31:00	직원	학생처	3	4부 실습 Q&amp;A	보통	아니요	회의록 정리, 노트북LM	속도가 조금 빨랐어요
+2026-10-29 22:33:00	직원	학생처	5	3부 폼·시트 AI	보통	예	민원 응대, 노트북LM	
+2026-10-29 23:30:00	교원	교무처	3	2부 앱 스킬	적절	예	공문·보고서 AI, 시트 자동화	자료를 미리 받고 싶어요
+2026-10-30 00:23:00	직원	정보전산원	5	1부 제미나이 인 크롬	적절	예	시트 자동화, 노트북LM	와이파이가 자주 끊겼어요
+2026-10-30 00:25:00	교원	학과 사무실	4	3부 폼·시트 AI	적절	예	회의록 정리	부서별 사례가 더 있었으면 해요
+2026-10-30 01:40:00	조교	학과 사무실	4	2부 앱 스킬	적절	예	시트 자동화, 회의록 정리, 민원 응대	자료를 미리 받고 싶어요
+2026-10-30 02:05:00	직원	정보전산원	3	2부 앱 스킬	적절	잘 모르겠음	회의록 정리, 민원 응대	
+2026-10-30 02:16:00	직원	교무처	5	3부 폼·시트 AI	적절	예	시트 자동화, 노트북LM	
+2026-10-30 04:03:00	직원	교무처	4	2부 앱 스킬	보통	예	민원 응대, 노트북LM	오후 시간대라 집중이 어려웠어요
+2026-10-30 04:12:00	직원	학생처	3	1부 제미나이 인 크롬	보통	잘 모르겠음	공문·보고서 AI	속도가 조금 빨랐어요
+2026-10-30 04:33:00	조교	학과 사무실	4	3부 폼·시트 AI	적절	예	공문·보고서 AI, 시트 자동화	
+2026-10-30 04:42:00	직원	기획처	3	2부 앱 스킬	보통	잘 모르겠음	시트 자동화, 회의록 정리	부서별 사례가 더 있었으면 해요
+2026-10-30 04:59:00	조교	학과 사무실	3	3부 폼·시트 AI	적절	예	노트북LM	노트북이 없어 따라가기 어려웠어요
+2026-10-30 05:56:00	직원	교무처	5	2부 앱 스킬	적절	예	시트 자동화, 민원 응대	속도가 조금 빨랐어요
+2026-10-30 06:46:00	직원	기획처	4	4부 실습 Q&amp;A	적절	예	회의록 정리, 민원 응대, 노트북LM	자료를 미리 받고 싶어요
+2026-10-30 07:04:00	직원	산학협력단	4	2부 앱 스킬	보통	예	민원 응대, 노트북LM	와이파이가 자주 끊겼어요
+2026-10-30 07:45:00	교원	교무처	3	1부 제미나이 인 크롬	적절	잘 모르겠음	시트 자동화, 민원 응대	
+2026-10-30 08:37:00	직원	기획처	4	1부 제미나이 인 크롬	적절	예	노트북LM	자료를 미리 받고 싶어요
+2026-10-30 10:51:00	직원	정보전산원	3	2부 앱 스킬	적절	잘 모르겠음	공문·보고서 AI	와이파이가 자주 끊겼어요
+2026-10-30 11:45:00	직원	교무처	5	3부 폼·시트 AI	보통	예	공문·보고서 AI, 시트 자동화, 민원 응대	와이파이가 자주 끊겼어요
+2026-10-30 12:22:00	직원	기획처	5	3부 폼·시트 AI	적절	예	공문·보고서 AI, 민원 응대	
+2026-10-30 12:57:00	직원	산학협력단	4	2부 앱 스킬	적절	예	회의록 정리	자료를 미리 받고 싶어요</pre></div></div>
+  <p class="tip">‘도움이 된 활동’, ‘다음 희망 주제’ 칸은 체크박스라 <b>“실습, 퀴즈”</b>처럼 쉼표로 붙어 있어요. 시트를 그냥 공개한 CSV 주소로 읽으면 이 쉼표 때문에 칸이 밀리는데, 3단계의 <b>JSON 주소</b>로 읽으면 안전해요.</p>
+
+  <h3 class="caseh" style="margin-top:72px">3 · 앱스 스크립트로 내 데이터 주소(API) 만들기</h3>
+  <ol>
+    <li>시트 메뉴 <b>확장 프로그램 → Apps Script</b>를 엽니다.</li>
+    <li>기본 코드 <code>function myFunction() {}</code>를 모두 지우고, 아래 코드를 붙여 넣은 뒤 <b>저장(Ctrl+S)</b>합니다.</li>
+    <li>오른쪽 위 <b>배포 → 새 배포</b> → 톱니바퀴에서 유형 <b>웹 앱</b>을 고릅니다.</li>
+    <li><b>액세스 권한이 있는 사용자: 모든 사용자</b>로 바꾸고 <b>배포</b>를 누릅니다.</li>
+    <li>“확인되지 않은 앱” 경고가 뜨면 <b>고급 → (프로젝트 이름)(으)로 이동 → 허용</b>을 누릅니다. 내가 만든 스크립트라서 뜨는 정상 안내예요.</li>
+    <li>마지막 화면의 <b>웹 앱 URL</b>(…/exec로 끝나는 주소)을 복사해 아래 칸에 붙여 넣습니다.</li>
+  </ol>
+  <div class="prompt"><div class="label">Apps Script · doGet (JSON API) · 대학생 연수 모듈 3과 같은 코드</div><button class="copy">복사</button><pre style="max-height:360px;overflow:auto">function doGet(e) {
+  // 1. 현재 스프레드시트의 '첫 번째 시트'를 가져옵니다.
+  // ※ 응답 시트가 맨 앞에 있어야 해요. 빈 '시트1'이 앞에 있으면
+  //    아래를 getSheetByName('설문지 응답 시트1') 로 바꿔주세요.
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+  // 2. 데이터가 있는 전체 범위를 2차원 배열로 가져옵니다.
+  const data = sheet.getDataRange().getValues();
+  // 3. 첫 행은 헤더, 나머지는 응답 데이터로 분리합니다.
+  const headers = data[0];
+  const rows = data.slice(1);
+  // 4. 각 행을 '헤더 이름을 키로' 갖는 JSON 객체로 변환합니다.
+  const result = rows
+    .filter(row =&gt; row.join('').trim() !== '') // 빈 행 제외
+    .map(row =&gt; {
+      let obj = {};
+      headers.forEach((header, index) =&gt; {
+        if (row[index] instanceof Date) {
+          obj[header] = row[index].toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+        } else {
+          obj[header] = row[index];
+        }
+      });
+      return obj;
+    });
+  // 5. JSON 형식으로 웹에 반환합니다.
+  return ContentService.createTextOutput(JSON.stringify(result))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre></div>
+  <div class="callout red"><b class="t">꼭 알아 두세요</b>
+    <ul style="margin:6px 0 0 18px;padding:0">
+      <li><b>“모든 사용자” 배포는 주소만 알면 누구나 이 시트 내용을 볼 수 있다</b>는 뜻이에요. 실제 학생 데이터라면 <b>이름·학번 없는 익명 문항</b>으로만 받으세요.</li>
+      <li>대학(교육용) 계정은 “모든 사용자” 배포가 막혀 있을 수 있어요. 오늘은 <b>개인 Gmail 계정</b>으로 해 주세요.</li>
+      <li>주소는 <b>script.google.com/…/exec</b>로 끝나야 해요. 시트 주소(docs.google.com…)와 헷갈리지 마세요.</li>
+    </ul></div>
+
+  <h3 class="caseh" style="margin-top:72px">4 · 제미나이 캔버스로 대시보드 만들기</h3>
+  <div class="fillbox lvurl"><b>🔗 내 웹 앱 URL</b> <span>…/exec 주소를 붙이고 <b>넣기</b>를 누르면 아래 프롬프트의 [웹 앱 URL] 자리에 들어가요</span>
+    <div class="fillrow"><input type="url" class="lvurlin" placeholder="https://script.google.com/macros/s/…/exec"><button type="button" class="fillgo lvgo">아래 프롬프트에 넣기</button><span class="fillok lvok"></span></div></div>
+  <ol>
+    <li><b>gemini.google.com</b>에서 도구의 <b>Canvas</b>를 켭니다.</li>
+    <li>아래 프롬프트를 복사해 보냅니다. 오른쪽에 대시보드가 나타나요.</li>
+    <li>숫자가 시트와 맞는지 확인합니다. 상단 상태 영역의 <b>총 응답 수가 40</b>이면 정상이에요.</li>
+  </ol>
+  <p class="tip">🔴 <b>빨강</b>(숫자 정확하게 · 열 이름 그대로) · 🟢 <b>초록</b>(진짜 데이터로 · 30초 새로고침 · 실패하면 솔직하게) 규칙은 지우지 마세요. AI는 모르면 그럴듯하게 지어내요. 🔵 디자인 부분만 마음대로 바꿔도 돼요.</p>
+  <div data-lv="prof"><div class="prompt"><div class="label">대시보드 프롬프트 · Mid-term Course Check</div><button class="copy">복사</button><pre style="max-height:360px;overflow:auto">나는 [가상] 경영통계 8주차 중간 강의 점검 설문 응답을 앱스 스크립트(Apps Script)로 JSON API로 배포했어. API 주소는 '<span class="fill" data-k="url">[웹 앱 URL]</span>' 이야.
+이 API를 fetch로 불러와, 교수가 '다음 수업에서 무엇을 다시 설명하고 무엇을 바꿀지' 근거로 정하는 실시간 대시보드를 HTML/CSS/JS 단일 파일로 만들어줘. 제목은 'Mid-term Course Check · 강의 개선 의사결정 보드'.
+
+[데이터 · 실시간 규칙 — 반드시 지킬 것]
+- API 주소 끝에 '?t='+Date.now() 를 붙여 fetch 해서 캐시를 피하고, 30초마다 다시 불러와 KPI·차트를 갱신해줘.
+- 응답은 이미 [{헤더: 값}] JSON 배열이야. 각 값을 원문 그대로 쓰고, 임의로 만들거나 줄이거나 바꾸지 마. 하드코딩·샘플 데이터 금지.
+- 불러오기에 실패하면 예시 차트를 그리지 말고, 빨간 오류 박스로 이유(주소·배포 권한 확인)를 보여줘.
+
+[열 매칭 · 집계 규칙 — 반드시 지킬 것]
+- 각 항목은 아래 헤더 이름으로 정확히 읽어줘: 타임스탬프 / 학년 / 전공 구분 / 이해도 / 수업 속도 / 가장 어려웠던 개념 / 도움이 된 활동 / 개선 제안
+- '이해도'는 숫자(1~5)로 바꿔 평균을 내줘. 빈 값은 세지 마.
+- '도움이 된 활동'은 체크박스라 '실습, 퀴즈'처럼 쉼표로 붙어 있어. ', ' 로 나눠 각각 따로 세줘.
+- 카테고리는 값이 정확히 일치하는 것끼리만 묶어줘. 부분 매칭·임의 축약 금지.
+- 이 설문은 익명이야. 학생을 특정하는 정보를 만들거나 추측하지 마.
+
+[검증 표시] 상단 상태 영역에 [총 응답 수 / 마지막 새로고침 시각]을 보여주고, console.log로 [전체 rows, 개념별 집계, 활동별 집계]를 출력해줘.
+
+[상단 KPI 카드]
+① 응답 수 ② 평균 이해도(5점 만점, 소수 첫째 자리) ③ '빠름' 응답 비율 ④ 가장 많이 어려워한 개념
+
+[차트 — Chart.js, 값/퍼센트 라벨과 범례 포함]
+1. 이해도 분포 (1~5점 세로 막대)
+2. 가장 어려웠던 개념 순위 (가로 막대)
+3. 수업 속도 (도넛)
+4. 전공 구분별 평균 이해도 (세로 막대)
+5. 도움이 된 활동 순위 (가로 막대)
+
+[인사이트] 각 차트 아래에 '교수가 이 데이터로 무슨 결정을 내리는지' 한 줄씩.
+맨 아래 '다음 수업 의사결정' 카드: 다시 설명할 개념 2개 + 속도 조절 제안 + 계속할 활동 1개. 그리고 '개선 제안' 원문 중 빈칸이 아닌 것만 목록으로 보여줘.
+
+[디자인] 차분한 네이비·화이트 바탕에 청록·코랄 포인트의 깔끔한 카드형 대시보드. KPI 숫자는 크게. 상단에 'LIVE 동기화 중 · 다음 새로고침 N초' 상태 바. 모바일에서는 1열로 쌓이게.</pre></div></div>
+  <div data-lv="staff"><div class="prompt"><div class="label">대시보드 프롬프트 · Event Check</div><button class="copy">복사</button><pre style="max-height:360px;overflow:auto">나는 [가상] 2026 교직원 AI 업무 연수 만족도 조사 응답을 앱스 스크립트(Apps Script)로 JSON API로 배포했어. API 주소는 '<span class="fill" data-k="url">[웹 앱 URL]</span>' 이야.
+이 API를 fetch로 불러와, 행사 담당자가 '다음 행사의 주제·순서·시간'을 근거로 정하고 결과보고서 숫자를 바로 뽑는 실시간 대시보드를 HTML/CSS/JS 단일 파일로 만들어줘. 제목은 'Event Check · 행사 개선 의사결정 보드'.
+
+[데이터 · 실시간 규칙 — 반드시 지킬 것]
+- API 주소 끝에 '?t='+Date.now() 를 붙여 fetch 해서 캐시를 피하고, 30초마다 다시 불러와 KPI·차트를 갱신해줘.
+- 응답은 이미 [{헤더: 값}] JSON 배열이야. 각 값을 원문 그대로 쓰고, 임의로 만들거나 줄이거나 바꾸지 마. 하드코딩·샘플 데이터 금지.
+- 불러오기에 실패하면 예시 차트를 그리지 말고, 빨간 오류 박스로 이유(주소·배포 권한 확인)를 보여줘.
+
+[열 매칭 · 집계 규칙 — 반드시 지킬 것]
+- 각 항목은 아래 헤더 이름으로 정확히 읽어줘: 타임스탬프 / 소속 / 부서 / 전반 만족도 / 가장 유익했던 순서 / 시간·장소 적절성 / 다시 참여 의향 / 다음 희망 주제 / 아쉬웠던 점
+- '전반 만족도'는 숫자(1~5)로 바꿔 평균을 내줘. 4~5점은 '만족'으로 묶어 만족 비율도 계산해줘.
+- '다음 희망 주제'는 체크박스라 쉼표로 붙어 있어. ', ' 로 나눠 각각 따로 세줘.
+- 카테고리는 값이 정확히 일치하는 것끼리만 묶어줘. 부분 매칭·임의 축약 금지.
+
+[검증 표시] 상단 상태 영역에 [총 응답 수 / 마지막 새로고침 시각]을 보여주고, console.log로 [전체 rows, 순서별 집계, 주제별 집계]를 출력해줘.
+
+[상단 KPI 카드]
+① 응답 수 ② 평균 만족도(5점 만점)와 만족(4~5점) 비율 ③ '다시 참여 의향 = 예' 비율 ④ 가장 유익했던 순서 1위
+
+[차트 — Chart.js, 값/퍼센트 라벨과 범례 포함]
+1. 만족도 분포 (1~5점 세로 막대)
+2. 가장 유익했던 순서 (가로 막대)
+3. 소속별 평균 만족도 (세로 막대)
+4. 시간·장소 적절성 (도넛)
+5. 다음 희망 주제 순위 (가로 막대)
+
+[인사이트] 각 차트 아래에 '행사 담당자가 이 데이터로 무슨 결정을 내리는지' 한 줄씩.
+맨 아래 '다음 행사 의사결정' 카드: 다음 주제 + 늘릴 순서 + 시간·장소 개선점. 그리고 결과보고서에 바로 붙일 '3줄 요약'(응답 수·만족도·주요 의견)을 복사 버튼과 함께 보여줘. '아쉬웠던 점' 원문 중 빈칸이 아닌 것만 목록으로 보여줘.
+
+[디자인] 밝은 아이보리 바탕에 딥그린·골드 포인트의 보고서 느낌 카드형 대시보드. KPI 숫자는 크게. 상단에 'LIVE 동기화 중 · 다음 새로고침 N초' 상태 바. 모바일에서는 1열로 쌓이게.</pre></div></div>
+
+  <h3 class="caseh" style="margin-top:72px">5 · 실시간 테스트와 한 줄씩 더하기</h3>
+  <ol>
+    <li>시트 맨 아래 빈 행에 응답을 하나 직접 적어 넣습니다. (폼을 연결했다면 폼에 응답해도 돼요)</li>
+    <li>30초를 기다리거나 새로고침하면 KPI와 차트가 바뀌는지 봅니다. 🎉</li>
+    <li>숫자가 안 바뀌면 ① 30초 대기 ② 프롬프트의 <b>?t=</b> 규칙 확인 ③ 배포 권한이 <b>모든 사용자</b>인지 확인하세요.</li>
+  </ol>
+  <p style="margin-top:28px"><b>같은 채팅창에 아래를 하나씩 이어 붙여 보세요.</b> 붙일 때마다 대시보드가 바뀌어요.</p>
+  <div data-lv="prof"><div class="prompt"><div class="label">🎨 ① 디자인 테마 바꾸기</div><button class="copy">복사</button><pre>대시보드 디자인을 '[○○]' 테마로 바꿔줘. 데이터와 차트 내용은 그대로 두고 보이는 스타일만 바꿔줘.</pre></div><p class="tip" style="margin:-4px 0 18px">[○○] 예시: 학회 포스터 · 연구실 화이트보드 · 강의 슬라이드 · 대진대 교색 · 다크 모드</p><div class="prompt"><div class="label">🖱️ ② 막대 클릭 → 응답 원문</div><button class="copy">복사</button><pre>각 차트의 막대나 조각을 클릭하면, 그 항목을 고른 응답들의 '개선 제안' 원문을 아래 표로 보여줘. 이미 불러온 데이터만 쓰고, 새 내용은 지어내지 마.</pre></div><div class="prompt"><div class="label">🔎 ③ 키워드 검색</div><button class="copy">복사</button><pre>하단에 검색창을 추가해줘. 키워드를 넣으면 '개선 제안'에 그 단어가 들어간 응답만 카드로 보여줘.</pre></div><div class="prompt"><div class="label">🎛️ ④ 조건 필터</div><button class="copy">복사</button><pre>학년·전공 구분·수업 속도 필터를 추가해줘. 드롭다운 항목은 데이터에 실제로 있는 값만 자동으로 뽑아서 채우고(임의 생성 금지), 여러 필터를 함께 걸면 교집합(AND)으로 모든 KPI와 차트가 다시 계산되게 해줘.</pre></div><div class="prompt"><div class="label">🎲 ⑤ 관점 바꾸기</div><button class="copy">복사</button><pre>지금 대시보드를 '[관점]' 교수의 관점으로 다시 강조해줘. 그 관점에서 가장 중요한 KPI와 차트를 맨 위에 크게, 나머지는 작게 정리해줘. 데이터는 이미 불러온 것만 그대로 써.</pre></div><p class="tip" style="margin:-4px 0 18px">[관점] 예시: 대형 교양 강의 · 전공 심화 · 실습 위주 · 처음 맡은 과목</p></div>
+  <div data-lv="staff"><div class="prompt"><div class="label">🎨 ① 디자인 테마 바꾸기</div><button class="copy">복사</button><pre>대시보드 디자인을 '[○○]' 테마로 바꿔줘. 데이터와 차트 내용은 그대로 두고 보이는 스타일만 바꿔줘.</pre></div><p class="tip" style="margin:-4px 0 18px">[○○] 예시: 결재 보고서 · 대학 홈페이지 공지 · 연수원 브로슈어 · 대진대 교색</p><div class="prompt"><div class="label">🖱️ ② 막대 클릭 → 응답 원문</div><button class="copy">복사</button><pre>각 차트의 막대나 조각을 클릭하면, 그 항목을 고른 응답들의 '아쉬웠던 점' 원문과 부서를 아래 표로 보여줘. 이미 불러온 데이터만 써.</pre></div><div class="prompt"><div class="label">🏢 ③ 부서별 보기</div><button class="copy">복사</button><pre>부서 드롭다운을 추가해줘. 부서를 고르면 그 부서 응답만으로 모든 KPI와 차트가 다시 계산되게 해줘. 항목은 데이터에 실제로 있는 부서만 자동으로 채워줘.</pre></div><div class="prompt"><div class="label">📄 ④ 결과보고서 표</div><button class="copy">복사</button><pre>맨 아래에 결과보고서에 붙일 표를 만들어줘. 항목 | 결과 형식으로 응답 수, 평균 만족도, 만족 비율, 재참여 의향, 유익했던 순서 1위, 희망 주제 1위를 넣고 표 전체 복사 버튼을 달아줘.</pre></div><div class="prompt"><div class="label">🎲 ⑤ 관점 바꾸기</div><button class="copy">복사</button><pre>지금 대시보드를 '[관점]' 관점으로 다시 강조해줘. 그 관점에서 가장 중요한 KPI를 맨 위에 크게 배치해줘. 데이터는 이미 불러온 것만 그대로 써.</pre></div><p class="tip" style="margin:-4px 0 18px">[관점] 예시: 예산 담당 · 부서장 보고용 · 다음 연수 기획자</p></div>
+
+  <details class="ex case" style="margin-top:48px"><summary><b>이렇게도 쓸 수 있어요</b> <span class="needs">같은 코드, 다른 폼</span></summary><div class="body">
+    <ul>
+      <li><b>교수님 · 다음 학기 첫 주:</b> 오전반 3단원 <b>카드 D(첫 주 학생 배경 조사)</b>로 폼을 바꾸면 <b>수강생 프로필 보드</b>가 돼요. 전공·학년 분포, 선수 과목, 수준을 보고 첫 수업 수준을 정해요.</li>
+      <li><b>교직원 · 행사 전:</b> 신청 폼(부서, 희망 세션, 식사, 주차)으로 바꾸면 <b>세션 배정·식수 결정 보드</b>가 돼요.</li>
+      <li>앱스 스크립트 코드는 그대로 두고, 4단계 프롬프트의 <b>항목 이름과 KPI</b>만 바꾸면 됩니다.</li>
+      <li>교직원 트랙의 3줄 요약은 오전반 <b>@행사-계획-결과보고</b> 스킬에 붙여 결과보고서로 이어 쓸 수 있어요.</li>
+    </ul></div></details>
+</section>
+<style>
+#live .lvsw{position:sticky;top:60px;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#f1efe8;padding:6px;border-radius:14px;margin:18px 0 18px}
+#live .lvsw button{border:0;border-radius:10px;padding:12px 10px;font:inherit;font-size:1.05em;font-weight:800;cursor:pointer;background:transparent;color:#4b5563}
+#live .lvsw button small{display:block;font-weight:600;font-size:.72em;opacity:.8}
+#live .lvsw button.on{background:#1f3a5f;color:#fff}
+#live .lvsw button[data-to="staff"].on{background:#1e6b46}
+#live.lv-staff [data-lv="prof"],#live:not(.lv-staff) [data-lv="staff"]{display:none!important}
+#live .fillbox{background:#fff8e6;border:2px solid #e0b84f;border-radius:12px;padding:14px 16px;margin:16px 0}
+#live .fillbox>span{color:#7a6a3a;font-size:.9em;margin-left:6px}
+#live .fillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;align-items:center}
+#live .fillrow input{font:inherit;padding:9px 10px;border:1px solid #cbb26a;border-radius:8px;flex:1;min-width:240px;background:#fff}
+#live .fillgo{font:inherit;font-weight:800;background:#d93025;color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer}
+#live .fillok{color:#15803d;font-weight:700}
+#live pre .fill{background:#fff1b8;border-radius:4px;padding:0 2px}
+#live pre .fill.on{background:#d9f2df}
+</style>
+<script>
+(function(){var sec=document.getElementById('live');if(!sec)return;
+var bs=[].slice.call(sec.querySelectorAll('.lvsw button'));
+function set(g){sec.classList.toggle('lv-staff',g==='staff');bs.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-to')===g)});try{localStorage.setItem('dj-live-grp',g)}catch(e){}}
+bs.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-to'))})});
+var g='prof';try{g=localStorage.getItem('dj-live-grp')||'prof'}catch(e){}set(g);
+var inp=sec.querySelector('.lvurlin'),ok=sec.querySelector('.lvok');
+function put(){var v=(inp.value||'').trim();sec.querySelectorAll('pre .fill[data-k="url"]').forEach(function(s){s.textContent=v||'[웹 앱 URL]';s.classList.toggle('on',!!v)});try{localStorage.setItem('dj-live-url',v)}catch(e){}
+ if(ok){ok.textContent=v?'✓ 넣었어요':'주소를 먼저 붙여 넣어 주세요';setTimeout(function(){ok.textContent=''},2000)}}
+try{var sv=localStorage.getItem('dj-live-url');if(sv){inp.value=sv;}}catch(e){}
+sec.querySelector('.lvgo').addEventListener('click',put);inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();put()}});
+if(inp.value)put();
+})();
+</script>
+
 <!-- 3단계: 노트북LM 연결 -->
 <section id="nlm">
   <h2 class="sec">3단계 · 노트북LM에서 근거가 있는 바이브코딩으로</h2>
@@ -1267,6 +1555,7 @@ document.addEventListener('click',function(e){
     {id:'start',label:'시작하기',secs:['start']},
     {id:'canva',label:'1단계 캔바 코드',secs:['canva']},
     {id:'canvas',label:'2단계 제미나이 캔버스',secs:['canvas']},
+    {id:'live',label:'2+ 실시간 라이브 대시보드',secs:['live']},
     {id:'nlm',label:'3단계 노트북LM',secs:['nlm']},
     {id:'demoA',label:'시연 ① 체스',secs:['demoA'],g:'4단계 AI 스튜디오 (심화)'},
     {id:'demoB',label:'시연 ② 단어 퍼즐',secs:['demoB'],g:'4단계 AI 스튜디오 (심화)'},
