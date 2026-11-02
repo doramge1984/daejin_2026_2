@@ -130,6 +130,31 @@ main section > h3, main section > h4, #s2b .skt, #s2c .xs{margin-top:84px!import
 #s2c .xcard .xs:first-of-type{margin-top:24px!important}
 #s2b .skcard .skt{margin-top:0!important}
 </style>
+<style id="fill-css">
+.fillbox{background:#fff8e6;border:2px solid #e0b84f;border-radius:12px;padding:14px 16px;margin:16px 0}
+.fillbox>span{color:#7a6a3a;font-size:.9em;margin-left:6px}
+.fillrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.fillrow label{display:flex;align-items:center;gap:8px;font-weight:700}
+.fillrow input{font:inherit;padding:8px 10px;border:1px solid #cbb26a;border-radius:8px;width:200px;background:#fff}
+.fillrow input[type=number]{width:90px}
+pre .fill{background:#fff1b8;border-radius:4px;padding:0 2px}
+pre .fill.on{background:#d9f2df}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var ins=[].slice.call(document.querySelectorAll('.fillbox input'));
+  var def={sub:'[수업명]',wk:'[N]'};
+  function apply(){
+    ins.forEach(function(i){
+      var k=i.getAttribute('data-k'), v=i.value.trim();
+      try{localStorage.setItem('dj-fill-'+k,v)}catch(e){}
+      document.querySelectorAll('pre .fill[data-k="'+k+'"]').forEach(function(sp){sp.textContent=v||def[k];sp.classList.toggle('on',!!v);});
+    });
+  }
+  ins.forEach(function(i){try{var v=localStorage.getItem('dj-fill-'+i.getAttribute('data-k'));if(v)i.value=v;}catch(e){} i.addEventListener('input',apply);});
+  apply();
+});
+</script>
 </head>
 <body>
 
@@ -409,10 +434,13 @@ main section > h3, main section > h4, #s2b .skt, #s2c .xs{margin-top:84px!import
         <li>구글이 미리 만들어 둔 스킬도 둘러봅니다. 주소창에 <b>chrome://skills/browse</b>를 입력합니다.</li>
       </ol>
       <p>아래는 교수님들이 저장해 두면 좋은 스킬 예시입니다.</p>
-      <p style="font-size:14.5px">스킬 1은 실습①의 <a href="files/am/notice.html" target="_blank" rel="noopener">가상 공지 페이지</a>에서 바로 시험해 볼 수 있습니다.</p>
+      <p style="font-size:14.5px">스킬마다 <b>연습 자료</b>를 열어 둔 채로 패널에서 스킬을 불러 보세요. 모두 연수용 가상 자료예요.</p>
       <div class="prompt"><div class="label">스킬 1 · 공문·공지 핵심 뽑기</div><pre>이 페이지(문서)에서 ① 해야 할 일 ② 기한 ③ 제출처 ④ 첨부해야 할 것만 표로 뽑아줘. 문서에 없는 항목은 '없음'으로 적어줘.</pre><button class="copy">복사</button></div>
+      <div style="margin:2px 0 40px"><div><a style="display:inline-block;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700;background:#1f2937;color:#fff;font-size:14px;margin:4px 6px 14px 0" href="files/am/gongmun.html" target="_blank" rel="noopener">📄 가상 공문 열기 · 성적 처리 일정</a><a style="display:inline-block;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700;background:#1f2937;color:#fff;font-size:14px;margin:4px 6px 14px 0" href="files/am/notice.html" target="_blank" rel="noopener">📄 가상 공모 공지 열기</a></div><p class="tip" style="margin:0">공문에서는 성적 정정 요청서의 <b>제출처가 “추후 안내”</b>로 비어 있어요. ‘없음’ 또는 ‘미정’으로 적는지 보세요.</p></div>
       <div class="prompt"><div class="label">스킬 2 · 논문 초록 카드</div><pre>이 논문(페이지)을 '연구 질문 / 방법 / 결과 / 내 연구에 쓸 점' 네 줄 카드로 정리해줘. 근거 문장을 하나씩 짧게 인용해줘.</pre><button class="copy">복사</button></div>
+      <div style="margin:2px 0 40px"><div><a style="display:inline-block;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700;background:#1f2937;color:#fff;font-size:14px;margin:4px 6px 14px 0" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" target="_blank" rel="noopener">📑 가상 논문 PDF 열기 (크롬에서)</a></div><p class="tip" style="margin:0">PDF를 크롬 탭에서 열면 패널이 PDF 내용을 읽어요. 인용한 근거 문장이 PDF에 실제로 있는지 확인해 보세요.</p></div>
       <div class="prompt"><div class="label">스킬 3 · 수업 자료로 바꾸기</div><pre>이 페이지 내용을 대학 [학년] 수업용으로 바꿔줘. ① 핵심 개념 3개와 쉬운 설명 ② 확인 퀴즈 3문항(정답 포함) ③ 토론 질문 1개.</pre><button class="copy">복사</button></div>
+      <div style="margin:2px 0 40px"><div><a style="display:inline-block;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700;background:#1f2937;color:#fff;font-size:14px;margin:4px 6px 14px 0" href="files/am/article.html" target="_blank" rel="noopener">📰 가상 교양 칼럼 열기 · 추천 알고리즘</a></div><p class="tip" style="margin:0">[학년]을 ‘1학년 교양’처럼 바꿔 보내요. 칼럼 속 “필터 버블은 생각보다 작다”는 반론도 토론 질문에 반영되는지 보세요.</p></div>
       <div class="slot">🖼️ 대진대용 화면 캡처 자리 — “스킬로 저장” 메뉴와 <kbd>/</kbd> 입력 시 스킬 목록 [강사 준비]</div>
       <p><b>여기까지 하셨으면 충분합니다.</b></p>
     </div>
@@ -1139,14 +1167,16 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
         <li>화면에 <b>✦ 제미나이로 폼 만들기</b>(Help me create) 버튼이 있으면 눌러 아래 프롬프트를 넣습니다.</li>
         <li>없으면 제미나이 앱에서 문항을 만든 뒤 하나씩 옮깁니다. (아래 “안 보이면”)</li>
       </ol>
-      <div class="prompt"><div class="label">카드 A · 중간 수업 피드백 (익명)</div><pre>'[수업명]' [N]주차 중간 수업 피드백 설문을 만들어줘.
+      <div class="fillbox"><b>✏️ 내 수업으로 바꾸기</b> <span>여기 적으면 아래 프롬프트에 바로 들어가요</span>
+        <div class="fillrow"><label>수업명 <input type="text" data-k="sub" placeholder="예: 경영학원론"></label><label>주차 <input type="number" data-k="wk" min="1" max="16" placeholder="예: 8"></label></div></div>
+      <div class="prompt"><div class="label">카드 A · 중간 수업 피드백 (익명)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 중간 수업 피드백 설문을 만들어줘.
 - 이해도 1~5점 척도 1문항
 - 가장 어려웠던 개념: 단답형
 - 수업 속도: 객관식(느림 / 적당 / 빠름)
 - 개선 제안: 장문형(선택 응답)
 - 이름·학번은 받지 않는 익명 설문</pre><button class="copy">복사</button></div>
       <div class="prompt"><div class="label">카드 B · 면담 신청</div><pre>교수 연구실 면담 신청 폼을 만들어줘. 이름, 학과, 희망 날짜(날짜), 희망 시간대(객관식: 10~12시 / 13~15시 / 15~17시), 상담 주제(객관식: 진로 / 수업 / 과제 / 기타), 하고 싶은 말(장문형, 선택). 맨 아래에 개인정보 수집·이용 안내 문장을 한 줄 넣어줘.</pre><button class="copy">복사</button></div>
-      <div class="prompt"><div class="label">카드 C · 팀 프로젝트 조 편성 희망 조사</div><pre>'[수업명]' 팀 프로젝트 조 편성 희망 조사 폼을 만들어줘. 관심 주제(객관식 5개 이하), 가능한 회의 시간대(체크박스), 맡고 싶은 역할(객관식: 자료조사 / 발표 / 정리·편집 / 디자인), 고려해 줬으면 하는 점(장문형, 선택).</pre><button class="copy">복사</button></div>
+      <div class="prompt"><div class="label">카드 C · 팀 프로젝트 조 편성 희망 조사</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' 팀 프로젝트 조 편성 희망 조사 폼을 만들어줘. 관심 주제(객관식 5개 이하), 가능한 회의 시간대(체크박스), 맡고 싶은 역할(객관식: 자료조사 / 발표 / 정리·편집 / 디자인), 고려해 줬으면 하는 점(장문형, 선택).</pre><button class="copy">복사</button></div>
       <div class="callout blue fallback"><b class="t">✦ 버튼이 안 보이면</b> 계정에 따라 폼 안의 제미나이가 없을 수 있습니다. 같은 프롬프트를 <b>gemini.google.com</b>에 넣고 끝에 “<i>문항마다 질문 유형을 표시해줘</i>”를 붙이면, 그대로 옮겨 적기 쉬운 목록이 나옵니다.</div>
       <figure><img src="img/form-simple.png" alt="간단한 구글폼 예시" loading="lazy"><figcaption>완성된 폼 예시</figcaption></figure>
     </div>
