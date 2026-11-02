@@ -168,6 +168,325 @@ document.addEventListener('DOMContentLoaded',function(){
 .fcb{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--fc);font-weight:800}
 .fcard .prompt .label{display:none}.fcard .prompt pre{margin-top:26px!important}
 </style>
+<style id="gift-css">
+#gift{--mi:#7A3FF2;--shadow:0 1px 2px rgba(24,33,52,.05),0 10px 28px rgba(24,33,52,.06);--pa:#5B7FA6;--surface:#FFFDF7;--line-2:#EAE2CE;--ca:#00A8B5;--s-good:#3C7A5C;--pl:#E7EFF8;--pd:#D5E3F2;--blue:#1a4fb4;--ink:#1f2733;--muted:#6b7688;--line:#e3e8f0;--blue-d:#12377f;}
+#gift .s-title{font-size:33px;margin:2px 0 6px;color:var(--blue-d);font-weight:800;line-height:1.35;}
+#gift .s-sub{margin:0 0 16px;color:var(--muted);font-size:20.5px;}
+#gift .steps{margin:12px 0 6px;padding-left:26px;counter-reset:st;}
+#gift .steps li{margin:12px 0;font-size:18px;line-height:1.75;color:#33404f;}
+#gift .item-note{margin:8px 0 2px;font-size:16px;color:#8a94a4;}
+#gift .item-lead{margin:4px 0 10px;font-size:18px;line-height:1.75;color:#33404f;}
+#gift .block.roomy .steps li{margin:46px 0;}
+#gift .block.roomy .steps{margin:26px 0 14px;}
+#gift .block.roomy .item-lead{margin:8px 0 32px;}
+#gift .block.roomy .item-note{margin:40px 0 6px;}
+#gift .pinkbox .a3-blocktt{color:#B0356B !important;}
+#gift .pinkbox .petog-chev{color:#B0356B !important;}
+#gift .pinkbox .a3-subtt{color:#B0356B !important;}
+#gift .warn{background:#fff5f5;border:1px solid #f3c4c0;border-radius:8px;padding:11px 14px;color:#a5372f;font-size:15.5px;line-height:1.7;margin-top:12px;}
+#gift .link-btn{display:inline-flex;align-items:center;gap:8px;margin:10px 0 4px;background:var(--blue);color:#fff !important;text-decoration:none;font-weight:800;font-size:17.5px;padding:12px 20px;border-radius:10px;box-shadow:0 2px 8px rgba(26,79,180,.22);}
+#gift .link-btn:hover{background:var(--blue-d);}
+#gift .gift-table{width:100%;border-collapse:collapse;font-size:18px;margin:6px 0 10px;}
+#gift .gift-table th,#gift .gift-table td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;}
+#gift .gift-table th{background:#eef3fb;font-weight:800;color:var(--blue-d);}
+#gift .gift-table td:first-child{white-space:nowrap;}
+#gift .gift-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:6px 0 10px;}
+#gift .gift-card{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;background:#fff;transition:.15s;}
+#gift .gift-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(20,50,120,.08);}
+#gift .gc-emoji{font-size:24px;flex:none;}
+#gift .gc-body{display:flex;flex-direction:column;flex:1;min-width:0;}
+#gift .gc-title{font-weight:800;color:var(--ink);font-size:17.5px;line-height:1.35;}
+#gift .gc-url{color:var(--muted);font-size:15px;word-break:break-all;}
+#gift .gc-ext{color:var(--blue);font-size:18px;flex:none;font-weight:800;}
+#gift .gem-intro{background:#eef6ff;border:1px solid #d3e6fb;border-radius:10px;padding:14px 16px;font-size:17.5px;line-height:1.75;margin:6px 0 14px;}
+#gift .gem-note{margin-top:16px;background:#fff8e8;border:1px solid #f0dfae;border-radius:10px;padding:14px 16px;font-size:17px;color:#7a5b12;line-height:1.75;}
+#gift .gift-closing{margin-top:96px;text-align:center;background:#eafaf1;border:1px solid #bce8d2;border-radius:14px;padding:28px 20px;font-size:18.5px;line-height:1.85;color:#166b47;}
+#gift .gift-closing .gc-icon{font-size:42px;margin-bottom:6px;}
+@media(max-width:560px){#gift .s-title{font-size:28px}#gift .steps li{font-size:17px}#gift .gift-table{font-size:16px}#gift .gift-cards{grid-template-columns:1fr}}
+#gift .cal-embed .s-title{
+            font-size: 37px;
+            font-weight: 700;
+            color: #202124;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+@media (max-width: 768px){#gift .cal-embed .s-title{ font-size: 29px; }}
+#gift .steps{list-style:none;padding-left:0;}
+#gift .steps li{position:relative;padding:10px 0 10px 42px;border-bottom:1px dashed #EEE6CF;}
+#gift .steps li:last-child{border-bottom:none;}
+#gift .steps li::before{counter-increment:st;content:counter(st);position:absolute;left:0;top:10px;width:28px;height:28px;background:linear-gradient(135deg,#B8901F,#E8CE7A);color:#16233F;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;line-height:1;box-shadow:0 2px 6px rgba(200,169,81,.5);}
+#gift .block.roomy .steps li{margin:46px 0;}
+#gift .link-btn,#gift .copy-btn{border-color:#D9C68A;}
+#gift #cal-tog.on{left:242px;border-radius:12px;border-left:1.5px solid #C8A951;}
+@media(max-width:520px){#gift #cal-tog.on{left:214px;}}
+#gift .a3-subtt{font-weight:800;color:#16233F;font-size:15.5px;margin:16px 0 6px;padding-left:10px;border-left:4px solid #C8A951;}
+#gift .a3-tip{background:#F3FAF6;border:1px solid #CDEBDD;border-left:4px solid #1E8060;border-radius:10px;padding:11px 14px;font-size:14px;color:#245c48;margin:12px 0;line-height:1.75;}
+#gift .a3-btns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+#gift .five-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0;}
+#gift .five-card{background:#fff;border:1px solid #E8DFC4;border-top:4px solid #C8A951;border-radius:12px;padding:13px 14px;box-shadow:0 2px 10px rgba(22,35,63,.07);}
+#gift .five-b{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#B8901F,#E8CE7A);color:#16233F;font-weight:900;font-size:16px;box-shadow:0 2px 6px rgba(200,169,81,.5);}
+#gift .five-t{font-weight:800;color:#16233F;font-size:15px;margin:8px 0 4px;}
+#gift .five-d{font-size:13px;color:#5a6478;line-height:1.55;}
+#gift .d2rev .a3-subtt{font-weight:800;color:#16233F;font-size:15.5px;margin:16px 0 6px;padding-left:10px;border-left:4px solid #C8A951;}
+#gift .d2rev .a3-tip{background:#F3FAF6;border:1px solid #CDEBDD;border-left:4px solid #1E8060;border-radius:10px;padding:11px 14px;font-size:14px;color:#245c48;margin:12px 0;line-height:1.75;}
+#gift .d2rev .a3-btns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+#gift .d2rev .a3-sec,#gift .d2rev .a3-subtt{margin-left:2px;}
+#gift .d2rev .item-body .a3-subtt{margin-top:3.2em;padding-top:1.4em;border-top:1px dashed rgba(120,110,80,.28);}
+#gift .d2rev .item-body > .a3-subtt:first-child,#gift .d2rev .item-body > .a3-sec:first-child{margin-top:.4em;padding-top:0;border-top:none;}
+#gift .d2rev .item-body .a3-subtt + p,#gift .d2rev .item-body .a3-sec + .item-lead{margin-top:.6em;}
+#gift .d2rev .item-body .item-note,#gift .d2rev .item-body .a3-tip,#gift .d2rev .item-body .warn{margin-top:1.6em;}
+#gift .d2rev .goldbox .item-lead{color:#4a4326;}
+#gift .d2rev .ptab-btn[data-p="pa"].on{background:#34A853;color:#fff;}
+#gift .d2rev .ptab-btn[data-p="pi"].on{background:#1967D2;color:#fff;}
+#gift .d2rev .ptab-pane .steps li:last-child{border-bottom:none;}
+#gift .day4x .link-btn.nl{background:#3B4CCA;box-shadow:0 3px 10px rgba(59,76,202,.25);}
+#gift .day4x .link-btn{display:inline-flex;align-items:center;gap:8px;color:#fff !important;text-decoration:none;font-weight:800;font-size:18.5px;padding:11px 18px;border-radius:10px;margin-bottom:6px;}
+#gift .day4x .link-btn.mi{background:var(--mi);box-shadow:0 3px 10px rgba(122,63,242,.25);}
+#gift .day4x .link-btn.ca{background:var(--ca);box-shadow:0 3px 10px rgba(0,168,181,.25);}
+#gift .day4x .link-btn.gold{background:linear-gradient(135deg,#D6B45A,#C8A951);box-shadow:0 3px 10px rgba(200,169,81,.30);}
+#gift .day4x .link-btn.cc{background:linear-gradient(135deg,#10B981,#06B6D4);box-shadow:0 3px 10px rgba(6,182,212,.25);}
+#gift .day4x .link-btn.sh{background:linear-gradient(135deg,#E8730C,#F59E42);box-shadow:0 3px 10px rgba(232,115,12,.25);}
+#gift .day3x .s-title{font-size:33px;margin:2px 0 6px;color:var(--blue-d);font-weight:800;line-height:1.35;}
+#gift .day3x .s-sub{margin:0 0 16px;color:var(--muted);font-size:20.5px;}
+#gift .day3x .steps{margin:12px 0 6px;padding-left:26px;counter-reset:st;}
+#gift .day3x .steps li{margin:12px 0;font-size:18px;line-height:1.75;color:#33404f;}
+#gift .day3x .item-note{margin:8px 0 2px;font-size:16px;color:#8a94a4;}
+#gift .day3x .item-lead{margin:4px 0 10px;font-size:18px;line-height:1.75;color:#33404f;}
+#gift .day3x 
+ .block.roomy .steps li{margin:46px 0;}
+#gift .day3x .block.roomy .steps{margin:26px 0 14px;}
+#gift .day3x .block.roomy .item-lead{margin:8px 0 32px;}
+#gift .day3x .block.roomy .item-note{margin:40px 0 6px;}
+#gift .day3x .warn{background:#fff5f5;border:1px solid #f3c4c0;border-radius:8px;padding:11px 14px;color:#a5372f;font-size:15.5px;line-height:1.7;margin-top:12px;}
+#gift .day3x .link-btn{display:inline-flex;align-items:center;gap:8px;margin:10px 0 4px;background:var(--blue);color:#fff !important;text-decoration:none;font-weight:800;font-size:17.5px;padding:12px 20px;border-radius:10px;box-shadow:0 2px 8px rgba(26,79,180,.22);}
+#gift .day3x .link-btn:hover{background:var(--blue-d);}
+#gift .day3x .gift-table{width:100%;border-collapse:collapse;font-size:18px;margin:6px 0 10px;}
+#gift .day3x .gift-table th,#gift .day3x .gift-table td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;}
+#gift .day3x .gift-table th{background:#eef3fb;font-weight:800;color:var(--blue-d);}
+#gift .day3x .gift-table td:first-child{white-space:nowrap;}
+#gift .day3x .gift-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:6px 0 10px;}
+#gift .day3x .gift-card{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;background:#fff;transition:.15s;}
+#gift .day3x .gift-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(20,50,120,.08);}
+#gift .day3x .gc-emoji{font-size:24px;flex:none;}
+#gift .day3x .gc-body{display:flex;flex-direction:column;flex:1;min-width:0;}
+#gift .day3x .gc-title{font-weight:800;color:var(--ink);font-size:17.5px;line-height:1.35;}
+#gift .day3x .gc-url{color:var(--muted);font-size:15px;word-break:break-all;}
+#gift .day3x .gc-ext{color:var(--blue);font-size:18px;flex:none;font-weight:800;}
+#gift .day3x .gem-intro{background:#eef6ff;border:1px solid #d3e6fb;border-radius:10px;padding:14px 16px;font-size:17.5px;line-height:1.75;margin:6px 0 14px;}
+#gift .day3x .gem-note{margin-top:16px;background:#fff8e8;border:1px solid #f0dfae;border-radius:10px;padding:14px 16px;font-size:17px;color:#7a5b12;line-height:1.75;}
+#gift .day3x .gift-closing{margin-top:96px;text-align:center;background:#eafaf1;border:1px solid #bce8d2;border-radius:14px;padding:28px 20px;font-size:18.5px;line-height:1.85;color:#166b47;}
+#gift .day3x .gift-closing .gc-icon{font-size:42px;margin-bottom:6px;}
+@media(max-width:560px){#gift .s-title{font-size:28px}#gift .steps li{font-size:17px}#gift .gift-table{font-size:16px}#gift .gift-cards{grid-template-columns:1fr}}
+#gift .day3x .cal-embed .s-title{
+            font-size: 37px;
+            font-weight: 700;
+            color: #202124;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+@media (max-width: 768px){#gift .day3x .cal-embed .s-title{ font-size: 29px; }}
+#gift .day3x .steps{list-style:none;padding-left:0;}
+#gift .day3x .steps li{position:relative;padding:10px 0 10px 42px;border-bottom:1px dashed #EEE6CF;}
+#gift .day3x .steps li:last-child{border-bottom:none;}
+#gift .day3x .steps li::before{counter-increment:st;content:counter(st);position:absolute;left:0;top:10px;width:28px;height:28px;background:linear-gradient(135deg,#B8901F,#E8CE7A);color:#16233F;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;line-height:1;box-shadow:0 2px 6px rgba(200,169,81,.5);}
+#gift .day3x .block.roomy .steps li{margin:46px 0;}
+#gift .day3x .link-btn,#gift .day3x .copy-btn{border-color:#D9C68A;}
+#gift .day3x .a3-subtt{font-weight:800;color:#16233F;font-size:15.5px;margin:16px 0 6px;padding-left:10px;border-left:4px solid #C8A951;}
+#gift .day3x .a3-blocktt{display:block;background:linear-gradient(135deg,#16233F,#2A4676);color:#fff;font-weight:800;font-size:21px;letter-spacing:-.3px;padding:14px 18px;border-radius:12px;margin:26px 0 12px;border-left:7px solid #C8A951;box-shadow:0 4px 14px rgba(22,35,63,.18);}
+#gift .day3x .petog{margin:22px 0 12px;}
+#gift .day3x .petog.petog-red>summary.a3-blocktt{background:linear-gradient(135deg,#B4231F,#DA453E) !important;border-left-color:#7E1410 !important;box-shadow:0 4px 14px rgba(180,35,31,.28) !important;}
+#gift .day3x .petog.petog-sub{margin-left:40px !important;}
+#gift .day3x .petog.petog-sub>summary.a3-blocktt{font-size:18px;padding:11px 16px;border-left-width:5px;}
+#gift .day3x .petog>summary.petog-sum{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;justify-content:space-between;margin:0;}
+#gift .day3x .petog>summary.petog-sum::-webkit-details-marker{display:none;}
+#gift .day3x .petog-chev{transition:transform .2s;font-size:19px;flex:none;opacity:.85;}
+#gift .day3x .petog[open]>summary .petog-chev{transform:rotate(180deg);}
+#gift .day3x .petog-body{padding:12px 2px 4px;}
+#gift .day3x .a3-tip{background:#F3FAF6;border:1px solid #CDEBDD;border-left:4px solid #1E8060;border-radius:10px;padding:11px 14px;font-size:14px;color:#245c48;margin:12px 0;line-height:1.75;}
+#gift .day3x .a3-btns{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px;}
+#gift .day3x .tiptog.filetog .tiptog-body,#gift .day3x .tiptog.filetog .tiptog-body p,#gift .day3x .tiptog.filetog .tiptog-body .steps li,#gift .day3x .tiptog.filetog .tiptog-body .item-note{font-size:17px !important;line-height:1.8;}
+#gift .day3x .block-ul .item-lead{font-size:19.5px !important;}
+#gift .day3x .block-ul .steps li{font-size:19.5px !important;}
+#gift .day3x .block-ul .item-note{font-size:17.5px !important;}
+#gift .day3x .block-ul .a3-subtt{font-size:17.5px !important;}
+#gift .day3x .pvwrap .item-lead{font-size:19.5px;line-height:1.82;}
+#gift .day3x .pvwrap .steps li{font-size:19px;}
+#gift .day3x .pvwrap .item-note{font-size:17px;}
+#gift .day3x .pvwrap .a3-tip{font-size:16.5px;}
+#gift .day3x .pvwrap .warn{font-size:16.5px;}
+#gift .day3x .pvwrap .item-body .a3-subtt{margin-top:2.2em;}
+#gift .day3x .s-title{font-size:33px;margin:2px 0 6px;color:#12377f;font-weight:800;line-height:1.35;}
+#gift .day3x .s-sub{margin:0 0 16px;color:#6b7688;font-size:20.5px;}
+@media(max-width:560px){#gift .s-title{font-size:28px;}}
+#gift .day5wa .a3-subtt{font-weight:800;color:#16233F;font-size:15.5px;margin:16px 0 6px;padding-left:10px;border-left:4px solid #C8A951;}
+#gift .day5wa .a3-tip{background:#F3FAF6;border:1px solid #CDEBDD;border-left:4px solid #1E8060;border-radius:10px;padding:11px 14px;font-size:14px;color:#245c48;margin:12px 0;line-height:1.75;}
+#gift .day5wa .a3-btns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+#gift .day5wa .a3-sec,#gift .day5wa .a3-subtt{margin-left:2px;}
+#gift .day5wa .item-body .a3-subtt{margin-top:3.2em;padding-top:1.4em;border-top:1px dashed rgba(120,110,80,.28);}
+#gift .day5wa .item-body > .a3-subtt:first-child,#gift .day5wa .item-body > .a3-sec:first-child{margin-top:.4em;padding-top:0;border-top:none;}
+#gift .day5wa .item-body .a3-subtt + p,#gift .day5wa .item-body .a3-sec + .item-lead{margin-top:.6em;}
+#gift .day5wa .item-body .item-note,#gift .day5wa .item-body .a3-tip,#gift .day5wa .item-body .warn{margin-top:1.6em;}
+#gift .day5wa .goldbox .item-lead{color:#4a4326;}
+#gift .day5wa .ptab-btn[data-p="pa"].on{background:#34A853;color:#fff;}
+#gift .day5wa .ptab-btn[data-p="pi"].on{background:#1967D2;color:#fff;}
+#gift .day5wa .ptab-pane .steps li:last-child{border-bottom:none;}
+#gift .cap-tag.warn{background:linear-gradient(135deg,#e0c778,#bfa05f);color:#fff;}
+#gift .ycontact{margin:26px 0 8px;padding:26px 24px 24px;border-radius:16px;text-align:center;
+ background:linear-gradient(160deg,#1E2E4F,#16233F);color:#F1E9D2;
+ border:1px solid #2E3E60;box-shadow:0 10px 26px rgba(22,35,63,.18);}
+#gift .yc-name{font-size:24px;font-weight:800;color:#FFF9EA;letter-spacing:-.01em;}
+#gift .yc-role{margin-top:7px;font-size:14px;line-height:1.75;color:#C9C6B7;}
+#gift .yc-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-top:16px;font-size:14.5px;}
+#gift .yc-l{color:#E8CE7A;}
+#gift .yc-l a{color:#E8CE7A;text-decoration:none;border-bottom:1px solid rgba(232,206,122,.45);}
+#gift .yc-l a:hover{border-bottom-color:#E8CE7A;}
+#gift .yc-kakao{display:inline-block;margin-top:20px;padding:13px 26px;border-radius:26px;
+ background:#FEE500;color:#1A1A1A !important;font-size:15.5px;font-weight:800;text-decoration:none;
+ transition:transform .15s,box-shadow .15s;}
+#gift .yc-kakao:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25);}
+#gift .yc-note{margin-top:12px;font-size:13px;color:#A9A798;}
+#gift .su2-step.on{border-left-color:var(--s-good);}
+#gift .su2-step.alarm.on{border-left-color:var(--s-good);}
+#gift .panel,#gift .step,#gift .day-card,#gift .gift-card,#gift .ins-toggle,#gift .cmp-table,#gift .five-card,#gift .cap-way,#gift .keepcard,#gift .pcopy,#gift .tab,#gift .day4x .pcard,#gift .day4x .tog-body,#gift .day4x .rcopy,#gift .day4x .pthumb,#gift .day4x .dtbl,#gift .day3x .panel,#gift .day3x .step,#gift .day3x .day-card,#gift .day3x .gift-card,#gift .day3x .ins-toggle,#gift .day3x .tab,#gift .day3x .pcopy,#gift .day3x .ptbl,#gift .day3x .ex-fill,#gift .d2rev .idbox,#gift .d2rev .ptab,#gift .d2rev .mtbl,#gift .d2rev .urlcode,#gift .day5wa .idbox,#gift .day5wa .ptab,#gift .day5wa .mtbl,#gift .day5wa .urlcode,#gift .cal-embed .obj-card,#gift .cal-embed .step-card,#gift .cal-embed .perm-table,#gift .cal-embed .shortcut-box,#gift .cal-embed .tl-content,#gift .cal-embed .pipeline,#gift .cal-embed .vs-card,#gift .cal-embed .magic-card,#gift .cal-embed .practice-card,#gift .cal-embed .sidebar{
+  background:var(--surface);
+ }
+#gift .panel,#gift .day-card,#gift .gift-card,#gift .five-card,#gift .keepcard,#gift .cap-way{border-color:var(--line-2);box-shadow:var(--shadow);}
+#gift header.top h1,#gift header.top .kicker,#gift h1,#gift h2,#gift h3,#gift .s-title,#gift .blk,#gift .block-t,#gift .item-label,#gift .dc-title,#gift .cover-title,#gift .a3-sectt,#gift .a3-subtt,#gift .a3-blocktt,#gift .gc-title,#gift .kc-t,#gift .five-t,#gift .fill-title,#gift .step-title,#gift .arcade-title,#gift .ins-name,#gift .game-desc,#gift .cap-tag,#gift .box-label,#gift .pq-cat,#gift .concept b{
+  font-family:'Gowun Batang','Nanum Myeongjo','KoPubBatang','Batang','바탕',serif;
+  letter-spacing:-.005em;
+ }
+#gift h1,#gift h2,#gift h3,#gift .s-title,#gift .blk,#gift .block-t,#gift .item-label,#gift .dc-title,#gift .cover-title{font-weight:800;}
+#gift .a3-sectt,#gift .a3-subtt,#gift .a3-blocktt,#gift .gc-title,#gift .kc-t,#gift .five-t,#gift .fill-title,#gift .step-title{font-weight:700;}
+#gift .blk,#gift .s-title{color:var(--ink);}
+#gift .link-btn,#gift .gold-btn{border-radius:99px;}
+#gift .item-lead,#gift .item-note{color:var(--muted);}
+#gift #panel .warn b,#gift #panel .item-note b,#gift #panel .a3-tip b,#gift #panel .hard-note b,#gift #panel table b,#gift #panel .prompt-text b,#gift #panel .prompt-text,#gift #panel code b,#gift #panel pre b,#gift #panel .five-d b,#gift #panel .kc-d b,#gift #panel .gc-title b,#gift #panel .recall-note b,#gift #panel .item-label b,#gift #panel .block-t b,#gift #panel .goldbox .item-lead b{background:none;}
+#gift #panel .item-lead{font-family:'Gowun Batang','Nanum Myeongjo','Batang',serif;
+  font-size:19.5px;line-height:2.0;color:#3A4560;background:none;border:0;
+  padding:18px 0 6px;margin:0 0 6px;}
+#gift #panel .item-lead b{background:none;color:#A5822F;font-weight:700;}
+#gift #panel .a3-subtt{font-family:'Gowun Batang','Nanum Myeongjo','Batang',serif;
+  font-size:19px;color:#182134;background:none;border:0;border-left:3px solid #C8A951;
+  padding:2px 0 2px 12px;margin:30px 0 14px;}
+#gift #panel .warn{background:#FBF7EC;border:1px solid #EAE0C8;border-left:3px solid #C8A951;
+  color:#5B5340;border-radius:4px 12px 12px 4px;padding:15px 18px;margin:20px 0 0;
+  font-size:16.5px;line-height:1.9;}
+#gift #panel .item-note{background:#F6F4EE;border:1px solid #E9E3D4;border-left:3px solid #9BA98F;
+  color:#4B5568;border-radius:4px 12px 12px 4px;padding:15px 18px;margin:20px 0 0;
+  font-size:16.5px;line-height:1.9;}
+#gift #panel .steps li,#gift #panel .item-body .block-ul li{margin:18px 0;line-height:1.9;}
+#gift #panel .steps{padding-left:30px;}
+@media(max-width:700px){#gift #panel .item-lead{font-size:18px;line-height:1.95;}}
+#gift #panel .warn b,#gift #panel .item-note b,#gift #panel .a3-tip b,#gift #panel .hard-note b,#gift #panel table b,#gift #panel .prompt-text b,#gift #panel .prompt-text,#gift #panel code b,#gift #panel pre b,#gift #panel .five-d b,#gift #panel .kc-d b,#gift #panel .gc-title b,#gift #panel .recall-note b,#gift #panel .item-label b,#gift #panel .block-t b,#gift #panel .goldbox .item-lead b{background:none;}
+#gift #panel .item-lead{font-family:'Gowun Batang','Nanum Myeongjo','Batang',serif;
+  font-size:19.5px;line-height:2.0;color:#3A4560;background:none;border:0;
+  padding:18px 0 6px;margin:0 0 6px;}
+#gift #panel .item-lead b{background:none;color:#A5822F;font-weight:700;}
+#gift #panel .a3-subtt{font-family:'Gowun Batang','Nanum Myeongjo','Batang',serif;
+  font-size:19px;color:#182134;background:none;border:0;border-left:3px solid #C8A951;
+  padding:2px 0 2px 12px;margin:30px 0 14px;}
+#gift #panel .warn{background:#FBF7EC;border:1px solid #EAE0C8;border-left:3px solid #C8A951;
+  color:#5B5340;border-radius:4px 12px 12px 4px;padding:15px 18px;margin:20px 0 0;
+  font-size:16.5px;line-height:1.9;}
+#gift #panel .item-note{background:#F6F4EE;border:1px solid #E9E3D4;border-left:3px solid #9BA98F;
+  color:#4B5568;border-radius:4px 12px 12px 4px;padding:15px 18px;margin:20px 0 0;
+  font-size:16.5px;line-height:1.9;}
+#gift #panel .steps li,#gift #panel .item-body .block-ul li{margin:18px 0;line-height:1.9;}
+#gift #panel .steps{padding-left:30px;}
+@media(max-width:700px){#gift #panel .item-lead{font-size:18px;line-height:1.95;}}
+#gift #panel .blkc1 .a3-subtt,#gift #panel .blkc2 .a3-subtt,#gift #panel .blkc3 .a3-subtt,#gift #panel .blkc4 .a3-subtt,#gift #panel .blkd4 .a3-subtt,#gift #panel .blkd5 .a3-subtt{border-left-color:var(--pa);}
+#gift #panel .blkc1 .item-lead b,#gift #panel .blkc2 .item-lead b,#gift #panel .blkc3 .item-lead b,#gift #panel .blkc4 .item-lead b,#gift #panel .blkd4 .item-lead b,#gift #panel .blkd5 .item-lead b{color:var(--pa);}
+#gift #panel .blkc1 .steps li::before,#gift #panel .blkc2 .steps li::before,#gift #panel .blkc3 .steps li::before,#gift #panel .blkc4 .steps li::before,#gift #panel .blkd4 .steps li::before,#gift #panel .blkd5 .steps li::before{
+  background:var(--pa)!important;color:#FFFDF7!important;box-shadow:0 2px 6px rgba(30,45,70,.22)!important;}
+#gift #panel .blkc1 .item-note,#gift #panel .blkc2 .item-note,#gift #panel .blkc3 .item-note,#gift #panel .blkc4 .item-note,#gift #panel .blkd4 .item-note,#gift #panel .blkd5 .item-note{
+  background:var(--pl);border-color:var(--pd);border-left-color:var(--pa);color:#41506A;}
+#gift #panel .blkc1 .item-note b,#gift #panel .blkc2 .item-note b,#gift #panel .blkc3 .item-note b,#gift #panel .blkc4 .item-note b,#gift #panel .blkd4 .item-note b,#gift #panel .blkd5 .item-note b{background:none;color:var(--pa);}
+#gift .dotbox{border:2px dashed #C8A951;border-radius:16px;padding:22px 24px 24px;
+  background:rgba(200,169,81,.06);margin:6px 0 4px;}
+#gift .dotbox>*:first-child{margin-top:0;}
+#gift .dotbox .a3-subtt{margin-top:26px;}
+#gift .dotbox .a3-subtt:first-of-type{margin-top:8px;}
+#gift .dotbox table{margin-top:10px;}
+#gift details.f2box{margin:4.5em 0!important;}
+@media(max-width:700px){#gift .dotbox{padding:16px 14px 18px;border-radius:12px;}}
+#gift .newgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 4px;}
+#gift .newcard{background:#FFFDF7;border:1px solid #E6DDC6;border-top:3px solid #C8A951;border-radius:14px;
+  padding:18px 16px;text-align:center;box-shadow:0 1px 2px rgba(24,33,52,.04),0 8px 22px rgba(24,33,52,.06);
+  transition:transform .15s ease,box-shadow .15s ease;}
+#gift .newcard:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(24,33,52,.11);}
+#gift .nc-emoji{display:block;font-size:26px;line-height:1;margin-bottom:9px;}
+#gift .nc-addr{display:block;font-family:ui-monospace,'IBM Plex Mono',Consolas,monospace;
+  font-size:19px;font-weight:700;color:#182134;background:#F1EAD6;border:1px solid #E0D4B4;
+  border-radius:8px;padding:6px 8px;margin:0 auto 10px;letter-spacing:-.01em;}
+#gift .nc-desc{display:block;font-size:15.5px;color:#4B5568;line-height:1.6;}
+#gift .nc-desc b{color:#182134;font-weight:700;background:none;}
+@media(max-width:860px){#gift .newgrid{grid-template-columns:repeat(2,1fr);gap:11px;}}
+@media(max-width:560px){#gift .newgrid{grid-template-columns:1fr;}#gift .newcard{display:flex;align-items:center;gap:12px;text-align:left;padding:13px 14px;}#gift .nc-emoji{margin:0;font-size:22px;}#gift .nc-addr{margin:0;font-size:17px;flex:0 0 auto;}}
+#gift .ninetog{margin:26px 0 8px;display:flex;flex-direction:column;gap:12px;}
+#gift .ninetog>details.petog{margin:0!important;}
+#gift .cmpbox{display:flex;align-items:stretch;gap:12px;margin:18px 0 4px;}
+#gift .cmpcol{flex:1 1 0;background:#FFFDF7;border:1px solid #E6DDC6;border-radius:14px;padding:16px 16px;text-align:center;}
+#gift .cmpcol.on{border-color:#C8A951;border-width:2px;background:rgba(200,169,81,.09);}
+#gift .cmp-t{font-family:'Gowun Batang','Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:#182134;margin-bottom:7px;}
+#gift .cmp-d{font-size:15px;color:#4B5568;line-height:1.75;}
+#gift .cmp-d b{color:#A5822F;font-weight:700;background:none;}
+#gift .cmpvs{flex:0 0 auto;align-self:center;font-family:ui-monospace,Consolas,monospace;
+  font-size:12px;font-weight:700;color:#A5822F;letter-spacing:.08em;}
+#gift .kwgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin:14px 0 4px;}
+#gift .kwcard{background:#FFFDF7;border:1px solid #E6DDC6;border-left:3px solid #C8A951;
+  border-radius:4px 12px 12px 4px;padding:13px 15px;}
+#gift .kw-q{display:block;font-weight:700;font-size:16.5px;color:#182134;margin-bottom:4px;}
+#gift .kw-a{display:block;font-size:14.5px;color:#6B7688;line-height:1.65;}
+#gift .flowline{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:9px;
+  background:#1B2942;border-radius:14px;padding:18px 16px;margin:18px 0 2px;}
+#gift .fl-step{background:rgba(255,255,255,.07);border:1px solid rgba(200,169,81,.3);border-radius:99px;
+  padding:8px 14px;font-size:15px;color:#EDE6D5;white-space:nowrap;}
+#gift .fl-ar{color:#C8A951;font-weight:700;font-size:15px;}
+@media(max-width:700px){#gift .cmpbox{flex-direction:column;}#gift .cmpvs{padding:2px 0;}#gift .kwgrid{grid-template-columns:1fr;}#gift .flowline{padding:14px 12px;gap:7px;}#gift .fl-step{font-size:14px;padding:7px 11px;}}
+#gift .toc-i.on,#gift .toc-b.on{background:rgba(200,169,81,.2);border-left-color:#C8A951;color:#182134;font-weight:700;}
+#gift .dotbox.redbox{border:2px dashed #C0392B;background:rgba(192,57,43,.05);}
+#gift .redbox .a3-subtt{border-left-color:#C0392B;}
+#gift .redbox .item-lead b{color:#A22C20;}
+#gift .redbox .flowline{background:#7E241A;}
+#gift .redbox .fl-step{border-color:rgba(255,200,190,.35);}
+#gift .redbox .fl-ar{color:#FFC9BF;}
+#gift .redbox .link-btn{background:#A22C20!important;border-color:#A22C20!important;color:#fff!important;}
+#gift details.giftsec{background:#FFFDF7;border:1px solid #E6DDC6;border-radius:16px;margin:0 0 3.4em;
+  box-shadow:0 1px 2px rgba(24,33,52,.04),0 8px 22px rgba(24,33,52,.05);overflow:hidden;}
+#gift details.giftsec[open]{box-shadow:0 1px 2px rgba(24,33,52,.05),0 14px 32px rgba(24,33,52,.08);}
+#gift .giftsec-sum{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;
+  padding:18px 20px;background:linear-gradient(180deg,#FFFDF7,#F7F2E4);
+  font-family:'Gowun Batang','Nanum Myeongjo','Batang',serif;font-size:20px;font-weight:800;color:#182134;
+  border-bottom:1px solid transparent;transition:background .15s;}
+#gift .giftsec-sum::-webkit-details-marker{display:none;}
+#gift .giftsec-sum:hover{background:linear-gradient(180deg,#F7F2E4,#EFE9D9);}
+#gift details.giftsec[open] .giftsec-sum{border-bottom-color:#EAE2CE;}
+#gift .gs-t{flex:1 1 auto;line-height:1.4;}
+#gift .gs-c{flex:0 0 auto;font-family:ui-monospace,Consolas,monospace;font-size:12px;font-weight:700;
+  color:#A5822F;border:1px solid #C8A951;border-radius:99px;padding:3px 10px;background:rgba(200,169,81,.1);}
+#gift .gs-chev{flex:0 0 auto;color:#A5822F;font-size:13px;transition:transform .2s ease;}
+#gift details.giftsec[open] .gs-chev{transform:rotate(180deg);}
+#gift .giftsec-body{padding:18px 20px 22px;}
+#gift .giftsec-body>h3:first-child,#gift .giftsec-body>p.gem-intro:first-child{margin-top:0;}
+#gift .giftsec-body .gem-note[style*="5.4em"]{margin-top:2.4em!important;}
+@media(max-width:700px){#gift .giftsec-sum{padding:15px 14px;font-size:17.5px;gap:8px;}#gift .giftsec-body{padding:14px 14px 18px;}#gift .gs-c{font-size:11px;padding:2px 8px;}}
+#gift details.petog.deepsec{margin:2.6em 0 6px!important;}
+#gift .deepsec>summary .gs-c{vertical-align:middle;}
+#gift .c1x .a3-blocktt{display:block;background:linear-gradient(135deg,#16233F,#2A4676);color:#fff;font-weight:800;font-size:19px;letter-spacing:-.3px;padding:13px 18px;border-radius:12px;margin:22px 0 12px;border-left:7px solid #C8A951;box-shadow:0 4px 14px rgba(22,35,63,.18);}
+#gift .c1x .petog{margin:22px 0 12px;}
+#gift .c1x .petog>summary.petog-sum{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;justify-content:space-between;margin:0;}
+#gift .c1x .petog>summary.petog-sum::-webkit-details-marker{display:none;}
+#gift .c1x .petog-chev{transition:transform .2s;font-size:19px;flex:none;opacity:.85;}
+#gift .c1x .petog[open]>summary .petog-chev{transform:rotate(180deg);}
+#gift .c1x .petog-body{padding:12px 2px 4px;}
+#gift .c1x .dotbox{border:2px dashed #C8A951;border-radius:12px;padding:16px 14px 18px;background:rgba(200,169,81,.06);margin:6px 0 4px;}
+#gift .c1x .dotbox>*:first-child{margin-top:0;}
+#gift .c1x .a3-blocktt{font-size:17px;}
+#gift #panel .buycard .link-btn{font-size:14px;padding:8px 14px;}
+#gift #panel .a3-blocktt b,#gift #panel .petog-sum b{background:none!important;color:inherit;font-weight:800;}
+#gift details.giftsec>summary::-webkit-details-marker{display:none}
+#gift summary::after{content:none!important;display:none!important}
+</style>
 </head>
 <body>
 
@@ -195,7 +514,7 @@ document.addEventListener('DOMContentLoaded',function(){
   <a href="#s4">4 공유·예약·지메일</a>
   <a href="#s5">5 렌즈·음성·QR</a>
   <a href="#s6">6 확장 프로그램·마무리</a>
-  <a href="#refs">참고 링크</a>
+  <a href="#gift">🎁 선물</a>
   <a href="pm.html" style="border-color:#d9534f;color:#a8433b;font-weight:700">오후반 →</a>
 </div></nav>
 
@@ -1555,15 +1874,40 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   </details>
 </section>
 
-<section id="refs">
-  <h2 class="sec">참고 링크</h2>
-  <p class="lead">화면과 메뉴 이름은 자주 바뀝니다. 실제 화면을 우선하세요.</p>
-  <ul>
-    <li><a href="https://support.google.com/gemini/?hl=ko" target="_blank" rel="noopener">Gemini 앱 고객센터</a></li>
-    <li><a href="https://support.google.com/chrome/?hl=ko" target="_blank" rel="noopener">Chrome 고객센터</a></li>
-    <li><a href="https://support.google.com/docs/?hl=ko" target="_blank" rel="noopener">Google Docs 편집기 고객센터 (문서·시트·폼)</a></li>
-    <li><a href="https://chromewebstore.google.com/" target="_blank" rel="noopener">Chrome 웹 스토어</a></li>
-  </ul>
+<section id="gift">
+<h2 class="s-title">🎁 작은 선물들</h2>
+<p class="s-sub">연수에서 바로 써먹는 작은 선물들을 모았어요. 앞으로 자료가 더 추가됩니다.</p>
+
+<details class="giftsec" open><summary class="giftsec-sum"><span class="gs-t">⌨️ 알아두면 편한 크롬 단축키</span><span class="gs-c">8개</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><table class="gift-table"><thead><tr><th>단축키</th><th>기능</th><th>활용 팁</th></tr></thead><tbody><tr><td><kbd>Ctrl + H</kbd></td><td>방문 기록(History) 열기</td><td>이전에 방문했던 사이트를 빠르게 찾을 때 유용해요.</td></tr><tr><td><kbd>Ctrl + Shift + T</kbd></td><td>닫은 탭 다시 열기</td><td>실수로 창을 닫았을 때 당황 금지! 여러 번 누르면 순차적으로 되살아나요.</td></tr><tr><td><kbd>Ctrl + Shift + B</kbd></td><td>북마크바 표시/숨기기</td><td>화면을 넓게 써야 할 때 숨기는 ‘화면 다이어트’ 필수 기능.</td></tr><tr><td><kbd>Ctrl + Shift + V</kbd></td><td>서식 없이 붙여넣기</td><td>웹사이트의 글꼴·색상을 무시하고 텍스트만 깔끔하게 붙여넣어요.</td></tr><tr><td><kbd>Shift + Enter</kbd></td><td>프롬프트 창 내 줄바꿈</td><td>전송하지 않고 다음 줄로 넘어갈 때 사용해요.</td></tr><tr><td><kbd>Ctrl + J</kbd></td><td>다운로드 목록 열기</td><td>방금 받은 파일을 바로 확인·열기. 어디 저장됐는지 헤맬 일 없어요.</td></tr><tr><td><kbd>Ctrl + F</kbd></td><td>페이지 안에서 찾기</td><td>긴 문서·웹페이지에서 원하는 단어를 바로 찾아요.</td></tr><tr><td><kbd>Ctrl + T</kbd></td><td>새 탭 열기</td><td>지금 창은 두고 새 작업을 시작할 때.</td></tr></tbody></table></div></details><details class="giftsec"><summary class="giftsec-sum"><span class="gs-t">🧩 크롬 확장 프로그램</span><span class="gs-c">8개</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><div class="gift-cards"><a class="gift-card" href="https://chromewebstore.google.com/detail/rhwp-hwp-%EB%AC%B8%EC%84%9C-%EB%B7%B0%EC%96%B4-%EC%97%90%EB%94%94%ED%84%B0/pgakpjflombjmehnebnbpnalhegaanag" target="_blank" rel="noopener"><span class="gc-emoji">📄</span><span class="gc-body"><span class="gc-title">rhwp — 크롬에서 한글(HWP) 문서 바로 보기·편집</span><span class="gc-url">chromewebstore.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://chromewebstore.google.com/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl" target="_blank" rel="noopener"><span class="gc-emoji">📸</span><span class="gc-body"><span class="gc-title">GoFullPage — 스크롤 포함 전체 화면 캡처</span><span class="gc-url">chromewebstore.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://chromewebstore.google.com/search/OneTab" target="_blank" rel="noopener"><span class="gc-emoji">🗂️</span><span class="gc-body"><span class="gc-title">OneTab — 열린 탭을 목록 하나로 (PC 속도 회복)</span><span class="gc-url">chromewebstore.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://chromewebstore.google.com/search/AdGuard" target="_blank" rel="noopener"><span class="gc-emoji">🛡️</span><span class="gc-body"><span class="gc-title">AdGuard 광고차단기</span><span class="gc-url">chromewebstore.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://chromewebstore.google.com/search/QR%20Code%20Generator" target="_blank" rel="noopener"><span class="gc-emoji">🔳</span><span class="gc-body"><span class="gc-title">QR 코드 제너레이터</span><span class="gc-url">chromewebstore.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://chromewebstore.google.com/search/Allow%20Copy" target="_blank" rel="noopener"><span class="gc-emoji">📋</span><span class="gc-body"><span class="gc-title">복사 허용 (Allow Copy+)</span><span class="gc-url">chromewebstore.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://chromewebstore.google.com/search/Joois" target="_blank" rel="noopener"><span class="gc-emoji">🔗</span><span class="gc-body"><span class="gc-title">Joois QuickShortener — 단축주소 만들기</span><span class="gc-url">chromewebstore.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://chromewebstore.google.com/search/Bitly" target="_blank" rel="noopener"><span class="gc-emoji">🔗</span><span class="gc-body"><span class="gc-title">Bitly — 단축주소·QR 만들기</span><span class="gc-url">chromewebstore.google.com</span></span><span class="gc-ext">↗</span></a></div></div></details><details class="giftsec"><summary class="giftsec-sum"><span class="gs-t">📱 유튜브 광고 없이 보기 — 브레이브(Brave) 앱</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><div class="gem-note" style="margin-bottom:12px">브레이브는 <b>광고를 기본으로 막아주는 웹브라우저</b>예요. 이 앱에서 유튜브를 보면 <b>중간 광고 없이</b> 볼 수 있어요. (무료 · 폰에 설치한 뒤 앱 안에서 유튜브 주소로 접속)</div>
+<div class="a3-btns"><a class="link-btn" href="https://play.google.com/store/apps/details?id=com.brave.browser" target="_blank" rel="noopener">🤖 안드로이드 — Brave 설치</a><a class="link-btn" href="https://apps.apple.com/app/id1052879175" target="_blank" rel="noopener">🍎 아이폰(iOS) — Brave 설치</a></div></div></details><details class="giftsec"><summary class="giftsec-sum"><span class="gs-t">🪟 윈도우 · 터치패드 꿀팁</span><span class="gs-c">13개</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><p class="gem-intro">크롬 밖에서도 쓰는 것들이에요. <b>딱 세 개만 익혀도</b> 하루가 달라집니다 — <b>Win+V</b>, <b>Win+←/→</b>, <b>세 손가락</b>.</p>
+<div class="gem-note" style="margin:0 0 14px"><b>⌨️ Win 키</b>는 키보드 왼쪽 아래 <b>창문 모양 ⊞</b> 키예요. (Ctrl과 Alt 사이)</div>
+<table class="gift-table"><thead><tr><th>단축키</th><th>기능</th><th>이럴 때 씁니다</th></tr></thead><tbody>
+<tr><td><kbd>⊞ Win + V</kbd></td><td><b>클립보드 기록</b> — 복사한 것들이 쌓여요</td><td><b>★ 오늘의 최고 꿀팁.</b> 공문 여기저기서 복사할 때, 하나 복사하면 앞엣것이 날아가던 스트레스가 사라집니다. 여러 개 복사해 두고 <b>골라서</b> 붙여넣으세요. (처음 한 번 “사용 설정” 클릭)</td></tr>
+<tr><td><kbd>⊞ Win + ←</kbd> / <kbd>→</kbd></td><td><b>창을 화면 반쪽에</b> 붙이기</td><td>왼쪽에 에듀파인, 오른쪽에 한글 — <b>보면서 옮겨 적는</b> 일에 딱. 위/아래 키까지 쓰면 4분할도 됩니다.</td></tr>
+<tr><td><kbd>⊞ Win + .</kbd></td><td>이모지·특수문자 창</td><td>‘ㅇ + 한자’로 ○△□ 찾던 것보다 훨씬 빨라요. <b>※ ☎ ▶ ✓</b> 같은 기호도 여기서.</td></tr>
+<tr><td><kbd>⊞ Win + L</kbd></td><td>화면 잠금</td><td><b>자리 비울 때 3초.</b> 공용 공간에서 내 화면을 지키는 가장 확실한 습관.</td></tr>
+<tr><td><kbd>⊞ Win + Shift + S</kbd></td><td>화면 일부 캡처</td><td>1부에 배운 그 캡처예요. <b>캡처 후 글자 복사</b>도 됩니다.</td></tr>
+<tr><td><kbd>⊞ Win + E</kbd></td><td>파일 탐색기 열기</td><td>바탕화면 아이콘 찾아 헤맬 필요 없이 바로.</td></tr>
+<tr><td><kbd>⊞ Win + D</kbd></td><td>바탕화면 보기 / 되돌리기</td><td>창이 열 개쯤 쌓였을 때 한 번에 정리. 다시 누르면 원래대로.</td></tr>
+<tr><td><kbd>F2</kbd></td><td>파일·폴더 <b>이름 바꾸기</b></td><td>우클릭 메뉴를 찾을 필요 없이 바로. <b>여러 개를 한꺼번에</b> 바꾸는 것도 됩니다 → 아래 <b>［F2로 파일 100개 한 번에］</b> 참고</td></tr>
+
+<tr><td><kbd>Alt + Tab</kbd></td><td>열린 창 사이 전환</td><td>꾹 누른 채 Tab을 여러 번 누르면 원하는 창까지 갈 수 있어요.</td></tr>
+</tbody></table>
+<div class="gem-note" style="margin-top:16px">💡 <b>Win + V를 처음 누르면</b> “클립보드 기록을 사용 설정하시겠습니까?” 창이 떠요. <b>［사용 설정］</b>을 한 번만 눌러 주시면 그다음부터 계속 쌓입니다. <b>⚠️ 주민등록번호·비밀번호를 복사했다면</b> 기록에 남으니, 공용 PC에서는 클립보드 창의 <b>［모두 지우기］</b>를 눌러 주세요.</div>
+<details class="petog f2box"><summary class="a3-blocktt petog-sum">🗂️ F2로 파일 100개 이름 한 번에 바꾸기 — 스캔 파일 정리할 때<span class="petog-chev">▾</span></summary><div class="petog-body"><div class="dotbox"><div class="item-lead">복합기로 스캔하면 <b>SCAN0001.jpg · SCAN0002.jpg …</b> 처럼 나오죠. 하나씩 고치면 30분, 이 방법이면 <b>10초</b>입니다.</div><div class="a3-subtt">순서</div><ol class="steps"><li>파일 탐색기(<kbd>⊞ Win</kbd>+<kbd>E</kbd>)에서 그 폴더를 엽니다</li><li>바꿀 파일을 <b>모두 선택</b> — 전부라면 <kbd>Ctrl</kbd>+<kbd>A</kbd>, 골라서라면 <kbd>Ctrl</kbd>을 누른 채 클릭</li><li><kbd>F2</kbd>를 누릅니다 — <b>맨 위 파일 이름만</b> 편집 상태가 됩니다 (정상이에요)</li><li>원하는 이름을 치고 <kbd>Enter</kbd> — 예: <b>2026교복입찰_견적서</b></li></ol><div class="a3-subtt">결과</div><table class="gift-table"><thead><tr><th>바꾸기 전</th><th>바꾼 뒤</th></tr></thead><tbody><tr><td>SCAN0001.jpg</td><td><b>2026교복입찰_견적서.jpg</b></td></tr><tr><td>SCAN0002.jpg</td><td><b>2026교복입찰_견적서 (1).jpg</b></td></tr><tr><td>SCAN0003.jpg</td><td><b>2026교복입찰_견적서 (2).jpg</b></td></tr><tr><td>SCAN0004.jpg</td><td><b>2026교복입찰_견적서 (3).jpg</b></td></tr></tbody></table><div class="item-note">💡 <b>번호는 화면에 보이는 순서대로</b> 붙습니다. 날짜순으로 번호를 매기고 싶다면 <b>먼저 ［수정한 날짜］로 정렬</b>해 두고 F2를 누르세요. 확장자(.jpg·.pdf)는 <b>자동으로 그대로</b> 유지됩니다.</div><div class="a3-subtt">한 개씩 빠르게 바꾸고 싶다면</div><div class="a3-tip">파일 하나를 고르고 <kbd>F2</kbd> → 이름 입력 → <kbd>Tab</kbd>을 누르면 <b>저장되면서 바로 다음 파일</b>의 이름 편집으로 넘어갑니다. 마우스를 한 번도 안 잡고 쭉 바꿀 수 있어요.</div><div class="warn">⚠️ <b>잘못 바꿨다면 당황하지 마세요</b> — <kbd>Ctrl</kbd>+<kbd>Z</kbd>를 누르면 <b>바꾼 이름 전부가 한 번에</b> 원래대로 돌아갑니다. (탐색기를 닫기 전에만 됩니다)</div></div></div></details></div></details><details class="giftsec"><summary class="giftsec-sum"><span class="gs-t">🖐️ 노트북 터치패드 — 손가락 세 개면 됩니다</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><p class="gem-intro">마우스를 안 챙긴 날, 이거 하나면 버팁니다. <b>터치패드 위에 손가락 세 개</b>를 올리고 쓸어보세요.</p>
+<div class="five-grid">
+ <div class="five-card"><span class="five-b">↑</span><div class="five-t">세 손가락 위로</div><div class="five-d"><b>열린 창 전부 보기</b><br>창이 잔뜩 쌓였을 때 한눈에 펼쳐서 고릅니다. (Win+Tab과 같아요)</div></div>
+ <div class="five-card"><span class="five-b">↓</span><div class="five-t">세 손가락 아래로</div><div class="five-d"><b>바탕화면 보기</b><br>다시 아래로 쓸면 원래 창으로 돌아옵니다.</div></div>
+ <div class="five-card"><span class="five-b">↔</span><div class="five-t">세 손가락 좌·우로</div><div class="five-d"><b>창 바꾸기</b><br>Alt+Tab을 손가락으로. 한글 ↔ 에듀파인 오갈 때 제일 빨라요.</div></div>
+ <div class="five-card"><span class="five-b">👆</span><div class="five-t">세 손가락 톡 (탭)</div><div class="five-d"><b>검색창 열기</b><br>파일이든 프로그램이든 이름만 치면 바로 찾아줍니다.</div></div>
+ <div class="five-card"><span class="five-b">4</span><div class="five-t">네 손가락 좌·우로</div><div class="five-d"><b>가상 데스크톱 전환</b><br>업무용 화면과 자료 화면을 통째로 나눠 씁니다.<br><b style="color:#C0392B">먼저 바탕화면을 하나 더 만들어야</b> 넘어갈 데가 생겨요 → 아래 설명</div></div>
+ <div class="five-card"><span class="five-b">2</span><div class="five-t">두 손가락</div><div class="five-d"><b>스크롤 · 확대/축소</b><br>위아래로 쓸면 스크롤, 오므리고 벌리면 확대·축소.</div></div>
+</div>
+<details class="petog" style="margin-top:16px"><summary class="a3-blocktt petog-sum">🖥️ 네 손가락이 아무 반응이 없다면? — 가상 데스크톱 만들기·문제 해결<span class="petog-chev">▾</span></summary><div class="petog-body"><div class="a3-tip" style="margin-top:16px"><b>🖥️ 네 손가락이 아무 반응이 없다면</b> — 고장이 아니라, <b>넘어갈 바탕화면이 아직 없어서</b>일 때가 대부분이에요. 가상 데스크톱은 <b>내가 직접 만들어야</b> 생깁니다.<ol class="steps"><li><kbd>⊞ Win</kbd>+<kbd>Ctrl</kbd>+<kbd>D</kbd> — <b>새 바탕화면 만들기</b> (화면이 휙 넘어가면 성공)</li><li>이제 <b>네 손가락으로 좌·우</b>를 쓸어 보세요. 키보드로는 <kbd>⊞ Win</kbd>+<kbd>Ctrl</kbd>+<kbd>←</kbd>/<kbd>→</kbd></li><li>지금 몇 개인지 보려면 <kbd>⊞ Win</kbd>+<kbd>Tab</kbd> — 화면 위에 바탕화면 목록이 뜹니다</li><li>필요 없어지면 <kbd>⊞ Win</kbd>+<kbd>Ctrl</kbd>+<kbd>F4</kbd> — <b>그 바탕화면만 닫히고 창은 옆으로 옮겨져요</b> (프로그램은 안 꺼집니다)</li></ol></div><div class="gem-note" style="margin-top:14px">💡 <b>그래도 제스처가 안 되면</b> — <b>설정 → Bluetooth 및 장치 → 터치패드</b>에서 <b>［세 손가락 제스처］·［네 손가락 제스처］</b>가 켜져 있는지, 동작이 다른 기능으로 바뀌어 있지 않은지 확인하세요. 거기서 <b>내 마음대로 바꿀 수도</b> 있어요.</div><div class="warn" style="margin-top:14px">⚠️ <b>제스처는 ‘정밀 터치패드’에서만 됩니다.</b> 오래된 노트북이나 제조사 전용 드라이버를 쓰는 기종은 설정을 켜도 안 될 수 있어요. 그럴 땐 <b>키보드 단축키</b>(<kbd>⊞ Win</kbd>+<kbd>Ctrl</kbd>+<kbd>←</kbd>/<kbd>→</kbd>)를 쓰시면 <b>똑같이 됩니다.</b></div></div></details>
+
+<details class="petog f2box"><summary class="a3-blocktt petog-sum">🚫 터치패드가 아예 안 움직인다면 — 다시 켜는 법<span class="petog-chev">▾</span></summary><div class="petog-body"><div class="dotbox"><div class="item-lead">고장이 아니라 <b>꺼져 있는</b> 경우가 대부분이에요. 손바닥이 자꾸 닿아서 꺼 두셨다가 잊으신 것일 수도 있고요. <b>쉬운 것부터</b> 해보세요.</div><div class="a3-subtt">① 키보드 한 번 — 가장 흔한 원인</div><div class="a3-tip">키보드 맨 윗줄 <kbd>F1</kbd>~<kbd>F12</kbd> 중에 <b>네모에 사선이 그어진 터치패드 그림</b>이 있는 키를 찾으세요. 그 키를 누르거나, <kbd>Fn</kbd>을 함께 누르세요.<br><b>삼성 갤럭시북·LG 그램</b>은 대개 <kbd>Fn</kbd>+<kbd>F5</kbd>, 기종에 따라 F6·F7일 수도 있어요.</div><div class="item-note">💡 껐다 켰다 하는 키라 <b>한 번 더 누르면 다시 꺼집니다.</b> 화면에 잠깐 표시가 뜨는 노트북도 있어요.</div><div class="a3-subtt">② 설정에서 켜기</div><ol class="steps"><li><kbd>⊞ Win</kbd>+<kbd>I</kbd>로 <b>설정</b> 열기</li><li><b>Bluetooth 및 장치 → 터치패드</b></li><li>맨 위 <b>［터치패드］ 스위치를 «켬»</b>으로</li></ol><div class="a3-subtt">③ 마우스를 꽂으면 꺼지는 설정</div><div class="a3-tip">마우스를 연결했을 때만 안 된다면 이 설정 때문이에요.<br>같은 <b>터치패드</b> 화면에서 <b>［터치패드］ 옆 화살표(∨)</b>를 펼쳐 <b>「마우스가 연결되어 있을 때 터치패드 켜 놓기」에 체크</b>하세요.</div><div class="warn">⚠️ <b>마우스도 없어서 클릭을 못 하신다면</b> — 키보드만으로 갑니다.<br><kbd>⊞ Win</kbd>을 누르고 <b>터치패드</b>라고 친 뒤 <kbd>Enter</kbd> → <kbd>Tab</kbd>·<b>방향키</b>로 이동, <kbd>Space</kbd>로 스위치를 켭니다.</div><div class="item-note">🔧 위 셋으로도 안 되면 <b>드라이버 문제</b>일 수 있어요. 연수 중에 붙들지 마시고 <b>마우스로 진행</b>하신 뒤 나중에 제조사 지원센터에서 확인하세요. — <b>그래서 마우스를 꼭 챙겨 오시라</b>고 안내드린 겁니다.</div></div></div></details></div></details><details class="giftsec"><summary class="giftsec-sum"><span class="gs-t">⚡ 구글 “.new” 마법 주소 — 주소창에 치면 바로 새 문서</span><span class="gs-c">9개</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><p class="gem-intro">파일을 만들려고 드라이브 → 새로 만들기 → … 를 거칠 필요가 없어요. <b>주소창에 아래를 치고 Enter</b>만 하면 그 자리에서 새 문서가 열립니다. 1부에 배운 <b>form.new</b>·<b>doc.new</b>가 바로 이거예요.</p><div class="newgrid"><div class="newcard"><span class="nc-emoji">📄</span><span class="nc-addr">doc.new</span><span class="nc-desc">새 구글 <b>문서</b></span></div><div class="newcard"><span class="nc-emoji">📊</span><span class="nc-addr">sheet.new</span><span class="nc-desc">새 구글 <b>시트</b></span></div><div class="newcard"><span class="nc-emoji">🖼️</span><span class="nc-addr">slide.new</span><span class="nc-desc">새 구글 <b>슬라이드</b></span></div><div class="newcard"><span class="nc-emoji">📝</span><span class="nc-addr">form.new</span><span class="nc-desc">새 구글 <b>설문</b></span></div><div class="newcard"><span class="nc-emoji">🌐</span><span class="nc-addr">site.new</span><span class="nc-desc">새 구글 <b>사이트</b></span></div><div class="newcard"><span class="nc-emoji">🗒️</span><span class="nc-addr">keep.new</span><span class="nc-desc">새 <b>킵 메모</b></span></div><div class="newcard"><span class="nc-emoji">📅</span><span class="nc-addr">cal.new</span><span class="nc-desc">새 <b>캘린더 일정</b></span></div><div class="newcard"><span class="nc-emoji">🎥</span><span class="nc-addr">meet.new</span><span class="nc-desc"><b>화상회의</b> 바로 열기</span></div><div class="newcard"><span class="nc-emoji">⚙️</span><span class="nc-addr">script.new</span><span class="nc-desc">새 <b>앱스크립트</b></span></div></div></div></details><details class="giftsec"><summary class="giftsec-sum"><span class="gs-t">🌐 알아두면 좋은 유용한 사이트</span><span class="gs-c">13개</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><div class="gift-cards"><a class="gift-card" href="https://takeout.google.com" target="_blank" rel="noopener"><span class="gc-emoji">📦</span><span class="gc-body"><span class="gc-title">Google Takeout — 내 구글 자료 통째로 내려받기</span><span class="gc-url">takeout.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://myaccount.google.com/security" target="_blank" rel="noopener"><span class="gc-emoji">🔐</span><span class="gc-body"><span class="gc-title">구글 계정 보안 · 로그인된 기기 관리</span><span class="gc-url">myaccount.google.com/security</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://one.google.com/storage" target="_blank" rel="noopener"><span class="gc-emoji">💾</span><span class="gc-body"><span class="gc-title">구글 저장용량 확인 · 정리</span><span class="gc-url">one.google.com/storage</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://translate.google.com/?op=docs" target="_blank" rel="noopener"><span class="gc-emoji">🌏</span><span class="gc-body"><span class="gc-title">구글 번역 — 파일 통째로 번역 (PDF·워드·한글)</span><span class="gc-url">translate.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://script.google.com/home" target="_blank" rel="noopener"><span class="gc-emoji">⚙️</span><span class="gc-body"><span class="gc-title">앱스크립트 — 내가 만든 자동화 다시 열기</span><span class="gc-url">script.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://www.law.go.kr" target="_blank" rel="noopener"><span class="gc-emoji">⚖️</span><span class="gc-body"><span class="gc-title">국가법령정보센터 — 법령·시행령 원문 확인</span><span class="gc-url">law.go.kr</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://www.elis.go.kr" target="_blank" rel="noopener"><span class="gc-emoji">📜</span><span class="gc-body"><span class="gc-title">자치법규정보시스템 — 시·도 조례·규칙</span><span class="gc-url">elis.go.kr</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://donue.co.kr/service/signature" target="_blank" rel="noopener"><span class="gc-emoji">✍️</span><span class="gc-body"><span class="gc-title">무료 전자서명·도장(직인) 만들기</span><span class="gc-url">donue.co.kr/service/signature</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://workspace.google.com/labs-sign-up/join" target="_blank" rel="noopener"><span class="gc-emoji">🧪</span><span class="gc-body"><span class="gc-title">워크스페이스 랩스 가입 — 구글폼·문서 AI 기능 켜기</span><span class="gc-url">workspace.google.com/labs-sign-up/join</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://www.ilovepdf.com/ko" target="_blank" rel="noopener"><span class="gc-emoji">📄</span><span class="gc-body"><span class="gc-title">아이러브PDF — PDF 합치기·분할·압축·변환</span><span class="gc-url">ilovepdf.com/ko</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://www.remove.bg/ko" target="_blank" rel="noopener"><span class="gc-emoji">✂️</span><span class="gc-body"><span class="gc-title">Remove.bg — 사진 배경 지우기</span><span class="gc-url">remove.bg</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://dashboard.blaze.today" target="_blank" rel="noopener"><span class="gc-emoji">⚡</span><span class="gc-body"><span class="gc-title">Blaze (Text Blaze) — 자주 쓰는 문장·답변을 단축어로</span><span class="gc-url">dashboard.blaze.today</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://www.data.go.kr" target="_blank" rel="noopener"><span class="gc-emoji">📊</span><span class="gc-body"><span class="gc-title">공공데이터포털 — 통계·데이터 내려받기 (CSV)</span><span class="gc-url">data.go.kr</span></span><span class="gc-ext">↗</span></a></div></div></details><details class="giftsec"><summary class="giftsec-sum"><span class="gs-t">🔲 나인닷(⋮⋮⋮) 속 숨은 도구들 — 이미 쓸 수 있는데 안 눌러본 것</span><span class="gs-c">11개</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><p class="gem-intro">구글 화면 오른쪽 위 <b>점 아홉 개(⋮⋮⋮)</b>를 누르면 나오는 그 목록이에요. Gmail·드라이브·캘린더만 쓰고 지나치기 쉬운데, <b>행정 업무에 바로 걸리는 것들</b>이 숨어 있습니다. 전부 <b>개인계정 무료</b>예요.</p><div class="gift-cards"><a class="gift-card" href="https://lookerstudio.google.com" target="_blank" rel="noopener"><span class="gc-emoji">📈</span><span class="gc-body"><span class="gc-title">Looker Studio — 시트를 자동 갱신 대시보드로</span><span class="gc-url">lookerstudio.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://sites.google.com" target="_blank" rel="noopener"><span class="gc-emoji">🌐</span><span class="gc-body"><span class="gc-title">Google 사이트 — 만든 자료를 주소 하나로 모으기</span><span class="gc-url">sites.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://www.google.com/alerts" target="_blank" rel="noopener"><span class="gc-emoji">🔔</span><span class="gc-body"><span class="gc-title">Google 알리미 — 우리 학교 이름이 기사에 뜨면 메일로</span><span class="gc-url">google.com/alerts</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://contacts.google.com" target="_blank" rel="noopener"><span class="gc-emoji">👥</span><span class="gc-body"><span class="gc-title">연락처 — 교직원을 라벨로 묶어 단체메일</span><span class="gc-url">contacts.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://groups.google.com" target="_blank" rel="noopener"><span class="gc-emoji">📬</span><span class="gc-body"><span class="gc-title">Google 그룹스 — 부서 메일링 리스트</span><span class="gc-url">groups.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://keep.google.com" target="_blank" rel="noopener"><span class="gc-emoji">🗒️</span><span class="gc-body"><span class="gc-title">Google 킵 — 메모·사진 글자추출·알림</span><span class="gc-url">keep.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://tasks.google.com" target="_blank" rel="noopener"><span class="gc-emoji">✅</span><span class="gc-body"><span class="gc-title">Tasks — 캘린더에 붙어 있는 할 일 목록</span><span class="gc-url">tasks.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://www.google.com/mymaps" target="_blank" rel="noopener"><span class="gc-emoji">🗺️</span><span class="gc-body"><span class="gc-title">내 지도(My Maps) — 관내 학교·시설 지도 만들기</span><span class="gc-url">google.com/mymaps</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://www.google.com/travel/hotels" target="_blank" rel="noopener"><span class="gc-emoji">🏨</span><span class="gc-body"><span class="gc-title">구글 여행·호텔 — 출장 숙소 한눈에 비교</span><span class="gc-url">google.com/travel</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://trends.google.co.kr/trends" target="_blank" rel="noopener"><span class="gc-emoji">📉</span><span class="gc-body"><span class="gc-title">Google 트렌드 — 요즘 뭘 검색하는지</span><span class="gc-url">trends.google.co.kr</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://artsandculture.google.com" target="_blank" rel="noopener"><span class="gc-emoji">🏛️</span><span class="gc-body"><span class="gc-title">아트 앤 컬처 — 수업·행사 자료 이미지</span><span class="gc-url">artsandculture.google.com</span></span><span class="gc-ext">↗</span></a></div><div class="ninetog"><details class="petog"><summary class="a3-blocktt petog-sum">📈 이 중 하나만 고르라면 — <b>Looker Studio</b><span class="petog-chev">▾</span></summary><div class="petog-body"><div class="dotbox"><div class="item-lead">2부 코스 3에서 정리한 <b>예산 집행 현황 시트</b>를 그대로 연결하면, <b>시트만 고쳐도 대시보드가 알아서 바뀌는</b> 화면이 만들어집니다.</div><div class="cmpbox"><div class="cmpcol"><div class="cmp-t">🖼️ 코스 5 인포그래픽</div><div class="cmp-d">한 장짜리 <b>사진</b><br>숫자가 바뀌면 <b>다시 만들어야</b> 합니다</div></div><div class="cmpvs">VS</div><div class="cmpcol on"><div class="cmp-t">📈 Looker Studio</div><div class="cmp-d"><b>살아 있는 화면</b><br>시트만 고치면 <b>알아서 바뀝니다</b></div></div></div><div class="item-note">💡 <b>링크만 부서에 돌리면 끝입니다.</b> 매달 새로 만들어 보내던 걸, 링크 하나로 대체하세요.</div><div class="a3-btns" style="margin-top:14px"><a class="link-btn" href="https://lookerstudio.google.com" target="_blank" rel="noopener">📈 Looker Studio 열기</a></div></div></div></details><details class="petog"><summary class="a3-blocktt petog-sum">🔔 <b>Google 알리미</b>, 이렇게 씁니다<span class="petog-chev">▾</span></summary><div class="petog-body"><div class="dotbox"><div class="item-lead">키워드를 등록해 두면, 새 기사·게시글이 뜰 때 <b>메일로 알려줍니다.</b> 언론 대응이나 지침 변경 확인에 손이 덜 갑니다.</div><div class="a3-subtt">이렇게 등록해 보세요</div><div class="kwgrid"><div class="kwcard"><span class="kw-q">“우리 학교 이름”</span><span class="kw-a">우리 학교가 기사에 나오면 바로</span></div><div class="kwcard"><span class="kw-q">“○○교육지원청”</span><span class="kw-a">관내 소식·보도자료 모아보기</span></div><div class="kwcard"><span class="kw-q">“학교 시설 공사 지침”</span><span class="kw-a">지침이 바뀌면 놓치지 않게</span></div><div class="kwcard"><span class="kw-q">“학교회계 예산편성”</span><span class="kw-a">편성 시기 자료가 올라오면</span></div></div><div class="item-note">💡 <b>따옴표로 묶으면</b> 그 말 그대로 들어간 글만 걸러집니다. 너무 많이 오면 <b>［수신 빈도］를 “하루 한 번”</b> 으로 바꾸세요.</div><div class="a3-btns" style="margin-top:14px"><a class="link-btn" href="https://www.google.com/alerts" target="_blank" rel="noopener">🔔 Google 알리미 열기</a></div></div></div></details><details class="petog"><summary class="a3-blocktt petog-sum">🤖 한 걸음 더 — <b>워크스페이스 스튜디오</b> (코딩 없는 자동화)<span class="petog-chev">▾</span></summary><div class="petog-body"><div class="dotbox redbox"><div class="item-lead">업무 흐름을 <b>AI 에이전트</b>로 만들어 두는 도구예요. 2부 코스 3의 <b>앱스크립트가 코드로 하는 일</b>을, 이건 <b>말과 클릭으로</b> 합니다.</div><div class="flowline"><span class="fl-step">📨 메일이 오면</span><span class="fl-ar">→</span><span class="fl-step">🏷️ 라벨 붙이고</span><span class="fl-ar">→</span><span class="fl-step">📊 시트에 적고</span><span class="fl-ar">→</span><span class="fl-step">🔔 담당자에게 알림</span></div><div class="a3-btns" style="margin-top:16px"><a class="link-btn" href="https://studio.workspace.google.com" target="_blank" rel="noopener">🤖 워크스페이스 스튜디오 열어보기</a></div><div class="item-note">💡 <b>나인닷에는 안 보입니다.</b> 앱 목록에 없어서 “없는 기능”이라 생각하기 쉬운데, <b>위 주소로 바로 들어가거나 Gmail 같은 구글 앱 안에서</b> 열려요.</div><div class="warn">⚠️ <b>계정에 따라 열리기도, 안 열리기도 합니다.</b> 원래는 유료 기관계정 전용으로 나왔지만 <b>지금은 개인계정에서도 열리는 경우</b>가 있어요 — 구글이 조금씩 넓히는 중입니다. 위 버튼으로 <b>내 계정에서 열리는지</b> 먼저 확인해 보세요. <b>안 열려도 정상</b>이니 걱정하지 않으셔도 됩니다.</div></div></div></details></div></div></details><details class="giftsec"><summary class="giftsec-sum"><span class="gs-t">✨ 구글이 만든 AI 도구 — 더 해보고 싶다면</span><span class="gs-c">14개</span><span class="gs-chev">▾</span></summary><div class="giftsec-body"><p class="gem-intro">연수에서 다 못 다룬 <b>구글의 AI 도구들</b>이에요. 대부분 <b>무료</b>고, 개인 구글계정으로 바로 들어갑니다. 보너스 탭에서 해본 <b>구글 Flow</b>도 여기 식구예요.</p><div class="gem-note" style="margin:0 0 14px">🎬 <b>Flow 하나로 영상도 이미지도 만듭니다.</b> 예전에 따로 있던 <b>ImageFX</b>(이미지 생성)와 <b>Whisk</b>(사진 리믹스)는 <b>2026년에 Flow로 합쳐졌어요.</b> 옛 주소로 들어가도 Flow로 넘어갑니다.</div><div class="gift-cards"><a class="gift-card" href="https://labs.google" target="_blank" rel="noopener"><span class="gc-emoji">🧪</span><span class="gc-body"><span class="gc-title">Google Labs — 실험 도구 한자리에</span><span class="gc-url">labs.google</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener"><span class="gc-emoji">🎬</span><span class="gc-body"><span class="gc-title">Flow — 말로 만드는 AI 영상 · 이미지</span><span class="gc-url">labs.google/fx/tools/flow</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://vids.google.com" target="_blank" rel="noopener"><span class="gc-emoji">🎞️</span><span class="gc-body"><span class="gc-title">Google Vids — 안내 영상·연수 영상 만들기</span><span class="gc-url">vids.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://labs.google/mixboard" target="_blank" rel="noopener"><span class="gc-emoji">🗂️</span><span class="gc-body"><span class="gc-title">Mixboard — 아이디어를 보드에 펼치기</span><span class="gc-url">labs.google/mixboard</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://opal.withgoogle.com" target="_blank" rel="noopener"><span class="gc-emoji">🧱</span><span class="gc-body"><span class="gc-title">Opal — 코딩 없이 나만의 미니 AI 앱 만들기</span><span class="gc-url">opal.withgoogle.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://illuminate.google.com" target="_blank" rel="noopener"><span class="gc-emoji">🎧</span><span class="gc-body"><span class="gc-title">Illuminate — 긴 문서를 대화형 오디오로</span><span class="gc-url">illuminate.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://journaliststudio.google.com/pinpoint/about/" target="_blank" rel="noopener"><span class="gc-emoji">🔎</span><span class="gc-body"><span class="gc-title">Pinpoint — 문서 수백 장에서 원하는 내용 찾기</span><span class="gc-url">journaliststudio.google.com/pinpoint</span></span><span class="gc-ext">↗</span></a></div>
+<details class="petog deepsec"><summary class="a3-blocktt petog-sum">🔬 조금 더 깊숙이 — 구글 실험실 &amp; 특화 AI 도구 <span class="gs-c" style="margin-left:8px">7개</span><span class="petog-chev">▾</span></summary><div class="petog-body"><p class="gem-intro" style="margin-top:0">행정 업무에 바로 쓰는 건 아니지만, <b>“AI가 어디까지 하나”</b> 궁금하신 분을 위한 목록이에요. 아직 <b>실험 단계</b>라 지역·기기 제한이 있는 것도 있습니다.</p><div class="gift-cards"><a class="gift-card" href="https://learning.google.com/experiments/learn-about" target="_blank" rel="noopener"><span class="gc-emoji">📚</span><span class="gc-body"><span class="gc-title">Learn About — 궁금한 걸 물어가며 배우기</span><span class="gc-url">learning.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://aistudio.google.com" target="_blank" rel="noopener"><span class="gc-emoji">🔬</span><span class="gc-body"><span class="gc-title">AI Studio — 제미나이를 직접 다뤄보는 실험실</span><span class="gc-url">aistudio.google.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://stitch.withgoogle.com" target="_blank" rel="noopener"><span class="gc-emoji">🎨</span><span class="gc-body"><span class="gc-title">Stitch — 말로 앱·웹 화면 디자인 만들기</span><span class="gc-url">stitch.withgoogle.com</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://jules.google" target="_blank" rel="noopener"><span class="gc-emoji">🤝</span><span class="gc-body"><span class="gc-title">Jules — 코드를 대신 고쳐주는 AI 동료</span><span class="gc-url">jules.google</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://antigravity.google" target="_blank" rel="noopener"><span class="gc-emoji">🚀</span><span class="gc-body"><span class="gc-title">Antigravity — AI가 함께 개발하는 작업 환경</span><span class="gc-url">antigravity.google</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://labs.google.com/pomelli/about/" target="_blank" rel="noopener"><span class="gc-emoji">🍊</span><span class="gc-body"><span class="gc-title">Pomelli — 우리 톤에 맞는 홍보 문구 자동 작성</span><span class="gc-url">labs.google.com/pomelli</span></span><span class="gc-ext">↗</span></a><a class="gift-card" href="https://labs.google/disco" target="_blank" rel="noopener"><span class="gc-emoji">🪩</span><span class="gc-body"><span class="gc-title">Disco — 흩어진 탭을 하나의 대시보드로</span><span class="gc-url">labs.google/disco</span></span><span class="gc-ext">↗</span></a></div><div class="gem-note" style="margin-top:12px">⚠️ <b>Pomelli</b>는 아직 <b>일부 국가에서만</b> 열리고, <b>Disco</b>는 <b>맥(macOS) 전용에 대기 신청</b>이 필요해요. 안 열려도 정상이니 구경만 하셔도 됩니다.</div></div></details></div></details><div class="gift-closing"><div class="gc-icon">🌱</div><b>오늘 연수 정말 수고 많으셨습니다!</b><br>현장에서 막히는 부분이 생기면 언제든 편하게 연락 주세요. 함께 해결해 드리겠습니다. 😊</div>
+<div class="ycontact"><div class="yc-name">이애진</div><div class="yc-role">플로우디엑스(FlowDX) 대표 · Google 공식 트레이너<br>Gemini Certified Educator</div><div class="yc-links"><span class="yc-l">✉ <a href="mailto:ai@flowdx.kr">ai@flowdx.kr</a></span></div><a class="yc-kakao" href="https://open.kakao.com/o/sM6RgUxi" target="_blank" rel="noopener">💬 카카오톡 오픈채팅으로 문의하기</a><div class="yc-note">준비 중 막히는 부분은 오픈채팅방에서 바로 물어보세요.</div></div>
 </section>
 
 </div></main>
