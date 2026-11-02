@@ -139,6 +139,8 @@ main section > h3, main section > h4, #s2b .skt, #s2c .xs{margin-top:84px!import
 .fillrow input[type=number]{width:90px}
 pre .fill{background:#fff1b8;border-radius:4px;padding:0 2px}
 pre .fill.on{background:#d9f2df}
+.fillgo{font:inherit;font-weight:800;background:#d93025;color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer}
+.fillok{color:#15803d;font-weight:700;align-self:center}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
@@ -151,7 +153,9 @@ document.addEventListener('DOMContentLoaded',function(){
       document.querySelectorAll('pre .fill[data-k="'+k+'"]').forEach(function(sp){sp.textContent=v||def[k];sp.classList.toggle('on',!!v);});
     });
   }
-  ins.forEach(function(i){try{var v=localStorage.getItem('dj-fill-'+i.getAttribute('data-k'));if(v)i.value=v;}catch(e){} i.addEventListener('input',apply);});
+  ins.forEach(function(i){try{var v=localStorage.getItem('dj-fill-'+i.getAttribute('data-k'));if(v)i.value=v;}catch(e){} i.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();go();}});});
+  function go(){apply();var ok=document.querySelector('.fillok');if(ok){ok.textContent='✓ 넣었어요';setTimeout(function(){ok.textContent='';},1800);}}
+  [].slice.call(document.querySelectorAll('.fillgo')).forEach(function(b){b.addEventListener('click',go);});
   apply();
 });
 </script>
@@ -1176,8 +1180,8 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
         <li>화면에 <b>✦ 제미나이로 폼 만들기</b>(Help me create) 버튼이 있으면 눌러 아래 프롬프트를 넣습니다.</li>
         <li>없으면 제미나이 앱에서 문항을 만든 뒤 하나씩 옮깁니다. (아래 “안 보이면”)</li>
       </ol>
-      <div class="fillbox"><b>✏️ 내 수업으로 바꾸기</b> <span>여기 적으면 아래 프롬프트에 바로 들어가요</span>
-        <div class="fillrow"><label>수업명 <input type="text" data-k="sub" placeholder="예: 경영학원론"></label><label>주차 <input type="number" data-k="wk" min="1" max="16" placeholder="예: 8"></label></div></div>
+      <div class="fillbox"><b>✏️ 내 수업으로 바꾸기</b> <span>수업명·주차를 적고 <b>넣기</b>를 누르면 아래 카드 프롬프트에 들어가요</span>
+        <div class="fillrow"><label>수업명 <input type="text" data-k="sub" placeholder="예: 경영학원론"></label><label>주차 <input type="number" data-k="wk" min="1" max="16" placeholder="예: 8"></label><button type="button" class="fillgo">아래 프롬프트에 넣기</button><span class="fillok"></span></div></div>
       <p class="fcintro">아래 네 카드 중 <b>내 수업에 필요한 것 하나</b>를 골라 해 보세요.</p>
       <div class="fcard" style="--fc:#4338ca"><div class="fch"><span class="fcb">A</span><b>중간 수업 피드백</b><em>학기 중간 · 익명</em></div>
       <div class="prompt"><div class="label">카드 A · 중간 수업 피드백 (익명)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 중간 수업 피드백 설문을 만들어줘.
