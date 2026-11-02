@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>대진대 오후반 바이브코딩</title>
+<style>
+:root{
+  --navy:#23303f; --navy-d:#18222d; --gold:#bfa05f; --gold-soft:#d9c79b; --gold-bg:#f7f2e7;
+  --ink:#1f2933; --muted:#5b6672; --line:#e3e0d6; --bg:#fbfaf6; --card:#ffffff;
+  --red:#c62828; --red-bg:#fdeceb; --green:#2e7d5b; --green-bg:#e8f5ee; --blue:#2b5aa8; --blue-bg:#e9f0fb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.7;font-size:16px}
+a{color:var(--blue)}
+header.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-d) 100%);color:#fff;padding:44px 20px 36px;border-bottom:4px solid var(--gold)}
+.wrap{max-width:920px;margin:0 auto;padding:0 16px}
+.hero .kicker{color:var(--gold-soft);font-size:14px;letter-spacing:.06em;margin:0 0 6px}
+.hero h1{margin:0 0 8px;font-size:clamp(24px,4.6vw,34px);line-height:1.3}
+.hero .sub{margin:0;color:#e6e9ee;font-size:16px}
+.hero .meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#cfd6df}
+.hero .meta span b{color:var(--gold-soft);font-weight:600}
+nav.quick{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.quick .wrap{display:flex;gap:6px;overflow-x:auto;padding:8px 16px}
+nav.quick a{white-space:nowrap;text-decoration:none;color:var(--navy);font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff}
+nav.quick a:hover{background:var(--gold-bg);border-color:var(--gold)}
+main{padding:24px 0 60px}
+section{margin:0 0 30px}
+h2.sec{font-size:22px;margin:0 0 6px;color:var(--navy);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+h2.sec .time{font-size:13px;font-weight:600;color:#fff;background:var(--navy);padding:2px 10px;border-radius:999px}
+p.lead{margin:0 0 14px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px;margin:0 0 14px}
+.callout{border-radius:12px;padding:14px 16px;margin:12px 0;border:1px solid}
+.callout.gold{background:var(--gold-bg);border-color:var(--gold-soft)}
+.callout.red{background:var(--red-bg);border-color:#f0b7b3}
+.callout.green{background:var(--green-bg);border-color:#b7dcc9}
+.callout.blue{background:var(--blue-bg);border-color:#bcd0ee}
+.callout b.t{display:block;margin-bottom:4px}
+.callout ul{margin:6px 0 0;padding-left:20px}
+table{border-collapse:collapse;width:100%;font-size:15px;background:#fff}
+th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff;font-weight:600}
+tr:nth-child(even) td{background:#fcfbf8}
+.tblwrap{overflow-x:auto;border-radius:10px}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:6px;vertical-align:middle;white-space:nowrap}
+.b-must{background:var(--red-bg);color:var(--red);border:1px solid #f0b7b3}
+.b-do{background:var(--blue-bg);color:var(--blue);border:1px solid #bcd0ee}
+.b-bonus{background:var(--gold-bg);color:#8a6d2b;border:1px solid var(--gold-soft)}
+.b-demo{background:#eceff3;color:#4a5562;border:1px solid #cfd6df}
+.b-home{background:var(--green-bg);color:var(--green);border:1px solid #b7dcc9}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:0 0 10px;overflow:hidden}
+details>summary{cursor:pointer;list-style:none;padding:13px 16px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"▾";margin-left:auto;color:var(--gold);transition:transform .2s}
+details[open]>summary::after{transform:rotate(180deg)}
+details[open]>summary{background:var(--gold-bg);border-bottom:1px solid var(--line)}
+details .body{padding:14px 18px 16px}
+details details{margin:10px 0 0;box-shadow:none}
+details details>summary{font-size:15px}
+.body p{margin:0 0 10px}
+.body ul,.body ol{margin:0 0 10px;padding-left:22px}
+.body li{margin:3px 0}
+.prompt{position:relative;background:#f5f6f8;border:1px solid #d7dce3;border-left:4px solid var(--gold);border-radius:10px;padding:12px 14px 12px 14px;margin:10px 0}
+.prompt .label{font-size:12px;font-weight:700;color:#8a6d2b;margin-bottom:4px}
+.prompt pre{margin:0;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;font-family:inherit;font-size:15px;color:#222}
+.prompt button.copy{position:absolute;top:8px;right:8px;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:8px;padding:3px 10px;font-size:12px;cursor:pointer}
+.prompt button.copy:hover{background:var(--navy);color:#fff}
+.prompt button.copy.done{background:var(--green);border-color:var(--green);color:#fff}
+.prompt .label{padding-right:70px}
+.slot{border:2px dashed var(--gold);background:var(--gold-bg);border-radius:12px;padding:14px;text-align:center;color:#7a6224;margin:12px 0;font-size:14px}
+figure{margin:12px 0}
+figure img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:10px;display:block}
+figure figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+.imgrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.timeline{display:grid;gap:8px}
+.tl{display:grid;grid-template-columns:96px 1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;align-items:start}
+.tl .tm{font-weight:800;color:var(--navy);font-size:14px}
+.tl .tm small{display:block;font-weight:500;color:var(--muted)}
+.tl.rest{background:#f2f2f0;color:#777}
+@media (max-width:560px){.tl{grid-template-columns:1fr}}
+kbd{background:#fff;border:1px solid #c9c9c9;border-bottom-width:2px;border-radius:5px;padding:0 6px;font-size:13px;font-family:inherit}
+.check li{list-style:none;margin-left:-20px}
+.check input{margin-right:8px;transform:scale(1.15)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.toolbar button{border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:10px;padding:6px 14px;cursor:pointer;font-size:14px}
+.toolbar button:hover{background:var(--navy);color:#fff}
+footer{background:var(--navy);color:#cfd6df;padding:26px 16px;text-align:center;font-size:14px}
+footer a{color:var(--gold-soft)}
+@media print{nav.quick,.toolbar,.prompt button.copy{display:none}details{break-inside:avoid}details>*{display:block}}
+
+
+section{scroll-margin-top:70px}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+.trio>div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.trio span{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--navy);border-radius:999px;padding:1px 10px}
+.trio b{display:block;color:var(--navy);margin:6px 0 2px;font-size:17px}
+.trio p{margin:0;font-size:14px;color:var(--muted)}
+.step{display:grid;grid-template-columns:44px 1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 10px}
+.step .no{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:17px}
+.step h4{margin:4px 0 6px;color:var(--navy);font-size:18px}
+.step p{margin:0 0 8px}.step ol,.step ul{margin:0 0 8px;padding-left:22px}
+.tip{font-size:14px;color:var(--muted);background:#f6f7f9;border-radius:8px;padding:6px 10px;margin:6px 0 0}
+.okline{margin:8px 0 0!important;font-size:14px;font-weight:700;color:var(--green)}
+.dl{display:inline-block;background:var(--green);color:#fff!important;text-decoration:none;font-weight:800;border-radius:10px;padding:10px 16px;margin:6px 6px 6px 0}
+.dl.alt{background:var(--navy)}
+pre.code{background:#1f2933;color:#e6e9ee;border-radius:10px;padding:12px 14px;font-size:13.5px;overflow-x:auto;white-space:pre}
+.uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.uses div{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:12px;padding:12px 14px}
+.uses b{color:var(--navy)}.uses p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:10px 0}
+.subjects button{font:inherit;text-align:left;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;line-height:1.35}
+.subjects button b{display:block;color:var(--navy);font-size:14.5px}.subjects button small{color:var(--muted);font-size:12.5px}
+.subjects button:hover{border-color:var(--gold)}
+.subjects button.on{background:var(--navy);border-color:var(--navy)}.subjects button.on b{color:#fff}.subjects button.on small{color:var(--gold-soft)}
+.mine{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;background:var(--gold-bg);border:1px solid var(--gold-soft);border-radius:12px;padding:12px 14px;margin:10px 0}
+.mine label{display:grid;gap:3px;font-size:13px;font-weight:700;color:#7a6224}.mine .wide{grid-column:1/-1}
+.mine input{font:inherit;font-size:15px;font-weight:400;border:1px solid #d9cfb5;border-radius:8px;padding:7px 10px;background:#fff;color:var(--ink)}
+@media(max-width:560px){.mine{grid-template-columns:1fr}}
+.mine textarea{font:inherit;font-size:15px;font-weight:400;border:1px solid #d9cfb5;border-radius:8px;padding:7px 10px;background:#fff;color:var(--ink);resize:vertical}
+.mine .ttl{display:block;font-size:13px;color:#7a6224;margin-bottom:4px}
+.opts{display:flex;flex-wrap:wrap;gap:6px 14px}.opts label{display:inline-flex;align-items:center;gap:5px;font-weight:500;font-size:14.5px;color:var(--ink);cursor:pointer}
+.shots{display:grid;gap:12px;margin:12px 0}.shots figure{margin:0}
+details.ex{margin:6px 0 14px}details.ex>summary{font-size:15px}
+figure img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,15,22,.88);display:flex;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lb[hidden]{display:none}
+.lb img{max-width:96vw;max-height:88vh;border-radius:10px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.lb p{position:absolute;left:0;right:0;bottom:12px;margin:0;text-align:center;color:#e6e9ee;font-size:14px;padding:0 16px}
+.lb button{position:absolute;top:12px;right:16px;border:0;background:#fff;color:#23303f;border-radius:999px;width:40px;height:40px;font-size:22px;cursor:pointer}
+#allSubjects h5{margin:12px 0 2px;font-size:14px;color:var(--navy)}#allSubjects h5:first-child{margin-top:0}
+.pwcard{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;background:var(--gold-bg);border:2px solid var(--gold);border-radius:12px;padding:10px 14px;margin:10px 0}
+.pwcard span{font-weight:800;color:#7a6224}.pwcard b{font-size:22px;letter-spacing:.04em;color:var(--navy);font-family:ui-monospace,Consolas,monospace}
+.pwcard small{flex-basis:100%;color:var(--muted);font-size:13.5px}
+.prompt.must{border-left-color:var(--red)}.prompt.must .label{color:var(--red)}
+.fontctl{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:4px;background:var(--navy);border-radius:999px;padding:5px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.fontctl button{border:0;background:#fff;color:var(--navy);border-radius:999px;min-width:46px;height:46px;font:inherit;font-weight:800;font-size:18px;cursor:pointer;padding:0 10px}
+.fontctl button:hover{background:var(--gold-bg)}
+.fontctl span{color:#fff;font-size:14px;font-weight:700;min-width:48px;text-align:center}
+.fontctl button.reset{font-size:13px;min-width:auto}
+@media print{.fontctl{display:none}}
+.pwcard .pwcopy{border:0;background:var(--navy);color:#fff;border-radius:10px;padding:8px 16px;font:inherit;font-size:15px;font-weight:700;cursor:pointer;align-self:center}
+.pwcard .pwcopy.done{background:var(--green)}
+mark.chg{background:#fde2e1;color:#c62828;font-weight:800;border-radius:4px;padding:0 3px}
+.chgnote{font-size:13.5px;color:#c62828;font-weight:700;margin:6px 0 0}
+#fBoard{color:#c62828;font-weight:800;letter-spacing:.02em}
+#fBoard::placeholder{color:#c9a3a1;font-weight:500}
+.boardwarn{margin:2px 0 0;font-size:13.5px;font-weight:700;color:#c62828}
+.prompt button.copy:disabled{opacity:.4;cursor:not-allowed}
+.samplelist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.samplelist li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.samplelist .tx{flex:1;min-width:0}
+.dot{flex:none;font-size:12.5px;font-weight:800;border-radius:999px;padding:2px 10px}
+.d-yellow{background:#fff59d;color:#7a5b00}.d-pink{background:#f8bbd0;color:#8a1c4a}.d-sky{background:#b3e5fc;color:#0b4f71}.d-green{background:#c5e1a5;color:#33561a}
+.ex-copy{flex:none;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:8px;padding:4px 12px;font:inherit;font-size:13.5px;cursor:pointer}
+.ex-copy.done{background:var(--green);border-color:var(--green);color:#fff}
+.samph{margin:14px 0 4px;font-size:15px;color:var(--navy)}
+nav.quick.tabs .wrap{gap:6px}
+nav.quick.tabs button{white-space:nowrap;font:inherit;font-size:14px;color:var(--navy);padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer}
+nav.quick.tabs button:hover{background:var(--gold-bg);border-color:var(--gold)}
+nav.quick.tabs button.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:700}
+nav.quick.tabs button.adv{border-style:dashed}
+nav.quick.tabs button.adv.on{border-style:solid}
+section[data-hide]{display:none}
+.tabnav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:24px 0 72px;padding-top:16px;border-top:1px solid var(--line)}
+.tabnav button{font:inherit;font-size:15px;font-weight:700;border-radius:12px;padding:12px 18px;cursor:pointer;border:1px solid var(--navy);background:#fff;color:var(--navy)}
+.tabnav button.next{background:var(--navy);color:#fff;margin-left:auto}
+
+.fltr{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.fltr button{font:inherit;font-size:14px;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:6px 12px;cursor:pointer}
+.fltr button.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:700}
+#groupBtns button{border-radius:12px;line-height:1.25;text-align:left}
+#groupBtns button small{display:block;font-size:11px;opacity:.7;font-weight:400}
+.wowb{display:inline-block;background:linear-gradient(90deg,#7c3aed,#db2777);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px;margin-left:4px}
+details.case.hot{background:#fdf1ef!important;border-color:#f3cfc9!important;border-left:4px solid #d9534f!important}details.case.hot>summary b{color:#a8433b}
+#sidetoc .sthome{display:flex;gap:4px;margin:0 0 12px;padding-bottom:12px;border-bottom:1px solid var(--line)}#sidetoc .sthome a{flex:1;text-align:center;padding:6px 4px;border:1px solid var(--line);border-radius:8px;font-weight:700;font-size:13px;color:var(--navy)}#sidetoc .sthome a.on{background:#d9534f;border-color:#d9534f;color:#fff}nav.quick.tabs a.homelink{white-space:nowrap;font-size:14px;font-weight:700;color:#a8433b;padding:7px 12px;border-radius:999px;border:1px dashed #d9534f;background:#fff;text-decoration:none}:is(section,.step>div,details>.body)>details+.prompt:not(#_x){margin-top:48px!important}:is(section,.step>div,details>.body)>.prompt+details:not(#_x){margin-top:10px!important}.padwrap{margin-top:14px!important}a.padbtn{display:inline-block;background:#d9534f;color:#fff!important;text-decoration:none;font-weight:800;border-radius:12px;padding:11px 18px}.padframe{border:1px solid var(--line);border-radius:12px;overflow:hidden;height:680px;background:#f4f2ec}.padframe iframe{width:100%;height:100%;border:0;display:block}#sidetoc{display:none}@media(min-width:1360px){body{padding-left:250px}#sidetoc{display:block;position:fixed;left:0;top:0;bottom:0;width:236px;overflow-y:auto;background:#fff;border-right:1px solid var(--line);padding:16px 10px 40px;z-index:40;font-size:14px}#sidetoc .sthead{font-weight:800;color:var(--navy);padding:4px 10px 10px;font-size:15px}#sidetoc a{display:block;text-decoration:none;color:#3a4256;padding:6px 10px;border-radius:8px;line-height:1.35}#sidetoc a:hover{background:var(--gold-bg,#fbf6ea)}#sidetoc a.stt{font-weight:700;color:var(--navy);margin-top:2px}#sidetoc a.stt.sub{padding-left:20px;font-weight:600}#sidetoc a.stt.on{background:var(--navy);color:#fff}#sidetoc .stg{margin:10px 10px 2px;font-size:12px;font-weight:800;color:#a8433b}#sidetoc a.sti{font-size:13px;color:#555}#sidetoc a.sti.lv1{padding-left:22px;font-weight:600;color:#7a5a12}#sidetoc a.sti.lv2{padding-left:34px}}.say{background:#fdf1ef;border:1px solid #f3cfc9;border-radius:6px;padding:1px 6px;color:#7a2f29}
+details.be-step{margin-top:14px!important}details.be-step>summary{font-size:17px;padding:14px 16px}details.be-step .beno{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:15px;margin-right:6px}details.be-step[open]>summary .needs{display:none}nav.quick.tabs .subtabs{display:none;gap:6px;padding-top:8px;margin-top:8px;border-top:1px dashed var(--line);flex-wrap:nowrap;overflow-x:auto;background:var(--bg)}nav.quick.tabs .subtabs button{font-size:13px;padding:5px 12px;background:var(--gold-bg,#fbf6ea)}nav.quick.tabs .subtabs button.on{background:var(--gold,#b8963e);border-color:var(--gold,#b8963e);color:#fff}
+section>h3.caseh{margin-top:112px!important;position:relative}section>h3.caseh::before{content:"";position:absolute;left:-5px;right:0;top:-56px;border-top:2px dashed #d9dee8}section>.step{margin-top:108px!important}section>h2.sec+.step,section>.step:first-of-type{margin-top:24px!important}section>h3.caseh+.step,section>h3.caseh+.tip+.step,section>.tblwrap+.step{margin-top:28px!important}section>.callout.gold:last-child,section>.callout.gold{margin-top:48px}:is(section,.step>div,details>.body)>*+:is(.prompt,.tblwrap,.callout,.trio,figure,.shots,.fltr,details,ol,ul){margin-top:48px!important}:is(section,.step>div,details>.body)>.tip+.fltr{margin-top:8px!important}:is(section,.step>div,details>.body)>:is(h3,h4,h5,.caseh,details)+:is(.prompt,.tblwrap,.callout,.trio,figure,.shots,.fltr,details,ol,ul){margin-top:10px!important}
+.prompt{background:#fdf1ef!important;border-color:#f3cfc9!important;border-left-color:#d9534f!important}.prompt .label{color:#a8433b!important}.samplelist li{background:#fdf1ef!important;border-color:#f3cfc9!important}
+#levelBtns button.on{background:var(--gold);border-color:var(--gold);color:#1f2933}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:12px 0}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;transition:opacity .2s}
+.tcard.rec{border:2px solid var(--gold);box-shadow:0 4px 14px rgba(180,140,40,.18)}
+.tcard.dim{opacity:.55}
+.tcard .th{display:flex;flex-wrap:wrap;gap:4px}
+.tcard .th span{font-size:12px;font-weight:700;border-radius:999px;padding:1px 8px;background:#eef1f5;color:#43505f}
+.tcard .recb{background:var(--gold)!important;color:#1f2933!important}
+.tcard .lv1{background:#e3f4ea!important;color:#1f7a4d!important}.tcard .lv2{background:#fff3d6!important;color:#8a6d2b!important}.tcard .lv3{background:#fde2e1!important;color:#c62828!important}
+.tcard .need{background:#e6eefc!important;color:#2a4f8f!important}
+.tcard .nm{color:var(--navy);font-size:17px}
+.tcard p{margin:0;font-size:14px}.tcard .orig{color:var(--muted)}.tcard .idea{font-weight:600}.tcard .fit{font-size:13px;color:#7a6224}
+.tcard .ta{display:flex;gap:6px;margin-top:auto;padding-top:6px}
+.tcard .ta a,.tcard .ta button{flex:1;text-align:center;font:inherit;font-size:13.5px;font-weight:700;border-radius:9px;padding:7px 8px;text-decoration:none;cursor:pointer}
+.tcard .ta a{border:1px solid var(--navy);color:var(--navy);background:#fff}
+.tcard .ta button{border:1px solid var(--navy);background:var(--navy);color:#fff}
+.caseh{margin:22px 0 8px;font-size:18px;color:var(--navy);border-left:5px solid var(--gold);padding-left:10px}
+details.case{background:#fff;border:1px solid var(--line);border-radius:12px;margin:0 0 8px}
+details.case>summary{padding:12px 14px;cursor:pointer;font-size:15.5px;list-style-position:inside}
+details.case>summary small{color:var(--muted);font-size:13px}
+details.case>.body{padding:0 14px 14px}
+.lvs,.needs{font-size:12px;font-weight:700;border-radius:999px;padding:1px 8px;vertical-align:middle}
+.lvs.lv1{background:#e3f4ea;color:#1f7a4d}.lvs.lv2{background:#fff3d6;color:#8a6d2b}.lvs.lv3{background:#fde2e1;color:#c62828}
+.needs{background:#e6eefc;color:#2a4f8f}
+p.use{background:var(--gold-bg);border-radius:10px;padding:10px 12px;margin:6px 0 10px}
+.tcard a.caselink{display:block;text-align:center;font-size:13px;color:#7a6224;font-weight:700;text-decoration:none;margin-top:2px}
+.mylink{margin:4px 0 10px}
+.modesw{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}.modesw label{display:flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;background:#fff;font-weight:700;cursor:pointer}.modesw label:has(input:checked){border-color:var(--gold);background:#fbf3df}
+.trio{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))!important}.step>div{min-width:0}.mine>*,.mine label{min-width:0}.mine label{grid-template-columns:minmax(0,1fr)}.mine select{width:100%}@media(max-width:640px){.mine{grid-template-columns:minmax(0,1fr)!important}}.mine select,.mine input,.mine textarea{max-width:100%;box-sizing:border-box}
+.mine select{font:inherit;font-size:15px;font-weight:400;border:1px solid #d9cfb5;border-radius:8px;padding:7px 10px;background:#fff;color:var(--ink)}
+
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">대진대학교 교수 역량 강화 연수 · 오후반</p>
+    <h1>말로 만드는 내 수업 도구 · 바이브코딩 5단계</h1>
+    <p class="sub">캔바 코드 → 제미나이 캔버스 → 노트북LM → 구글 AI 스튜디오 → 백엔드·배포</p>
+    <div class="meta">
+      <span><b>도구</b> 캔바 · 제미나이 · 노트북LM · 구글 AI 스튜디오</span>
+      <span><b>준비물</b> 개인 Gmail 계정 · 캔바 계정 · 크롬</span>
+    </div>
+  </div>
+</header>
+
+<nav class="quick tabs"><div class="wrap" id="tabbar"></div></nav>
+
+<main><div class="wrap">
+
+<!-- 시작 -->
+<section id="start">
+  <h2 class="sec">오늘 오후에 할 일</h2>
+  <p class="lead">코딩을 몰라도 됩니다. <b>말로 부탁하면 앱이 되는</b> 바이브코딩을, 쉬운 도구부터 한 단계씩 올라가며 해 봅니다. 교직원 선생님은 "내 수업" 대신 <b>"내 업무"</b>로 바꿔 생각하시면 돼요.</p>
+  <div class="trio">
+    <div><span>1</span><b>캔바 코드 · 몸풀기</b><p>로또 생성기, 취미 앱처럼 생활 속 작은 앱을 한 줄 부탁으로 만들어 봅니다.</p></div>
+    <div><span>2</span><b>제미나이 캔버스 · 학생 과제</b><p>학생에게 "이렇게 만들어 오세요"라고 낼 수 있는 과제 흐름과 부탁문을 가져갑니다.</p></div>
+    <div><span>3</span><b>노트북LM · 근거 있는 바이브코딩</b><p>내 수업 자료를 넣어, AI가 추측하지 않고 자료대로 만들게 합니다. (강사 시연)</p></div>
+    <div><span>4</span><b>구글 AI 스튜디오 · 우리 학과 앱</b><p>구글이 만든 게임 템플릿을 내 과목 게임으로 바꾸고, 학과별 "우와" 사례를 봅니다.</p></div>
+    <div><span>5</span><b>백엔드·배포</b><p>파이어베이스로 답을 모으고, 넷리파이·깃허브·버셀로 주소를 받는 심화 과정이에요.</p></div>
+  </div>
+  <div class="callout blue"><b class="t">패들렛에 올리는 법</b>
+    <ul><li><a href="https://padlet.com/doramge1984/_-s024yaofjn4v6mzfwnz4" target="_blank" rel="noopener"><b>오늘의 패들렛 열기 ↗</b></a></li></ul></div>
+  <div class="padwrap">
+    <p style="margin:0 0 10px"><a class="padbtn" href="https://padlet.com/doramge1984/_-s024yaofjn4v6mzfwnz4" target="_blank" rel="noopener">📌 패들렛 새 창으로 열기 ↗</a></p>
+    <div class="padframe"><iframe src="https://padlet.com/embed/s024yaofjn4v6mzfwnz4" title="대진대 오후반 패들렛" allow="camera;microphone;geolocation;clipboard-write" loading="lazy"></iframe></div>
+    <p class="tip">패들렛이 여기서 보이지 않거나 올리기가 불편하면 위의 <b>새 창으로 열기</b>를 눌러 주세요.</p>
+  </div>
+  <div class="step"><div class="no">✓</div><div>
+    <h4>시작 전 준비</h4>
+    <ol><li>크롬에서 <b>개인 Gmail</b>로 로그인 (학교 계정은 AI 스튜디오가 막혀 있을 수 있어요)</li>
+    <li><a href="https://www.canva.com" target="_blank" rel="noopener">canva.com</a>에 로그인 (구글 계정으로 로그인하면 편해요)</li>
+    <li>크롬 <b>자동 번역은 끄기</b> (부탁문과 화면 글자가 엉킬 수 있어요)</li></ol>
+  </div></div>
+</section>
+
+<!-- 1단계: 캔바 코드 -->
+<section id="canva">
+  <h2 class="sec">1단계 · 캔바 AI로 '작동하는 도구' 만들기 — 캔바 코드</h2>
+  <p class="lead"><b>캔바 코드(Canva Code)</b>는 캔바에 한국어로 설명만 하면 계산기·체크리스트·안내 위젯처럼 <b>실제로 작동하는 도구</b>를 만들어 줘요. 코딩 지식이 전혀 없어도 되고, <b>무료 계정</b>도 쓸 수 있어요. 만든 결과는 캔바 안에서 쓰거나 발표·화이트보드에 넣어 쓸 수 있어요. (파일로 내보내기는 안 돼요.)</p>
+    <div class="step"><div class="no">0-1</div><div>
+    <h4>캔바 가입하기 (처음이라면 먼저!)</h4>
+    <ol><li><a href="https://www.canva.com/" target="_blank" rel="noopener">www.canva.com</a> 접속 → 오른쪽 위 <b>가입</b></li>
+    <li><b>Google로 계속하기</b>를 누르고 <b>개인 Gmail</b>을 고릅니다 (오늘 AI 스튜디오·제미나이와 같은 계정이면 편해요)</li>
+    <li>무엇에 쓸지 묻는 화면이 나오면 아무거나 골라도 돼요. 유료(Pro) 체험 안내가 나오면 <b>건너뛰기</b> 또는 창을 닫습니다</li>
+    <li>캔바 홈 화면이 보이면 준비 끝! <b>무료 계정</b>으로 오늘 실습을 모두 할 수 있어요</li></ol>
+    <p class="tip">이미 캔바 계정이 있으면 <b>로그인</b>만 하세요. 학교 메일 계정은 기관 설정 때문에 일부 기능이 막혀 있을 수 있어요.</p>
+  </div></div>
+  <div class="step"><div class="no">0-2</div><div>
+    <h4>캔바 초대 링크로 참여하기 (가입 다음에 꼭!)</h4>
+    <p class="mylink"><a class="dl" href="https://www.canva.com/brand/join?token=FndXt3CvV6TNLHwHyFLjTA&amp;brandingVariant=edu&amp;invitationDestinationType=group" target="_blank" rel="noopener">✉️ 오늘의 캔바 초대 링크 열기 ↗</a></p>
+    <ol><li>캔바에 <b>로그인한 상태</b>에서 위 초대 링크를 엽니다</li>
+    <li>참여 안내 화면이 나오면 <b>참여(가입)</b> 단추를 누릅니다</li>
+    <li>캔바 홈 왼쪽 위 계정 이름 아래에 <b>초대받은 팀</b>이 보이면 완료!</li></ol>
+    <p class="tip"><b>캔바 먼저 가입 → 그다음 초대 링크</b> 순서예요. 가입하기 전에 링크를 누르면 참여가 안 될 수 있어요. 참여가 안 보이면 왼쪽 위 계정 이름을 눌러 팀을 바꿔 보세요.</p>
+  </div></div>
+  <div class="step"><div class="no">1</div><div>
+    <h4>Code 켜기</h4>
+    <p class="mylink"><a class="dl" href="https://www.canva.com/ko_kr/" target="_blank" rel="noopener">🧩 캔바 열기 → Code 시작하기 ↗</a></p>
+    <ol><li>캔바 홈에서 <b>[Code]</b> 선택 (또는 디자인 안에서 <b>Canva AI → Code</b>)</li>
+    <li>아래 부탁문을 복사해 붙여 넣기</li>
+    <li>결과가 마음에 안 들면 채팅으로 계속 다듬기 ("숫자 더 크게", "색을 남색으로")</li></ol>
+    <div class="shots"><figure><img src="img/cc-screen.jpg" alt="캔바 코드 화면 구성" loading="lazy"><figcaption>캔바 코드 화면: ① 내가 보낸 부탁문 ② 고칠 때마다 쌓이는 버전(이전 버전으로 돌아갈 수 있어요) ③ 여기에 이어서 말로 다듬기 ④ 완성된 앱을 바로 눌러 보기</figcaption></figure></div>
+    <p class="tip">💡 캔바가 <b>"수집된 데이터는 연결된 시트에 저장된다"</b>고 알려 줘요. 캔바 코드로 만든 앱은 입력한 내용을 캔바 <b>데이터 패널(시트)</b>에 모을 수 있어요. 그래서 개인정보는 넣지 않도록 안내해 주세요.</p>
+  </div></div>
+  <div class="step"><div class="no">2</div><div>
+    <h4>먼저 재미있는 것부터! · 커피 주문 정리 &amp; 커피 셔틀 룰렛</h4>
+    <p>첫 실습은 무조건 <b>"와, 이게 진짜 되네?"</b> 하는 게 좋아요. 이름과 메뉴를 입력하면 주문할 메뉴 개수를 자동으로 정리해 주고, 돌림판으로 오늘 커피 사러 갈 사람까지 뽑아 줘요.</p>
+    <div class="prompt"><div class="label">부탁문 · 커피 셔틀 룰렛</div><button class="copy">복사</button><pre>이름과 메뉴를 입력하면 목록에 저장되고, 돌림판(룰렛)을 돌려서 오늘 커피 사러 갈 사람을 랜덤으로 뽑아주는 웹앱을 만들어줘. 당첨되면 전체 주문 목록도 정리해서 보여주고, 스마트폰에서도 잘 보이게 해줘.</pre></div>
+    <p class="mylink"><a class="dl" href="https://yimid.my.canva.site/dahzyalxuc0" target="_blank" rel="noopener">✅ 강사 완성본 · 커피 주문 정리 &amp; 셔틀 룰렛 ↗</a></p>
+    <div class="shots"><figure><img src="img/cc-coffee.jpg" alt="커피 셔틀 룰렛 완성 화면" loading="lazy"><figcaption>캔바 코드로 만든 완성 화면</figcaption></figure><figure><img src="img/cc-qr2.png" alt="커피 룰렛 QR" loading="lazy"><figcaption>📱 휴대폰으로 바로 열기</figcaption></figure></div>
+  </div></div>
+  <div class="step"><div class="no">3</div><div>
+    <h4>대화하며 완성해 가기 (이게 바이브코딩!)</h4>
+    <p>처음 결과가 나오면, 그걸 보고 <span class="say">"이런 기능 추가해 줘 / 이건 빼 줘"</span>라고 이어서 말하면 원하는 대로 다듬어져요. 아래는 실제로 이렇게 완성해 간 순서예요.</p>
+    <div class="prompt"><div class="label">① 새 접수용 초기화 버튼 추가</div><button class="copy">복사</button><pre>데이터 시트 어디와 연결이 되는 거야? 그리고 이 커피 접수가 한 건이 끝나고 다음 건을 처리할 때는 데이터를 비우고 새로 시작해야 할 것 같은데, 새 접수용 초기화 버튼 만들어줘.</pre></div>
+    <div class="shots"><figure><img src="img/cc-v2.jpg" alt="초기화 버튼을 추가한 버전 2" loading="lazy"><figcaption>①을 보낸 결과 <b>버전 2</b>: 캔바가 "데이터는 앱에 연결된 <b>Canva Sheet</b>에 저장되고, 편집기의 <b>데이터 패널</b>에서 확인할 수 있다"고 답하고, 주문 목록에 <b>새 접수 시작</b> 버튼을 만들었어요. 앱 위의 <b>데이터</b> 메뉴에서 모인 주문을 볼 수 있어요</figcaption></figure></div><div class="prompt"><div class="label">② 메뉴별 개수로 정리하고, 메뉴를 누르면 신청자 이름 보기</div><button class="copy">복사</button><pre>룰렛 돌리는 것과 상관없이 전체 주문은 항상 정리되게 해주고, 같은 메뉴는 개수로 볼 수 있게 아래에 정리해줘. 그래야 주문할 때 편하니까.
+
+전체 주문 정리에서 아이스 아메리카노처럼 각 메뉴를 누르면, 그 메뉴를 신청한 사람들의 이름이 나오게 해줘.</pre></div>
+    <div class="shots"><figure><img src="img/cc-v3.jpg" alt="메뉴별 정리를 더한 버전 3" loading="lazy"><figcaption>②를 보낸 결과 <b>버전 3</b>: 룰렛과 상관없이 주문이 항상 메뉴별로 정리되고, 같은 메뉴는 잔 수로 묶이고, 메뉴를 누르면 신청한 사람 이름이 펼쳐져요. 기존 기능(주문 입력·룰렛·초기화)은 그대로예요 (이름은 가렸어요)</figcaption></figure></div>
+    <p class="tip">②처럼 부탁 두 개를 <b>한 번에</b> 보내도 돼요. 다만 한꺼번에 많이 시키면 하나가 빠질 수 있으니, 결과를 보고 빠진 것만 다시 부탁하세요.</p>
+    <div class="shots"><figure><img src="img/cc-v4.jpg" alt="메뉴 칩을 더한 버전 4" loading="lazy"><figcaption>처음엔 메뉴를 정하지 않고 <span class="say">"자주 주문하는 메뉴는 칩으로 고르게 해 줘"</span>라고만 했더니 <b>버전 4</b>: 칩은 생겼지만 캔바가 <b>세 개만</b> 골라 넣었어요 (이름은 가렸어요)</figcaption></figure></div>
+    <div class="prompt"><div class="label">③ 자주 주문하는 메뉴는 칩으로 · 예시 메뉴까지 적어 주기</div><button class="copy">복사</button><pre>자주 주문하는 메뉴는 버튼(칩)으로 눌러서 고르게 해 줘.
+칩 메뉴: 아이스 아메리카노, 따뜻한 아메리카노, 카페라떼, 바닐라라떼, 콜드브루, 녹차라떼, 아이스티, 안 마셔요
+칩을 누르면 그 메뉴 이름이 아래 입력칸에 바로 채워지게 해 줘.
+칩에 없는 메뉴는 입력칸에 직접 쓰거나, 채워진 이름을 고쳐 쓸 수 있게 해 줘.
+주문 저장하기를 누르면 입력칸에 적힌 메뉴로 저장해 줘.</pre></div>
+    <div class="shots"><figure><img src="img/cc-v7.jpg" alt="메뉴 칩 8개가 나온 버전 7" loading="lazy"><figcaption>다듬은 부탁을 보낸 결과 <b>버전 7</b>: 적어 준 메뉴 <b>8개</b>가 그대로 칩으로 나왔고, 칩을 누르면 아래 입력칸에 메뉴 이름이 채워져요 (이름은 가렸어요)</figcaption></figure></div>
+    <p class="tip">💡 <b>원하는 게 있으면 예시와 동작을 적어 주세요.</b> "메뉴를 칩으로"만 말하면 AI가 메뉴를 알아서 고르고, 칩을 눌렀을 때 어떻게 될지도 제멋대로 정해요. 강사도 처음엔 칩을 눌러도 입력칸이 채워지지 않아서 다시 부탁했어요. <b>메뉴 목록</b>과 <b>"누르면 입력칸에 채워지게"</b>를 함께 적으면 한 번에 원하는 대로 나와요.</p>
+  </div></div>
+  <div class="step"><div class="no">4</div><div>
+    <h4>이런 것도 같은 방식으로 · 수업에 바로 쓰는 쉬운 도구</h4>
+    <p class="tip">부탁문 한두 줄이면 2~3분 만에 나와요. 오늘 몸풀기로 하나 골라 보세요.</p>
+    <details class="ex case hot"><summary><b>👥 랜덤 조 뽑기</b> <small>학생 입력 · 교수 모드 · 캔바 시트까지 완성해 본 예시</small></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 👥 랜덤 조 뽑기</div><button class="copy">복사</button><pre>이름들을 입력하면 원하는 인원수의 조로 랜덤하게 나눠주는 팀·조 뽑기 웹앱을 만들어줘. 결과는 큰 글씨 카드로, 다시 섞기 버튼도 넣어줘.</pre></div><p class="tip">⚠️ <b>강사가 해 보니</b> 위 부탁만 하면 <b>교수 혼자 이름을 입력하는</b> 도구가 돼요. 학생이 각자 휴대폰으로 이름을 넣게 하려면 아래처럼 한 번 더 부탁하세요.</p><div class="prompt"><div class="label">이어서 다듬기 · 학생이 이름·학과를 직접 입력하고, 교수만 조 나누기</div><button class="copy">복사</button><pre>학생들이 자기 이름과 학과를 입력할 수 있게 해줘.
+그렇게 입력하고 나면 교수인 나만 조 나누기를 누를 수 있게 해줘. 교수 비밀번호는 [숫자 4자리]로 되게 해주고,
+조를 나눌 때는 한 조에 같은 학과 학생이 몰리지 않게 골고루 섞어 줘.
+조 편성 결과는 조별로 이름과 학과를 함께 보여 주고, PDF로 저장하거나 캔바 시트에 저장되도록 해줘.</pre></div>
+    <div class="shots"><figure><img src="img/cc-team.jpg" alt="학생이 이름과 학과를 등록하는 조 뽑기 화면" loading="lazy"><figcaption>학생이 이름·학과를 등록하는 화면. 왼쪽 아래처럼 계속 말로 부탁하며 기능을 더해 가요 (이름은 가렸어요)</figcaption></figure></div>
+    <div class="prompt"><div class="label">이어서 다듬기 · 교수 모드와 과목별 데이터</div><button class="copy">복사</button><pre>교수인 내가 교수 모드로 들어가면 잘못 등록한 학생 이름을 지우거나, 데이터를 초기화하거나, 저장할 수 있게 해줘.
+내가 맡은 과목이 많아서, 과목이 바뀔 때마다 이전 과목 데이터는 저장해 두고 새 과목명을 적으면 새롭게 데이터가 작성되게 해줘.</pre></div>
+    <div class="shots"><figure><img src="img/cc-team2.jpg" alt="교수 모드가 생긴 버전 6" loading="lazy"><figcaption><b>버전 6</b>: 아래에 <b>교수 모드</b>(비밀번호 입력 → 확인)가 생겼고, 교수 모드에서 잘못 등록한 학생 삭제, 과목별 데이터 저장·불러오기를 할 수 있어요. 조 나누기 단추 밑의 안내처럼 캔바가 <b>"교수 신원을 확인할 수 없어 조 편성 단추를 교수만 쓰도록 막을 수는 없다"</b>고 솔직하게 알려 주기도 해요 (이름과 비밀번호는 가렸어요)</figcaption></figure><figure><img src="img/cc-team3.jpg" alt="교수 모드를 연 화면" loading="lazy"><figcaption>교수 모드를 연 화면: <b>현재 과목명</b>을 적고 과목 변경 / 현재 과목 저장 / 저장 과목 불러오기 / 전체 데이터 초기화를 할 수 있어요</figcaption></figure><figure><img src="img/cc-team4.jpg" alt="조 편성 결과" loading="lazy"><figcaption><b>조 편성 결과</b>: 학생이 등록한 이름·학과로 조가 나뉘고, 한 조에 같은 학과가 몰리지 않게 섞였어요. 다시 섞기 / PDF로 저장 / 캔바 시트에 저장 단추도 생겼어요 (이름은 시험용 예시)</figcaption></figure></div>
+    <h5 class="samph">연결된 캔바 시트 찾는 법 · 학생 명단은 어디에 모일까?</h5>
+    <ol><li>캔바 편집 화면에서 앱을 한 번 누르면 위에 메뉴가 떠요. 여기서 <b>데이터</b>를 누릅니다</li>
+    <li>왼쪽에 <b>데이터</b> 창이 열리면 <b>연결된 데이터 시트 열기</b>를 누릅니다</li>
+    <li>학생들이 입력한 이름·학과가 <b>캔바 시트</b>에 줄줄이 모여 있어요</li></ol>
+    <div class="shots"><figure><img src="img/cc-data-btn.jpg" alt="앱 위 메뉴의 데이터 단추" loading="lazy"><figcaption>① 앱을 누르면 뜨는 메뉴에서 <b>데이터</b></figcaption></figure><figure><img src="img/cc-data-panel.jpg" alt="연결된 데이터 시트 열기" loading="lazy"><figcaption>② 왼쪽 데이터 창의 <b>연결된 데이터 시트 열기</b></figcaption></figure><figure><img src="img/cc-data-sheet.jpg" alt="연결된 캔바 시트" loading="lazy"><figcaption>③ 캔바 시트: 학생이 등록한 줄(student)에는 <b>과목·이름·학과·등록 시각</b>이, 조를 나눈 줄(team)에는 <b>조 번호와 조원</b>이 쌓여요. course 칸으로 과목별 명단이 나뉘어요 (이름 일부는 가렸어요)</figcaption></figure></div>
+    <p class="tip">💡 이런 <b>안내 문구</b>를 놓치지 마세요. AI가 "이건 안 돼요"라고 알려 주는 부분이 곧 이 도구의 한계예요. 꼭 막아야 한다면 <span class="say">"조 나누기 단추도 교수 모드 안으로 옮겨 줘"</span>처럼 한 번 더 부탁하세요.</p>
+    <p class="tip">💡 이렇게 <b>내 수업 상황</b>(과목이 여러 개, 잘못 등록하는 학생)을 말해 주면, 몸풀기용 조 뽑기가 <b>한 학기 내내 쓰는 내 수업 도구</b>로 자라요.</p><p class="tip">💡 [숫자 4자리]에는 교수님만 아는 번호를 넣으세요. 이 비밀번호는 <b>학생이 실수로 누르지 않게 막는 정도</b>예요. 성적처럼 중요한 정보를 지키는 잠금은 아니에요. 학생 이름이 캔바 시트에 모이니, 수업이 끝나면 <b>데이터를 비워</b> 주세요.</p></div></details><details class="ex case"><summary><b>🎤 발표 순서 뽑기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🎤 발표 순서 뽑기</div><button class="copy">복사</button><pre>이름을 입력하면 발표 순서를 랜덤으로 정해주는 웹앱을 만들어줘. 한 명씩 뽑히는 애니메이션으로 보여주고, 발표가 끝난 사람은 표시할 수 있게 해줘.</pre></div></div></details><details class="ex case"><summary><b>🗳️ 즉석 투표</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🗳️ 즉석 투표</div><button class="copy">복사</button><pre>항목을 입력하면 사람들이 눌러서 투표하고 막대그래프로 결과를 보여주는 즉석 투표 웹앱을 만들어줘.</pre></div></div></details><details class="ex case"><summary><b>⏰ 수업 활동 타이머</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · ⏰ 수업 활동 타이머</div><button class="copy">복사</button><pre>활동 이름과 시간을 입력하면 활동별로 카운트다운 해주는 수업 타이머 웹앱을 만들어줘. 숫자는 강의실 뒤에서도 보이게 아주 크게, 시간이 끝나면 알려줘.</pre></div></div></details>
+  </div></div>
+  <div class="step"><div class="no">5</div><div>
+    <h4>대학 실무에 바로 쓰는 바이브코딩 · 계산기와 살아 있는 안내물</h4>
+    <p class="tip">규칙이 들어가서 부탁문이 조금 길어요. <b>○○</b>에는 내 수업·학과 기준을 넣으세요.</p>
+    <details class="ex case"><summary><b>🧮 출석 점수 계산기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 출석 점수 계산기</div><button class="copy">복사</button><pre>결석·지각·조퇴 횟수를 입력하면 출석 점수를 계산해 주는 웹앱을 만들어줘.
+규칙: 만점 ○○점, 결석 1회당 ○점 감점, 지각 ○회 = 결석 1회, 결석 ○회 이상이면 경고 표시.
+규칙 숫자는 화면에서 바꿀 수 있게 하고, 결과 옆에 계산식도 보여줘. 학생 이름은 받지 마.</pre></div></div></details><details class="ex case"><summary><b>🧮 과제 배점 합산 계산기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 과제 배점 합산 계산기</div><button class="copy">복사</button><pre>과제 이름, 반영 비율(%), 받은 점수를 입력하면 최종 점수를 합산하고 항목별 비율을 막대로 보여주는 웹앱을 만들어줘.
+비율 합이 100%가 아니면 경고해 주고, 결과 옆에 계산식을 보여줘. 학생 이름은 받지 마.</pre></div></div></details><details class="ex case"><summary><b>🧮 상대평가 비율 확인</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 상대평가 비율 확인</div><button class="copy">복사</button><pre>수강 인원과 학점별 인원(A+, A, B+, B …)을 입력하면 비율을 계산해서, 기준(A학점 ○○% 이내, A+B학점 ○○% 이내)을 넘는지 색으로 알려주는 웹앱을 만들어줘.
+기준 비율은 화면에서 바꿀 수 있게 해줘.</pre></div></div></details><details class="ex case"><summary><b>🧮 조별 점수 분배</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 조별 점수 분배</div><button class="copy">복사</button><pre>조 점수와 조원별 기여도(동료평가 1~5점)를 입력하면 조원별 점수를 나눠주는 웹앱을 만들어줘.
+분배 방식(모두 같게 / 기여도에 비례)을 고를 수 있게 하고, 계산식을 보여줘. 이름 대신 1번, 2번 …으로.</pre></div></div></details><details class="ex case"><summary><b>🖐️ 학과 FAQ 안내판</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 학과 FAQ 안내판</div><button class="copy">복사</button><pre>질문과 답을 넣으면 검색창과, 누르면 펼쳐지는 목록으로 보여주는 학과 FAQ 안내 웹앱을 만들어줘.
+질문 예시: 수강신청 기간, 휴학 방법, 졸업 요건, 장학금 문의처, 학과 사무실 위치 (답은 ○○로 비워 둬).
+휴대폰에서도 잘 보이게.</pre></div></div></details><details class="ex case"><summary><b>🖐️ 신입생 체크리스트</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 신입생 체크리스트</div><button class="copy">복사</button><pre>신입생이 해야 할 일을 체크하면 진행률 바가 차오르는 체크리스트 웹앱을 만들어줘.
+항목 예: 학생증 발급, 수강신청, 학과 오리엔테이션, 지도교수 면담, 동아리 둘러보기. 다 체크하면 축하 화면을 보여줘.</pre></div></div></details><details class="ex case"><summary><b>🖐️ 행사·과제 마감 D-day</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 행사·과제 마감 D-day</div><button class="copy">복사</button><pre>시작일과 마감일(또는 행사일)을 입력하면 마감까지 며칠 남았는지 D-day로 크게 보여주고, 진행률 바도 함께 보여주는 안내 카운터 웹앱을 만들어줘. 공지용으로 남색+금색 톤으로 깔끔하게.</pre></div></div></details>
+  </div></div>
+  <details class="ex case"><summary><b>강사가 해 보니 · 같은 부탁문, 도구마다 다른 결과</b> <small>제미나이·캔바·클로드 비교</small></summary><div class="body">
+    <p class="use"><b>이렇게 비교했어요</b> 교육행정직 연수에서 똑같은 시간외수당 계산기 부탁문을 제미나이·캔바·클로드에 그대로 넣어 봤어요. 부탁문이 같아도 결과는 모두 달랐고, 그때는 클로드 결과가 계산 정확도와 디자인 모두 가장 완성도가 높았어요.</p>
+    <p class="mylink"><a class="dl" href="https://doramge1984.github.io/moneycheck/" target="_blank" rel="noopener">🟣 클로드 결과 보기 ↗</a> <a class="dl" href="https://share.gemini.google/v4VqxLrdQMwb" target="_blank" rel="noopener">🔵 제미나이 결과 ↗</a> <a class="dl" href="https://yimid.my.canva.site/2026" target="_blank" rel="noopener">🎨 캔바 결과 ↗</a></p>
+    <div class="shots"><figure><img src="img/cc-calc.jpg" alt="클로드로 만든 계산기 화면" loading="lazy"><figcaption>클로드로 만든 계산기</figcaption></figure></div>
+    <h5 class="samph">왜 결과가 다를까? · 4가지</h5>
+    <ol><li><b>뒤의 AI가 서로 달라요.</b> 캔바는 웹앱 특화, 제미나이는 범용, 클로드는 긴 지시를 꼼꼼히</li>
+    <li><b>매번 다르게 나와요.</b> 생성형 AI라 같은 부탁문도 결과가 달라져요</li>
+    <li><b>해석과 기본 템플릿이 달라요.</b> 부탁문을 이해하는 방식과 출발 템플릿이 도구마다 달라요</li>
+    <li><b>시작점이 달라요.</b> 디자인 기반이냐, 코드·텍스트 기반이냐</li></ol>
+    <p class="tip">👉 그래서 한 번에 완벽을 기대하지 말고, <b>여러 번 시켜 보고 가장 나은 걸 고르고 다듬는 것</b>이 정상이자 실력이에요.</p>
+  </div></details>
+  <div class="callout red"><b class="t">⚠️ 주의</b> 실제 <b>성적·학생 개인정보·규정 수치</b>는 넣지 말고 <b>○○</b>로 두세요. 학칙·배점 기준은 <b>반드시 확인</b>한 뒤 값을 채워야 해요. 캔바 코드는 계산 "틀"을 빠르게 만들어 줄 뿐, 규정 자체를 보장하진 않아요.</div>
+  <div class="step"><div class="no">✓</div><div>
+    <h4>웹사이트로 게시하고 패들렛에 올리기</h4>
+    <ol><li>오른쪽 위 <b>웹사이트 게시</b>를 누릅니다 (한 번 게시한 뒤 고쳤다면 <b>변경 사항 게시</b>)</li>
+    <li>"웹사이트를 게시했어요"가 뜨면 <b>웹사이트 URL</b>(○○.my.canva.site/…)을 복사합니다</li>
+    <li>패들렛 <b>캔바코드_쉽게몸풀기</b> 칸에 "학과 · 앱 이름"으로 올립니다</li></ol>
+    <div class="shots"><figure><img src="img/cc-publish.jpg" alt="웹사이트 게시 화면" loading="lazy"><figcaption>오른쪽 위 <b>변경 사항 게시</b> → <b>웹사이트 URL</b> 복사. 고친 뒤에는 다시 <b>변경 사항 게시</b>를 눌러야 주소에 반영돼요 (이름은 가렸어요)</figcaption></figure></div>
+    <div class="callout red"><b class="t">⚠️ 게시 전에 꼭 확인</b> 캔바가 <b>"이 사이트를 여는 모든 사용자가 수집된 데이터에 접근할 수 있어요"</b>라고 알려 줘요. 주소를 받은 사람은 입력된 내용(이름·주문 등)을 볼 수 있으니, <b>개인정보나 성적은 절대 넣지 마세요.</b></div>
+  </div></div>
+  <details class="ex case" id="warmup"><summary><b>더 해 보기 · 로또·취미 앱 부탁문</b> <span class="lvs lv1">★ 쉬움</span> <small>골프·공연·산행·와인 · AI 스튜디오로 만들어 본 예시</small></summary><div class="body">
+    <p class="use"><b>이렇게 해요</b> 수업 앱에 들어가기 전에, 생활 속 작은 앱을 한두 줄 부탁으로 만들어 봅니다. "말로 부탁하면 앱이 된다"를 먼저 몸으로 느끼는 시간이에요.</p>
+    <ol><li>강사가 <b>오늘의 커피 주문 &amp; 셔틀 룰렛</b>을 보여 주고, 아래 <b>취미 앱 메뉴판</b>(골프·공연·산행·와인) 중 하나를 시연합니다.</li>
+    <li>교수님은 <b>로또 번호 생성기</b>나 <b>내 취미 앱</b> 하나를 골라 따라 만들어 봅니다.</li>
+    <li>만들기: 캔바 <b>Canva AI → 코드</b> 입력칸에 부탁문 붙여 넣기 → 보내기</li></ol>
+    <div class="prompt"><div class="label">따라 만들기 · 로또 번호 생성기</div><button class="copy">복사</button><pre>로또 번호 생성기 웹앱을 만들어 줘. 버튼을 누르면 1~45 중 겹치지 않는 숫자 6개가 공이 굴러가듯 하나씩 나오고, 번호 색은 실제 로또처럼 구간별로 다르게. 기능은 이것만, 한 화면으로 간단하게. 모든 글자는 한국어로.</pre></div>
+    <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/bded085e-d07c-4830-b3e3-05e93a35cb13" target="_blank" rel="noopener">강사 완성본 열기 (AI 스튜디오로 만든 것) ↗</a></p>
+    <div class="shots"><figure><img src="img/warm-lotto.jpg" alt="로또 번호 생성기 완성 화면" loading="lazy"><figcaption>완성 화면: 짧게 부탁했는데 AI가 5게임 발권표·번호 분석·보관함까지 알아서 붙였어요</figcaption></figure></div>
+    <div class="callout gold"><b class="t">강사가 직접 해 보니</b> 한 줄 부탁인데도 <b>약 18분</b> 걸렸고, 미리보기가 안 떠서 <span class="say">"미리보기가 안 떠. 다시 빌드해 줘."</span>를 한 번 더 보내 <b>6분</b>을 더 기다렸어요. 짧게 부탁하면 AI가 기능을 잔뜩 덧붙여 오래 걸려요. 그래서 위 부탁문 끝에 <b>"기능은 이것만, 한 화면으로 간단하게"</b>를 넣었어요. 연수 당일엔 강사가 연수 시작 전에 미리 보내 두는 걸 권해요.</div>
+    <div class="prompt"><div class="label">강사 시연 · 오늘의 커피 주문 &amp; 셔틀 룰렛</div><button class="copy">복사</button><pre>「오늘의 커피 주문 &amp; 셔틀 룰렛」 웹앱을 만들어 줘. 모임에서 휴대폰으로 커피를 주문받고, 주문한 사람 중 한 명을 커피 셔틀로 뽑는 앱이야.
+
+[① 주문하기 화면]
+- 별명 입력 (실명 대신 별명)
+- 메뉴: 아메리카노 / 카페라떼 / 바닐라라떼 / 녹차라떼 / 아이스티 / 안 마셔요 — 이모지가 있는 큰 카드 버튼
+- 온도: HOT / ICE 버튼
+- 요청 사항 (선택, 짧게)
+- [주문하기]를 누르면 별명, 메뉴, 온도, 요청 사항, 주문 시각을 저장하고 "주문 완료! ☕"
+- 별명이나 메뉴를 안 고르면 무엇이 비었는지 알려 줘
+
+[② 주문 현황 · 룰렛 화면]
+- 쌓인 모든 주문으로: 총 잔 수, HOT·ICE 개수, 메뉴별 잔 수 막대
+- 주문한 사람 목록 (별명 · 메뉴 · 온도 · 요청 사항)
+- 주문한 사람들의 별명으로 만든 돌림판. [룰렛 돌리기]를 누르면 3초 돌다가 멈추고 "오늘의 커피 셔틀은 ○○님! 🎉"과 축하 효과
+
+[지킬 것]
+- 위쪽에 ①, ② 탭 두 개
+- 따뜻한 커피색, 큰 글씨와 버튼, 휴대폰에서 잘 보이게, 한국어</pre></div>
+    <p class="mylink"><a class="dl" href="demo/coffee-shuttle.html" target="_blank" rel="noopener">강사 완성본 열기 (AI 스튜디오로 만든 것) ↗</a></p>
+    <p class="tip">완성본은 미리 보기용이라 주문이 <b>내 화면 안에서만</b> 쌓여요. 여러 사람의 주문이 한곳에 모이게 하려면 저장소(데이터베이스)가 필요해요. 이건 5단계 백엔드·배포(Firebase)에서 다뤄요.</p>
+    <h5 class="samph">취미 앱 메뉴판 · 강사가 직접 만들어 본 시간 (AI 스튜디오 기준)</h5>
+    <div class="tblwrap"><table><tr><th>취미 앱</th><th>AI가 만드는 데 걸린 시간</th></tr><tr><td>⛳ 골프 스코어 기록</td><td><b>약 3분</b></td></tr><tr><td>🎭 내 공연 관람 노트</td><td><b>약 3분</b></td></tr><tr><td>⛰️ 산행 기록장</td><td><b>약 2분 30초</b></td></tr><tr><td>🍷 와인 테이스팅 노트</td><td><b>약 3분 30초</b></td></tr><tr><td>(참고) 로또 생성기, "간단하게" 없이</td><td>약 18분 + 다시 빌드 6분</td></tr></table></div>
+    <p class="tip">네 개를 <b>동시에</b> 보냈는데도 모두 2분 30초~3분 30초 만에 끝났어요. 차이를 만든 건 부탁문 끝의 <b>"기능은 이것만, 한 화면으로 간단하게"</b> 한 줄이에요. 연세 있는 분들을 위해 <b>"글씨와 버튼은 크게"</b>도 넣었어요. 앞에 적힌 시간은 AI가 만드는 시간이고, 미리보기가 뜨기까지 몇십 초가 더 걸릴 수 있어요.</p>
+    <details class="ex case"><summary><b>⛳ 골프 스코어 기록</b> <span class="needs">약 3분</span></summary><div class="body">
+      <div class="prompt"><div class="label">부탁문 · 골프 스코어 기록</div><button class="copy">복사</button><pre>골프 스코어 기록 웹앱을 만들어 줘. 18홀마다 타수를 입력하면 파 대비 버디·보기가 색으로 표시되고, 마지막에 총타수와 평균을 보여 줘. 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.</pre></div>
+      <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/8d76cc0e-227b-4bf0-b2a9-20528556ff03" target="_blank" rel="noopener">강사 완성본 열기 (AI 스튜디오로 만든 것) ↗</a></p>
+      <div class="shots"><figure><img src="img/h-golf-1prompt.jpg" alt="⛳ 골프 스코어 기록 부탁문 입력" loading="lazy"><figcaption>만드는 과정: 첫 화면 가운데 칸에 붙여 넣고 보내기</figcaption></figure><figure><img src="img/h-golf-2res.jpg" alt="⛳ 골프 스코어 기록 완성 화면" loading="lazy"><figcaption>완성 화면</figcaption></figure></div>
+    </div></details>
+    <details class="ex case"><summary><b>🎭 내 공연 관람 노트</b> <span class="needs">약 3분</span></summary><div class="body">
+      <div class="prompt"><div class="label">부탁문 · 내 공연 관람 노트</div><button class="copy">복사</button><pre>내 공연 관람 노트 웹앱을 만들어 줘. 뮤지컬·클래식·연극 중 고르고, 공연명, 날짜, 장소, 별점(5개), 한 줄 감상을 적으면 티켓 모양 카드로 차곡차곡 쌓이고, 위에 올해 본 공연 수를 보여 줘. 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.</pre></div>
+      <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/11745302-0be9-4399-8f3c-29eda641fc7d" target="_blank" rel="noopener">강사 완성본 열기 (AI 스튜디오로 만든 것) ↗</a></p>
+      <div class="shots"><figure><img src="img/h-show-1prompt.jpg" alt="🎭 내 공연 관람 노트 부탁문 입력" loading="lazy"><figcaption>만드는 과정: 첫 화면 가운데 칸에 붙여 넣고 보내기</figcaption></figure><figure><img src="img/h-show-2res.jpg" alt="🎭 내 공연 관람 노트 완성 화면" loading="lazy"><figcaption>완성 화면</figcaption></figure></div>
+    </div></details>
+    <details class="ex case"><summary><b>⛰️ 산행 기록장</b> <span class="needs">약 2분 30초</span></summary><div class="body">
+      <div class="prompt"><div class="label">부탁문 · 산행 기록장</div><button class="copy">복사</button><pre>산행 기록장 웹앱을 만들어 줘. 산 이름, 날짜, 함께 간 사람, 걸린 시간, 날씨(맑음·흐림·비·눈 버튼)를 적으면 목록으로 쌓이고, 위에 올해 오른 산 개수와 총 산행 시간을 보여 줘. 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.</pre></div>
+      <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/64d22e1e-11bf-4a21-9260-3475cb4fcbfd" target="_blank" rel="noopener">강사 완성본 열기 (AI 스튜디오로 만든 것) ↗</a></p>
+      <div class="shots"><figure><img src="img/h-hike-1prompt.jpg" alt="⛰️ 산행 기록장 부탁문 입력" loading="lazy"><figcaption>만드는 과정: 첫 화면 가운데 칸에 붙여 넣고 보내기</figcaption></figure><figure><img src="img/h-hike-2res.jpg" alt="⛰️ 산행 기록장 완성 화면" loading="lazy"><figcaption>완성 화면</figcaption></figure></div>
+    </div></details>
+    <details class="ex case"><summary><b>🍷 와인 테이스팅 노트</b> <span class="needs">약 3분 30초</span></summary><div class="body">
+      <div class="prompt"><div class="label">부탁문 · 와인 테이스팅 노트</div><button class="copy">복사</button><pre>와인 테이스팅 노트 웹앱을 만들어 줘. 와인 이름, 나라, 품종, 가격, 단맛·산미·바디를 1~5 막대로 고르고 한 줄 메모를 적으면 카드로 쌓이고, 별점 높은 순으로 정렬해 줘. 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.</pre></div>
+      <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/00b0feb5-e0ca-4457-a034-fdab97e94c67" target="_blank" rel="noopener">강사 완성본 열기 (AI 스튜디오로 만든 것) ↗</a></p>
+      <div class="shots"><figure><img src="img/h-wine-1prompt.jpg" alt="🍷 와인 테이스팅 노트 부탁문 입력" loading="lazy"><figcaption>만드는 과정: 첫 화면 가운데 칸에 붙여 넣고 보내기</figcaption></figure><figure><img src="img/h-wine-2res.jpg" alt="🍷 와인 테이스팅 노트 완성 화면" loading="lazy"><figcaption>완성 화면</figcaption></figure></div>
+    </div></details>
+    <p class="tip">이 짧은 부탁문과, 다음 단계의 긴 수업용 부탁문을 비교해 보세요. <b>구체적으로 쓸수록 내 수업에 꼭 맞게</b> 나옵니다.</p>
+  </div></details>
+</section>
+
+
+<!-- 2단계: 제미나이 캔버스 · 학생 과제 -->
+<section id="canvas">
+  <h2 class="sec">2단계 · 제미나이 캔버스로 학생 과제 내기</h2>
+  <p class="lead">제미나이 캔버스는 <b>제미나이 채팅창에서 바로</b> 웹 도구를 만드는 기능이에요. 설치도, 따로 가입할 것도 없어서 <b>학생 과제로 내기 가장 쉬운 바이브코딩 도구</b>입니다. 이 탭은 "학생에게 이렇게 시키면 된다"를 그대로 가져가시도록 만들었어요. 학생에게 줄 부탁문, 학과별 과제 예시, 평가 기준까지 들어 있습니다.</p>
+
+  <div class="trio">
+    <div><span>1</span><b>몸풀기</b><p><span class="say">"우리 과목 핵심 용어 10개로 낱말 맞히기 게임 만들어 줘"</span> 한 줄로 첫 작품. 디자인 바꾸기, 힌트 넣기로 두 번 고쳐 봅니다.</p></div>
+    <div><span>2</span><b>주제 추천받기</b><p>학생이 자기 전공과 수업 주제를 넣고 "어떤 웹 도구를 만들면 좋을까?"를 묻습니다.</p></div>
+    <div><span>3</span><b>만들고 세 번 고치기</b><p>고른 주제로 만들고, 말로 세 번 고칩니다. 고친 과정이 곧 배움이에요.</p></div>
+    <div><span>4</span><b>공유 링크 + 성찰</b><p>공유 링크를 패들렛에 올리고, 성찰 세 문항을 씁니다.</p></div>
+  </div>
+
+  <h3 class="caseh">👀 먼저 보기 · 학생들은 이런 걸 만들어요</h3>
+  <div id="cvShowcase">
+    <details class="ex case" open><summary><b>예시 1 · 조소과 「3D 조형 및 음영 시뮬레이터」</b> <span class="needs">제미나이 캔버스</span> <small>조소·미술 · 조형론</small></summary><div class="body">
+      <p class="use"><b>이렇게 써요</b> 원형(구체·토러스·매듭체 등)을 고르고 <b>부풀리기·밀어넣기·다듬기·평평하게</b> 브러시로 직접 조각해요. 재질(점토·석고·대리석·청동)과 표면 거칠기를 바꾸고, 조명을 돌리면 <b>빛의 방향에 따라 음영과 그림자가 어떻게 달라지는지</b> 바로 보여요.</p>
+      <div class="shots"><figure><img src="img/cv-ex1-sculpt.jpg" alt="제미나이 캔버스로 만든 3D 조형 및 음영 시뮬레이터 화면" loading="lazy"><figcaption>매듭체를 점토 재질로 조각하고, 빛 자동 회전으로 그림자 변화를 보는 화면</figcaption></figure></div>
+      <p><a class="dl" href="https://gemini.google.com/share/bba2bb8ec870" target="_blank" rel="noopener">완성본 열어 보기 (제미나이 공유 링크) ↗</a></p>
+      <p class="tip">수업 포인트: 학생이 "같은 형태라도 <b>빛의 위치와 재질</b>에 따라 덩어리감이 달라진다"를 직접 조작하며 확인해요. 보고서 ④에는 AI가 만든 재질 설명 중 수업 내용과 다른 부분을 고친 기록을 쓰게 하세요.</p>
+    </div></details>
+    <details class="ex case"><summary><b>예시 2 · 교양 「딜레마 재판소 · 당신이 정의를 판단하세요」</b> <span class="needs">캔바 코드</span> <small>교양·철학 · 현대사회와 윤리</small></summary><div class="body">
+      <p class="use"><b>이렇게 써요</b> 트롤리 딜레마, 자율주행차의 선택, 안락사 청원, 내부고발자, AI 창작물의 저작권까지 <b>다섯 개의 사건 카드</b> 중 하나를 골라 학생이 <b>판사가 되어 판결</b>을 내려요. 고전 윤리학부터 AI 윤리·생명윤리·직업윤리·지적재산권까지 한 화면에서 이어져요.</p>
+      <div class="shots"><figure><img src="img/cv-ex2-dilemma.jpg" alt="캔바 코드로 만든 딜레마 재판소 첫 화면, 사건 카드 다섯 장" loading="lazy"><figcaption>흑백 아이콘으로 꾸민 사건 카드 다섯 장. 누르면 사건과 판결 화면이 열려요.</figcaption></figure></div>
+      <p><a class="dl" href="https://hanscolab.my.canva.site/bx0aa2gzttkxzhmd" target="_blank" rel="noopener">완성본 열어 보기 (캔바 사이트) ↗</a></p>
+      <p class="tip">수업 포인트: 같은 사건에 대해 <b>공리주의·의무론 등 입장별로 판결 근거</b>를 써 보게 하세요. 캔바 코드로 만들면 학생들의 판결을 <b>캔바 시트</b>로 모아 다음 시간 토론 자료로 쓸 수 있어요. (1단계 캔바 코드와 같은 도구예요)</p>
+    </div></details>
+    <details class="ex case"><summary><b>예시 3 · 생명과학과 「기질·효소 반응속도 시뮬레이터」</b> <span class="needs">제미나이 캔버스 → 구글 사이트</span> <small>생명과학 · 효소와 반응속도</small></summary><div class="body">
+      <p class="use"><b>이렇게 써요</b> <b>온도</b>와 <b>기질 농도</b> 슬라이더를 움직이면 3D 공간에서 효소(빨간 공)와 기질(노란 큐브)이 더 빠르게, 더 많이 움직이며 부딪혀요. 충돌해 생성물(초록)이 생길 때마다 아래 <b>반응속도 그래프</b>가 실시간으로 올라가고, 오른쪽에는 충돌 이론·효소-기질 복합체·온도의 영향을 정리한 <b>원리 가이드</b>가 붙어 있어요.</p>
+      <div class="shots"><figure><img src="img/cv-ex3-enzyme.jpg" alt="효소 시뮬레이터 화면: 온도와 기질 농도 슬라이더, 3D 입자, 반응속도 그래프, 원리 가이드" loading="lazy"><figcaption>온도 30℃, 기질 43개에서 반응이 시작되며 그래프가 올라가는 순간</figcaption></figure></div>
+      <p><a class="dl" href="https://sites.google.com/ggh.goe.go.kr/enzymesimulator/%ED%99%88" target="_blank" rel="noopener">완성본 열어 보기 (구글 사이트) ↗</a></p>
+      <p class="tip">수업 포인트: 교과서의 <b>반응속도 그래프를 학생이 직접 만들어 보는</b> 도구예요. "온도를 계속 올리면 반응속도가 계속 빨라질까?"를 물어 보세요. 실제 효소는 <b>최적 온도를 넘으면 변성</b>되어 느려지는데, AI가 만든 시뮬레이터가 이를 반영했는지 확인하고 고치는 과정이 보고서 ④의 좋은 소재가 돼요. 캔버스로 만든 웹앱을 <b>구글 사이트에 붙여</b> 학생들에게 나눠 줄 수도 있어요.</p>
+    </div></details>
+    <p class="tip">예시는 계속 추가돼요. 둘러본 뒤 아래 <b>공통 프롬프트</b>로 내 전공 웹앱을 직접 만들어 보세요.</p>
+  </div>
+
+  <div class="step"><div class="no">✓</div><div>
+    <h4>캔버스 켜는 법 (학생 안내용)</h4>
+    <ol><li><a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a>에 구글 계정으로 로그인</li>
+    <li>입력창 아래 <b>도구(Canvas)</b>를 눌러 <b>캔버스</b>를 켭니다</li>
+    <li>부탁문을 보내면 오른쪽에 <b>코드와 화면</b>이 나와요. 위쪽 <b>미리보기</b>로 바로 해 볼 수 있어요</li>
+    <li>다 만들면 오른쪽 위 <b>공유 → 링크 복사</b>. 이 링크를 과제로 제출합니다</li></ol>
+    <p class="tip">공유 링크를 열면 <b>완성 화면</b>을 바로 볼 수 있어요. 학생이 어떻게 부탁하고 고쳤는지는 제출할 때 <b>부탁문 기록</b>을 같이 내게 하세요. (아래 보고서 양식)</p>
+  </div></div>
+
+  <h3 class="caseh">⭐ 공통 프롬프트 · 교수님이 지금 직접 해 보세요</h3>
+  <div class="callout gold"><b>오늘 2단계에서 가장 중요한 실습이에요.</b> 교수님이 학생이 되어 ①→②→③ 순서로 직접 만들어 보시고, 수업에서는 이 프롬프트를 그대로 학생 과제로 주시면 됩니다.
+  <ol style="margin:8px 0 0 18px;padding:0"><li>아래에서 <b>내 학과</b>를 누르고 ① 프롬프트를 복사해 제미나이(캔버스 켜기)에 보내요</li>
+  <li>추천받은 주제 중 하나를 골라 ② 프롬프트의 <b>[2번 주제]</b>를 바꿔 보내요</li>
+  <li>③처럼 <b>세 번</b> 고쳐 보세요 (특히 3차: 틀린 내용 바로잡기)</li>
+  <li>완성되면 오른쪽 위 <b>공유 → 링크 복사</b></li>
+  <li><a href="https://padlet.com/doramge1984/_-s024yaofjn4v6mzfwnz4" target="_blank" rel="noopener"><b>오늘의 패들렛 ↗</b></a> <b>2단계 제미나이캔버스</b> 칸에 <b>학과 · 웹앱 이름 · 공유 링크</b>를 올려요</li></ol></div>
+  <p class="tip">[ ] 안만 바꿔 쓰면 됩니다. 수업에서는 그대로 복사해서 과제 안내문에 붙여도 돼요.</p>
+  <p class="tip" style="margin-bottom:4px">👇 <b>기본</b>은 [ ] 안을 내 과목으로 바꿔 쓰는 부탁문이에요. 학과를 누르면 [ ] 부분이 그 학과 예시로 채워져요.</p>
+  <div class="fltr" id="topicChips"></div>
+  <div class="prompt"><div class="label">공통 ① · 내 전공 주제 추천받기</div><button class="copy">복사</button><pre id="topicPrompt"></pre></div>
+  <div class="prompt"><div class="label">공통 ② · 주제를 정한 뒤 동적인 웹앱(HTML) 만들기</div><button class="copy">복사</button><pre>위에서 추천한 주제 중 [2번 주제]와 관련하여 웹앱을 만들려고 해.
+직접 누르고 바꾸면 화면이 바로 반응하는 동적인 웹앱을 HTML 한 파일로 캔버스에서 만들어 줘.
+먼저 이 웹앱의 설계(화면 구성, 기능, 사용 순서)를 짧게 정리해 보여 주고, 바로 그 설계대로 만들어 줘.
+[꼭 들어갈 것]
+- 사용자가 직접 누르거나 바꿔 보는 부분
+- 화면 아래에 수업 개념을 정리한 설명 두세 줄
+- 처음 보는 사람도 알 수 있는 사용 안내 한 줄
+[지킬 것]
+- 설명은 우리 수업에서 배운 용어로, 확실하지 않은 내용은 넣지 마
+- 한 화면으로, 휴대폰에서도 잘 보이게, 모든 글자는 한국어로</pre></div>
+  <div class="prompt"><div class="label">공통 ③ · 세 번 고치기 (예시)</div><button class="copy">복사</button><pre>1차: 버튼 글씨를 크게 하고, 색을 우리 학과 상징색(남색)으로 바꿔 줘.
+2차: 끝에 배운 내용을 확인하는 문제 3개를 넣고, 틀리면 이유를 보여 줘.
+3차: 설명 중에 수업 자료와 다른 부분이 있어. [○○는 △△가 아니라 □□야]로 고쳐 줘.</pre></div>
+  <p class="tip"><b>3차 고치기가 핵심이에요.</b> 학생이 AI가 틀린 곳을 <b>수업 내용으로 찾아 고치는</b> 순간, 바이브코딩이 전공 공부가 됩니다.</p>
+
+  <h3 class="caseh">📚 참고용 · 학과별 과제 아이디어와 평가 포인트</h3>
+  <p class="tip">실습은 위 <b>공통 프롬프트</b>로 하시고, 이 부분은 <b>수업에서 과제를 낼 때 참고</b>하세요. 학과를 눌러 펼치면 과제 이름, 학생이 만드는 것, 예시 부탁문, <b>평가 포인트</b>가 있어요. 같은 주제를 <b>4단계 AI 스튜디오</b>에서 더 크게 만든 예시도 이어서 볼 수 있어요.</p>
+  <div id="cvList"></div>
+
+  <h3 class="caseh">대학생 과제라면 이런 결과물이 나와요 · 전공별 예시</h3>
+  <p class="tip">학생이 <b>공통 ① 주제 추천받기</b>로 자기 전공 주제를 받아 캔버스로 만들 수 있는 웹 도구 예시예요.</p>
+  <div class="tblwrap"><table>
+    <tr><th>전공 · 수업</th><th>학생이 만드는 웹 도구</th></tr>
+    <tr><td>조소·미술 · 조형론</td><td>3D 조소 시뮬레이터 · 재료와 형태를 바꿔 보는 입체 작업대</td></tr>
+    <tr><td>건축 · 건축환경계획</td><td>친환경 모듈러 하우스 · 자재를 고르면 에너지 효율이 바뀌는 시뮬레이터</td></tr>
+    <tr><td>간호 · 간호윤리</td><td>환자 경험 시뮬레이터 · 입원 환자의 하루를 체험하며 공감 역량 키우기</td></tr>
+    <tr><td>철학·교양 · 정의론</td><td>롤스의 '무지의 베일' 시뮬레이터 · 어떤 처지로 태어날지 모른 채 사회 규칙 정하기</td></tr>
+    <tr><td>환경공학 · 도시환경</td><td>도시 열섬 저감 녹지 배치 도구 · 녹지를 놓으면 온도가 내려가는 지도</td></tr>
+    <tr><td>경영 · 마케팅원론</td><td>비건 뷰티 브랜드 런칭 페이지 · STP 분석과 브랜드 소개</td></tr>
+    <tr><td>문헌정보 · 독서치료</td><td>개인 맞춤형 서재 테라피 · 고민을 고르면 책을 처방해 주는 서재</td></tr>
+  </table></div>
+
+
+  <h3 class="caseh">📝 학생 결과물 평가하기 · 결과물 + 보고서</h3>
+  <p class="lead">바이브코딩 과제는 <b>"잘 돌아가는 앱"</b>만 보면 AI 실력을 평가하게 돼요. <b>결과물(공유 링크)</b>과 <b>보고서(어떻게 만들고 고쳤는지)</b>를 함께 받아야 학생의 <b>전공 이해</b>를 평가할 수 있어요.</p>
+
+  <div class="trio">
+    <div><span>①</span><b>결과물</b><p>캔버스 <b>공유 링크</b>. 교수님이 직접 눌러 보며 확인해요.</p></div>
+    <div><span>②</span><b>보고서</b><p>A4 1~2쪽. 설계, <b>부탁문 기록</b>, AI가 틀린 곳과 고친 과정, 성찰.</p></div>
+    <div><span>③</span><b>평가</b><p>아래 <b>루브릭</b>으로 채점. 피드백 초안은 AI에게 맡길 수 있어요.</p></div>
+  </div>
+
+  <div class="prompt"><div class="label">학생 제출 안내문 · 보고서 양식 (과제 공지에 붙여 넣기)</div><button class="copy">복사</button><pre>[바이브코딩 과제 제출물]
+1. 결과물: 제미나이 캔버스 공유 링크 (링크를 열면 바로 실행되는지 확인 후 제출)
+2. 보고서 (A4 1~2쪽, 아래 순서대로)
+  ① 주제와 수업 개념: 어떤 수업 개념을, 사용자가 무엇을 조작하며 이해하게 하나요?
+  ② 설계: 화면 구성과 사용 순서 (AI가 보여 준 설계를 그대로 붙여도 됨)
+  ③ 부탁문 기록: 처음 부탁문과 고친 부탁문 3개를 그대로 붙여 넣기
+  ④ AI가 틀린 곳: 수업 내용과 달랐던 부분, 근거(교재·강의자료 몇 쪽), 어떻게 고치라고 했는지
+  ⑤ 성찰: 다시 만든다면 무엇을 더하고 싶나요?
+※ 이름·학번·연락처를 받는 화면은 만들지 않기 / 교재 본문을 통째로 붙여 넣지 않기</pre></div>
+
+  <h3 class="caseh">평가 루브릭 (예시 · 100점)</h3>
+  <div class="tblwrap"><table>
+    <tr><th>평가 항목 (배점)</th><th>우수</th><th>보통</th><th>미흡</th></tr>
+    <tr><td><b>내용 정확성</b> (30)<br><small>결과물 + 보고서 ④</small></td><td>개념·용어·공식이 수업과 일치하고, AI 오류를 근거와 함께 찾아 고침</td><td>대체로 맞지만 오류 한두 곳이 남아 있음</td><td>수업 내용과 다르거나 확인하지 않음</td></tr>
+    <tr><td><b>조작 설계</b> (25)<br><small>결과물</small></td><td>눌러 보고 바꿔 보는 과정에서 개념이 이해되게 설계됨</td><td>조작은 있으나 개념과의 연결이 약함</td><td>읽기만 하는 화면</td></tr>
+    <tr><td><b>고친 과정</b> (25)<br><small>보고서 ③④</small></td><td>부탁문 기록이 구체적이고, 무엇을 왜 고쳤는지 분명함</td><td>고친 기록은 있으나 이유가 부족함</td><td>처음 결과를 그대로 제출</td></tr>
+    <tr><td><b>설명과 성찰</b> (20)<br><small>보고서 ①②⑤</small></td><td>개념을 자기 말로 설명하고 개선 방향이 구체적임</td><td>설명은 있으나 일반적임</td><td>설명·성찰이 거의 없음</td></tr>
+  </table></div>
+  <p class="tip">배점은 과목에 맞게 바꾸세요. 핵심은 <b>"앱이 화려한가"가 아니라 "AI가 틀린 곳을 전공 지식으로 찾아 고쳤는가"</b>예요. 그래서 보고서 ④가 가장 중요해요.</p>
+
+  <div class="prompt"><div class="label">교수용 · 피드백 초안 받기 (제미나이에 붙여 넣기)</div><button class="copy">복사</button><pre>너는 대학 [과목명] 수업의 채점 보조야. 아래 루브릭으로 학생 보고서를 읽고 피드백 초안을 써 줘.
+[루브릭]
+- 내용 정확성(30): 개념·용어·공식이 수업과 맞는가, AI 오류를 근거와 함께 고쳤는가
+- 조작 설계(25): 조작하며 개념을 이해하게 만들었는가
+- 고친 과정(25): 부탁문 기록이 구체적이고 고친 이유가 분명한가
+- 설명과 성찰(20): 개념을 자기 말로 설명하고 개선 방향이 구체적인가
+[쓸 것]
+1. 항목별로 우수·보통·미흡 중 하나와 그 이유 (보고서 문장을 짧게 인용)
+2. 잘한 점 2개, 보완할 점 2개 (학생에게 그대로 줄 수 있는 말투로)
+3. 내용 정확성은 판단하기 어려우면 "교수 확인 필요"라고 쓰기. 점수를 지어내지 마.
+[학생 보고서]
+(이름·학번을 지운 보고서를 여기에 붙여 넣기)</pre></div>
+  <div class="callout red"><b class="t">AI 채점 주의</b>
+    <ul><li>보고서에서 <b>이름·학번을 지우고</b> 넣으세요. 학생 개인정보는 AI에 넣지 않습니다</li>
+    <li>AI는 <b>피드백 초안</b>까지만. 결과물 링크는 교수님이 <b>직접 눌러 보고</b>, 점수는 교수님이 정합니다</li>
+    <li>수업 자료와 맞는지는 AI가 판단하기 어려워요. 정확한 대조가 필요하면 <a href="#nlm"><b>3단계 노트북LM</b></a>에 강의자료를 넣고 확인하세요</li></ul></div>
+
+  <div class="callout red"><b class="t">미리 알려 주세요</b>
+    <ul><li>이름·학번·연락처를 받는 화면은 만들지 않기</li>
+    <li>교재 본문을 통째로 붙여 넣지 않기. 수업 노트·요약은 괜찮아요</li>
+    <li>캔버스로 만든 도구는 <b>내 화면에서만</b> 기록이 남아요. 여러 사람의 답을 모으려면 저장소가 필요해요(AI 스튜디오 + Firebase 심화)</li></ul></div>
+
+  <div class="callout gold"><b class="t">그런데 만들어 보면 이런 말이 나와요</b>
+    <p style="margin:4px 0 0">"어, 공식이 우리 수업이랑 다르네?" "예제 답이 틀렸어요." 캔버스는 <b>제목만 듣고 일반적인 내용으로</b> 만들기 때문이에요. 내 수업 자료를 알려 주면 해결됩니다. → <a href="#nlm"><b>3단계 노트북LM</b></a>으로 넘어가요.</p></div>
+</section>
+
+<!-- 3단계: 노트북LM 연결 -->
+<section id="nlm">
+  <h2 class="sec">3단계 · 노트북LM에서 근거가 있는 바이브코딩으로</h2>
+  <div class="callout blue"><b class="t">강사 시연으로 진행해요</b> 이 단계는 강사가 준비한 자료로 직접 보여 드립니다. 아래는 나중에 다시 해 볼 수 있게 부탁문과 흐름을 모아 둔 참고 자료예요.</div>
+  <p class="lead"><b>"AI는 강의계획서의 제목만 압니다. 내용을 알려 주면 내 수업 그대로 만듭니다."</b> 캔버스에서 느낀 한계는 대부분 <b>AI가 내 수업 자료를 모르기 때문</b>이에요. 노트북LM에 자료를 올리고 "이런 바이브코딩을 하고 싶다"고 말하면, 자료를 근거로 <b>설계서와 부탁문</b>을 써 줍니다.</p>
+
+  <div class="tblwrap"><table>
+    <tr><th></th><th>제목만 주면 (캔버스만)</th><th>내 자료를 주면 (노트북LM → 캔버스)</th></tr>
+    <tr><td>AI가 하는 일</td><td><b>추측</b>해서 일반적인 내용으로 만듦</td><td>내 자료를 <b>인용</b>해서 만듦</td></tr>
+    <tr><td>예: 12주차 상대위험도 계산기</td><td>칸 배치를 잘못 짚어 RR <b>4.28</b> (틀림)</td><td>강의자료의 칸 배치대로 RR <b>2.85</b> (정답)</td></tr>
+    <tr><td>확인 방법</td><td>내가 처음부터 다 확인해야 함</td><td>답 옆 <b>출처 숫자</b>를 눌러 자료의 어느 줄인지 바로 확인</td></tr>
+  </table></div>
+
+  <div class="trio">
+    <div><span>①</span><b>자료 올리기</b><p>내 강의자료를 올리거나 <b>딥리서치</b>로 과목 자료를 모읍니다.</p></div>
+    <div><span>②</span><b>도구 추천받기</b><p>"이런 바이브코딩을 하고 싶다"며 자료 근거로 도구 3개를 추천받습니다.</p></div>
+    <div><span>③</span><b>설계서 받기</b><p>공식·예제·정답·출처가 든 설계서를 받습니다.</p></div>
+    <div><span>④</span><b>캔버스로 만들기</b><p>제미나이에 노트북을 붙이고 캔버스로 화면을 만듭니다.</p></div>
+    <div><span>⑤</span><b>정답 대조</b><p>자료의 예제를 넣어 정답과 같은지 확인합니다.</p></div>
+  </div>
+
+  <div class="step"><div class="no">①</div><div>
+    <h4>노트북LM에서 · 딥리서치로 내 과목 자료 모으기 <span style="color:#a8433b">(교수님 직접 해 보기)</span></h4>
+    <ol><li><a href="https://notebooklm.google.com" target="_blank" rel="noopener">notebooklm.google.com</a> → <b>새 노트북 만들기</b></li>
+    <li>소스 추가 창의 검색칸에서 <b>Deep Research</b>(자세히) 또는 <b>Fast Research</b>(빠르게)를 고릅니다</li>
+    <li>아래 부탁문의 <b>[ ]</b> 두 곳을 내 과목으로 바꿔 넣고 검색합니다</li></ol>
+    <p class="tip" style="margin-bottom:4px">👇 예시를 누르면 부탁문이 그 과목으로 바뀌어요. <b>기본</b>으로 돌아가 [ ]만 내 과목으로 바꿔 쓰세요.</p>
+    <div class="fltr" id="drChips"></div>
+    <div class="prompt"><div class="label">부탁문 · 내 과목 자료 찾기 (노트북LM 딥리서치)</div><button class="copy">복사</button><pre id="drPrompt">[과목명]의 [핵심 주제]에 대해 대학 전공 수업에서 쓸 수 있는 자료를 찾아 줘.
+학술 논문, 대학 강의자료(KOCW 등), 정부·공공기관 보고서, 학회 자료 위주로 찾아 주고,
+개인 블로그, 광고, 쇼핑몰, 뉴스 요약 기사는 빼 줘.
+한국 자료와 영어 학술 자료를 함께 찾아 줘.</pre></div>
+    <p class="tip"><b>바로 다 넣지 마세요.</b> 찾아 온 자료 목록에서 출처를 훑어보고, 블로그·광고성 자료는 체크를 풀고 가져옵니다. <b>AI가 찾아도 고르는 건 교수님</b>이어야 근거가 됩니다.</p>
+    <p class="tip">교재 PDF도 올릴 수 있지만, <b>저작권이 있는 교재를 올린 노트북은 학생에게 공유하지 마세요.</b> 공유할 노트북에는 공개 자료와 직접 만든 강의자료를 넣습니다.</p>
+  </div></div>
+
+  <div class="step"><div class="no">②</div><div>
+    <h4>노트북LM에서 · "이런 바이브코딩을 하고 싶어"</h4>
+    <div class="prompt"><div class="label">부탁문 · 도구 추천받기 (노트북LM)</div><button class="copy">복사</button><pre>이 노트북의 자료만 근거로, 내 수업에서 학생이 직접 조작하거나 연습하며 이해할 웹 도구 3개를 추천해 줘.
+| 번호 | 도구 이름 | 근거 자료와 쪽 | 학생이 하는 일 | 들어갈 공식·데이터 |
+자료에 없는 내용은 쓰지 말고, 계산이 들어가는 도구를 1개 이상 넣어 줘.</pre></div>
+    <p class="tip">답 옆의 <b>숫자 단추</b>가 출처예요. 눌러 보면 내 자료의 어느 줄에서 왔는지 보입니다.</p>
+  </div></div>
+
+  <div class="step"><div class="no">③</div><div>
+    <h4>노트북LM에서 · 설계서 받기</h4>
+    <div class="prompt"><div class="label">부탁문 · 설계서 (노트북LM)</div><button class="copy">복사</button><pre>○번 도구의 설계서를 써 줘. 이 노트북의 자료만 근거로.
+① 화면 구성 ② 입력 항목과 단위·범위 ③ 공식 (자료에 있는 그대로, 출처 쪽 표시)
+④ 반올림·예외 규칙 ⑤ 자료에 있는 예제와 정답 3개 (출처 표시) ⑥ 화면에 넣을 용어 설명
+자료에 없는 항목은 지어내지 말고 "자료에 없음"이라고 써 줘.</pre></div>
+  </div></div>
+
+  <div class="step"><div class="no">④</div><div>
+    <h4>제미나이에서 · 노트북을 붙여 캔버스로 만들기</h4>
+    <ol><li>gemini.google.com 새 채팅 → 입력창의 <b>+ → NotebookLM</b> → 내 노트북 고르기</li>
+    <li><b>캔버스</b>를 켜고 아래 부탁문 끝에 ③에서 받은 설계서를 붙여 넣어 보냅니다</li></ol>
+    <div class="prompt"><div class="label">부탁문 · 설계서대로 만들기 (제미나이 캔버스)</div><button class="copy">복사</button><pre>붙인 노트북의 자료만 근거로, 아래 설계서대로 학생용 웹 도구를 만들어 줘.
+- 공식, 용어, 칸 배치, 반올림 규칙은 노트북 자료에 있는 그대로
+- 계산은 AI를 부르지 말고 화면 안의 계산식으로 하고, 결과 옆에 계산식을 보여 줘
+- 로그인 없이 휴대폰에서, 이름·학번은 받지 마, 한국어
+[설계서 붙여 넣기]</pre></div>
+    <p class="tip">+ 메뉴에 NotebookLM이 안 보이면 제미나이에 PDF를 <b>직접 첨부</b>하고, 부탁문의 "붙인 노트북"을 "첨부한 자료"로 바꾸세요.</p>
+  </div></div>
+
+  <div class="step"><div class="no">⑤</div><div>
+    <h4>정답과 대조하기</h4>
+    <div class="prompt"><div class="label">부탁문 · 점검 (제미나이)</div><button class="copy">복사</button><pre>이 화면의 계산식이 노트북 자료의 공식·칸 배치와 같은지 한 줄씩 대조해 줘.
+그리고 자료의 예제 3개를 파이썬 코드를 실제로 실행해서 계산하고, 화면에 나와야 할 값과 함께 표로 보여 줘. 아직 고치지는 마.</pre></div>
+    <p class="tip">자료에 있는 예제를 직접 넣어 보고, 정답과 다르면 <span class="say">"○번 예제가 □□로 나와야 해. 자료대로 고쳐 줘."</span>라고 보내세요.</p>
+  </div></div>
+
+  <div class="callout blue" id="nlmDemo"><b class="t">🎬 강사 시연 · 노트북LM으로 만든 바이브코딩</b> 강사가 실제 자료를 노트북LM에 넣고 만든 사례가 여기에 들어갑니다. (자료 → 추천 → 설계서 → 완성 화면)</div>
+
+  <h3 class="caseh">학생 과제로도 그대로</h3>
+  <p class="tip">2단계 학생 과제에 한 줄만 더하면 됩니다. <b>"이번 주 강의 노트를 노트북LM에 올리고, 설계서를 받아서 만들 것. 설계서도 함께 제출."</b> 이러면 AI가 지어낸 내용이 아니라 <b>우리 수업 내용</b>으로 만든 도구가 나오고, 학생은 자료를 다시 읽게 됩니다.</p>
+
+  <div class="tblwrap"><table>
+    <tr><th>자주 묻는 질문</th><th>답</th></tr>
+    <tr><td>노트북LM에서 바로 코드를 받으면 안 되나요?</td><td>받을 수는 있지만 화면을 미리 보거나 실행할 수 없어요. <b>설계서는 노트북LM, 화면은 캔버스</b>가 안정적입니다.</td></tr>
+    <tr><td>교재 PDF를 통째로 올려도 되나요?</td><td>내 노트북 안에서 혼자 쓰는 건 괜찮아요. 다만 공유하는 도구에 교재 본문을 그대로 넣지는 마세요. 내가 만든 강의자료가 가장 안전합니다.</td></tr>
+    <tr><td>학생 과제나 성적 파일도 넣어도 되나요?</td><td>넣지 않습니다. 이름·학번·성적이 든 파일은 올리지 않아요.</td></tr>
+    <tr><td>노트북LM도 틀리나요?</td><td>덜 틀리지만 틀릴 수 있어요. 그래서 <b>출처 단추</b>와 <b>예제 정답 대조</b>를 함께 합니다.</td></tr>
+  </table></div>
+  <p class="tip">이렇게 만든 설계서는 <b>4단계 AI 스튜디오</b>에 그대로 넣어도 돼요. 더 화려한 화면과 앱 안 AI가 필요할 때 넘어가면 됩니다.</p>
+</section>
+
+
+<!-- 시연 A -->
+<section id="demoA">
+  <div class="callout gold"><b class="t">4단계 · 구글 AI 스튜디오: 템플릿 리믹스</b>
+    <p style="margin:4px 0 0">구글이 만들어 둔 멋진 게임을 하나 골라 <b><span class="say">"이 게임을 내 수업 내용으로 바꿔 줘"</span></b>라고 말하면, AI가 코드를 고쳐 내 과목 게임으로 바꿔 줍니다. 이것을 <b>리믹스</b>라고 해요. 흐름은 <b>강사 시연(체스·단어 퍼즐) → 템플릿 고르기 → 리믹스 → 공유</b> 순서예요.</p></div>
+  <div class="callout red"><b class="t">4단계는 심화예요 · 오늘은 여기까지만 해도 충분해요</b>
+    <ol style="margin:6px 0 0 18px;padding:0"><li><b>시연 ① 체스</b>를 보며 "템플릿의 내용만 바꾸면 수업 활동이 된다"를 확인하기</li>
+    <li>시간이 되면 <b>템플릿 고르기</b>에서 ★ 쉬운 것 하나를 골라 <b>리믹스</b> 한 번 해 보기</li></ol>
+    <p style="margin:6px 0 0">나머지 탭(단어 퍼즐 · 공유 · 활용 사례)은 <b>연수 후에 혼자 따라 하실 수 있게</b> 순서대로 적어 두었어요. 이 교안 링크를 저장해 두세요.</p></div>
+  <div class="callout gold"><b class="t">왜 '템플릿 리믹스'일까요?</b>
+    <ul><li><b>빈 화면에서 시작하지 않아요.</b> 화면, 효과, 게임 규칙은 이미 완성되어 있고, 우리는 <b>내용</b>만 바꿉니다.</li>
+    <li><b>이것이 바이브코딩이에요.</b> 코드를 한 줄도 쓰지 않고, 말로 부탁하고 결과를 보고 다시 말로 고칩니다.</li>
+    <li><b>학생과도 똑같이 할 수 있어요.</b> 오늘 교수님이 하신 활동을 학생 팀 과제로 그대로 낼 수 있습니다. (공유·활용하기 탭에서 안내)</li></ul></div>
+  <div class="step"><div class="no">✓</div><div>
+    <h4>AI 스튜디오 시작 전 준비</h4>
+    <ol><li>크롬에서 <b>개인 Gmail</b>로 로그인 (학교 계정은 AI 스튜디오가 막혀 있을 수 있어요)</li>
+    <li><a href="https://aistudio.google.com/apps" target="_blank">aistudio.google.com/apps</a> 접속 → 처음이면 약관 동의</li>
+    <li>크롬 <b>자동 번역은 끄기</b> (부탁문과 화면 글자가 엉킬 수 있어요)</li></ol>
+    <div class="shots"><figure><img src="img/nav-1-home.jpg" alt="AI 스튜디오 첫 화면" loading="lazy"><figcaption>① 왼쪽 메뉴의 <b>Gallery</b></figcaption></figure><figure><img src="img/nav-2-gallery.jpg" alt="Gallery 화면" loading="lazy"><figcaption>② 위 검색창에 템플릿 영어 이름을 치거나, <b>Games and Visualizations</b>로 게임만 모아 보기</figcaption></figure><figure><img src="img/nav-3-search.jpg" alt="검색 결과" loading="lazy"><figcaption>③ 카드를 누르면 템플릿이 열려요</figcaption></figure></div>
+  </div></div>
+  <h2 class="sec">강사 시연 ① 무거운 템플릿: 체스 <span class="time">완성본만</span></h2>
+  <p class="lead">3D 체스를 <b>'개념 체스'</b>로 바꾼 완성본을 3분만 함께 둬 봅니다. 상대 말을 잡으려면 수업 문제를 맞혀야 해요. 예시는 간호 과목이지만, 보실 것은 하나예요. <b>게임의 규칙(잡으려면 맞혀야 한다)이 그대로 수업 활동이 된다</b>는 것. 무거운 템플릿이라 만드는 데 9분쯤 걸려서, 오늘은 만들지 않고 완성본만 봅니다.</p>
+  <div class="step"><div class="no">1</div><div>
+    <h4>원본 먼저 해 보기 <span class="badge b-demo">강사 화면</span></h4>
+    <p><b>Wizard Chess 3D</b>: 고딕 성당 분위기의 3D 마법사 체스. 말을 잡을 때 돌조각이 부서지는 연출이 있고, 컴퓨터와 대결합니다.</p>
+    <a class="dl alt" href="https://aistudio.google.com/apps/bundled/wizard-chess-3d" target="_blank">Wizard Chess 3D 원본 열기</a> <a class="dl" href="https://aistudio.google.com/apps/40bfac5f-b9d4-47c0-bd03-f5509db14d53" target="_blank">간호 개념 체스 완성본 ↗</a>
+    <div class="shots"><figure><img src="img/nav-2-gallery.jpg" alt="Gallery 첫 화면의 체스" loading="lazy"><figcaption>Gallery 첫 화면(Featured)에 체스가 있어요</figcaption></figure><figure><img src="img/chess-orig.jpg" alt="체스 원본" loading="lazy"><figcaption>원본: 영어로 된 3D 마법사 체스</figcaption></figure></div>
+  </div></div>
+  <details class="ex case"><summary><b>참고: 강사가 체스를 만든 과정과 부탁문</b> <span class="needs">접어 두기</span></summary><div class="body"><div class="step"><div class="no">참고</div><div>
+    <h4>리믹스 부탁문 보내기 <span class="badge b-demo">강사 화면</span></h4>
+    <div class="prompt"><div class="label">시연 부탁문 A · 간호 개념 체스 (기본간호학 · 활력징후)</div><button class="copy">복사</button><pre>지금 이 체스 게임을 내 대학 수업용 '개념 체스'로 바꿔 줘.
+
+[내 수업]
+- 과목: 기본간호학
+- 이번 주제: 활력징후 측정
+- 학생: 간호학과 1~2학년
+
+[바꾸는 방법]
+- 상대 말을 잡으려고 할 때마다 아래 [수업 내용]에서 문제 하나가 4지선다로 나오게 해 줘. 맞히면 말을 잡고, 틀리면 잡지 못하고 차례가 넘어가.
+- 문제를 틀리면 정답과 한 줄 설명을 보여 줘.
+- 화면 옆에 '맞힌 문제 / 푼 문제' 숫자를 보여 줘.
+- 3D 체스판과 멋진 연출은 그대로 살리고, 화면의 모든 글자는 한국어로 바꿔 줘.
+- 시작 화면에 과목명과 "오늘의 학습 목표: 활력징후의 정상 범위와 용어를 구분한다"를 보여 줘.
+- 문제는 아래 [수업 내용]에 있는 것만 쓰고, 없는 내용은 지어내지 마.
+
+[수업 내용]
+1. 정상 성인의 안정 시 맥박 수: 1분에 60~100회
+2. 정상 성인의 호흡 수: 1분에 12~20회
+3. 맥박이 1분에 100회를 넘는 것: 빈맥
+4. 맥박이 1분에 60회보다 적은 것: 서맥
+5. 호흡이 일시적으로 멈춘 상태: 무호흡
+6. 맥박을 잴 때 가장 흔히 쓰는 부위: 요골동맥(손목)
+7. 수축기 혈압과 이완기 혈압의 차이: 맥압
+8. 정상 산소포화도(SpO₂): 대략 95~100%</pre></div>
+    <div class="shots"><figure><img src="img/chess-prompt.jpg" alt="체스 부탁문 넣기" loading="lazy"><figcaption>① 왼쪽 아래 칸에 부탁문 → ② <b>Remix</b></figcaption></figure><figure><img src="img/chess-dialog.jpg" alt="앱 이름 정하기" loading="lazy"><figcaption>① 앱 이름 → ② <b>Remix app</b></figcaption></figure></div>
+    <p class="tip">강사가 해 보니 <b>약 9분</b> 걸렸어요. 시연 때는 미리 만들어 둔 완성본을 보여 주세요.</p>
+  </div></div>
+  </div></details>
+  <div class="step"><div class="no">2</div><div>
+    <h4>완성본 보기</h4>
+    <p>말을 잡으려는 순간 문제가 뜨고, 맞혀야 잡히는 모습을 봅니다. 미리보기 화면에서 직접 한 판 둬 봅니다.</p>
+    <div class="shots"><figure><img src="img/chess-intro.jpg" alt="개념 체스 시작 화면" loading="lazy"><figcaption>시작 화면: 과목·주제·학습 목표·규칙</figcaption></figure><figure><img src="img/chess-quiz.jpg" alt="말을 잡을 때 문제" loading="lazy"><figcaption>말을 잡으려 하면 문제가 떠요</figcaption></figure><figure><img src="img/chess-correct.jpg" alt="정답" loading="lazy"><figcaption>맞히면 말을 잡고 한 줄 설명</figcaption></figure></div>
+    <div class="callout blue"><b class="t">여기서 보실 것</b>교수님이 바꾼 건 <b>내용</b>뿐인데, 게임의 규칙(잡으려면 맞혀야 한다)이 수업 활동이 되었어요. 무거운 3D 템플릿은 시간이 오래 걸리고 가끔 깨지기도 해서, 오늘 실습은 가벼운 템플릿부터 권합니다.</div>
+  </div></div>
+</section>
+
+<!-- 시연 B -->
+<section id="demoB">
+  <h2 class="sec">강사 시연 ② 가벼운 템플릿: 단어 퍼즐</h2>
+  <p class="lead">글자를 이어 단어를 만드는 퍼즐 <b>Word wheel</b>을 <b>'생성형 AI 핵심 용어 퍼즐'</b>로 바꿉니다. 교수님들이 함께 풀면서 <b>프롬프트·환각·에이전트·바이브코딩</b> 같은 요즘 용어도 익힐 수 있어요. 강사는 부탁문을 먼저 보내 놓고, 기다리는 동안 다음 탭의 템플릿 메뉴판을 함께 봅니다.</p>
+  <div class="step"><div class="no">1</div><div>
+    <h4>템플릿 열기</h4>
+    <p><b>Word wheel</b>: 동그란 바퀴의 글자를 한 번에 이어 단어를 만들면 가로세로 퍼즐 칸이 채워지는 게임입니다. <b>용어와 뜻만 바꾸면 어느 과목이든</b> 됩니다.</p>
+    <a class="dl alt" href="https://aistudio.google.com/apps/bundled/word_wheel" target="_blank">Word wheel 원본 열기</a> <a class="dl" href="https://aistudio.google.com/apps/8639d63d-0c34-454e-af25-d1077403c10f" target="_blank">생성형 AI 용어 퍼즐 완성본 ↗</a>
+    <div class="shots"><figure><img src="img/ww-template.jpg" alt="템플릿을 열면 오른쪽에 원본 게임, 왼쪽 아래에 부탁문 칸이 있어요" loading="lazy"><figcaption>템플릿을 열면 오른쪽에 원본 게임, 왼쪽 아래에 부탁문 칸이 있어요</figcaption></figure></div>
+  </div></div>
+  <div class="step"><div class="no">2</div><div>
+    <h4>부탁문 붙여 넣고 Remix</h4>
+    <div class="prompt"><div class="label">시연 부탁문 B · 생성형 AI 핵심 용어 퍼즐 (AI 리터러시)</div><button class="copy">복사</button><pre>지금 이 단어 퍼즐 게임을 내 대학 수업용으로 바꿔 줘.
+
+[내 수업]
+- 과목: AI 리터러시
+- 이번 주제: 꼭 알아야 할 생성형 AI 핵심 용어
+- 학생: AI를 처음 제대로 배우는 성인 학습자
+
+[바꾸는 방법]
+- 바퀴의 글자를 한글 글자로 바꾸고, 가로세로 퍼즐의 정답 단어를 아래 [수업 내용]의 용어로 바꿔 줘.
+- 단어를 맞히면 그 용어의 뜻을 크게 보여 줘.
+- 게임 방식과 화면 분위기는 그대로 두고, 안내 글자는 모두 한국어로.
+- 용어와 뜻은 아래 [수업 내용]에 있는 것만 써 줘.
+
+[수업 내용]
+프롬프트: AI에게 주는 지시나 질문
+환각: AI가 사실이 아닌 내용을 그럴듯하게 만드는 것
+검증: AI가 만든 내용이 맞는지 사람이 확인하는 것
+개인정보: 학생 이름·학번처럼 AI에 함부로 넣으면 안 되는 정보
+딥페이크: AI로 만든 가짜 얼굴·목소리
+에이전트: 목표를 주면 스스로 계획하고 여러 단계를 실행하는 AI
+바이브코딩: 코드를 직접 쓰지 않고 말로 부탁해 프로그램을 만드는 것
+멀티모달: 글·사진·소리를 함께 알아듣는 AI
+토큰: AI가 글을 나눠 읽는 작은 단위
+챗봇: 대화하는 AI 프로그램</pre></div>
+    <p class="tip">강의자료가 있다면 대화창의 <b>＋</b>로 PDF를 첨부하고, [수업 내용] 칸에 "첨부 자료에서 꼭 필요한 쉬운 용어 8개"라고만 써도 돼요. 퍼즐이라 <b>2~5글자짜리 짧은 용어</b>가 잘 맞아요.</p>
+    <div class="shots"><figure><img src="img/ai-prompt.jpg" alt="① 왼쪽 아래 칸에 부탁문 붙여 넣기 → ② 칸 안의 Remix" loading="lazy"><figcaption>① 왼쪽 아래 칸에 부탁문 붙여 넣기 → ② 칸 안의 Remix</figcaption></figure><figure><img src="img/ai-dialog.jpg" alt="① 앱 이름을 한글로 바꾸고 → ② Remix app" loading="lazy"><figcaption>① 앱 이름을 한글로 바꾸고 → ② Remix app</figcaption></figure><figure><img src="img/ai-working.jpg" alt="AI가 파일을 하나씩 고쳐요. 강사가 해 보니 약 9분 걸렸어요" loading="lazy"><figcaption>AI가 파일을 하나씩 고쳐요. 강사가 해 보니 약 9분 걸렸어요</figcaption></figure><figure><img src="img/ai-done.jpg" alt="완성! 왼쪽에 AI가 바꾼 내용이 정리되고, 오른쪽 게임 안내도 한국어로 바뀌었어요" loading="lazy"><figcaption>완성! 왼쪽에 AI가 바꾼 내용이 정리되고, 오른쪽 게임 안내도 한국어로 바뀌었어요</figcaption></figure><figure><img src="img/ai-wheel.jpg" alt="바퀴에 한글이 나와요. 챗+봇, 프+롬+프+트를 이으면 용어가 채워지고 뜻이 크게 떠요" loading="lazy"><figcaption>바퀴에 한글이 나와요. 챗+봇, 프+롬+프+트를 이으면 용어가 채워지고 뜻이 크게 떠요</figcaption></figure></div>
+    <div class="callout gold"><b class="t">강사가 직접 해 보니</b> 처음 Remix를 누르자 <b>"The task was canceled"</b>가 떴어요. 같은 부탁문을 왼쪽 아래 칸에 다시 보냈더니 이번엔 <b>"An internal error occurred"</b>가 나와 <b>Retry</b>를 눌렀고, 그 뒤 약 9분 만에 완성됐어요. 당황하지 말고 '막혔을 때' 탭의 순서대로 하면 돼요.</div>
+    <p class="okline">✓ 바퀴에 한글 글자가 나오고, 용어를 맞히면 뜻이 뜨면 성공</p>
+  </div></div>
+  <div class="step"><div class="no">3</div><div>
+    <h4>말로 한 번 더 고치기</h4>
+    <p>마음에 안 드는 곳은 <b>딱 한 가지씩</b> 말로 고칩니다.</p>
+    <ul class="samplelist">
+      <li><span class="tx">퍼즐을 다 풀면 오늘 배운 용어 10개를 한 장의 용어 카드로 정리해 보여 줘. 다른 부분은 그대로 둬.</span><button class="ex-copy" type="button">복사</button></li>
+      <li><span class="tx">글자를 더 크게, 강의실 화면에 띄워도 잘 보이게 바꿔 줘. 다른 부분은 그대로 둬.</span><button class="ex-copy" type="button">복사</button></li>
+      <li><span class="tx">단계마다 용어를 하나씩 맞히면 '교수님 한마디'로 수업에서 이 용어를 어떻게 쓰면 좋은지 한 줄 팁을 보여 줘. 다른 부분은 그대로 둬.</span><button class="ex-copy" type="button">복사</button></li>
+    </ul>
+    <p class="tip">처음 계획했던 <b>중국어 식당 단어 퍼즐</b>은 '리믹스 활용 사례' 탭에 참고용으로 남겨 두었어요.</p>
+  </div></div>
+</section>
+
+<!-- 템플릿 고르기 -->
+<section id="pick">
+  <h2 class="sec">4단계-1 · 내 수업·업무에 맞는 템플릿 고르기</h2>
+  <p class="lead"><b>오늘 오신 학과·부서</b>를 누르면 어울리는 템플릿에 <b>추천</b> 표시가 붙고 앞으로 모입니다. 카드 아래 <b>예)</b>에 내 학과에서 쓸 만한 주제가 있어요. 처음이라면 <b>난이도 ★</b>부터 고르세요. 카드의 <b>열어 보기</b>로 원본을 먼저 해 보고, 마음에 들면 다음 탭에서 리믹스합니다.</p>
+  <div class="fltr" id="groupBtns"></div>
+  <div class="fltr" id="levelBtns"></div>
+  <div class="tgrid" id="tgrid"></div>
+  <div class="callout blue"><b class="t">🗂️ 교직원 선생님께 추천</b>
+    <ul><li><b>Flashcard Maker</b>: 용어·질문을 카드로 (연구윤리 용어, 면접 질문, 신입생 안내 용어)</li>
+    <li><b>Word wheel</b>: 사업·제도 용어를 퍼즐로 (교육·연수 시작 5분 퀴즈)</li>
+    <li><b>템플릿 없이 새로 만들기</b>: FAQ 안내판, 신청 안내, 체크리스트처럼 화면이 단순한 도구는 이쪽이 더 빨라요. '리믹스 활용 사례' 탭의 <b>업무용 사례</b>를 참고하세요.</li></ul>
+    <p style="margin:6px 0 0">기준은 하나예요. <b>"내가 안내하거나 교육하는 사람에게 보여 줄 화면"</b>을 떠올리면 돼요.</p></div>
+  <div class="callout red"><b class="t">고를 때 알아 두세요</b>
+    <ul><li><b>★★★</b> 템플릿(3D·도시 만들기)은 화려하지만 바뀌는 데 오래 걸리고 가끔 깨집니다. 오늘은 ★, ★★를 권해요.</li>
+    <li><b>마이크</b>·<b>카메라</b> 표시가 있는 템플릿은 <b>오늘 PC실에서는 고르지 마세요.</b> 마이크가 없어 앱이 멈춰요. 연구실 노트북에서 해 보세요.</li>
+    <li>템플릿 목록은 구글이 수시로 바꿉니다. 링크가 열리지 않으면 Gallery 검색창에 영어 이름을 쳐 보세요.</li></ul></div>
+</section>
+
+<!-- 리믹스 -->
+<section id="make">
+  <h2 class="sec">4단계-2 · 내 수업·업무로 리믹스하기</h2>
+  <p class="lead">아래 칸을 채우면 부탁문이 완성됩니다. <b>교직원 선생님은 [업무용]</b>을 고르세요. 수업 대신 내가 안내·교육하는 대상(학생, 신임 연구자 등)에게 쓸 도구로 바뀌어요. 바뀌는 부분은 <mark class="chg">빨간색</mark>으로 보여요.</p>
+  <div class="step"><div class="no">1</div><div>
+    <h4>템플릿 열기 (Remix는 부탁문과 함께)</h4>
+    <ol><li>템플릿 고르기 탭에서 고른 템플릿의 <b>열어 보기</b>를 누릅니다</li>
+    <li>원본을 1분만 해 보며 "어디에 내 수업 내용을 넣을까" 생각합니다</li>
+    <li>왼쪽 아래 칸에 다음 단계의 부탁문을 붙여 넣고 <b>Remix</b> → 앱 이름을 한글로 바꾸고 <b>Remix app</b></li></ol>
+    <div class="shots"><figure><img src="img/ww-prompt.jpg" alt="부탁문 칸과 Remix 버튼" loading="lazy"><figcaption>원본 화면 왼쪽 아래 칸에 부탁문을 붙여 넣고 칸 안의 <b>Remix</b></figcaption></figure><figure><img src="img/ww-dialog.jpg" alt="Remix 이름 정하기 창" loading="lazy"><figcaption>앱 이름을 한글로 바꾸고 <b>Remix app</b> (AI를 쓰는 템플릿은 <b>Next</b>)</figcaption></figure><figure><img src="img/api-dialog.jpg" alt="Gemini API 연결 안내 창" loading="lazy"><figcaption>AI를 쓰는 템플릿은 이런 창이 한 번 더 떠요. <b>Link a paid API key</b>는 누르지 말고 <b>Remix app</b></figcaption></figure></div>
+  </div></div>
+  <div class="step"><div class="no">2</div><div>
+    <h4>부탁문 만들기</h4>
+    <div class="modesw" role="radiogroup" aria-label="수업용 또는 업무용"><label><input type="radio" name="fMode" value="class" checked> 📚 수업용 (교수님)</label><label><input type="radio" name="fMode" value="work"> 🗂️ 업무용 (교직원)</label></div>
+    <div class="mine">
+      <label class="wide">템플릿
+        <select id="fTpl"></select></label>
+      <label><span id="lSub">과목</span> <input id="fSub" placeholder="예) 사회복지학개론"></label>
+      <label><span id="lTop">이번 주제</span> <input id="fTop" placeholder="예) 6주차 · 사회복지 서비스 전달체계"></label>
+      <label class="wide"><span id="lStu">학생</span> <input id="fStu" placeholder="예) 휴먼케어평생교육학과 성인 학습자"></label>
+      <label class="wide"><span id="lCon">수업 내용 (문제, 용어와 뜻, 사례를 한 줄에 하나씩. 여기 쓴 것만 게임에 들어가요)</span>
+        <textarea id="fCon" rows="6" placeholder="예)&#10;1. 사회복지 서비스를 직접 제공하는 기관: 복지관&#10;2. 읍·면·동 행정복지센터의 역할: 주민 가까이에서 상담과 신청 접수&#10;3. ..."></textarea></label>
+      <label class="wide">더 바라는 것 (선택) <input id="fMore" placeholder="예) 팀 대항으로, 밝은 파스텔 색으로"></label>
+    </div>
+    <p class="tip" id="tplIdea"></p>
+    <div class="prompt"><div class="label">부탁문 · 내 수업·업무로 리믹스</div><button class="copy">복사</button><pre id="remixPrompt"></pre></div>
+    <p class="tip">수업 내용이 아직 없다면 강의자료 PDF를 대화창의 <b>+</b>로 첨부하고, [수업 내용] 칸에 "첨부한 강의자료의 핵심 용어 8개"라고만 써도 됩니다.</p>
+  </div></div>
+  <div class="step"><div class="no">3</div><div>
+    <h4>보내고 기다리기</h4>
+    <ol><li>왼쪽 대화창에 붙여 넣고 보내기</li>
+    <li>AI가 코드를 고치는 동안 <b>5~10분</b> 기다립니다. 그동안 다른 템플릿을 하나 더 열어 구경해 보세요</li>
+    <li>오른쪽 <b>미리보기</b>에서 직접 해 보기</li></ol>
+    <div class="shots"><figure><img src="img/ww-working.jpg" alt="AI가 코드를 고치는 중" loading="lazy"><figcaption>파일 목록에 초록 체크가 하나씩 붙어요. 다 끝나면 오른쪽에 게임이 떠요</figcaption></figure><figure><img src="img/ww-failed.jpg" alt="Failed to load app 화면" loading="lazy"><figcaption>끝났는데 <b>Failed to load app</b>이 보이면 당황하지 말고 <b>Retry</b></figcaption></figure></div>
+  </div></div>
+  <div class="step"><div class="no">4</div><div>
+    <h4>한 가지씩 말로 고치기</h4>
+    <p><span class="say">"더 좋게 해 줘"</span>처럼 넓게 말하지 말고, <b>"○○만 바꿔 줘. 다른 부분은 그대로 둬."</b>라고 말합니다.</p>
+    <h5 class="samph">내용</h5>
+    <ul class="samplelist">
+      <li><span class="tx">문제 순서와 보기 순서가 매번 무작위로 나오게 해 줘. 다른 부분은 그대로 둬.</span><button class="ex-copy" type="button">복사</button></li>
+      <li><span class="tx">틀린 문제만 모아서 다시 풀 수 있는 버튼을 끝 화면에 추가해 줘.</span><button class="ex-copy" type="button">복사</button></li>
+      <li><span class="tx">게임에 들어간 내용 중 [수업 내용]과 다른 것이 있는지 점검해서 목록으로 알려 줘. 아직 고치지는 마.</span><button class="ex-copy" type="button">복사</button></li>
+    </ul>
+    <h5 class="samph">화면</h5>
+    <ul class="samplelist">
+      <li><span class="tx">아직 영어로 남은 글자를 모두 한국어로 바꿔 줘.</span><button class="ex-copy" type="button">복사</button></li>
+      <li><span class="tx">강의실 화면에 띄워도 잘 보이게 글자와 버튼을 크게 해 줘.</span><button class="ex-copy" type="button">복사</button></li>
+      <li><span class="tx">휴대폰에서 해도 화면이 잘리지 않게 고쳐 줘.</span><button class="ex-copy" type="button">복사</button></li>
+    </ul>
+    <h5 class="samph">수업 운영</h5>
+    <ul class="samplelist">
+      <li><span class="tx">시작할 때 팀 이름 2개를 넣고, 두 팀이 번갈아 하며 점수를 겨루게 바꿔 줘.</span><button class="ex-copy" type="button">복사</button></li>
+      <li><span class="tx">끝나면 점수와 함께 '오늘 꼭 기억할 개념 3가지'를 정리해 보여 줘.</span><button class="ex-copy" type="button">복사</button></li>
+    </ul>
+    <h5 class="samph">고장 났을 때</h5>
+    <ul class="samplelist">
+      <li><span class="tx">미리보기 화면이 하얗게 비어 있어. 원인을 찾아서 고쳐 줘.</span><button class="ex-copy" type="button">복사</button></li>
+      <li><span class="tx">방금 바꾼 것은 되돌리고, 그 전 상태에서 다시 해 줘.</span><button class="ex-copy" type="button">복사</button></li>
+    </ul>
+    <p class="okline">✓ 내 과목 내용으로 게임이 돌아가고, 한 판 끝까지 해 볼 수 있으면 성공!</p>
+  </div></div>
+</section>
+
+<!-- 나누기 -->
+<section id="share">
+  <h2 class="sec">4단계-3 · 공유하고, 수업·업무에 쓰기</h2>
+  <div class="step"><div class="no">1</div><div>
+    <h4>공유 링크 만들기</h4>
+    <div class="shots"><figure><img src="img/nav-myapps.jpg" alt="My apps" loading="lazy"><figcaption>다음에 다시 열 때는 왼쪽 <b>My apps</b>에서 내가 만든 앱을 찾아요</figcaption></figure></div>
+    <ol><li>오른쪽 위 <b>Share</b> 버튼</li>
+    <li>General access를 <b>Public: Anyone with the link can view</b>로 바꾸고 <b>Copy link</b></li>
+    <li>옆 교수님께 주소를 보내 서로의 게임을 해 보기</li></ol>
+    <p class="tip"><b>꼭 알아 두세요:</b> Public으로 바꿔도 링크를 연 사람이 <b>Google 계정에 로그인</b>해야 열려요. 로그인하지 않으면 Google 로그인 화면이 먼저 나와요(강사가 로그아웃 상태로 직접 확인함). 학생들에게 나눠 줄 때는 "학교·개인 Google 계정으로 로그인한 뒤 여세요"라고 함께 안내하세요.</p>
+    <div class="shots"><figure><img src="img/share.jpg" alt="공유 설정 창" loading="lazy"><figcaption>오른쪽 위 Share → ① Share 탭 → ② 접근 권한을 <b>Public</b>으로 → ③ <b>Copy link</b></figcaption></figure><figure><img src="img/publish.jpg" alt="Publish 탭" loading="lazy"><figcaption><b>Publish</b>는 따로 공개 주소를 만드는 기능이에요. 오늘은 Share 링크까지만 해도 충분합니다</figcaption></figure></div>
+  </div></div>
+  <div class="step"><div class="no">2</div><div>
+    <h4>수업·업무에서 이렇게 써 보세요</h4>
+    <div class="uses">
+      <div><b>수업 시작 5분 복습</b><p>지난 시간 내용을 게임으로. 강의실 화면에 띄우고 다 같이 풉니다.</p></div>
+      <div><b>팀 대항전</b><p>"두 팀이 번갈아" 고치기 부탁문으로 팀 점수판을 붙여 수업 마무리 활동으로.</p></div>
+      <div><b>학생이 리믹스하는 과제</b><p>팀마다 템플릿 하나를 골라 이번 단원 게임을 만들고 서로 해 보기. 문제를 만들려면 내용을 정리해야 해서 그 자체가 공부가 됩니다.</p></div>
+      <div><b>시험 전 셀프 점검</b><p>공유 링크를 LMS에 올려 두고 각자 연습하게 합니다.</p></div>
+    </div>
+    <h5 class="samph">🗂️ 업무에서는 이렇게</h5>
+    <div class="uses">
+      <div><b>설명회에서 QR로 띄우기</b><p>FAQ 안내판이나 용어 퀴즈를 화면에 띄우고 QR로 나눠 주면, 참석자가 휴대폰으로 바로 봐요.</p></div>
+      <div><b>부서 안내 페이지로 쓰기</b><p>자주 묻는 질문, 신청 절차를 한 화면으로. 공유 링크를 부서 공지나 메일에 붙여 둡니다.</p></div>
+      <div><b>교육·연수 시작 5분 퀴즈</b><p>연구윤리 교육, 취업 특강 시작 때 용어 퀴즈로 분위기를 열어요.</p></div>
+    </div>
+  </div></div>
+  <div class="callout gold"><b class="t">학생 리믹스 과제 예시</b>
+    "팀별로 AI 스튜디오 템플릿 하나를 골라 ○주차 내용으로 리믹스하세요. 문제는 교재에서만 뽑고, 문제마다 근거 쪽수를 적어 내세요. 다음 시간에 다른 팀 게임을 해 보고 평가합니다."
+    <ul><li>평가 기준 예: 내용 정확성(근거 쪽수) · 핵심 개념을 빠짐없이 담았나 · 다른 팀이 해 보고 배운 점</li></ul></div>
+  <div class="callout red"><b class="t">꼭 기억하세요</b>
+    <ul><li>AI가 바꾼 문제와 정답은 <b>반드시 교수님이 한 번 확인</b>하고 학생에게 내보내세요.</li>
+    <li>학생 이름·학번을 입력받게 만들지 마세요.</li>
+    <li>템플릿에 따라 학생이 열 때 구글 로그인을 요구하거나, AI 기능 사용량이 생길 수 있어요. 수업 전에 다른 계정(또는 휴대폰)으로 한 번 열어 보세요.</li></ul></div>
+  <div class="callout blue"><b class="t">다음은 2부</b>오늘 만든 게임은 '보는 도구'예요. 2부에서는 학생 의견이 실제로 <b>저장되고 쌓이는</b> 수업 보드를 만들어 내 주소로 배포합니다.
+    <p style="margin:10px 0 0"><a class="dl" href="../오후반_쌍방향웹페이지교안/index.html">2부 교안으로 →</a></p></div>
+</section>
+
+<!-- 활용 사례 -->
+<section id="cases">
+  <h2 class="sec">리믹스 활용 사례 <span class="time">참고</span></h2>
+  <p class="lead">막히거나 아이디어가 필요할 때 펼쳐 보세요. <b>④에서 직접 부탁문을 만들어 본 뒤</b> 열어 보시길 권해요. 각 사례에는 원본 화면, 대진대 과목으로 바꾼 예시 부탁문, 이어서 고치는 말이 들어 있어요.</p>
+  <p class="tip"><b>완성본 열기</b> 링크는 강사가 만든 앱이고, 모두 Public으로 열어 두었어요. Google 계정에 로그인한 상태에서 열면 바로 해 볼 수 있어요. 오른쪽 위에 <b>Remix</b> 버튼이 보이면 눌러서 내 것으로 복사해 고쳐 쓰셔도 돼요.</p>
+
+  <h3 class="caseh">강사가 직접 만들어 본 완성 사례</h3>
+  <details class="ex case" id="case-chess-done"><summary><b>간호 개념 체스</b> <span class="lvs lv3">★★★ 무거움</span> <small>기본간호학 · 약 9분</small></summary><div class="body">
+    <p class="use"><b>이렇게 써요</b> 상대 말을 잡으려면 활력징후 문제를 맞혀야 하는 3D 체스예요. 시작 화면, 메뉴, 점수판까지 모두 한국어로 바뀌었고, AI는 준 [수업 내용] 8가지 안에서만 문제를 냈어요. 부탁문은 <a href="#demoA">시연 ①</a>에 있어요.</p>
+    <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/40bfac5f-b9d4-47c0-bd03-f5509db14d53" target="_blank" rel="noopener">간호 개념 체스 완성본 열기 ↗</a></p>
+    <div class="shots">
+      <figure><img src="img/chess-intro.jpg" alt="간호 개념 체스 시작 화면" loading="lazy"><figcaption>시작 화면: 과목·주제·학습 목표·규칙</figcaption></figure>
+      <figure><img src="img/chess-board.jpg" alt="간호 개념 체스 판" loading="lazy"><figcaption>3D 체스판은 그대로, 왼쪽에 '맞힌 문제 / 푼 문제'</figcaption></figure>
+      <figure><img src="img/chess-quiz.jpg" alt="말을 잡을 때 나오는 문제" loading="lazy"><figcaption>말을 잡으려 하면 4지선다 문제</figcaption></figure>
+      <figure><img src="img/chess-correct.jpg" alt="정답 화면" loading="lazy"><figcaption>맞히면 말을 잡고 한 줄 설명</figcaption></figure>
+    </div></div></details>
+  <details class="ex case" id="case-ww-done"><summary><b>중국어 식당 단어 퍼즐</b> <span class="lvs lv1">★ 쉬움</span> <small>중급 중국어 회화 · 약 7분</small></summary><div class="body">
+    <p class="use"><b>이렇게 써요</b> 바퀴의 한자를 이어 식당 단어를 맞히면 병음·뜻·예문이 나오는 퍼즐이에요. AI가 스스로 발음 듣기 버튼까지 붙였어요. 부탁문은 <a href="#demoB">시연 ②</a>에 있어요.</p>
+    <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/2d47b301-d0b9-4fff-9196-47310d4adc64" target="_blank" rel="noopener">중국어 식당 단어 퍼즐 완성본 열기 ↗</a></p>
+    <div class="shots">
+      <figure><img src="img/ww-done-intro.jpg" alt="중국어 단어 퍼즐 시작" loading="lazy"><figcaption>완성 직후 화면</figcaption></figure>
+      <figure><img src="img/ww-wheel.jpg" alt="한자 바퀴" loading="lazy"><figcaption>한자 바퀴</figcaption></figure>
+    </div></div></details>
+  <details class="ex case" id="case-heart"><summary><b>3D 심장 탐험 (템플릿 없이 새로 만들기)</b> <span class="lvs lv2">★★ 보통</span> <small>기본간호학 · 간호·보건 추천</small></summary><div class="body" id="heartBody">
+    <p class="use"><b>이렇게 써요</b> 인체를 보여 주는 템플릿은 따로 없어서, AI 스튜디오 첫 화면의 <b>Three.js 3D scenes</b>로 처음부터 만들었어요. 3D 심장을 돌려 보고, 부위를 누르면 이름과 기능이 나오고, 혈액 흐름 보기와 확인 퀴즈가 있어요.</p>
+    <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/34d4ee0f-6fa6-4666-bf5f-e2973548cc2f" target="_blank" rel="noopener">3D 심장 탐험 완성본 열기 ↗</a></p>
+    <h5 class="samph">만드는 길</h5>
+    <div class="shots"><figure><img src="img/heart-1-new.jpg" alt="New app과 Three.js 칩" loading="lazy"><figcaption>① 왼쪽 <b>New app</b> → ② 아래 <b>Three.js 3D scenes</b></figcaption></figure><figure><img src="img/heart-2-chip.jpg" alt="칩이 붙은 입력창" loading="lazy"><figcaption>3D 도구가 붙으면, 회색 예시 글은 신경 쓰지 말고 부탁문을 붙여 넣어요</figcaption></figure><figure><img src="img/heart-3-prompt.jpg" alt="부탁문 넣고 보내기" loading="lazy"><figcaption>③ 부탁문 붙여 넣기 → ④ 보내기</figcaption></figure><figure><img src="img/heart-4-gen.jpg" alt="만드는 중" loading="lazy"><figcaption>약 7분 기다려요</figcaption></figure></div>
+    <div class="prompt"><div class="label">부탁문 · 3D 심장 탐험 (기본간호학)</div><button class="copy">복사</button><pre>기본간호학 수업에서 쓸 '3D 심장 탐험' 웹앱을 Three.js로 만들어 줘.
+
+[내 수업]
+- 과목: 기본간호학
+- 이번 주제: 심장의 구조와 혈액 순환
+- 학생: 간호학과 1학년
+
+[화면]
+- 가운데에 교육용으로 단순화한 3D 심장 모형. 마우스로 돌리고 휠로 확대할 수 있게.
+- 부위마다 색을 다르게: 우심방, 우심실, 좌심방, 좌심실, 대동맥, 폐동맥, 상대정맥, 하대정맥, 폐정맥
+- 부위를 누르면 그 부위가 빛나고, 오른쪽 카드에 이름과 기능이 나오게. 기능은 아래 [수업 내용]의 문장 그대로.
+- [혈액 흐름 보기] 버튼: 온몸 → 상·하대정맥 → 우심방 → 우심실 → 폐동맥 → 폐 → 폐정맥 → 좌심방 → 좌심실 → 대동맥 → 온몸 순서로, 해당 부위가 차례로 빛나고 작은 빛 입자가 흐르게. 정맥혈은 파란색, 동맥혈은 빨간색.
+- [확인 퀴즈] 버튼: "○○은 어디일까요?" 문제가 나오면 학생이 3D 모형에서 부위를 눌러 답하기. 5문제, 끝나면 점수와 틀린 부위 다시 보기.
+- 화면의 모든 글자는 한국어로. 시작 화면에 과목명과 주제를 보여 줘.
+- 휴대폰에서도 손가락으로 돌리고 누를 수 있게.
+
+[수업 내용]
+- 우심방: 상대정맥과 하대정맥으로 온몸의 정맥혈을 받는다
+- 우심실: 정맥혈을 폐동맥으로 내보내 폐로 보낸다
+- 좌심방: 폐정맥으로 폐에서 산소를 받은 동맥혈을 받는다
+- 좌심실: 동맥혈을 대동맥으로 내보내 온몸으로 보낸다. 네 방 가운데 벽이 가장 두껍다
+- 대동맥: 좌심실에서 나온 혈액을 온몸으로 보내는 가장 큰 동맥
+- 폐동맥: 우심실의 정맥혈을 폐로 보낸다
+- 상대정맥·하대정맥: 온몸의 정맥혈을 우심방으로 모은다
+- 폐정맥: 폐에서 산소를 받은 혈액을 좌심방으로 보낸다
+
+[반드시 지킬 것]
+- 설명과 퀴즈는 [수업 내용]에 있는 것만 쓰고, 없는 내용은 지어내지 마.
+- 학생 이름·학번은 받지 마.</pre></div>
+    <h5 class="samph">완성 화면</h5>
+    <div class="shots"><figure><img src="img/heart-5-intro.jpg" alt="3D 심장 탐험 시작 화면" loading="lazy"><figcaption>시작 화면</figcaption></figure><figure><img src="img/heart-6-part.jpg" alt="부위를 누른 화면" loading="lazy"><figcaption>부위를 누르면 이름과 기능</figcaption></figure><figure><img src="img/heart-7-flow.jpg" alt="혈액 흐름 보기" loading="lazy"><figcaption>혈액 흐름 보기</figcaption></figure><figure><img src="img/heart-8-quiz.jpg" alt="확인 퀴즈" loading="lazy"><figcaption>확인 퀴즈: 모형에서 부위를 눌러 답해요</figcaption></figure></div>
+    <div class="callout red"><b class="t">교수님이 꼭 확인할 것</b>처음 만든 모형은 원기둥과 공을 이어 붙인 모양이라 실제 해부 위치와 다를 수 있어요. 설명 글은 [수업 내용] 그대로 나왔지만, 모형의 위치·모양은 교수님이 보고 아래처럼 말로 다듬어 주세요.</div>
+    <div class="prompt"><div class="label">이어서 다듬기 · 모형을 실제 심장 모양에 가깝게</div><button class="copy">복사</button><pre>3D 심장 모형을 실제 심장 모양에 더 가깝게 다듬어 줘. 기능과 화면 구성은 그대로 두고 모형만 바꿔 줘.
+- 심장 전체는 주먹 크기의 둥근 원뿔 모양으로, 뾰족한 끝(심첨)이 왼쪽 아래를 향하게.
+- 앞에서 볼 때 우심실이 앞쪽 대부분을, 좌심실이 왼쪽 가장자리와 심첨을 차지하게. 좌심실 벽이 가장 두껍게.
+- 우심방은 오른쪽 위, 좌심방은 뒤쪽 위에 두기.
+- 대동맥은 위로 올라가 활처럼 휘게, 폐동맥은 대동맥 앞에서 나와 둘로 갈라지게. 상대정맥은 위에서, 하대정맥은 아래에서 우심방으로 들어가게.
+- 원기둥과 공을 이어 붙인 느낌이 아니라 매끄럽게 이어진 모양으로, 부위 경계는 색으로만 구분.</pre></div>
+    <div class="shots" id="heartFixShots"><figure><img src="img/heart-9-fix.jpg" alt="다듬기 부탁" loading="lazy"><figcaption>완성된 앱 왼쪽 아래 칸에 다듬기 부탁문을 보내요 (약 3분)</figcaption></figure><figure><img src="img/heart-10-fixed.jpg" alt="다듬은 3D 심장" loading="lazy"><figcaption>다듬은 뒤의 모형. 여전히 교육용 단순 모형이니 수업 전에 꼭 확인하세요</figcaption></figure></div>
+    <p class="tip">같은 방법으로 폐, 신장, 뇌, 뼈대처럼 다른 기관도 만들 수 있어요. [수업 내용]만 바꿔 넣으세요.</p>
+  </div></details>
+
+  <h3 class="caseh">✨ 우와! 오늘 오신 학과 쇼케이스</h3>
+  <p class="tip">강사가 미리 만들어 둔 <b>보여 주기용</b> 완성본이에요. <b>3D로 움직이거나, 앱 안의 AI가 대답</b>합니다. 하나에 10~15분 걸려서 오늘 실습용은 아니고, "이런 것까지 되는구나"를 느끼는 용도예요. 부탁문은 그대로 복사해 가셔도 됩니다.</p>
+  <div id="wowList"></div>
+  <h3 class="caseh">오늘 오시는 학과 사례 · 따라 하기 쉬운 버전</h3>
+  <p class="tip">10분 안팎이면 만들어지는 간단한 버전이에요. 오늘 직접 해 보신다면 이쪽부터 시작하세요. 쓴 부탁문을 그대로 복사해 과목·내용만 바꿔 쓰시면 됩니다.</p>
+  <div id="extraList"></div>
+  <h3 class="caseh">🗂️ 교직원 업무용 사례</h3>
+  <p class="tip">수업 대신 <b>내가 안내·교육하는 사람에게 보여 줄 도구</b>예요. 부서 이름과 내용만 바꿔 쓰세요.</p>
+  <div id="workList"></div>
+  <details class="ex case" id="otherDepts"><summary><b>다른 학과 사례 더 보기</b> <span class="needs">법학·교직·국제통상·대순·특수교육·산업디자인</span></summary><div class="body"><p class="tip">오늘 참석 학과는 아니지만, 아이디어를 빌려 오기 좋은 사례예요.</p><div id="otherList"></div></div></details>
+
+  <div id="caseList"></div>
+</section>
+
+<!-- 막혔을 때 -->
+<!-- 5단계: 백엔드·배포 -->
+<section id="more">
+  <h2 class="sec">5단계 · 백엔드·배포 (파이어베이스 · 넷리파이 · 깃허브 · 버셀)</h2>
+  <div class="callout blue"><b class="t">심화 과정이에요 · 시간이 되면, 아니면 연수 후에 따라 해 보세요</b> 오늘 다 못 하셔도 괜찮아요. 캡처를 보며 순서대로 따라 하실 수 있게 적어 두었어요. <b>꼭 개인 Gmail</b>로 하세요. 학교 계정은 파이어베이스가 막혀 있을 수 있어요.</div>
+  <p class="lead">지금까지 만든 앱은 대부분 <b>내 화면 안에서만</b> 기록이 남아요. <small>(1단계 캔바 코드는 예외로, 입력한 내용이 <b>캔바 시트</b>에 모여요.)</small> 학생 30명의 답이 <b>한곳에 모이려면 저장소(백엔드)</b>가 필요하고, 학생이 휴대폰이나 PC로 들어오려면 <b>인터넷 주소(배포)</b>가 필요해요.</p>
+  <div class="callout gold"><b class="t">캔바 시트로 모으면 되지 않나요? · 용량 한계가 있어요</b>
+    <ul><li>캔바 도움말 기준으로 캔바 시트 하나는 <b>최대 1,000행 · 104열, 편집 가능한 칸은 모두 20,800칸</b>까지예요.</li>
+    <li>예를 들어 한 번 제출에 10칸(이름·답 등)을 쓰면 <b>약 2,000번 제출</b>이면 가득 차요. 한 학기 내내 여러 반이 쓰는 도구라면 금방 찰 수 있어요.</li>
+    <li>캔바 코드로 게시한 사이트는 <b>사이트를 여는 사람 누구나 모인 데이터에 접근할 수 있다</b>는 안내가 떠요. 개인정보나 성적은 넣지 마세요.</li>
+    <li>그래서 <b>한 수업·한 번 쓰는 도구(커피 주문, 조 뽑기, 즉석 투표)</b>는 캔바 시트로 충분하고, <b>학기 내내 쌓이고 권한을 나눠야 하는 도구</b>는 아래 파이어베이스가 맞아요.</li></ul></div>
+  <div class="tblwrap"><table>
+    <tr><th>저장소 없이 (1~4단계)</th><th>저장소를 붙이고 배포하면 (5단계)</th></tr>
+    <tr><td>한 사람이 혼자 쓰는 학습 도구, 게임, 시뮬레이터</td><td>여러 사람이 동시에 쓰고 결과가 모이는 수업 도구</td></tr>
+    <tr><td>예: 개념 퀴즈, 3D 공정 실험실, 식판 맞추기</td><td>예: 실시간 질문 보드, 조별 주제 신청·승인, 1분 이해도 체크 통계</td></tr>
+  </table></div>
+  <div class="trio">
+    <div><span>A</span><b>화면</b><p>제미나이 캔버스나 AI 스튜디오로 만든 웹앱 (2·4단계)</p></div>
+    <div><span>B</span><b>창고 · 파이어베이스</b><p>모든 사람의 답이 쌓이는 무료 데이터 저장소</p></div>
+    <div><span>C</span><b>주소 · 배포</b><p>넷리파이 · 깃허브 · 버셀 중 하나로 인터넷 주소 받기</p></div>
+  </div>
+
+  <h3 class="caseh">B. 파이어베이스로 데이터 연동하기</h3>
+
+  <details class="ex case be-step"><summary><span class="beno">1</span> <b>프로젝트 만들기</b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <ol><li><a href="https://console.firebase.google.com" target="_blank" rel="noopener">console.firebase.google.com</a> 접속 → <b>새 Firebase 프로젝트 만들기</b></li>
+    <li>이름을 영어로: <code>myclass-내이름</code> (예: myclass-kim) → <b>계속</b></li>
+    <li>'Firebase의 Gemini'는 그대로 두고 <b>계속</b></li>
+    <li>Google 애널리틱스는 <b>꺼도 됩니다</b>(단계가 줄어요) → <b>프로젝트 만들기</b></li>
+    <li>"프로젝트가 준비되었습니다" → <b>계속</b>. 요금제는 무료(Spark)예요.</li></ol>
+    <p class="tip">캡처의 <b style="color:#c62828">빨간 네모</b>가 누를 곳이고, 번호는 누르는 순서예요.</p>
+    <div class="shots">
+      <figure><img src="img/be-fb-01-new.jpg" alt="새 Firebase 프로젝트 만들기" loading="lazy"><figcaption>❶ 새 Firebase 프로젝트 만들기</figcaption></figure>
+      <figure><img src="img/be-fb-02-name.jpg" alt="이름을 영어로 입력 후 계속" loading="lazy"><figcaption>❷ 이름을 영어로 입력 → ❸ 계속</figcaption></figure>
+      <figure><img src="img/be-fb-03-gemini.jpg" alt="Firebase의 Gemini는 그대로 두고 계속" loading="lazy"><figcaption>❹ Firebase의 Gemini는 그대로 두고 계속</figcaption></figure>
+      <figure><img src="img/be-fb-04-analytics.jpg" alt="애널리틱스 끄고 프로젝트 만들기" loading="lazy"><figcaption>❺ 애널리틱스 끄기 → ❻ 프로젝트 만들기</figcaption></figure>
+      <figure><img src="img/be-fb-05-ready.jpg" alt="준비되면 계속" loading="lazy"><figcaption>❼ 준비되면 계속</figcaption></figure>
+    </div>
+  </div></details>
+
+  <details class="ex case be-step"><summary><span class="beno">2</span> <b>웹 앱 등록하고 설정 코드(firebaseConfig) 복사하기</b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <ol><li>프로젝트 첫 화면에서 <b>앱 추가 → &lt;/&gt; (웹)</b> 아이콘</li>
+    <li>앱 닉네임: <code>myclass</code> → Firebase 호스팅은 체크하지 않음 → <b>앱 등록</b></li>
+    <li><b>&lt;script&gt; 태그 사용</b>을 고르면 <code>const firebaseConfig = { ... };</code>가 나와요. 중괄호까지 <b>통째로 복사</b>해 메모장에 붙여 두기 → <b>콘솔로 이동</b></li></ol>
+    <div class="shots">
+      <figure><img src="img/be-fb-06-addapp.jpg" alt="앱 추가" loading="lazy"><figcaption>❶ 앱 추가</figcaption></figure>
+      <figure><img src="img/be-fb-07-web.jpg" alt="웹 아이콘" loading="lazy"><figcaption>❷ &lt;/&gt; (웹) 아이콘</figcaption></figure>
+      <figure><img src="img/be-fb-08-register.jpg" alt="앱 닉네임 입력 후 앱 등록" loading="lazy"><figcaption>❸ 앱 닉네임 입력 (호스팅은 체크하지 않음) → ❹ 앱 등록</figcaption></figure>
+      <figure><img src="img/be-fb-09-config.jpg" alt="script 태그 사용, firebaseConfig 복사, 콘솔로 이동" loading="lazy"><figcaption>❺ &lt;script&gt; 태그 사용 → ❻ firebaseConfig 복사(캡처에서는 값을 가렸어요) → ❼ 콘솔로 이동</figcaption></figure>
+    </div>
+    <p class="tip">설정 코드는 나중에 <b>⚙ 프로젝트 설정 → 일반 → 내 앱</b>에서 다시 볼 수 있어요. apiKey가 웹 페이지에 보여도 괜찮아요. 창고를 찾아오는 '주소'일 뿐이고, 데이터는 6번의 <b>규칙</b>이 지킵니다.</p>
+  </div></details>
+
+  <details class="ex case be-step"><summary><span class="beno">3</span> <b>데이터 저장소(Firestore) 만들기</b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <ol><li>왼쪽 메뉴 <b>데이터베이스 및 스토리지 → Firestore</b> → <b>데이터베이스 만들기</b></li>
+    <li>버전은 <b>Standard</b> 그대로 → 다음</li>
+    <li>위치: <b>asia-northeast3 (Seoul)</b> → 다음 (한 번 정하면 바꿀 수 없어요)</li>
+    <li>시작 모드: <b>프로덕션 모드</b> → <b>만들기</b></li></ol>
+    <div class="callout gold"><b class="t">왜 테스트 모드가 아니라 프로덕션 모드?</b>테스트 모드는 처음엔 바로 되지만 <b>30일 뒤 갑자기 막혀서</b> 학기 중에 앱이 멈춰요. 프로덕션 모드는 처음엔 잠겨 있지만, 다음 6번에서 규칙을 바꾸면 기한 없이 쓸 수 있어요.</div>
+    <div class="shots">
+      <figure><img src="img/be-fb-10-menu.jpg" alt="데이터베이스 및 스토리지, Firestore" loading="lazy"><figcaption>❶ 데이터베이스 및 스토리지 → ❷ Firestore</figcaption></figure>
+      <figure><img src="img/be-fb-11-createdb.jpg" alt="데이터베이스 만들기" loading="lazy"><figcaption>❸ 데이터베이스 만들기</figcaption></figure>
+      <figure><img src="img/be-fb-12-standard.jpg" alt="Standard 버전, 다음" loading="lazy"><figcaption>❹ Standard 버전 → ❺ 다음</figcaption></figure>
+      <figure><img src="img/be-fb-13-seoul.jpg" alt="위치 asia-northeast3 Seoul" loading="lazy"><figcaption>❻ 위치 목록 열기 → ❼ asia-northeast3 (Seoul)</figcaption></figure>
+      <figure><img src="img/be-fb-14-seoul-next.jpg" alt="다음" loading="lazy"><figcaption>❽ 다음</figcaption></figure>
+      <figure><img src="img/be-fb-15-production.jpg" alt="프로덕션 모드에서 시작" loading="lazy"><figcaption>❾ 프로덕션 모드에서 시작 → ❿ 다음</figcaption></figure>
+      <figure><img src="img/be-fb-16-create.jpg" alt="만들기" loading="lazy"><figcaption>⓫ 백업은 체크하지 않고 만들기</figcaption></figure>
+    </div>
+  </div></details>
+
+  <details class="ex case be-step"><summary><span class="beno">4</span> <b>익명 로그인 켜기 <span style="color:#c62828">꼭!</span></b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <p>학생이 회원가입 없이 '익명 손님'으로 들어오게 하는 설정이에요. 켜지 않으면 <b>로그인 오류가 나고 데이터가 저장되지 않아요.</b></p>
+    <ol><li>왼쪽 메뉴 <b>보안 → Authentication</b> (처음이면 <b>시작하기</b>)</li>
+    <li>기본 제공업체의 <b>익명</b> 클릭 <small>(목록이 안 보이면 위쪽 <b>로그인 방법</b> 탭 → <b>새 제공업체 추가</b>)</small></li>
+    <li><b>사용 설정</b> 스위치를 켜고 → <b>저장</b> → 목록에 '익명 · 사용 설정됨'이 보이면 완료</li></ol>
+    <div class="shots">
+      <figure><img src="img/be-fb-19-authmenu.jpg" alt="보안, Authentication" loading="lazy"><figcaption>❶ 보안 → ❷ Authentication</figcaption></figure>
+      <figure><img src="img/be-fb-20-start.jpg" alt="시작하기" loading="lazy"><figcaption>❸ 처음이면 시작하기</figcaption></figure>
+      <figure><img src="img/be-fb-anon-1-provider.jpg" alt="기본 제공업체의 익명" loading="lazy"><figcaption>❹ 기본 제공업체의 익명</figcaption></figure>
+      <figure><img src="img/be-fb-anon-2-toggle.jpg" alt="사용 설정 켜기 후 저장" loading="lazy"><figcaption>❺ 사용 설정 켜기 → ❻ 저장</figcaption></figure>
+      <figure><img src="img/be-fb-anon-3-done.jpg" alt="익명 사용 설정됨" loading="lazy"><figcaption>'사용 설정됨'이 보이면 완료</figcaption></figure>
+    </div>
+    <p class="tip">이 단계를 빼먹으면 <code>auth/admin-restricted-operation</code> 같은 오류가 떠요.</p>
+  </div></details>
+
+  <details class="ex case be-step"><summary><span class="beno">5</span> <b>내 웹앱에 창고 연결하기 (제미나이 캔버스)</b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <p>2단계에서 만든 캔버스 대화창에서 이어서 보내세요. 아래 칸에 2번에서 복사한 설정 코드를 붙여 넣고 <b>적용하기</b>를 누르면 부탁문에 자동으로 들어가요. 부탁문의 <b>[ ]</b> 안은 내 앱에 맞게 바꾸세요.</p>
+    <div class="fbcfg" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:48px">
+      <label for="fbCfgIn" style="display:block;font-weight:700;margin-bottom:6px">① 2번에서 복사한 내 설정 코드를 여기에 붙여 넣기</label>
+      <textarea id="fbCfgIn" rows="8" spellcheck="false" placeholder="const firebaseConfig = {&#10;  apiKey: &quot;...&quot;,&#10;  authDomain: &quot;...&quot;,&#10;  projectId: &quot;...&quot;,&#10;  ...&#10;};" style="width:100%;box-sizing:border-box;font-family:Consolas,monospace;font-size:14px;padding:10px;border:1px solid var(--line);border-radius:8px"></textarea>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px">
+        <button type="button" id="fbCfgApply" style="font:inherit;font-weight:700;padding:8px 16px;border-radius:10px;border:1px solid #a8433b;background:#d9534f;color:#fff;cursor:pointer">② 부탁문에 적용하기</button>
+        <button type="button" id="fbCfgReset" style="font:inherit;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer">지우기</button>
+        <span id="fbCfgMsg" style="font-size:14px"></span>
+      </div>
+      <p class="tip" style="margin-bottom:0">설정 코드는 이 화면 안에서만 쓰이고 어디에도 저장되지 않아요. 적용한 뒤 아래 부탁문의 <b>복사</b>를 누르세요.</p>
+    </div>
+    <div class="prompt"><div class="label">부탁문 · 파이어베이스 연결하기</div><button class="copy">복사</button><pre id="fbPrompt">지금 만든 웹앱의 디자인과 기능은 그대로 두고, [학생이 입력한 답]이 모든 사람의 화면에 실시간으로 모이도록 Firebase Firestore에 저장하게 바꿔 줘.
+- Firebase 웹 SDK는 CDN(gstatic) 모듈 방식으로 불러오고, HTML 한 파일로 만들어 줘.
+- 학생은 익명 로그인(signInAnonymously)으로 들어오게 해 줘.
+- 데이터는 [classes/수업이름/answers] 경로에 저장하고, onSnapshot으로 실시간으로 보여 줘.
+- 이름·학번·연락처는 받지 마. 필요하면 번호만 받아.
+- 아래 firebaseConfig만 쓰고, 다른 Firebase 설정이나 실행 환경 변수(__firebase_config, __app_id 등)는 쓰지 마.
+- 마지막에 이 앱에 맞는 Firestore 보안 규칙도 따로 써 줘. 누구나 쓸 수 있되, 글자 수 제한과 남의 글 수정 금지를 넣어 줘.
+
+[firebaseConfig]
+(여기에 2번에서 복사한 const firebaseConfig = { ... }; 를 붙여 넣기)</pre></div>
+    <p class="tip"><b>"다른 Firebase 설정이나 실행 환경 변수는 쓰지 마"</b> 줄이 중요해요. 이 줄이 없으면 캔버스 안에서만 되고, 파일로 저장해 배포하면 안 됩니다.</p>
+    <ol><li>캔버스 오른쪽 위 <b>내보내기 옆 ⌄ → 코드 다운로드</b> → 파일 이름을 <code>index.html</code>로 저장</li>
+    <li>파일을 더블클릭해 크롬으로 열고 입력해 보기 → <b>새로고침해도 남아 있으면 성공</b></li></ol>
+    <div class="shots"><figure><img src="img/be-canvas-download.png" alt="캔버스 내보내기 메뉴의 코드 다운로드" loading="lazy"><figcaption>❶ 내보내기 옆 ⌄ → ❷ 코드 다운로드</figcaption></figure><figure><img src="img/be-save-index.png" alt="저장 창에서 파일 이름 index.html" loading="lazy"><figcaption>파일 이름을 index.html로 바꿔 저장</figcaption></figure></div>
+    <p class="tip">파일 이름은 반드시 <code>index.html</code>. <code>index (1).html</code>이나 <code>index.html.txt</code>가 되면 고쳐 주세요.</p>
+    <details class="ex"><summary>AI 스튜디오에서 만들 때는? (Enable Firebase)</summary><div class="body">
+      <p>AI 스튜디오는 부탁문에 <b><span class="say">"데이터는 Firebase에 저장해 줘"</span></b>라고 쓰면 <b>Enable Firebase</b> 승인 창이 떠요. 승인하면 1~3분 뒤 창고가 자동으로 붙고, 오른쪽 위 <b>Publish</b>로 주소(…run.app)까지 받을 수 있어요. 이 경우 아래 C 배포는 하지 않아도 됩니다.</p>
+      <div class="prompt"><div class="label">AI 스튜디오 · 보안 규칙 점검하기</div><button class="copy">복사</button><pre>지금 이 앱의 데이터베이스 보안 규칙을 쉬운 한국어로 설명해 줘. 아래 표로.
+| 누가 | 읽기(보기) | 쓰기(제출·수정·삭제) |
+대상: 로그인하지 않은 사람 / 로그인한 학생 / 다른 학생의 제출 / 교수(나)
+그리고 학생이 다른 학생의 제출을 볼 수 있거나, 로그인 없이 누구나 쓸 수 있는 부분이 있으면 따로 경고해 줘.</pre></div>
+    </div></details>
+  </div></details>
+
+  <details class="ex case be-step"><summary><span class="beno">6</span> <b>보안 규칙 바꾸기 <span style="color:#c62828">꼭!</span></b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <ol><li>Firestore 위쪽 <b>규칙</b> 탭</li>
+    <li>5번에서 제미나이가 써 준 규칙을 복사 → 코드 창을 누르고 <kbd>Ctrl</kbd>+<kbd>A</kbd> → <kbd>Ctrl</kbd>+<kbd>V</kbd>로 통째로 바꾸기</li>
+    <li>위쪽 <b>게시</b> → "반영되는 데 최대 1분" 알림이 뜨면 완료</li></ol>
+    <details class="ex"><summary>예시 규칙 보기 · 포스트잇 질문 보드</summary><div class="body">
+      <div class="prompt"><div class="label">보안 규칙 예시 (포스트잇 보드용)</div><button class="copy">복사</button><pre>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /boards/{boardId} {
+      allow read, write: if true;
+      match /notes/{noteId} {
+        allow read: if true;
+        allow create: if request.resource.data.text is string
+                      &amp;&amp; request.resource.data.text.size() &gt; 0
+                      &amp;&amp; request.resource.data.text.size() &lt;= 200
+                      &amp;&amp; request.resource.data.likes == 0
+                      &amp;&amp; request.resource.data.hidden == false;
+        allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes', 'hidden']);
+        allow delete: if true;
+      }
+    }
+  }
+}</pre></div>
+      <p class="tip">누구나 읽고 쓰되, 200자 넘는 글과 공감 수 조작은 막는 수업용 규칙이에요. 경로(boards·notes)가 내 앱과 다르면 그대로 쓰지 말고 5번에서 받은 규칙을 쓰세요.</p>
+    </div></details>
+    <div class="shots">
+      <figure><img src="img/be-fb-17-rules.jpg" alt="규칙 탭에 붙여 넣고 게시" loading="lazy"><figcaption>❶ 규칙 탭 → ❷ 규칙을 통째로 붙여 넣기 → ❸ 게시</figcaption></figure>
+      <figure><img src="img/be-fb-18-published.jpg" alt="게시 완료 알림" loading="lazy"><figcaption>"반영되는 데 최대 1분" 알림이 뜨면 완료</figcaption></figure>
+    </div>
+    <div class="callout red"><b class="t">규칙은 AI가 만든 그대로 믿지 마세요</b>
+      <ul><li>다른 기기(휴대폰)로 들어가 <b>남의 글을 고치거나 지울 수 있는지</b> 직접 시험해 보세요</li>
+      <li>주소를 아는 사람은 누구나 쓸 수 있어요. <b>이름·학번·연락처·성적은 받지 마세요</b></li>
+      <li>창고에 쌓인 데이터는 <b>Firestore → 데이터</b> 탭에서 볼 수 있고, 학기가 끝나면 지워 주세요</li></ul></div>
+    <div class="shots"><figure><img src="img/be-fb-21-data.jpg" alt="Firestore 데이터 탭에 쌓인 문서" loading="lazy"><figcaption>창고 안의 모습: 학생이 입력할 때마다 문서가 하나씩 쌓여요.</figcaption></figure></div>
+  </div></details>
+
+  <h3 class="caseh">C. 인터넷 주소 받기 · 배포 세 가지 방법</h3>
+  <p class="tip">셋 중 <b>하나만</b> 하면 돼요. 처음이라면 <b>넷리파이</b>를 권해요.</p>
+  <div class="tblwrap"><table>
+    <tr><th>방법</th><th>올리는 법</th><th>좋은 점</th><th>주의</th></tr>
+    <tr><td><b>① 넷리파이</b><br><small>가장 쉬움</small></td><td>폴더를 끌어다 놓기</td><td>가입 후 1분이면 주소가 생김</td><td>올린 뒤 <b>Make public</b>을 눌러야 학생이 들어옴</td></tr>
+    <tr><td><b>② 깃허브 페이지</b></td><td>저장소에 파일 올리기</td><td>고친 기록이 남고, 파일 보관도 됨</td><td>저장소가 <b>공개(Public)</b>여야 무료</td></tr>
+    <tr><td><b>③ 버셀</b></td><td>깃허브 저장소 연결</td><td>깃허브 파일을 고치면 <b>자동으로 다시 배포</b></td><td>깃허브에 먼저 올려야 함</td></tr>
+  </table></div>
+
+  <details class="ex case be-step"><summary><span class="beno">①</span> <b>넷리파이 · 폴더 끌어다 놓기</b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <ol><li>바탕화면에 새 폴더(예: <code>내수업앱</code>)를 만들고 그 안에 <code>index.html</code> 넣기</li>
+    <li><a href="https://app.netlify.com" target="_blank" rel="noopener">app.netlify.com</a> → <b>Log in with Google</b> (개인 Gmail, 이것만으로 가입까지 돼요)</li>
+    <li>처음이면 질문 화면: 용도 <b>School</b> → 경험 <b>Beginner</b> → 만들 것 <b>Web app</b> → 역할 <b>Teacher</b> → 알게 된 곳 <b>Someone else</b></li>
+    <li><b>Deploy your first project</b> 화면에서 <b>Skip this step for now</b></li>
+    <li><b>Projects</b> 화면 아래 <b>Upload your project files</b> 칸에 폴더를 <b>끌어다 놓기</b> → <code>https://○○○.netlify.app</code> 주소가 생기면 성공</li>
+    <li><b>Make public</b>을 눌러 공개로 바꾸기 → 다른 기기(휴대폰이나 다른 PC)로 주소를 열어 바로 보이면 완료</li>
+    <li>주소 바꾸기: <b>Domain</b> 칸 <b>Edit</b> → 앞부분을 영문 소문자로 (예: <code>daejin-stats</code>) → ✓</li></ol>
+    <div class="shots">
+      <figure><img src="img/be-netlify-login.png" alt="넷리파이 Log in with Google" loading="lazy"><figcaption>Log in with Google만 누르면 가입까지 한 번에</figcaption></figure>
+      <figure><img src="img/be-netlify-onboard.png" alt="넷리파이 첫 질문 화면" loading="lazy"><figcaption>첫 질문: School → Beginner</figcaption></figure>
+      <figure><img src="img/be-netlify-onboard2.png" alt="넷리파이 첫 질문 이어서" loading="lazy"><figcaption>Web app → Teacher → Someone else</figcaption></figure>
+      <figure><img src="img/be-netlify-onboard3.png" alt="Skip this step for now" loading="lazy"><figcaption>Skip this step for now</figcaption></figure>
+      <figure><img src="img/be-netlify-projects.png" alt="Upload your project files 칸" loading="lazy"><figcaption>빨간 네모 칸에 폴더를 끌어다 놓기</figcaption></figure>
+      <figure><img src="img/be-netlify-drop.png" alt="app.netlify.com/drop 화면" loading="lazy"><figcaption>또는 app.netlify.com/drop 의 Drop here에 놓아도 같아요</figcaption></figure>
+      <figure><img src="img/be-netlify-done.png" alt="Your project is ready와 주소" loading="lazy"><figcaption>Your project is ready! 빨간 네모가 내 앱 주소</figcaption></figure>
+      <figure><img src="img/be-netlify-rename.png" alt="Domain Edit로 이름 바꾸기" loading="lazy"><figcaption>Edit → 새 이름 → Project name is available 확인 후 ✓</figcaption></figure>
+    </div>
+    <p class="tip">파일을 고친 뒤에는 프로젝트의 <b>Deploys</b> 화면에 폴더를 다시 끌어다 놓으면 같은 주소로 바뀌어요.</p>
+  </div></details>
+
+  <details class="ex case be-step"><summary><span class="beno">②</span> <b>깃허브 페이지 · 저장소에 올려 주소 받기</b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <ol><li><a href="https://github.com" target="_blank" rel="noopener">github.com</a> 가입 (개인 이메일) → 오른쪽 위 <b>+ → New repository</b></li>
+    <li>Repository name: 영문 소문자 (예: <code>stats-check</code>) → <b>Public</b> 선택 → <b>Create repository</b></li>
+    <li>새 저장소 화면의 <b>uploading an existing file</b> 링크 (또는 <b>Add file → Upload files</b>) → <code>index.html</code>을 끌어다 놓기 → 아래 <b>Commit changes</b></li>
+    <li>저장소 위쪽 <b>Settings</b> → 왼쪽 <b>Pages</b> → Source: <b>Deploy from a branch</b> → Branch: <b>main</b> · <b>/(root)</b> → <b>Save</b></li>
+    <li>1~2분 뒤 Pages 화면 위에 <code>https://내아이디.github.io/stats-check/</code> 주소가 뜨면 완료 (<b>Visit site</b>)</li></ol>
+    <p class="tip">파일을 고칠 때는 같은 이름의 <code>index.html</code>을 다시 <b>Upload files</b>로 올리고 Commit하면, 1~2분 뒤 같은 주소에 반영돼요. 저장소가 공개라 코드가 보여요. 개인정보나 비밀번호를 코드에 넣지 마세요.</p>
+  </div></details>
+
+  <details class="ex case be-step"><summary><span class="beno">③</span> <b>버셀 · 깃허브 저장소를 연결해 배포</b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
+    <ol><li>먼저 ②의 1~3까지 해서 깃허브 저장소에 <code>index.html</code>을 올려 두기</li>
+    <li><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a> → <b>Sign Up → Continue with GitHub</b> (요금제는 무료 Hobby)</li>
+    <li><b>Add New… → Project</b> → 내 저장소 옆 <b>Import</b></li>
+    <li>설정은 그대로 두고(Framework Preset: Other) <b>Deploy</b></li>
+    <li>축하 화면이 나오면 <code>https://저장소이름.vercel.app</code> 주소 완성</li></ol>
+    <p class="tip">버셀은 깃허브와 이어져 있어서, 깃허브에서 <code>index.html</code>을 고쳐 Commit하면 <b>자동으로 다시 배포</b>돼요.</p>
+  </div></details>
+
+  <div class="callout gold"><b class="t">배포한 뒤 꼭 확인하기</b>
+    <ul><li><b>다른 기기</b>(휴대폰이나 옆자리 PC, 로그인 안 된 상태)로 주소를 열어 입력해 보기 → 내 화면에 실시간으로 뜨면 성공</li>
+    <li>구글 로그인을 쓰는 앱이라면: 파이어베이스 <b>Authentication → 설정 → 승인된 도메인</b>에 배포 주소(예: daejin-stats.netlify.app)를 추가해야 로그인이 돼요. 익명 로그인만 쓰면 하지 않아도 돼요</li>
+    <li>주소는 QR로 만들어 수업 슬라이드에 붙여 두세요 (크롬 주소창 공유 → QR 코드)</li></ul></div>
+</section>
+
+<section id="help">
+  <h2 class="sec">4단계 · 막혔을 때 (AI 스튜디오)</h2>
+  <div class="callout gold"><b class="t">다 만들었는데 미리보기가 안 뜰 때: 이 순서로 해 보세요</b>
+    <ol><li><b>화면 가운데 버튼부터 누르기</b>: <b>Retry</b>, <b>Reload the app</b>, <b>Launch</b> 중 보이는 것.</li>
+    <li><b>그래도 그대로면 크롬 새로고침(F5)</b>. 만든 앱은 사라지지 않아요. 강사도 미니골프가 이렇게 해서 열렸어요.</li>
+    <li><b>그래도 안 되면 왼쪽 아래 칸에 이렇게 보내기</b>: <span class="say">"미리보기가 안 떠. 다시 빌드해 줘."</span> (AI에게 한 번 더 부탁하는 거라 하루 한도를 1번 써요.)</li></ol>
+    <div class="shots"><figure><img src="img/ww-failed.jpg" alt="Failed to load app → 가운데 Retry" loading="lazy"><figcaption>Failed to load app → 가운데 Retry</figcaption></figure><figure><img src="img/fix-paused.jpg" alt="App has been paused → Reload the app" loading="lazy"><figcaption>App has been paused → Reload the app</figcaption></figure><figure><img src="img/fix-launch.jpg" alt="빈 화면에 Launch만 있으면 → Launch, 안 되면 F5" loading="lazy"><figcaption>빈 화면에 Launch만 있으면 → Launch, 안 되면 F5</figcaption></figure><figure><img src="img/fix-rebuild.jpg" alt="1·2번으로 안 되면 → "미리보기가 안 떠. 다시 빌드해 줘." 보내기" loading="lazy"><figcaption>1·2번으로 안 되면 → <span class="say">"미리보기가 안 떠. 다시 빌드해 줘."</span> 보내기</figcaption></figure></div>
+  </div>
+  <div class="tblwrap"><table>
+    <tr><th>이런 일이 생기면</th><th>이렇게 해 보세요</th></tr>
+    <tr><td><b>Gemini API · Link a paid API key</b> 창이 떠요</td><td>유료 키는 필요 없어요. 그냥 <b>Remix app</b>을 누르세요.</td></tr>
+    <tr><td>화면이 까맣고 <b>1 error running the code</b>가 떠요</td><td>그 옆의 <b>Fix</b>를 누르면 AI가 고쳐요. 마이크·카메라를 쓰는 템플릿은 허용 창에서 <b>Allow</b>를 눌러야 해요.<br><img src="img/err-fix.jpg" alt="Fix 버튼" style="max-width:100%;border-radius:8px;margin-top:6px" loading="lazy"></td></tr>
+    <tr><td>Remix 버튼이 안 보여요</td><td>로그인했는지 확인. 개인 Gmail로 다시 로그인하고, 학교 계정이면 바꿔 주세요.</td></tr>
+    <tr><td><b>Failed to load app</b>이 떠요</td><td>가운데 <b>Retry</b>를 누르세요. 그래도 안 되면 크롬 새로고침(F5).</td></tr>
+    <tr><td>게임이 회색으로 덮이고 <b>Launch!</b>만 보여요</td><td>크롬 새로고침(F5)을 누르면 게임이 다시 움직여요.</td></tr>
+    <tr><td>"Waiting for content"나 "Generating app"에서 한참 멈춰 있어요</td><td>AI는 다 만들었는데 미리보기만 늦게 뜨는 경우가 많아요. F5 → 그래도 안 되면 <span class="say">"미리보기가 안 떠. 다시 빌드해 줘."</span></td></tr>
+    <tr><td>저절로 <b>The task was canceled</b>가 떠요</td><td>같은 부탁문을 왼쪽 아래 칸에 다시 붙여 넣고 보내세요. (강사도 창의발명, 생성형 AI 용어 퍼즐에서 겪었어요.)<br><img src="img/fix-canceled.jpg" alt="The task was canceled" style="max-width:100%;border-radius:8px;margin-top:6px" loading="lazy"></td></tr>
+    <tr><td><b>An internal error occurred</b>가 떠요</td><td>그 줄 오른쪽의 <b>Retry</b>를 누르세요. AI가 <span class="say">"하던 일을 마저 해 줘"</span>로 이어서 만들어요. 오른쪽에 빨간 코드 오류가 보여도 다 만들어지면 사라져요.<br><img src="img/fix-internal.jpg" alt="An internal error occurred와 Retry" style="max-width:100%;border-radius:8px;margin-top:6px" loading="lazy"></td></tr>
+    <tr><td>미리보기가 하얗게 비어요</td><td><span class="say">"미리보기 화면이 하얗게 비어 있어. 원인을 찾아서 고쳐 줘."</span> 두 번 해도 안 되면 템플릿을 새로 리믹스.</td></tr>
+    <tr><td>아직 영어가 많아요</td><td><span class="say">"아직 영어로 남은 글자를 모두 한국어로 바꿔 줘."</span></td></tr>
+    <tr><td>내가 안 넣은 내용이 들어갔어요</td><td><span class="say">"[수업 내용]에 없는 문제는 모두 빼 줘."</span></td></tr>
+    <tr><td>너무 오래 걸려요</td><td>무거운(★★★) 템플릿은 5~15분 걸려요. 창을 닫지 말고 기다리세요. 기다리는 동안 다음에 보낼 고치기 부탁을 메모해 두세요.</td></tr>
+    <tr><td>미리보기에 <b>App has been paused</b>가 떠요</td><td>가운데 <b>Reload the app</b>을 누르세요. 다른 탭에 오래 있다 오면 생겨요.</td></tr>
+    <tr><td><b>플로우를 계속하려면 업그레이드하세요 · 일일 한도에 도달했습니다</b>가 떠요</td><td>하루에 AI에게 부탁할 수 있는 횟수를 다 썼다는 뜻이에요. 다음 날 한도가 다시 차요. 그 사이엔 옆 선생님 화면으로 같이 보거나, 다른 Google 계정으로 로그인하세요. 업그레이드 버튼은 누르지 않아도 돼요.<br><b>미리 막는 법:</b> 고치기 부탁은 한 번에 2~3가지씩 모아서 보내고, 리믹스를 여러 개 동시에 돌리지 마세요.<br><img src="img/err-limit.jpg" alt="일일 한도 안내" style="max-width:100%;border-radius:8px;margin-top:6px" loading="lazy"></td></tr>
+    <tr><td>고치다가 망가졌어요</td><td><span class="say">"방금 바꾼 것은 되돌려 줘."</span> 또는 템플릿을 다시 열어 처음부터 리믹스.</td></tr>
+  </table></div>
+</section>
+
+</div></main>
+
+<div class="lb" id="lb" hidden><button type="button" aria-label="닫기">×</button><img alt=""><p></p></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'), im=lb.querySelector('img'), cap=lb.querySelector('p');
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.tagName==='IMG' && t.closest('figure') && !t.closest('#lb')){
+      im.src=t.currentSrc||t.src; im.alt=t.alt;
+      var fc=t.closest('figure').querySelector('figcaption'); cap.textContent=fc?fc.textContent:'';
+      lb.hidden=false; document.body.style.overflow='hidden';
+    } else if(t.closest && t.closest('#lb')){ close(); }
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  function close(){ lb.hidden=true; document.body.style.overflow=''; }
+})();
+</script>
+<div class="fontctl" id="fontCtl" role="group" aria-label="글자 크기">
+  <button type="button" id="fMinus" aria-label="글자 작게">가−</button>
+  <span id="fVal">110%</span>
+  <button type="button" id="fPlus" aria-label="글자 크게">가+</button>
+  <button type="button" class="reset" id="fReset" aria-label="기본 크기">기본</button>
+</div>
+<script>
+(function(){
+  var steps=[90,100,110,120,135,150,170], def=2, cur=def;
+  try{ var v=parseInt(localStorage.getItem('rxFontStep'),10); if(v>=0&&v<steps.length) cur=v; }catch(e){}
+  var parts=document.querySelectorAll('header.hero, nav.quick, main, footer');
+  function apply(){
+    var z=steps[cur]/100;
+    [].forEach.call(parts,function(p){ p.style.zoom=z; });
+    document.getElementById('fVal').textContent=steps[cur]+'%';
+    document.getElementById('fMinus').disabled=cur===0;
+    document.getElementById('fPlus').disabled=cur===steps.length-1;
+    try{ localStorage.setItem('rxFontStep',cur); }catch(e){}
+  }
+  document.getElementById('fMinus').onclick=function(){ if(cur>0){cur--;apply();} };
+  document.getElementById('fPlus').onclick=function(){ if(cur<steps.length-1){cur++;apply();} };
+  document.getElementById('fReset').onclick=function(){ cur=def; apply(); };
+  apply();
+})();
+</script>
+
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('.ex-copy'); if(!b) return;
+  var t=b.parentNode.querySelector('.tx').textContent;
+  function ok(){ b.textContent='복사됨 ✓'; b.classList.add('done'); setTimeout(function(){ b.textContent='복사'; b.classList.remove('done'); },1500); }
+  function fb(){ var ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); ok();}catch(x){} document.body.removeChild(ta); }
+  if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(t).then(ok,fb); } else fb();
+});
+</script>
+<script>
+(function(){
+  var TABS=[
+    {id:'start',label:'시작하기',secs:['start']},
+    {id:'canva',label:'1단계 캔바 코드',secs:['canva']},
+    {id:'canvas',label:'2단계 제미나이 캔버스',secs:['canvas']},
+    {id:'nlm',label:'3단계 노트북LM',secs:['nlm']},
+    {id:'demoA',label:'시연 ① 체스',secs:['demoA'],g:'4단계 AI 스튜디오 (심화)'},
+    {id:'demoB',label:'시연 ② 단어 퍼즐',secs:['demoB'],g:'4단계 AI 스튜디오 (심화)'},
+    {id:'pick',label:'템플릿 고르기',secs:['pick'],g:'4단계 AI 스튜디오 (심화)'},
+    {id:'make',label:'내 수업·업무로 리믹스',secs:['make'],g:'4단계 AI 스튜디오 (심화)'},
+    {id:'share',label:'공유·활용하기',secs:['share'],g:'4단계 AI 스튜디오 (심화)'},
+    {id:'cases',label:'활용 사례',secs:['cases'],g:'4단계 AI 스튜디오 (심화)'},
+    {id:'help',label:'🛟 막혔을 때',secs:['help'],g:'4단계 AI 스튜디오 (심화)'},
+    {id:'more',label:'5단계 백엔드·배포 (심화)',secs:['more'],adv:true}
+  ];
+  var bar=document.getElementById('tabbar'), cur=null;
+  function tabOf(secId){ for(var k=0;k<TABS.length;k++){ if(TABS[k].secs.indexOf(secId)>=0) return k; } return -1; }
+  var sub=document.createElement('div'); sub.className='wrap subtabs'; sub.id='subbar'; bar.parentNode.appendChild(sub); var gbtn={};
+  function full(t){ return t.g?t.g.split(' ')[0]+' · '+t.label:t.label; }
+  TABS.forEach(function(t,k){
+    var b=document.createElement('button'); b.type='button'; b.textContent=t.label; if(t.adv) b.className='adv';
+    b.onclick=function(){ show(k,null,true); }; t.btn=b;
+    if(t.g){ sub.appendChild(b); if(!gbtn[t.g]){ var gb=document.createElement('button'); gb.type='button'; gb.textContent=t.g+' ▾'; gb.onclick=function(){ show(k,null,true); }; bar.appendChild(gb); gbtn[t.g]=gb; } t.gb=gbtn[t.g]; }
+    else bar.appendChild(b);
+    var last=document.getElementById(t.secs[t.secs.length-1]);
+    var nav=document.createElement('div'); nav.className='tabnav';
+    if(k>0){ var p=document.createElement('button'); p.type='button'; p.textContent='← '+full(TABS[k-1]); p.onclick=function(){ show(k-1,null,true); }; nav.appendChild(p); }
+    if(k<TABS.length-1){ var n=document.createElement('button'); n.type='button'; n.className='next'; n.textContent=full(TABS[k+1])+' →'; n.onclick=function(){ show(k+1,null,true); }; nav.appendChild(n); }
+    last.appendChild(nav);
+  });
+  function show(k,target,top){
+    cur=k;
+    for(var g in gbtn) gbtn[g].classList.toggle('on',TABS[k].g===g); sub.style.display=TABS[k].g?'flex':'none'; TABS.forEach(function(t,i){ t.btn.classList.toggle('on',i===k); t.secs.forEach(function(id){ var el=document.getElementById(id); if(i===k) el.removeAttribute('data-hide'); else el.setAttribute('data-hide',''); }); });
+    (TABS[k].gb||TABS[k].btn).scrollIntoView({block:'nearest',inline:'center'});
+    try{ history.replaceState(null,'','#'+TABS[k].id); }catch(e){}
+    if(target){ target.scrollIntoView({block:'start'}); }
+    else if(top){ var m=document.querySelector('main'); window.scrollTo(0, m.getBoundingClientRect().top+window.scrollY-60); }
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=a.getAttribute('href').slice(1); var el=id&&document.getElementById(id); if(!el) return;
+    var sec=el.closest('section'); var k=sec?tabOf(sec.id):-1; if(k<0) return;
+    e.preventDefault(); show(k, sec.id===id?null:el, true);
+  });
+  var h=(location.hash||'').slice(1), start=0;
+  if(h){ var el=document.getElementById(h); var sec=el&&el.closest('section'); if(sec){ var k=tabOf(sec.id); if(k>=0) start=k; } else { TABS.forEach(function(t,i){ if(t.id===h) start=i; }); } }
+  var side=document.createElement('aside'); side.id='sidetoc'; side.innerHTML='<div class="sthome"><a href="index.html">🏠 홈</a><a href="am.html">오전반</a><a href="pm.html" class="on">오후반</a></div><div class="sthead">목차</div><div id="stbody"></div>'; var hl=document.createElement('a'); hl.href='index.html'; hl.className='homelink'; hl.textContent='🏠 홈'; bar.insertBefore(hl,bar.firstChild); var al=document.createElement('a'); al.href='am.html'; al.className='homelink'; al.textContent='오전반 →'; bar.appendChild(al); document.body.appendChild(side);
+  var stb=side.querySelector('#stbody'), sid=0;
+  function tocFor(k){
+    var t=TABS[k], sec=document.getElementById(t.secs[0]); var items=[];
+    sec.querySelectorAll(':scope>h3.caseh, :scope>.step>div>h4, :scope>details.be-step>summary b').forEach(function(h){
+      var tgt=h.closest('details.be-step')||(h.tagName==='H4'?h.closest('.step'):h);
+      if(!tgt.id) tgt.id='toc-'+(++sid);
+      var txt=h.textContent.replace(/눌러서 펼치기|꼭!/g,'').trim(); if(txt.length>34) txt=txt.slice(0,33)+'…';
+      items.push({id:tgt.id,txt:txt,lv:h.tagName==='H3'?1:2});
+    });
+    return items;
+  }
+  function drawToc(){
+    var h='';
+    TABS.forEach(function(t,k){
+      if(t.g && (k===0||TABS[k-1].g!==t.g)) h+='<div class="stg">'+t.g+'</div>';
+      h+='<a href="#" data-k="'+k+'" class="stt'+(k===cur?' on':'')+(t.g?' sub':'')+'">'+full(t).replace(/^4단계 · /,'')+'</a>';
+      if(k===cur){ tocFor(k).forEach(function(it){ h+='<a href="#" data-k="'+k+'" data-id="'+it.id+'" class="sti lv'+it.lv+'">'+it.txt.replace(/</g,'&lt;')+'</a>'; }); }
+    });
+    stb.innerHTML=h;
+  }
+  stb.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+    var k=+a.getAttribute('data-k'), id=a.getAttribute('data-id'); var el=id&&document.getElementById(id);
+    if(el&&el.tagName==='DETAILS') el.open=true;
+    if(k!==cur||!el) show(k,null,!el); else drawToc(); if(el){ var y=el.getBoundingClientRect().top+window.scrollY-130; window.scrollTo({top:y,behavior:'instant'}); }
+  });
+  var _show=show; show=function(k,target,top){ _show(k,target,top); drawToc(); };
+  show(start);
+  window.addEventListener('hashchange',function(){ var h=location.hash.slice(1); var el=document.getElementById(h); var sec=el&&el.closest('section'); var k=sec?tabOf(sec.id):-1; if(k<0) TABS.forEach(function(t,i){ if(t.id===h) k=i; }); if(k>=0&&k!==cur) show(k,null,true); });
+})();
+</script>
+<script>
+var EXTRA=[{"id": "w-semi", "group": "우와", "badge": "3D", "title": "3D 웨이퍼 위에 쌓이는 반도체 8대 공정", "dept": "반도체융합공학과", "base": "new-3d", "use": "웨이퍼 단면이 3D로 돌아가고, 공정 버튼을 누를 때마다 산화막·감광액·식각·배선이 실제로 쌓이고 깎이는 모습이 애니메이션으로 보여요. 수업 첫 10분, 8대 공정 전체 흐름을 한눈에 보여 줄 때 좋아요.", "prompt": "반도체 공정 수업에서 쓸 '3D 반도체 공정 실험실' 웹앱을 Three.js로 만들어 줘.\n\n[내 수업]\n- 과목: 반도체 공정 기초\n- 학생: 반도체융합공학과 1학년\n\n[화면]\n- 가운데에 웨이퍼 한 조각의 3D 단면 블록이 있고, 마우스로 돌려 볼 수 있다.\n- 아래에 공정 버튼 8개가 순서대로 있다. 버튼을 누르면 3D 블록에 그 공정이 애니메이션으로 일어난다.\n  1 웨이퍼 제조: 회색 실리콘 블록이 나타난다\n  2 산화: 위에 얇은 파란 산화막이 자라난다\n  3 포토: 노란 감광액이 덮이고, 위에서 빛이 마스크를 통과해 무늬가 새겨진다\n  4 식각: 무늬대로 산화막이 깎여 나간다\n  5 증착·이온주입: 새 막이 쌓이고 작은 입자가 박힌다\n  6 금속 배선: 구리색 선이 깔린다\n  7 EDS(테스트): 칩 위로 초록 체크 표시가 지나간다\n  8 패키징: 블록이 검은 칩으로 감싸지고 다리가 나온다\n- 공정마다 오른쪽에 '지금 일어난 일' 설명 두 줄을 크게 보여 준다.\n- [처음부터] 버튼과, 순서를 섞어 놓고 맞히는 [순서 퀴즈] 버튼을 둔다.\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 위 내용만 쓰고 지어내지 마.", "fixes": ["공정마다 실제 장비 이름을 한 줄씩 덧붙여 줘.", "[순서 퀴즈]를 다 맞히면 공정 이름과 핵심 단어를 정리한 카드를 보여 줘.", "단면을 위에서 본 모습과 옆에서 본 모습을 버튼으로 바꿔 볼 수 있게 해 줘."], "imgs": ["x-w-semi-1prompt.jpg", "x-w-semi-2res.jpg", "x-w-semi-3res.jpg"], "link": "", "note": "부탁문 한 번에 5분 28초. Three.js 3D 칩을 붙이고 보냈어요. 고칠 것 없이 바로 됐어요."}, {"id": "w-stage", "group": "우와", "badge": "3D", "title": "3D 무대 조명 시뮬레이터", "dept": "연기예술학과", "base": "new-3d", "use": "3D 소극장에서 키·필·백 라이트의 색과 방향을 바꾸면 같은 장면의 분위기가 바로 달라져요. 장면 분석 수업에서 '이 장면엔 어떤 빛이 맞을까'를 학생이 직접 만들어 비교해요.", "prompt": "연기·연출 수업에서 쓸 '3D 무대 조명 시뮬레이터' 웹앱을 Three.js로 만들어 줘.\n\n[내 수업]\n- 과목: 연기연출실습\n- 학생: 연기예술학과 2학년\n\n[화면]\n- 3D 소극장 무대에 배우 모형 두 명, 의자 하나, 탁자 하나가 있다. 마우스로 객석 시점을 돌려 볼 수 있다.\n- 조명 3개: 키 라이트, 필 라이트, 백 라이트. 각각 색, 밝기, 방향을 슬라이더로 바꾸면 무대가 바로 바뀐다. 바닥에 빛 원과 그림자가 보인다.\n- 장면 분위기 버튼 4개를 누르면 조명이 부드럽게 바뀐다: 아침의 희망, 긴장된 대립, 아련한 회상, 이별의 밤.\n- 화면 아래에 지금 조명이 주는 느낌을 한 줄로 크게 보여 준다.\n- [내 조명 저장] 버튼으로 학생이 만든 조명 3개까지 비교해 볼 수 있다.\n\n[지킬 것]\n- 마이크·카메라는 쓰지 마. 기능은 이것만, 한 화면으로. 글씨와 버튼은 크게. 모든 글자는 한국어로.", "fixes": ["배우 모형 자리를 마우스로 끌어 옮길 수 있게 해 줘.", "분위기 버튼에 '공포', '코미디' 두 개를 더해 줘.", "저장한 조명 3개를 나란히 놓고 보는 비교 화면을 만들어 줘."], "imgs": ["x-w-stage-2res.jpg"], "link": "", "note": "첫 빌드가 22분이나 걸렸는데 미리보기가 검은 화면이었어요. \"서버 없이 브라우저에서만 돌아가는 앱으로 다시 빌드해 줘\"라고 보냈더니 2분 만에 무대가 떴어요. 3D 앱이 검은 화면이면 이 한 줄을 써 보세요."}, {"id": "w-history", "group": "우와", "badge": "앱 안 AI", "title": "역사 인물과 대화하기", "dept": "교양학부", "base": "new", "use": "세종대왕, 이순신 같은 인물을 골라 질문하면 앱 안의 Gemini가 그 인물의 말투로 대답해요. 끝나면 배운 점과 사실 확인이 필요한 부분을 정리해 줘서, 'AI 답을 그대로 믿지 않기'까지 함께 가르칠 수 있어요.", "prompt": "교양 수업에서 쓸 '역사 인물과 대화하기' 웹앱을 만들어 줘. 앱 안에서 Gemini가 인물이 되어 대답해야 해.\n\n[내 수업]\n- 과목: 교양 · 역사와 리더십\n- 학생: 대학 1~2학년, 여러 학과\n\n[화면]\n- 첫 화면에 인물 카드 4장: 세종대왕, 이순신, 신사임당, 정약용. 카드에는 초상 대신 이름 글자와 한 줄 소개.\n- 카드를 고르면 대화 화면. 학생이 질문을 쓰면 그 인물의 말투로 3~4문장 답한다. 쉬운 현대어에 옛 말투를 조금 섞는다.\n- 답 아래에 이어서 물어볼 만한 질문 버튼 3개가 나온다.\n- 화면 위에 '인물의 답은 AI가 만든 상상이에요. 사실은 자료로 확인하세요.' 안내를 항상 보여 준다.\n- [대화 마치기]를 누르면 오늘 대화에서 배운 점 3줄과, 사실 확인이 필요한 부분을 정리해 준다.\n\n[지킬 것]\n- 역사적으로 확실하지 않은 내용은 인물이 '그건 확실히 말하기 어렵소'처럼 답하게 해 줘.\n- 학생 이름·학번은 받지 마. 기능은 이것만, 한 화면으로. 글씨와 버튼은 크게. 모든 글자는 한국어로.", "fixes": ["인물에 안중근과 유관순을 더해 줘.", "대화가 끝나면 학생이 사실 확인할 자료 찾기 질문 2개를 보여 줘.", "인물의 답 길이를 2~3문장으로 줄여 줘."], "imgs": ["x-w-history-2res.jpg"], "link": "", "note": "첫 빌드 9분 42초. 그런데 질문을 보내면 답이 안 왔어요. \"1분 넘게 멈춰 있어. 고쳐 줘\"라고 보내 2분 37초 만에 고쳤어요. 원인은 앱 안 AI 모델의 무료 하루 사용량(약 20회)이 바닥난 것이었어요."}, {"id": "w-food", "group": "우와", "badge": "앱 안 AI", "title": "음식 사진 → AI가 식판 채우기", "dept": "식품영양학과", "base": "new", "use": "한 끼 사진을 올리거나 메뉴를 쓰면 앱 안의 Gemini가 음식을 찾아 6가지 식품군 식판에 담아 줘요. 빠진 식품군은 빨갛게 깜빡이고 채울 음식을 추천해요. 학생이 자기 점심 사진으로 바로 해 볼 수 있어요.", "prompt": "영양교육 수업에서 쓸 '사진으로 채우는 균형 식판' 웹앱을 만들어 줘. 앱 안에서 Gemini가 사진을 보고 음식을 알아봐야 해.\n\n[내 수업]\n- 과목: 영양교육 및 상담\n- 학생: 식품영양학과 2학년\n\n[화면]\n- 학생이 한 끼 식사 사진을 올리면(또는 음식 이름을 글로 쓰면) Gemini가 음식들을 찾아 이름을 붙인다.\n- 찾은 음식이 6가지 식품군 칸(곡류, 고기·생선·달걀·콩류, 채소류, 과일류, 우유·유제품류, 유지·당류)으로 날아가 식판에 담기는 애니메이션.\n- 빈 식품군 칸은 빨갛게 깜빡이고, 그 칸을 채울 수 있는 음식 2개를 추천한다.\n- 6칸을 다 채우면 '균형 잡힌 한 끼' 축하 화면.\n- 사진이 없는 학생을 위해 [예시 식단으로 해 보기] 버튼(김치찌개 백반, 햄버거 세트, 비빔밥)을 둔다.\n\n[지킬 것]\n- 열량과 영양소 숫자는 쓰지 마. 사진 속 사람 얼굴은 다루지 마.\n- 기능은 이것만, 한 화면으로. 글씨와 버튼은 크게. 모든 글자는 한국어로.", "fixes": ["추천 음식은 학교 급식이나 학생 식당에서 흔한 메뉴로 골라 줘.", "결과 화면에 '오늘 한 끼 한 줄 평'을 보여 줘.", "식판을 이미지로 저장하는 버튼을 만들어 줘."], "imgs": ["x-w-food-2res.jpg"], "link": "", "note": "첫 빌드 6분 38초. 앱 안 AI가 응답하지 않아 고쳐 달라고 한 번 더 보냈어요. 고친 뒤 \"참치김밥, 라면, 단무지\"를 넣으니 김밥을 김·시금치·당근·참치로 나눠 식판에 담고, 비어 있는 과일류를 빨갛게 표시했어요."}, {"id": "w-lib", "group": "우와", "badge": "앱 안 AI", "title": "AI 사서와 KDC 분류 대결", "dept": "문헌정보학과", "base": "new", "use": "학생이 책 제목을 넣고 KDC 주류를 먼저 고르면, 앱 안의 AI 사서가 강목 번호와 이유를 내놔요. 답이 다르면 '누가 맞을까요?' 토론으로 이어져요. 실제 분류 연습에 AI를 '토론 상대'로 쓰는 예예요.", "prompt": "자료조직 수업에서 쓸 'AI 사서와 KDC 분류 대결' 웹앱을 만들어 줘. 앱 안에서 Gemini가 사서 역할을 해야 해.\n\n[내 수업]\n- 과목: 자료조직론\n- 학생: 문헌정보학과 2학년\n\n[화면]\n- 학생이 실제 책 제목과 한 줄 소개를 쓴다. (예시 책 버튼 5개도 둔다)\n- 학생이 먼저 KDC 10대 주류(000 총류 ~ 900 역사) 중 하나를 고른다.\n- 그다음 AI 사서가 주류와 강목 번호를 추정하고, 그렇게 본 이유를 두 줄로 말한다.\n- 학생과 AI의 답이 같으면 책이 서가의 그 칸으로 날아가 꽂히는 애니메이션, 다르면 두 답을 나란히 보여 주고 '누가 더 맞을까요? 근거를 토론해 보세요'를 띄운다.\n- 10칸 서가가 화면 아래에 늘 보이고, 꽂힌 책이 쌓여 간다.\n\n[지킬 것]\n- AI 답 옆에 '추정이에요. 실제 분류는 KDC 표로 확인하세요.'를 붙여 줘.\n- 기능은 이것만, 한 화면으로. 글씨와 버튼은 크게. 모든 글자는 한국어로.", "fixes": ["예시 책을 올해 신간 위주로 바꿔 줘.", "AI 사서가 비슷한 책 2권을 함께 추천하게 해 줘.", "10권을 다 분류하면 학생과 AI의 일치율을 보여 줘."], "imgs": ["x-w-lib-2res.jpg"], "link": "", "note": "약 10분. 화면에 \"Canceled\"가 떴지만 앱은 정상이었어요. 『사피엔스』를 넣으니 909와 근거 두 줄이 나왔어요."}, {"id": "w-job", "group": "업무", "badge": "앱 안 AI", "title": "AI 모의 면접관", "dept": "취업팀", "base": "new", "use": "직무와 면접 유형을 고르면 앱 안의 AI 면접관이 질문하고, 학생 답을 STAR 기준으로 피드백한 뒤 꼬리 질문까지 해요. 취업 특강이나 1:1 상담 전에 학생이 혼자 연습하는 도구로 써요.", "prompt": "대학 취업 지원 업무에서 쓸 'AI 모의 면접관' 웹앱을 만들어 줘. 앱 안에서 Gemini가 면접관 역할을 해야 해.\n\n[내 업무]\n- 부서: 취업 지원팀\n- 쓰는 곳: 취업 특강, 1:1 상담 전 연습\n- 대상: 취업을 준비하는 3~4학년\n\n[화면]\n- 학생이 지원 직무(사무·행정, 영업·마케팅, IT 개발, 디자인, 공공기관)와 면접 유형(인성, 직무)을 고른다.\n- AI 면접관이 질문 하나를 크게 보여 준다. 학생이 답을 글로 쓴다.\n- AI가 답을 STAR(상황·과제·행동·결과) 기준으로 보고, 잘한 점 1개, 보완할 점 1개, 꼬리 질문 1개를 준다.\n- 질문 5개가 끝나면 결과 카드: STAR 네 칸을 색으로 표시하고, 다음에 연습할 것 3가지를 정리한다.\n- 화면 위에 '연습용입니다. 실제 결과와는 관계없어요.' 안내.\n\n[지킬 것]\n- 이름·학번·연락처는 받지 마. 마이크는 쓰지 마.\n- 기능은 이것만, 한 화면으로. 글씨와 버튼은 크게. 모든 글자는 한국어로.", "fixes": ["우리 대학 인재상 키워드 3개를 넣어 질문에 반영해 줘.", "답변 시간을 2분으로 재는 타이머를 더해 줘.", "결과 카드를 상담 때 가져올 수 있게 인쇄 버튼을 만들어 줘."], "imgs": ["x-w-job-2res.jpg"], "link": "", "note": "약 9분. 화면에 \"Canceled\"가 떴지만 앱은 정상으로 만들어졌어요. 앱 안 AI는 하루 무료 사용량이 있어서, 특강 전날 직접 몇 번 연습해 보고 쓰세요."}, {"id": "law", "group": "사회·행정", "title": "모의 행정 민원 상담", "dept": "공공인재법학 · 행정법총론", "base": "chatterbots", "name": "모의 행정 민원 상담 (행정법총론)", "use": "AI가 영업정지 처분을 받은 민원인 역할을 맡고, 학생은 담당 공무원(또는 법률 상담자)이 되어 구제 절차를 안내해요. 대화가 끝나면 안내가 정확했는지 피드백을 받아요. 마이크가 필요해요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 행정법총론\n- 이번 주제: 행정심판과 행정소송\n- 학생: 공공인재법학과 2학년\n\n[바꾸는 방법]\n- 캐릭터를 '영업정지 2개월 처분을 받고 억울해하는 음식점 주인 박 사장(가상 인물)'으로 미리 만들어 두고, 학생은 구청 민원 담당자가 되어 구제 방법을 안내하게 해 줘.\n- 대화가 끝나면 학생의 안내가 [수업 내용]과 맞았는지, 빠뜨린 것은 무엇인지 한국어로 정리해 줘.\n- 화면의 모든 글자는 한국어로, 시작 화면에 과목명과 이번 주제를 보여 줘.\n- 마이크가 없어도 글자로 대화할 수 있게 해 줘.\n- 설명과 피드백은 아래 [수업 내용]에 있는 것만 쓰고, 없는 내용은 지어내지 마.\n- 학생 이름·학번은 받지 마.\n\n[수업 내용]\n- 행정심판: 행정청의 위법하거나 부당한 처분에 대해 행정기관에 구제를 청구하는 절차\n- 행정소송: 법원에 처분의 취소 등을 구하는 소송\n- 취소심판은 처분이 있음을 안 날부터 90일, 처분이 있었던 날부터 180일 안에 청구해야 한다\n- 민원인에게는 감정을 먼저 받아 주고, 절차와 기한을 정확히 안내한다", "fixes": ["대화 중간에 민원인이 '그럼 언제까지 해야 하냐'고 꼭 묻게 해 줘.", "피드백에 '기한을 정확히 말했는지'를 체크 항목으로 넣어 줘."], "link": "884a4bbd-2d3d-4861-847f-7f914017faf0", "imgs": ["x-law-1prompt.jpg", "x-law-2res.jpg"], "note": "말로 대화하는 앱이라 마이크가 필요해요. PC실에서는 해 볼 수 없고, 마이크가 있는 노트북에서 해 보세요."}, {"id": "forensic", "group": "공학·데이터", "title": "디지털 포렌식 방탈출", "dept": "스마트융합보안 · 디지털포렌식", "base": "new-game", "name": "디지털 포렌식 방탈출", "use": "가상 사건의 단서(로그, 해시값, 메타데이터)를 찾아 문제를 풀어야 다음 방이 열리는 방탈출 게임이에요. 템플릿 없이 첫 화면의 Create a game으로 새로 만들었어요.", "prompt": "디지털포렌식 수업에서 쓸 '포렌식 방탈출' 웹 게임을 만들어 줘.\n\n[내 수업]\n- 과목: 디지털포렌식\n- 이번 주제: 디지털 증거의 무결성과 분석\n- 학생: 스마트융합보안학과 2학년\n\n[게임]\n- 가상의 '회사 기밀 유출 사건'. 방 3개를 차례로 탈출한다.\n- 방마다 가상의 증거 화면(접속 로그 표, 파일 속성 창, 해시값 비교 표)을 보여 주고, 단서를 찾아 문제를 맞히면 다음 방 문이 열린다.\n- 틀리면 힌트 한 줄, 다 탈출하면 걸린 시간과 배운 개념 정리.\n- 어두운 수사실 분위기, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n\n[수업 내용]\n- 해시값: 파일 내용이 조금만 바뀌어도 달라지는 값. 증거가 바뀌지 않았는지 확인할 때 쓴다\n- 메타데이터: 파일을 만든 사람, 만든 시각, 고친 시각 같은 정보\n- 로그: 시스템에 누가 언제 접속했는지 남은 기록\n- 연계 보관성(Chain of Custody): 증거를 수집해서 제출할 때까지 누가 언제 다뤘는지 모두 기록하는 것\n\n[반드시 지킬 것]\n- 사건과 등장인물은 모두 가상, 실제 해킹 방법은 넣지 마.\n- 문제와 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["방마다 제한 시간 3분을 두고, 남은 시간을 위에 크게 보여 줘.", "두 명이 한 팀으로 풀 수 있게 팀 이름을 넣고 시작하게 해 줘."], "link": "2a785013-c6f7-4f91-9a32-7a7be874880e", "imgs": ["x-forensic-1prompt.jpg", "x-forensic-2res.jpg"], "note": ""}, {"id": "logic", "group": "공학·데이터", "title": "논리회로 시뮬레이터", "dept": "AI융합학부 · 디지털 HDL코딩", "base": "new", "name": "논리회로 시뮬레이터 (디지털 HDL코딩)", "use": "게이트를 끌어다 연결하면 출력이 바로 바뀌는 회로 실습 화면이에요. 반가산기 같은 과제 회로를 맞히게 하면 HDL 코딩 전에 회로 감각을 익힐 수 있어요. 템플릿 없이 새로 만들었어요.", "prompt": "디지털 HDL코딩 수업에서 쓸 '논리회로 시뮬레이터' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 디지털 HDL코딩\n- 이번 주제: 기본 논리 게이트와 반가산기\n- 학생: AI융합학부 2학년\n\n[화면]\n- 왼쪽에 게이트 상자(AND, OR, NOT, XOR)와 입력 스위치 A, B, 출력 램프.\n- 게이트를 끌어다 놓고 선으로 연결하면, 스위치를 켜고 끌 때 출력 램프가 바로 바뀐다.\n- 오른쪽에 지금 회로의 진리표를 자동으로 보여 준다.\n- [과제] 버튼: '반가산기를 만들어 보세요' → 학생 회로의 진리표가 정답과 같으면 성공 표시.\n- 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n\n[수업 내용]\n- AND: 두 입력이 모두 1일 때만 1\n- OR: 하나라도 1이면 1\n- NOT: 입력을 반대로\n- XOR: 두 입력이 다를 때만 1\n- 반가산기: 합(S) = A XOR B, 자리올림(C) = A AND B\n\n[반드시 지킬 것]\n- 진리표와 정답 판정은 [수업 내용]의 정의대로만.", "fixes": ["과제에 '전가산기 만들기'를 하나 더 추가해 줘.", "완성한 회로를 Verilog 코드로 보여 주는 버튼을 추가해 줘."], "link": "cf19e6ff-ee6e-44a8-9a67-8340cb97795d", "imgs": ["x-logic-1prompt.jpg", "x-logic-2res.jpg"], "note": ""}, {"id": "teacher", "group": "언어·용어", "title": "모의 수업 학생 상대역", "dept": "교직과 · 교육방법 및 교육공학", "base": "chatterbots", "name": "모의 수업 학생 상대역 (교직)", "use": "AI가 수업 중 딴짓하는 중학생 역할을 맡고, 예비교사가 학급 운영 기술로 대응해 보는 연습이에요. 대화가 끝나면 어떤 기술을 썼는지 피드백을 받아요. 마이크가 필요해요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 교육방법 및 교육공학\n- 이번 주제: 수업 중 학생 행동 지도\n- 학생: 교직 이수 예비교사\n\n[바꾸는 방법]\n- 캐릭터를 '수업 시간에 휴대폰을 보며 집중하지 않는 중학교 2학년 준호(가상 인물)'로 미리 만들어 두고, 학생은 교사가 되어 대화로 지도하게 해 줘.\n- 준호는 처음엔 퉁명스럽다가, 교사가 존중하며 분명하게 말하면 조금씩 협조하게 해 줘.\n- 대화가 끝나면 아래 세 가지 기술을 각각 썼는지와 좋은 예 한 문장을 한국어로 알려 줘.\n- 화면의 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n- 마이크가 없어도 글자로 대화할 수 있게 해 줘.\n- 피드백은 [수업 내용]에 있는 것만 쓰고, 없는 내용은 지어내지 마.\n\n[수업 내용]\n- 감정 인정하기: 학생의 기분을 먼저 말로 받아 준다\n- 분명한 지시: 해야 할 행동을 짧고 구체적으로 말한다\n- 선택권 주기: 정해진 범위 안에서 학생이 고르게 한다", "fixes": ["준호 말고 '질문을 너무 많이 해서 수업이 끊기는 학생' 캐릭터도 하나 추가해 줘.", "끝난 뒤 대화 전체를 다시 읽으며 좋았던 문장에 별표를 보여 줘."], "link": "56c82ee4-d177-4359-8da8-fc97a43f080d", "imgs": ["x-teacher-1prompt.jpg", "x-teacher-2res.jpg"], "note": "말로 대화하는 앱이라 마이크가 필요해요. PC실에서는 해 볼 수 없고, 마이크가 있는 노트북에서 해 보세요."}, {"id": "trade", "group": "사회·행정", "title": "무역 정책 시뮬레이션", "dept": "국제통상 · 무역과 통상정책", "base": "sky_metropolis", "name": "무역 정책 시뮬레이션 (국제통상)", "use": "도시 운영 게임을 '우리나라 무역 정책 운영'으로 바꿨어요. 관세·수입할당·FTA 같은 선택을 하면 수출, 물가, 산업 지표가 바뀌고 근거가 나와요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 무역과 통상정책\n- 이번 주제: 보호무역과 자유무역\n- 학생: 국제통상학과 2학년\n\n[바꾸는 방법]\n- Gemini가 주는 과제를 '가상의 나라 통상장관' 과제로 바꿔 줘. 예: 수입 철강이 늘어 국내 공장이 어려울 때 어떻게 할까?\n- 과제마다 관세 올리기, 수입할당, FTA 체결, 그대로 두기 중에서 고르게 하고, 고른 결과로 수출·물가·국내 산업 숫자가 바뀌게 해 줘. (숫자는 교육용 가상 모형이라고 표시)\n- 고를 때마다 [수업 내용]을 근거로 장점과 단점을 한 줄씩 보여 줘.\n- 도시 모습과 멋진 화면은 그대로 살리고, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n- 설명은 [수업 내용]에 있는 것만 쓰고 지어내지 마.\n\n[수업 내용]\n- 관세: 수입품에 매기는 세금. 국내 산업을 보호하지만 소비자 가격이 오를 수 있다\n- 수입할당(쿼터): 수입할 수 있는 양을 정해 두는 것\n- 자유무역협정(FTA): 협정을 맺은 나라끼리 관세를 낮추거나 없애는 약속\n- 보호무역은 국내 산업을 지키고, 자유무역은 교역과 소비자 선택을 늘린다", "fixes": ["과제 5개를 다 풀면 내 정책 성향(보호무역형/자유무역형) 결과를 보여 줘.", "두 팀이 서로 다른 나라를 맡아 협상하는 모드를 추가해 줘."], "link": "3706933f-85f4-4588-bb37-757aa524d318", "imgs": ["x-trade-1prompt.jpg", "x-trade-2res.jpg"], "note": "처음엔 \"1 error running the code\"로 화면이 비었는데, \"미리보기가 Launch 버튼에서 멈춰 있어. 원인을 찾아서 고쳐 줘.\"를 보내고 F5를 누르니 열렸어요."}, {"id": "daesoon", "group": "언어·용어", "title": "상생 딜레마 만화", "dept": "대순종학 · 대순사상과 상생 윤리", "base": "personalized_comics", "name": "상생 딜레마 만화 (상생 윤리)", "use": "일상 갈등 사례를 만화로 보여 주고 마지막 장에 '상생의 선택은?' 토론 질문을 던져요. 원본은 주인공 사진을 올려야 시작해서, 기본 캐릭터로 바로 시작하게 바꿨어요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 대순사상과 상생 윤리\n- 이번 주제: 해원상생과 일상의 갈등\n- 학생: 교양 수강생\n\n[바꾸는 방법]\n- 주인공 사진을 올리지 않아도 기본 캐릭터 두 명(대학생 '하늘'과 룸메이트 '바다', 가상 인물)으로 바로 시작하게 해 줘.\n- 이야기는 '기숙사 룸메이트끼리 생활 습관 때문에 서운함이 쌓인 사례'로, 6컷 만화로 만들어 줘.\n- 마지막 컷에 '두 사람이 서로 원망을 풀고 함께 잘 지내려면 무엇을 해야 할까?' 질문을 넣고, 아래에 학생이 답을 적는 칸을 보여 줘.\n- 만화 대사와 안내는 모두 한국어로, 시작 화면에 과목명과 주제.\n- 개념 설명은 [수업 내용]에 있는 것만 쓰고 지어내지 마.\n\n[수업 내용]\n- 해원상생: 서로 맺힌 원한을 풀고 서로 잘 되게 한다는 뜻\n- 상생: 남을 이롭게 하며 함께 살아가는 것", "fixes": ["같은 사례로 '갈등이 커지는 결말'과 '서로 푸는 결말' 두 가지 만화를 나란히 보여 줘.", "만화 아래에 토론 질문 3개를 더 보여 줘."], "link": "333d7340-d615-4089-98e0-dee992523e52", "imgs": ["x-daesoon-1prompt.jpg", "x-daesoon-2res.jpg"], "note": ""}, {"id": "special", "group": "간호·보건", "title": "통합교육 사례 판단 시뮬레이션", "dept": "휴먼케어평생교육 · 장애의 이해와 통합", "base": "new-game", "name": "통합교육 사례 판단 시뮬레이션", "use": "통합학급 사례를 보고 '먼저 할 일'을 고르면 이야기가 갈라지는 시뮬레이션이에요. 고른 선택의 결과와 이유를 보며 판단 연습을 해요. 템플릿 없이 새로 만들었어요.", "prompt": "장애의 이해와 통합 수업에서 쓸 '사례 판단 시뮬레이션' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 장애의 이해와 통합\n- 이번 주제: 통합학급에서 감각에 예민한 아이 지원하기\n- 학생: 휴먼케어평생교육학과 성인 학습자\n\n[화면]\n- 사례: 통합학급 5세 유아 '하람'(가상 인물)이 음악 시간에 큰 소리가 나자 귀를 막고 울기 시작한다.\n- 장면마다 선택지 3개를 주고, 고르면 이야기가 다음 장면으로 갈라진다. 장면은 3단계.\n- 고를 때마다 그 선택이 왜 좋은지 또는 아쉬운지 [수업 내용]으로 설명해 준다.\n- 마지막에 내가 고른 길을 한눈에 보여 주고, 다시 하기 버튼.\n- 따뜻한 그림책 느낌, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n\n[수업 내용]\n- 감각에 예민한 아이에게는 조용히 쉴 수 있는 공간을 마련해 준다\n- 활동이 바뀌거나 큰 소리가 나기 전에 미리 알려 준다\n- 아이를 억지로 활동에 참여시키지 않고, 스스로 돌아올 수 있게 기다린다\n- 아이의 행동을 꾸짖기보다 무엇이 힘든지 관찰한다\n\n[반드시 지킬 것]\n- 진단명을 붙이지 말고, 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["사례를 하나 더 추가해 줘: 친구와 놀잇감을 두고 다툼이 잦은 아이.", "선택 결과마다 '교사의 한마디' 예시 문장을 보여 줘."], "link": "2d2b6f82-a250-47d1-8442-ea92c75c4b3a", "imgs": ["x-special-1prompt.jpg", "x-special-2res.jpg"], "note": ""}, {"id": "acting", "group": "언어·용어", "title": "대사 상대역 연습", "dept": "연기예술 · 화술", "base": "chatterbots", "name": "대사 상대역 연습 (화술)", "use": "AI가 장면의 상대 배우가 되어 대사를 주고받고, 끝나면 감정 표현과 대사 전달을 피드백해요. 장면은 저작권 걱정 없게 새로 지은 짧은 상황극이에요. 마이크가 필요해요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 화술\n- 이번 주제: 감정을 담아 대사 주고받기\n- 학생: 연기예술학과 1학년\n\n[바꾸는 방법]\n- 캐릭터를 '10년 만에 기차역에서 우연히 만난 옛 친구 민수(가상 인물)'로 미리 만들어 두고, 학생은 상대 배우가 되어 즉흥으로 대사를 주고받게 해 줘.\n- 민수는 반가우면서도 서운한 마음이 섞여 있게 연기해 줘.\n- 대화가 끝나면 아래 세 가지 기준으로 한국어 피드백을 줘.\n- 화면의 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n- 마이크가 없어도 글자로 대사를 주고받을 수 있게 해 줘.\n- 피드백은 [수업 내용]의 기준만 써.\n\n[수업 내용]\n- 감정의 흐름: 반가움에서 서운함으로 감정이 자연스럽게 바뀌었는가\n- 상대의 말 듣기: 상대 대사에 반응하며 대사를 이어 갔는가\n- 전달: 핵심 단어를 또렷하게 말했는가", "fixes": ["장면을 하나 더 추가해 줘: 면접장에서 긴장한 지원자와 면접관.", "끝나면 내가 한 대사 중 가장 좋았던 한 줄을 골라 보여 줘."], "link": "0e4fda57-bd2f-4c33-b298-8be0a04ff5b5", "imgs": ["x-acting-1prompt.jpg", "x-acting-2res.jpg"], "note": "말로 대화하는 앱이라 마이크가 필요해요. 오늘 PC실에서는 강사가 시연해 드리고, 연구실 노트북(마이크)에서 다음에 꼭 해 보세요. PC실에서 바로 해 보시려면 아래 '같은 대사, 다른 감정 카드'를 써 보세요."}, {"id": "product", "group": "공학·데이터", "title": "블록으로 제품 형태 발상", "dept": "산업디자인 · 제품컴퓨터모델링", "base": "voxel_toy_box", "name": "블록 제품 형태 발상 (산업디자인)", "use": "같은 블록으로 조각을 만들었다 다시 짓는 템플릿을, 같은 블록 수로 의자·조명·스피커 형태를 바꿔 보는 형태 발상 도구로 바꿨어요. 디자인 원리 카드로 토론을 이어 가요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 제품컴퓨터모델링\n- 이번 주제: 같은 재료로 다른 형태 만들기\n- 학생: 산업디자인학과 2학년\n\n[바꾸는 방법]\n- 같은 블록으로 다시 짓는 기능을 살려서, 같은 블록 수로 '의자', '탁상 조명', '블루투스 스피커' 형태를 차례로 만들어 보게 해 줘.\n- 형태마다 오른쪽에 디자인 원리 카드를 보여 주고, 학생이 이 형태에서 가장 잘 드러난 원리를 고르게 해 줘.\n- 블록과 3D 화면은 그대로 살리고, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n- 설명은 [수업 내용]에 있는 것만 써.\n\n[수업 내용]\n- 비례: 부분과 전체 크기의 관계\n- 균형: 시각적 무게가 한쪽으로 쏠리지 않는 상태\n- 기능과 형태: 쓰임새가 모양에 드러나는가\n- 반복과 리듬: 같은 요소를 되풀이해 만드는 질서", "fixes": ["학생이 직접 블록을 쌓아 새 제품을 만들고 이름을 붙여 저장하게 해 줘.", "만든 형태를 정면·측면·윗면 세 방향으로 나란히 보여 줘."], "link": "1880b72a-539d-4824-9d24-eb9c31817c74", "imgs": ["x-product-1prompt.jpg", "x-product-2res.jpg", "x-product-3res.jpg"], "note": ""}, {"id": "poster", "group": "언어·용어", "title": "디자인 원리 포스터 실험", "dept": "시각디자인 · 비주얼 인포메이션디자인", "base": "tessera", "name": "디자인 원리 포스터 실험 (시각디자인)", "use": "모자이크 포스터 생성기에 대비·반복·정렬·근접 원리 버튼을 붙여, 원리를 바꿀 때마다 포스터가 어떻게 달라지는지 비교하게 했어요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 비주얼 인포메이션디자인\n- 이번 주제: 레이아웃의 네 가지 원리\n- 학생: 시각디자인학과 2학년\n\n[바꾸는 방법]\n- 포스터를 만들 때 '대비', '반복', '정렬', '근접' 버튼을 두고, 하나를 강조하면 그 원리가 잘 보이게 포스터가 바뀌게 해 줘.\n- 바뀔 때마다 아래에 그 원리 설명을 보여 주고, 두 포스터를 나란히 비교하는 화면을 만들어 줘.\n- 멋진 모자이크 표현은 그대로 살리고, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n- 설명은 [수업 내용]에 있는 것만 써.\n\n[수업 내용]\n- 대비: 크기·색·굵기를 확실히 다르게 해 눈길을 끈다\n- 반복: 같은 요소를 되풀이해 통일감을 준다\n- 정렬: 요소를 보이지 않는 선에 맞춰 질서를 만든다\n- 근접: 관련된 요소를 가까이 모아 묶음으로 보이게 한다", "fixes": ["학생이 포스터 제목을 직접 입력할 수 있게 해 줘.", "완성 포스터를 그림 파일로 내려받는 버튼을 추가해 줘."], "link": "5d3519dc-fe64-4c93-8e15-f17d9762a7c6", "imgs": ["x-poster-1prompt.jpg", "x-poster-2res.jpg"], "note": ""}, {"id": "fallacy", "group": "모든 과목", "title": "논리 오류 찾기 게임", "dept": "상생교양 · 비판적사고", "base": "new-game", "name": "논리 오류 찾기 게임 (비판적사고)", "use": "광고·기사·댓글 문장을 보고 어떤 논리 오류인지 고르는 게임이에요. 문장은 모두 새로 지은 예시예요. 템플릿 없이 새로 만들었어요.", "prompt": "비판적사고 수업에서 쓸 '논리 오류 찾기 게임' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 비판적사고\n- 이번 주제: 일상 속 논리 오류\n- 학생: 교양 수강생\n\n[게임]\n- 광고 문구, 기사 제목, 댓글처럼 보이는 가상의 문장 카드가 하나씩 나온다. 모두 새로 지은 예시로.\n- 학생은 아래 다섯 가지 오류 중 하나를 고른다. 맞히면 점수와 짧은 해설, 틀리면 정답과 해설.\n- 10문제, 연속으로 맞히면 보너스. 끝나면 오류별 정답률 막대그래프.\n- 신문·SNS 느낌의 화면, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n\n[수업 내용]\n- 성급한 일반화: 몇 개의 사례로 전체를 판단한다\n- 인신공격: 주장 대신 말하는 사람을 공격한다\n- 허수아비 공격: 상대 주장을 비틀어 놓고 그것을 반박한다\n- 거짓 딜레마: 선택지가 둘뿐인 것처럼 말한다\n- 부적절한 권위에 호소: 관련 없는 유명인·전문가의 말을 근거로 삼는다\n\n[반드시 지킬 것]\n- 실제 기업·인물 이름은 쓰지 말고, 해설은 [수업 내용]의 정의대로만.", "fixes": ["학생이 직접 오류 문장을 만들어 친구에게 문제로 내는 모드를 추가해 줘.", "틀린 문제만 모아 다시 풀기 버튼을 추가해 줘."], "link": "e3b036f6-f814-4e78-8b71-3e4289cf2020", "imgs": ["x-fallacy-1prompt.jpg", "x-fallacy-2res.jpg"], "note": ""}, {"id": "invent", "group": "모든 과목", "title": "발명 아이디어 → 제품 목업", "dept": "상생교양 · 창의발명아이디어", "base": "product_mockup", "name": "발명 아이디어 제품 목업 (창의발명)", "use": "발명 아이디어를 쓰면 제품 목업 이미지를 만들고, 특허 요건 세 가지에 비춰 스스로 점검하게 했어요. 아이디어 발표 자료로 바로 쓸 수 있어요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 창의발명아이디어\n- 이번 주제: 아이디어를 제품으로 보여 주기\n- 학생: 교양 수강생\n\n[바꾸는 방법]\n- 학생이 '어떤 불편을, 어떤 방법으로 해결하는 제품인지' 두 줄로 쓰면 제품 목업 이미지를 만들어 주게 해 줘.\n- 목업 옆에 특허 요건 세 가지 체크리스트를 보여 주고, 학생이 각 항목에 '그렇다/아직 모르겠다'를 고르고 한 줄 이유를 쓰게 해 줘.\n- 마지막에 목업과 체크리스트를 한 장의 발표 카드로 보여 줘.\n- 멋진 목업 화면은 그대로 살리고, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n- 설명은 [수업 내용]에 있는 것만 써.\n\n[수업 내용]\n- 신규성: 이미 알려진 기술과 같지 않아야 한다\n- 진보성: 그 분야 사람이 쉽게 생각해 낼 수 없어야 한다\n- 산업상 이용가능성: 실제로 만들어 쓸 수 있어야 한다", "fixes": ["예시 아이디어 3개를 버튼으로 넣어 두고, 누르면 바로 목업이 나오게 해 줘.", "발표 카드를 그림 파일로 내려받는 버튼을 추가해 줘."], "link": "c1e35d51-18f5-43b7-8047-fc767d474e6c", "imgs": ["x-invent-1prompt.jpg", "x-invent-2res.jpg"], "note": ""}, {"id": "count", "group": "모든 과목", "title": "유아 수 세기 미니골프", "dept": "아동학 · 아동 수학 지도", "base": "hole_in_one", "name": "유아 수 세기 미니골프 (아동 수학 지도)", "use": "미니골프의 홀마다 수 세기 미션을 붙여, 예비 보육교사가 '유아에게 이 놀이를 어떻게 안내할까'를 체험하게 했어요. 수 세기 원리 카드가 함께 나와요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 아동 수학 지도\n- 이번 주제: 유아의 수 세기 원리\n- 학생: 아동학과 2학년(예비 보육교사)\n\n[바꾸는 방법]\n- 홀마다 코스에 과일·별 같은 물건을 놓고, 공을 넣으면 '몇 개였을까요?' 수 세기 미션이 나오게 해 줘.\n- 미션 아래에 이 미션과 이어지는 수 세기 원리 카드와, '유아에게 이렇게 말해 보세요' 예시 한 문장을 보여 줘.\n- 공 치는 재미와 화면은 그대로 살리고, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n- 원리 설명은 [수업 내용]에 있는 것만 써.\n\n[수업 내용]\n- 일대일 대응: 물건 하나에 수 이름 하나씩 짝지어 센다\n- 안정된 순서: 수 이름을 항상 같은 순서로 말한다\n- 기수 원리: 마지막에 말한 수가 전체 개수다\n- 순서 무관: 어떤 순서로 세어도 개수는 같다", "fixes": ["홀이 올라갈수록 물건 수가 늘어나게 해 줘(3개→5개→7개).", "유아용 모드를 따로 두고, 글 대신 그림과 음성으로 안내해 줘."], "link": "5ecd76d5-edb8-4391-ada0-2657dd3c0ddb", "imgs": ["x-count-2res.jpg", "x-count-3res.jpg"], "note": ""}, {"id": "genai", "group": "모든 과목", "title": "생성형 AI 용어 설명 게임", "dept": "산학협력단 · 생성형 AI 기초와 활용", "base": "guessing_game", "name": "생성형 AI 용어 설명 게임", "use": "금지어를 쓰지 않고 AI에게 용어를 설명해 맞히게 하는 게임이에요. 'AI가 알아듣게 설명하기'가 곧 프롬프트 연습이 돼요. 마이크가 필요해요.", "prompt": "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 생성형 AI 기초와 활용\n- 이번 주제: 생성형 AI 핵심 용어\n- 학생: 교양 수강생\n\n[바꾸는 방법]\n- 설명할 단어를 아래 [수업 내용]의 용어로 바꾸고, 금지어는 그 용어를 설명할 때 가장 먼저 떠오르는 단어 3개로 정해 줘.\n- 학생이 한국어로 설명해도 되게 해 줘.\n- 한 판이 끝나면 맞힌 용어와 못 맞힌 용어를 뜻과 함께 정리해 줘.\n- 파티 게임 분위기는 그대로 살리고, 모든 글자는 한국어로, 시작 화면에 과목명과 주제.\n- 뜻 설명은 [수업 내용]에 있는 것만 써.\n\n[수업 내용]\n- 프롬프트: AI에게 주는 지시나 질문\n- 할루시네이션: AI가 사실이 아닌 내용을 그럴듯하게 만들어 내는 것\n- 토큰: AI가 글을 처리하는 작은 단위\n- 멀티모달: 글·이미지·소리 등 여러 형태를 함께 다루는 것\n- 파인튜닝: 이미 학습된 모델을 특정 목적에 맞게 추가로 학습시키는 것", "fixes": ["마이크가 없을 때는 글자로 설명을 입력하는 모드를 추가해 줘.", "끝나면 '내가 쓴 가장 좋은 설명 문장'을 골라 보여 줘."], "link": "4ce911e6-bcc8-4267-90d0-20c0ee9e0bea", "imgs": ["x-genai-1prompt.jpg", "x-genai-2res.jpg"], "note": "원래 말로 설명하는 게임이지만 AI가 글자로 입력하는 칸도 만들어 줘서 PC실에서도 할 수 있어요."}, {"id": "semi", "group": "공학·데이터", "title": "반도체 8대 공정 순서 맞추기", "dept": "반도체융합공학과 · 반도체 공정", "base": "new", "name": "반도체 8대 공정 순서 맞추기", "use": "섞여 있는 공정 카드를 끌어서 순서대로 놓으면, 맞을 때마다 공정 설명이 나와요. 템플릿 없이 새로 만들었어요.", "prompt": "반도체 공정 수업에서 쓸 '8대 공정 순서 맞추기' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 반도체 공정 기초\n- 이번 주제: 반도체 8대 공정의 흐름\n- 학생: 반도체융합공학과 1학년\n\n[화면]\n- 섞여 있는 공정 카드 8장을 끌어다 1~8번 칸에 놓는다.\n- [확인]을 누르면 맞은 칸은 초록, 틀린 칸은 빨강. 다 맞히면 공정 흐름이 화살표로 이어지는 완성 화면.\n- 카드를 누르면 그 공정의 한 줄 설명.\n\n[수업 내용] (이 순서가 정답)\n1 웨이퍼 제조: 실리콘을 얇은 원판으로 만든다\n2 산화: 웨이퍼 표면에 보호막을 만든다\n3 포토: 빛으로 회로 무늬를 그린다\n4 식각: 필요 없는 부분을 깎아 낸다\n5 증착·이온주입: 얇은 막을 입히고 전기 성질을 바꾼다\n6 금속 배선: 전기가 흐를 길을 만든다\n7 EDS: 칩이 제대로 작동하는지 검사한다\n8 패키징: 칩을 보호하고 연결할 수 있게 포장한다\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["다 맞히는 데 걸린 시간을 재서 보여 주고, 다시 하기 버튼을 넣어 줘.", "두 팀이 번갈아 하며 시간을 겨루게 바꿔 줘."], "link": "21806e8c-8bef-4187-83ca-32705c3804f2", "imgs": ["x-semi-1prompt.jpg", "x-semi-2res.jpg"], "note": ""}, {"id": "food", "group": "간호·보건", "title": "한 끼 식단 식품군 맞추기", "dept": "식품영양학과 · 영양교육", "base": "new", "name": "한 끼 식단 식품군 맞추기", "use": "음식 카드를 식판에 담으면 식품군 6칸이 채워져요. 빠진 식품군을 알려 주는 식단 짜기 게임이에요. 숫자(열량) 없이 식품군만 다뤄요.", "prompt": "영양교육 수업에서 쓸 '한 끼 식단 식품군 맞추기' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 영양교육\n- 이번 주제: 6가지 식품군으로 균형 잡힌 한 끼 만들기\n- 학생: 식품영양학과 2학년\n\n[화면]\n- 왼쪽에 음식 카드 18장(밥, 김치, 계란말이, 우유, 사과 등 흔한 음식, 이모지와 이름). 누르면 오른쪽 식판에 담긴다.\n- 식판 위에 식품군 6칸이 있고, 담은 음식에 따라 칸이 채워진다.\n- [완성]을 누르면 빠진 식품군을 알려 주고, 모두 채우면 칭찬 화면.\n- 열량이나 영양소 숫자는 쓰지 마.\n\n[수업 내용]\n- 곡류: 밥, 빵, 국수, 감자\n- 고기·생선·달걀·콩류: 계란말이, 두부, 생선구이, 불고기\n- 채소류: 김치, 시금치나물, 오이\n- 과일류: 사과, 귤, 바나나\n- 우유·유제품류: 우유, 요구르트, 치즈\n- 유지·당류: 참기름, 꿀\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["아침·점심·저녁 세 끼를 차례로 짜게 바꿔 줘.", "완성한 식판을 그림으로 저장하는 버튼을 넣어 줘."], "link": "41304294-30ba-4c93-9cc9-8bb737299fd0", "imgs": ["x-food-1prompt.jpg", "x-food-2res.jpg"], "note": ""}, {"id": "lib", "group": "사회·행정", "title": "KDC 십진분류 맞히기", "dept": "문헌정보학과 · 자료조직", "base": "new", "name": "KDC 십진분류 맞히기", "use": "가상의 책 카드가 나오면 0~9 주류 서가 중 어디에 꽂을지 고르는 게임이에요. 맞히면 책이 서가에 꽂혀요.", "prompt": "자료조직 수업에서 쓸 'KDC 분류 맞히기' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 자료조직론\n- 이번 주제: 한국십진분류법(KDC) 주류\n- 학생: 문헌정보학과 2학년\n\n[화면]\n- 가상의 책 카드(제목과 한 줄 소개)가 하나씩 나온다. 모두 새로 지은 제목으로 10권.\n- 아래 서가 10칸(000~900) 중 하나를 누르면, 맞으면 책이 서가에 꽂히고 틀리면 정답과 이유 한 줄.\n- 끝나면 맞힌 수와 서가 그림.\n\n[수업 내용]\n000 총류 / 100 철학 / 200 종교 / 300 사회과학 / 400 자연과학\n500 기술과학 / 600 예술 / 700 언어 / 800 문학 / 900 역사\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["책을 20권으로 늘리고, 틀린 책만 다시 푸는 버튼을 넣어 줘.", "서가 칸마다 대표 예시 책 하나를 작게 보여 줘."], "link": "eaec67ce-a510-4635-ae07-896c778619cb", "imgs": ["x-lib-1prompt.jpg", "x-lib-2res.jpg"], "note": ""}, {"id": "write", "group": "모든 과목", "title": "이야기 다섯 장면 순서 맞추기", "dept": "문예콘텐츠창작학과 · 스토리텔링", "base": "new", "name": "이야기 다섯 장면 순서 맞추기", "use": "섞인 장면 카드 5장을 발단·전개·위기·절정·결말 자리에 놓는 게임이에요. 다 맞히면 이야기가 한 편으로 이어져 보여요.", "prompt": "스토리텔링 수업에서 쓸 '이야기 구성 5단계 맞추기' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 스토리텔링 기초\n- 이번 주제: 이야기의 5단계 구성\n- 학생: 문예콘텐츠창작학과 1학년\n\n[화면]\n- 새로 지은 짧은 이야기 하나를 장면 카드 5장으로 나눠 섞어서 보여 준다.\n- 학생이 카드를 발단·전개·위기·절정·결말 칸에 끌어 놓고 [확인]. 맞으면 초록, 틀리면 그 단계의 뜻을 보여 준다.\n- 다 맞히면 이야기를 처음부터 끝까지 한 편으로 이어서 보여 준다.\n- 이야기 3개를 준비해서 [다음 이야기]로 넘긴다.\n\n[수업 내용]\n- 발단: 인물과 배경이 소개된다\n- 전개: 사건이 시작되고 갈등이 생긴다\n- 위기: 갈등이 커진다\n- 절정: 갈등이 가장 높아지고 전환점이 온다\n- 결말: 갈등이 풀리고 이야기가 마무리된다\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["학생이 직접 다섯 장면을 써서 친구에게 문제로 낼 수 있게 해 줘.", "장면마다 어울리는 이모지 그림을 크게 넣어 줘."], "link": "48a3bbcb-e1fe-4dfe-a422-6aebb740bd48", "imgs": ["x-write-1prompt.jpg", "x-write-2res.jpg"], "note": ""}, {"id": "acting2", "group": "모든 과목", "title": "같은 대사, 다른 감정 카드", "dept": "연기예술학과 · 화술", "base": "new", "name": "같은 대사, 다른 감정 카드", "use": "짧은 대사 카드를 두고 감정 버튼을 누르면 목소리 크기·속도·쉼 팁이 크게 나와요. 짝과 번갈아 읽어 보는 화술 연습용이에요. 마이크 없이 PC실에서도 돼요.", "prompt": "화술 수업에서 쓸 '같은 대사, 다른 감정' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 화술\n- 이번 주제: 같은 대사를 다른 감정으로 말하기\n- 학생: 연기예술학과 1학년\n\n[화면]\n- 새로 지은 짧은 대사 카드 8장이 하나씩 크게 나온다.\n- 아래 감정 버튼 5개 중 하나를 누르면 그 감정으로 말할 때의 표현 팁을 크게 보여 준다.\n- [다른 감정으로] 버튼으로 같은 대사를 다른 감정으로 다시 연습한다.\n- 짝과 번갈아 읽어 보라는 안내 한 줄. 마이크나 녹음 기능은 쓰지 마.\n\n[수업 내용]\n- 기쁨: 목소리를 밝고 크게, 끝을 살짝 올린다\n- 슬픔: 느리고 낮게, 쉼을 길게 둔다\n- 분노: 짧고 강하게, 끊어서 말한다\n- 두려움: 작게, 숨을 짧게 쉬며 말한다\n- 설렘: 부드럽고 살짝 빠르게 말한다\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["대사마다 어울리는 상황 설명을 한 줄 넣어 줘.", "감정 버튼을 누를 때 배경색이 감정에 맞게 바뀌게 해 줘."], "link": "78f379b7-3a4f-483c-be70-c885f66901d0", "imgs": ["x-acting2-2res.jpg"], "note": ""}, {"id": "korean", "group": "언어·용어", "title": "카페 주문 한국어 단어 퍼즐", "dept": "한국학과 · 한국어 회화", "base": "word_wheel", "name": "카페 주문 한국어 단어 퍼즐", "use": "Word wheel을 외국인 유학생용 한국어 단어 퍼즐로 바꿨어요. 바퀴의 한글을 이어 카페 단어를 맞히면 쉬운 한국어 뜻과 영어 뜻이 함께 나와요.", "prompt": "지금 이 단어 퍼즐 게임을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: 한국어 회화(외국인 유학생)\n- 이번 주제: 카페에서 주문하기\n- 학생: 한국어를 6개월 배운 외국인 유학생\n\n[바꾸는 방법]\n- 바퀴의 글자를 한글로 바꾸고, 퍼즐 정답을 아래 [수업 내용]의 단어로 바꿔 줘.\n- 단어를 맞히면 쉬운 한국어 뜻과 영어 뜻, 짧은 예문 하나를 크게 보여 줘.\n- 게임 방식과 화면 분위기는 그대로 두고, 안내 글자는 쉬운 한국어로.\n\n[수업 내용]\n커피: coffee / 우유: milk / 주문: order / 계산: pay\n포장: take-out / 메뉴: menu / 얼음: ice / 컵: cup\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["단어를 맞히면 그 단어를 소리 내어 읽어 주는 버튼을 추가해 줘.", "퍼즐을 다 풀면 오늘 단어로 만든 카페 주문 대화문을 보여 줘."], "link": "", "imgs": [], "note": ""}, {"id": "biz", "group": "사회·행정", "title": "SWOT 분류 게임", "dept": "경영학과 · 경영전략", "base": "new", "name": "SWOT 분류 게임", "use": "가상 동네 카페의 상황 문장을 강점·약점·기회·위협 네 칸으로 분류하는 게임이에요. 다 끝나면 SWOT 표가 완성돼요.", "prompt": "경영전략 수업에서 쓸 'SWOT 분류 게임' 웹앱을 만들어 줘.\n\n[내 수업]\n- 과목: 경영전략\n- 이번 주제: SWOT 분석\n- 학생: 경영학과 2학년\n\n[화면]\n- 가상의 동네 카페 '별빛커피'의 상황 문장 12개를 하나씩 보여 준다. 모두 새로 지은 내용.\n- 학생이 S·W·O·T 네 칸 중 하나를 고르면 맞음·틀림과 이유 한 줄.\n- 다 끝나면 문장이 네 칸에 정리된 SWOT 표를 보여 준다.\n- 실제 회사 이름은 쓰지 마.\n\n[수업 내용]\n- 강점(S): 회사 안의 좋은 점\n- 약점(W): 회사 안의 부족한 점\n- 기회(O): 회사 밖에서 오는 좋은 변화\n- 위협(T): 회사 밖에서 오는 나쁜 변화\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["완성된 SWOT 표를 보고 전략 한 줄을 써 보는 칸을 넣어 줘.", "두 팀이 같은 문장을 동시에 분류하고 점수를 비교하게 해 줘."], "link": "", "imgs": [], "note": ""}, {"id": "job", "group": "업무", "title": "면접 예상 질문 카드", "dept": "교직원 업무 · 취업 지원", "base": "new", "name": "면접 예상 질문 카드", "use": "학생이 질문 카드를 한 장씩 뒤집어 60초 동안 답을 말해 보는 면접 연습 도구예요. 취업 특강이나 상담 때 QR로 띄워 쓰기 좋아요.", "prompt": "취업 지원 프로그램에서 학생들이 쓸 '면접 예상 질문 카드' 웹앱을 만들어 줘.\n\n[내 업무]\n- 부서: 취업 지원팀\n- 쓰는 곳: 취업 특강, 1:1 상담\n- 대상: 취업을 준비하는 4학년\n\n[화면]\n- 위에 질문 종류 버튼 5개. 고르면 그 종류의 질문 카드가 섞여서 나온다.\n- 카드를 누르면 뒤집히며 질문이 크게 나오고, 60초 타이머가 시작된다.\n- 아래에 답변 핵심을 짧게 적는 메모 칸, [다음 질문] 버튼.\n\n[질문 내용]\n- 자기소개: 1분 동안 자기소개를 해 주세요 / 본인을 한 단어로 표현한다면?\n- 지원 동기: 우리 회사에 지원한 이유는? / 이 직무를 고른 이유는?\n- 강점·약점: 가장 큰 강점은? / 고치고 싶은 약점과 노력은?\n- 협업: 팀에서 갈등을 해결한 경험은? / 맡은 역할을 끝까지 해낸 경험은?\n- 마무리: 마지막으로 하고 싶은 말은? / 입사 후 목표는?\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [질문 내용]에 있는 것만 써.", "fixes": ["답변 팁을 질문마다 한 줄씩 보여 주는 [팁 보기] 버튼을 넣어 줘.", "오늘 연습한 질문과 메모를 한 장으로 모아 복사할 수 있게 해 줘."], "link": "", "imgs": [], "note": ""}, {"id": "ethics", "group": "업무", "title": "연구윤리 용어 퀴즈", "dept": "교직원 업무 · 산학협력단", "base": "new", "name": "연구윤리 용어 퀴즈", "use": "연구윤리 교육 때 쓰는 O·X와 사례 고르기 퀴즈예요. 가상 사례를 읽고 위조·변조·표절 등 어떤 부정행위인지 고르면 해설이 나와요.", "prompt": "연구윤리 교육에서 쓸 '연구윤리 용어 퀴즈' 웹앱을 만들어 줘.\n\n[내 업무]\n- 부서: 산학협력단\n- 쓰는 곳: 신임 연구자·대학원생 연구윤리 교육\n- 대상: 연구를 처음 시작하는 사람\n\n[화면]\n- 가상의 짧은 연구 사례 10개를 하나씩 보여 준다. 모두 새로 지은 내용, 실제 이름은 쓰지 마.\n- 아래 다섯 가지 중 어떤 부정행위인지 고르면 맞음·틀림과 해설 한 줄.\n- 끝나면 점수와 다섯 가지 용어 정리 카드.\n\n[수업 내용]\n- 위조: 존재하지 않는 데이터나 결과를 만들어 내는 것\n- 변조: 데이터나 과정을 임의로 바꾸거나 빼는 것\n- 표절: 남의 생각이나 글을 출처 없이 자기 것처럼 쓰는 것\n- 부당한 저자 표시: 기여한 사람을 빼거나 기여하지 않은 사람을 넣는 것\n- 부당한 중복 게재: 같은 연구 결과를 출처 없이 다시 발표하는 것\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [수업 내용]에 있는 것만 써.", "fixes": ["교육 끝에 이름 없이 점수만 모아 보는 화면을 넣어 줘.", "문제를 섞어서 매번 다른 순서로 나오게 해 줘."], "link": "", "imgs": [], "note": ""}, {"id": "faq", "group": "업무", "title": "우리 부서 FAQ 안내판", "dept": "교직원 업무 · 모든 부서", "base": "new", "name": "우리 부서 FAQ 안내판", "use": "자주 묻는 질문을 누르면 답이 펼쳐지는 안내 화면이에요. 부서 이름과 질문만 바꾸면 어느 부서든 쓸 수 있어요. 설명회에서 QR로 띄우기 좋아요.", "prompt": "우리 부서 'FAQ 안내판' 웹앱을 만들어 줘.\n\n[내 업무]\n- 부서: 학생 상담 지원팀 (예시)\n- 쓰는 곳: 부서 안내, 설명회, 학생 문의 응대\n- 대상: 재학생\n\n[화면]\n- 위에 부서 이름과 검색 칸. 검색하면 맞는 질문만 남는다.\n- 질문 종류 버튼(이용 안내·신청·서류·기타). 질문을 누르면 답이 펼쳐진다.\n- 맨 아래 '그래도 궁금하면' 문의 안내 칸.\n\n[질문 내용] (모두 예시)\n- 이용 안내: 운영 시간은? → 평일 9시~18시 / 위치는? → 학생회관 2층\n- 신청: 상담은 어떻게 신청하나요? → 홈페이지에서 날짜를 골라 신청\n- 신청: 신청을 취소하려면? → 하루 전까지 홈페이지에서 취소\n- 서류: 필요한 서류는? → 학생증만 있으면 돼요\n- 기타: 비대면 상담도 되나요? → 화상 상담도 가능\n\n[지킬 것]\n- 기능은 이것만, 한 화면으로 간단하게. 글씨와 버튼은 크게. 모든 글자는 한국어로.\n- 설명은 [질문 내용]에 있는 것만 써.", "fixes": ["부서 이름과 질문을 화면에서 바로 고칠 수 있는 관리자 모드를 넣어 줘.", "이 안내판으로 가는 QR 코드를 화면 구석에 크게 보여 줘."], "link": "", "imgs": [], "note": ""}];
+// 리믹스 활용 사례: slug, 묶음, 이렇게 써요, 과목, 주제, 학생, 수업 내용, 고치기 2개
+var CASES=[
+ ["pdb-viewer","간호·보건","단백질을 3D로 돌려 보는 뷰어예요. 헤모글로빈, 인슐린처럼 수업에 나오는 단백질을 미리 띄워 두고, 구조를 보며 확인 문제를 풀게 하면 인체생리학·임상영양학 수업에 잘 맞아요. 학생은 '교과서 그림'이 아니라 실제 구조를 손으로 돌려 봅니다. 원본에도 헤모글로빈(4HHB)이 예시로 들어 있어요.",
+  "인체생리학","혈액과 호르몬을 만드는 단백질","보건과학대학 1~2학년",
+  "1. 헤모글로빈: 적혈구 속에서 산소를 운반하는 단백질. 소단위 4개(α 2개, β 2개)로 이루어지고, 헴에 철이 들어 있다\n2. 인슐린: 이자(췌장)의 β세포에서 분비되어 혈당을 낮추는 호르몬\n3. 콜라겐: 피부·힘줄 같은 결합조직을 이루는 주요 구조 단백질\n4. 단백질 구조는 1차(아미노산 순서)부터 4차(소단위의 결합)까지로 나눈다",
+  ["첫 화면에 헤모글로빈, 인슐린, 콜라겐 세 개만 버튼으로 두고, 누르면 바로 3D 구조가 뜨게 해 줘.","구조를 돌려 본 뒤 [수업 내용]으로 확인 문제 3개를 풀게 하고, 점수를 보여 줘."]],
+ ["compound-monograph","간호·보건","화합물의 구조와 성질을 찾아보는 탐색기예요. 약물이나 식품 속 성분을 목록으로 넣어 두면 식품영양·유기화학 수업에서 '이 성분은 어떻게 생겼고 무슨 일을 하나'를 탐구하는 활동이 됩니다.",
+  "식품재료학","식품 속 기능 성분","식품영양학과 2학년",
+  "1. 카페인: 커피·차에 들어 있으며 중추신경을 흥분시키는 성분\n2. 아스코르브산(비타민 C): 물에 녹는 수용성 비타민, 항산화 작용\n3. 캡사이신: 고추의 매운맛을 내는 성분\n4. 포도당: 분자식 C6H12O6, 우리 몸의 주된 에너지원",
+  ["처음부터 [수업 내용]의 네 성분만 카드로 보여 주고, 누르면 구조와 성질이 나오게 해 줘.","두 성분을 골라 나란히 비교하는 표를 한국어로 보여 줘."]],
+ ["dino_jump","간호·보건","카메라로 사람의 몸 움직임을 인식해 점프하면 공룡이 뛰는 게임이에요. 점프 대신 '팔 들기'나 '스쿼트' 같은 동작으로 바꿔 횟수를 세 주는 운동·재활 게임으로 리믹스해 볼 수 있어요. 카메라가 있는 PC나 노트북에서만 됩니다.",
+  "성인간호학","수술 후 조기 이상과 가벼운 운동","간호학과 3학년",
+  "1. 수술 후 가능한 한 빨리 움직이는 조기 이상은 회복을 돕는다\n2. 심호흡과 가벼운 팔·다리 운동은 침상에서도 할 수 있다\n3. 통증이나 어지럼이 있으면 운동을 멈추고 알린다",
+  ["점프 대신 두 팔을 머리 위로 드는 동작을 할 때마다 1회로 세고, 10회를 채우면 칭찬 화면을 보여 줘.","게임 시작 전에 [수업 내용] 세 문장을 안내 카드로 보여 줘."]],
+ ["word_wheel","언어·용어","바퀴의 글자를 이어 단어를 만드는 퍼즐이에요. 영어 철자로 된 전공 용어와 특히 잘 맞아서, 자료구조·비즈니스영어처럼 영어 용어가 많은 수업에 바로 쓸 수 있어요. (시연 ②에서 중국어로도 해 봤어요)",
+  "자료구조","기본 자료구조","AI융합학부 2학년",
+  "STACK 스택: 나중에 넣은 것을 먼저 꺼내는 구조(LIFO)\nQUEUE 큐: 먼저 넣은 것을 먼저 꺼내는 구조(FIFO)\nTREE 트리: 부모와 자식으로 이어진 계층 구조\nGRAPH 그래프: 정점과 간선으로 이루어진 구조\nHEAP 힙: 가장 크거나 작은 값을 빠르게 꺼낼 수 있는 완전 이진 트리\nARRAY 배열: 같은 종류의 자료를 번호 순서대로 나란히 저장하는 구조",
+  ["단어를 맞히면 그 자료구조를 그림으로 간단히 보여 줘.","단계가 올라갈수록 단어가 길어지게 순서를 바꿔 줘."]],
+ ["peek-a-word","언어·용어","글을 읽다 모르는 단어를 고르면 바로 그림과 뜻이 나오는 읽기 도구예요. 외국어 읽기 자료를 넣어 두면 학생이 사전을 따로 찾지 않고 읽을 수 있어요.",
+  "비즈니스영어","회의 일정 조율 이메일 읽기","국제통상학과 2학년",
+  "본문: Dear Ms. Kim, Thank you for your proposal. Could we schedule a meeting next Tuesday to discuss the agenda and the delivery deadline? Please let me know if this time works for you. Best regards, Daniel\n중요 단어: proposal 제안서, schedule 일정을 잡다, agenda 안건, delivery 납품, deadline 마감",
+  ["단어를 누르면 한국어 뜻과 함께 비즈니스 이메일에서 쓰는 예문 하나를 보여 줘.","글을 다 읽으면 중요 단어 5개로 확인 퀴즈를 내 줘."]],
+ ["guessing_game","언어·용어","금지어를 쓰지 않고 단어를 설명해 AI가 맞히게 하는 말하기 게임이에요. 전공 용어를 '내 말로 설명하기' 연습이 되어 화술·외국어 회화·전공 용어 복습에 좋아요. 마이크가 필요해요.",
+  "비즈니스영어","협상 기본 용어","국제통상학과 3학년",
+  "negotiation 협상 / invoice 송장(대금 청구서) / deadline 마감 / proposal 제안서 / discount 할인 / contract 계약서",
+  ["학생이 한국어로 설명해도 되고 영어로 설명해도 되게 해 줘.","한 판이 끝나면 맞힌 단어와 못 맞힌 단어를 정리해 보여 줘."]],
+ ["chatterbots","언어·용어","AI 캐릭터를 만들어 음성으로 대화하는 앱이에요. 상담 실습의 내담자, 협상 상대, 외국어 식당 점원처럼 '연습 상대' 역할을 맡기면 학생이 혼자서도 실전 대화를 연습할 수 있어요. 마이크가 꼭 필요해요. 마이크 허용 창에서 Disallow를 누르면 화면이 까맣게 멈춰요.",
+  "상담심리학","공감적 경청 연습","휴먼케어평생교육학과 성인 학습자",
+  "역할: 시험을 앞두고 불안을 호소하는 대학교 2학년 내담자 '민지'(가상 인물)\n상담자가 연습할 기술: 공감적 반영(감정을 되짚어 말하기), 개방형 질문, 요약하기\n대화가 끝나면 세 기술을 각각 몇 번 썼는지와 좋은 예 한 문장을 알려 주기",
+  ["내담자는 처음에는 짧게 대답하다가, 공감을 받으면 조금씩 더 이야기하게 해 줘.","대화 내용은 저장하지 말고, 끝나면 피드백만 화면에 보여 줘."]],
+ ["voices_from_history","언어·용어","장소와 시대를 정하면 그때 사람들의 대화를 상상해 들려주는 앱이에요. 수업 속 장면을 '귀로 듣는' 도입 활동으로 쓰고 (원본은 1825년 이전 날짜만 고를 수 있어요), 끝에 생각 질문을 붙이면 문화·예술·역사 수업에 좋아요. 상상한 대화라는 점을 학생에게 꼭 알려 주세요.",
+  "음악이 있는 삶","모차르트와 오페라 「피가로의 결혼」","교양 수강생",
+  "장면: 1786년 5월 오스트리아 빈, 모차르트의 오페라 「피가로의 결혼」이 처음 무대에 오르던 무렵\n생각 질문: 그 시대 관객에게 이 오페라는 무엇이 새로웠을까? / 음악은 사회 이야기를 어떻게 담을까? / 오늘 우리 시대의 '피가로'는 어떤 작품일까?",
+  ["대화 시작 전에 '이 대화는 상상으로 만든 것입니다'라는 안내를 보여 줘.","대화가 끝나면 생각 질문 3개에 학생이 답을 적을 수 있는 칸을 보여 줘."]],
+ ["personalized_comics","언어·용어","주인공 그림(사진)을 올리고 이야기를 정하면 만화책을 만들어 주는 앱이에요. 학생 얼굴 사진 대신 캐릭터 그림을 쓰세요. 수업 사례를 만화로 보여 주고 마지막 장에 토론 질문을 넣으면, 저작권·윤리·교육 사례 수업의 도입 자료가 됩니다.",
+  "알기 쉬운 저작권","과제와 저작권","교양 수강생",
+  "사례: 대학생 '하늘'(가상 인물)이 과제 발표 자료에 인터넷에서 찾은 그림을 출처 없이 넣었다\n개념: 저작권은 창작물을 만든 사람이 갖는 권리 / 출처를 밝히는 것은 기본 예의이자 조건인 경우가 많다 / 공정이용은 일정 조건에서 허락 없이 이용할 수 있는 예외",
+  ["만화는 6컷으로, 마지막 컷에 '하늘이는 어떻게 해야 했을까?' 질문을 넣어 줘.","만화 아래에 [수업 내용]의 개념 세 가지를 카드로 정리해 줘."]],
+ ["codrawing","언어·용어","학생이 스케치를 그리면 AI가 완성해 주는 공동 그리기예요. 아동미술·디자인 수업에서 '아이디어 스케치 → 완성 이미지'를 빠르게 보여 주는 활동으로 쓸 수 있어요.",
+  "아동미술","계절을 주제로 한 그리기 활동 설계","아동학과 2학년",
+  "주제: 가을 나무\n활동 목표: 예비 교사가 유아 그리기 활동을 설계하기 전에, 같은 스케치가 여러 표현으로 완성될 수 있음을 경험한다\n완성 후 한 줄 피드백: 색과 모양에서 좋은 점 한 가지",
+  ["완성 그림을 크레파스 느낌과 수채화 느낌 두 가지로 보여 줘.","피드백은 칭찬 한 줄만, 고칠 점은 말하지 마."]],
+ ["infinite_wiki","언어·용어","모든 단어가 링크가 되어 누를 때마다 설명이 새로 만들어지는 백과사전이에요. 개념 하나에서 출발해 꼬리를 무는 탐험 활동이 되어 데이터·정보 계열 수업에 어울려요. AI가 만든 설명이라 교수님 확인이 필요해요.",
+  "데이터큐레이션","메타데이터와 큐레이션","문헌정보학과 2학년",
+  "출발 개념: 메타데이터(데이터를 설명하는 데이터)\n함께 다룰 개념: 큐레이션, 분류체계, 검색어, 출처",
+  ["설명은 대학 1학년 눈높이 한국어로 3문장 이내로 해 줘.","지나온 개념을 화면 위에 '탐험 경로'로 보여 줘."]],
+ ["nonogram","공학·데이터","숫자 힌트를 보고 칸을 칠해 숨은 그림을 찾는 논리 퍼즐이에요. 다 풀면 수업과 관련된 그림이 드러나고 개념 카드가 나오게 하면, 도면 읽기·논리 연습 수업의 쉬어 가는 활동이 됩니다.",
+  "기계제도 및 CAD","선의 종류와 투상법","IT기계공학과 1학년",
+  "1. 외형선: 물체의 보이는 모양을 나타내는 굵은 실선\n2. 숨은선: 보이지 않는 부분을 나타내는 파선\n3. 중심선: 대칭의 중심을 나타내는 가는 일점쇄선\n4. 제3각법: 눈 → 투상면 → 물체 순서로 놓고 그린다\n5. 제1각법: 눈 → 물체 → 투상면 순서로 놓고 그린다",
+  ["숨은 그림을 볼트, 기어, 렌치 모양으로 바꿔 줘.","퍼즐을 다 풀면 [수업 내용]에서 문제 하나를 내 줘."]],
+ ["stretchy_cat","공학·데이터","고양이 몸을 늘려 판을 채우는 길 찾기 퍼즐이에요. 판마다 개념 카드를 모으게 하면 알고리즘·자료구조처럼 '경로'와 '순서'를 다루는 수업과 잘 어울려요.",
+  "컴퓨터알고리즘","알고리즘 기본 개념","AI융합학부 2학년",
+  "1. 시간복잡도: 입력 크기에 따라 실행 시간이 얼마나 늘어나는지 나타낸 것\n2. 이진 탐색: 정렬된 자료를 반씩 나누어 찾는 방법\n3. 재귀: 함수가 자기 자신을 다시 부르는 방법\n4. 그리디: 그 순간 가장 좋아 보이는 것을 고르는 방법\n5. 정렬: 자료를 정해진 순서대로 늘어놓는 일",
+  ["물고기 대신 개념 카드를 모으고, 판을 깰 때마다 그 개념으로 문제 1개를 내 줘.","모은 개념 카드를 화면 아래에 쌓아 보여 줘."]],
+ ["desk-racer","공학·데이터","책상 위 코스를 달리는 3D 레이싱이에요. 체크포인트마다 문제를 내고 맞히면 부스터를 주면, 공식·법칙을 반복해서 익혀야 하는 수업의 복습 게임이 됩니다.",
+  "전기전자공학개론","옴의 법칙과 전력","전기공학과 1학년",
+  "1. 옴의 법칙: V = I × R (전압 = 전류 × 저항)\n2. 전력: P = V × I\n3. 직렬 연결의 합성 저항: R = R1 + R2\n4. 병렬 연결의 합성 저항: 1/R = 1/R1 + 1/R2\n5. 우리나라 가정용 교류 전기의 주파수: 60Hz",
+  ["문제는 화면 위에 크게 띄우고, 보기는 키보드 1~4로 고르게 해 줘.","한 바퀴가 끝나면 기록 시간과 맞힌 문제 수를 같이 보여 줘."]],
+ ["gemini_runner","공학·데이터","우주를 달리는 레트로 러너예요. 갈림길 문 두 개에 보기를 붙이고 정답 문으로 지나가게 하면 OX·양자택일 복습 게임이 됩니다.",
+  "경영통계학","가설검정 기초","경영학과 2학년",
+  "1. 모집단: 알고 싶은 대상 전체 / 표본: 그중 실제로 조사한 일부\n2. 귀무가설: '차이가 없다'는 기본 가설\n3. p값: 귀무가설이 참일 때, 관측한 결과 이상으로 극단적인 결과가 나올 확률\n4. 유의수준 0.05: p값이 0.05보다 작으면 귀무가설을 기각한다\n5. 표본이 클수록 신뢰구간은 좁아진다",
+  ["문 두 개에 'O'와 'X'를 붙여 OX 문제로 바꿔 줘.","틀린 문제는 게임이 끝난 뒤 해설과 함께 다시 보여 줘."]],
+ ["neon_snake_3d","공학·데이터","네온 격자에서 구슬을 먹는 실시간 멀티플레이 뱀 게임이에요. 정답 구슬을 먹게 바꾸면 여러 학생이 동시에 들어와 겨루는 '반 대항전'이 됩니다.",
+  "Learning & Teamwork","팀 발달 단계","교양 수강생",
+  "터크만의 팀 발달 단계: 형성기 → 격동기 → 규범기 → 성과기\n형성기: 서로 알아 가며 조심스러운 단계\n격동기: 의견 충돌이 생기는 단계\n규범기: 규칙과 역할이 자리 잡는 단계\n성과기: 함께 성과를 내는 단계",
+  ["구슬에 단계 이름을 붙이고, 화면 위 설명에 맞는 단계를 먹으면 점수가 오르게 해 줘.","게임이 끝나면 네 단계를 순서대로 정리해 보여 줘."]],
+ ["ai-data-analyst","공학·데이터","CSV를 올리고 질문하면 분석과 그래프를 만들어 주는 앱이에요. 예시 데이터를 처음부터 넣어 두고 질문을 버튼으로 만들면, 학생이 클릭만으로 통계 결과를 해석해 보는 실습실이 됩니다.",
+  "보건의료 통계","기술통계와 상관","보건경영학과 2학년",
+  "예시 데이터(가상): 대학생 30명의 하루 수면 시간, 주당 운동 횟수, 스트레스 점수(0~10)\n질문 버튼: 평균과 표준편차 / 수면 시간과 스트레스의 관계 / 운동 횟수별 스트레스 비교\n화면에 '가상 데이터입니다'라고 표시",
+  ["예시 데이터 30줄을 직접 만들어 넣어 두고, 화면에 '가상 데이터'라고 표시해 줘.","결과마다 해석을 한국어 두 문장으로, 상관이 인과가 아니라는 점도 한 줄 덧붙여 줘."]],
+ ["isometric-town-builder","사회·행정","타일을 깔아 마을을 짓는 도시 만들기예요. 건물을 공공시설로 바꾸고 주민 만족도·예산 숫자를 붙이면 지방자치·지역사회·공공도서관 수업의 정책 시뮬레이션이 됩니다. 무거운 템플릿이라 시간이 오래 걸려요.",
+  "캡스톤디자인_지역사회와 공공도서관","우리 동네 공공시설 배치","문헌정보학과 4학년",
+  "배치할 시설: 공공도서관, 작은도서관, 보건소, 행정복지센터, 공원, 버스 정류장\n규칙(가상): 시설마다 정해진 예산이 들고, 주민이 많이 사는 곳 가까이에 둘수록 만족도가 오른다\n마지막 질문: 왜 그 자리에 도서관을 두었나요?",
+  ["시설 아이콘 위에 한국어 이름표를 붙여 줘.","다 지으면 배치 이유를 쓰는 칸과 함께 만족도·예산 결과를 보여 줘."]],
+ ["sky_metropolis","사회·행정","AI가 주는 과제를 해결하며 도시를 운영하는 게임이에요. 과제를 정책 문제로 바꾸면 학생의 선택마다 결과와 근거를 보여 주는 정책 의사결정 연습이 됩니다.",
+  "사회복지정책론","보편주의와 선별주의","휴먼케어평생교육학과 성인 학습자",
+  "보편주의: 소득과 상관없이 모든 대상에게 주는 방식\n선별주의: 소득이나 필요를 따져 일부에게 주는 방식\n과제 예: 노인 돌봄 서비스, 아동 수당, 청년 주거 지원을 어떤 방식으로 줄까?",
+  ["과제마다 보편주의·선별주의 두 선택지를 주고, 고르면 장점과 단점을 한 줄씩 보여 줘.","게임이 끝나면 내가 고른 방식의 비율을 그래프로 보여 줘."]],
+ ["dinodraft","사회·행정","공룡 화석 발굴지를 지도 위 조사 기록처럼 보여 주는 시각화예요. 지도 위 장소를 실습 기관이나 조사 현장으로 바꾸면 현장실습 기록, 지역 조사 발표 자료로 쓸 수 있어요.",
+  "평생교육실습","실습 기관 둘러보기","휴먼케어평생교육학과 성인 학습자",
+  "가상 실습 기관 5곳: 시립도서관 평생학습관, 주민자치센터 프로그램실, 노인복지관, 청소년수련관, 대학 평생교육원\n카드에 넣을 항목: 기관 유형, 주요 프로그램, 실습생이 맡는 일(가상 예시)",
+  ["지도 위 핀을 누르면 기관 카드가 나오게 하고, 모두 '가상 예시'라고 표시해 줘.","카드마다 '내가 여기서 실습한다면 해 보고 싶은 일' 한 줄 적는 칸을 넣어 줘."]],
+ ["flashcard_maker","모든 과목","주제를 넣으면 공부 카드 묶음을 만들어 주는 앱이에요. 우리 수업 내용으로 카드를 미리 넣어 두면 시험 전 셀프 점검 도구가 되어, 어느 과목에서나 가장 쉽게 쓸 수 있어요. 리믹스 전 원본에도 '용어: 뜻'을 한 줄씩 붙여 넣으면 바로 카드가 만들어져요.",
+  "보건의료 통계","대푯값과 질병 지표","보건경영학과 1학년",
+  "평균: 모든 값을 더해 개수로 나눈 값\n중앙값: 크기순으로 늘어놓았을 때 가운데 값\n최빈값: 가장 자주 나타나는 값\n표준편차: 자료가 평균에서 흩어진 정도\n유병률: 특정 시점에 질병을 가진 사람의 비율\n발생률: 일정 기간 동안 새로 질병이 생긴 사람의 비율",
+  ["'알아요 / 몰라요'를 누르게 하고, 몰라요 카드만 모아 다시 보게 해 줘.","카드 뒤집기 애니메이션을 크게, 강의실 화면에서도 잘 보이게 해 줘."]],
+ ["video-to-learning-app","모든 과목","유튜브 영상 주소를 넣으면 그 영상으로 배우는 학습 앱을 만들어 주는 앱이에요. 내 강의 영상이나 참고 영상을 넣으면 영상 한 편이 인터랙티브 자료가 됩니다.",
+  "프론트엔드 웹디자인","반응형 웹의 원리","AI융합학부 2학년",
+  "영상: [수업에 쓸 유튜브 영상 주소]\n꼭 다룰 개념: 뷰포트, 미디어 쿼리, 유연한 레이아웃\n끝에 확인 문제 3개",
+  ["만들어지는 학습 앱의 글자를 모두 한국어로, 대학생 눈높이로 해 줘.","영상 내용과 [수업 내용]이 다르면 영상 내용을 따르고, 다른 점을 알려 줘."]],
+ ["research_visualization","모든 과목","논문 한 편을 인터랙티브 웹사이트로 꾸민 예시예요. 교수님 논문이나 이번 주 강의자료를 첨부하면, 수업 첫 시간 '교수 소개'나 연구 소개 페이지로 멋지게 바뀝니다.",
+  "(교수님 과목)","내 연구 소개","수강생",
+  "첨부: 교수님 논문 PDF 1편 (또는 이번 주 강의자료)\n사이트에 넣을 것: 연구 질문 / 방법 한 장 그림 / 핵심 결과 3가지 / 수업과 연결되는 점",
+  ["첨부한 자료에 있는 주장과 수치만 쓰고, 그래프 값은 자료 그대로 써 줘.","맨 끝에 '이 연구가 우리 수업과 이어지는 점' 섹션을 추가해 줘."]],
+ ["hole_in_one","모든 과목","글자 모양 코스에서 공을 끌어 쏘는 미니 골프예요. 코스를 전공 용어 모양으로 바꾸고 홀에 넣을 때마다 뜻 카드를 보여 주면 가볍게 즐기는 용어 복습이 됩니다.",
+  "알기 쉬운 저작권","저작권 기본 용어","교양 수강생",
+  "저작권: 창작물을 만든 사람이 갖는 권리\n공정이용: 일정한 조건에서 허락 없이 이용할 수 있는 예외\n2차적저작물: 원래 작품을 번역·편곡·각색 등으로 새로 만든 창작물\n저작인격권: 공표권, 성명표시권, 동일성유지권\n보호기간: 원칙적으로 저작자가 사망한 뒤 70년까지",
+  ["코스 글자를 한글 용어로 바꾸기 어렵다면, 코스는 그대로 두고 홀마다 용어 카드를 보여 줘.","다섯 홀을 다 돌면 용어 5개로 확인 퀴즈를 내 줘."]],
+ ["dino_pal","모든 과목","공룡을 씻기고 먹이고 놀아 주며 키우는 돌봄 게임이에요. 돌봄 대상을 영유아나 환자로 바꾸고 올바른 선택지를 수업 내용으로 만들면 '돌봄 판단' 연습 게임이 됩니다.",
+  "모자 및 영유아영양","이유식 시작하기","식품영양학과 3학년",
+  "1. 이유식은 생후 6개월 무렵부터 시작한다\n2. 꿀은 돌(12개월) 전 아기에게 주지 않는다 (영아 보툴리누스증 위험)\n3. 생우유를 주된 음료로 주는 것은 돌 이후로 미룬다\n4. 새로운 식품은 한 번에 한 가지씩, 며칠 간격을 두고 시작한다",
+  ["공룡 대신 아기를 돌보게 하고, 먹이 선택지를 [수업 내용]에 맞는 올바른 선택과 잘못된 선택으로 바꿔 줘.","잘못 고르면 이유를 한 줄로 설명하고 다시 고르게 해 줘."]]
+];
+
+(function(){
+  var G=[["상생교양대학","교양학부"],["국제협력대학","한국학과"],["인문예술대학","문예콘텐츠창작학과"],["인문예술대학","연기예술학과"],["인문예술대학","시각디자인학과"],["공공인재대학","아동학과"],["공공인재대학","문헌정보학과"],["글로벌산업통상대학","경영학과"],["보건과학대학","식품영양학과"],["공과대학","반도체융합공학과"],["AI융합대학","AI융합학부"],["AI융합대학","스마트융합보안학과"],["교직원","취업팀·산학협력단"]];
+  // slug, 이름, 종류, 난이도, 필요한 것, 원본 설명, 리믹스 아이디어(카드), 부탁문 핵심 문장, 추천 단과, 과목 예
+  var T=[
+    ["word_wheel","Word wheel","게임",1,"","바퀴의 글자를 한 번에 이어 단어를 만들면 가로세로 퍼즐이 채워지는 단어 게임","전공 용어 크로스워드. 맞히면 용어 뜻이 뜸",
+     "가로세로 퍼즐의 정답 단어를 [수업 내용]의 전공 용어로 바꾸고, 단어를 맞히면 그 용어의 뜻을 한 줄로 보여 줘. 바퀴 글자도 그 용어에 맞게 한글(또는 외국어)로 바꿔 줘.",
+     [1,0,6,8,12],"한국어 어휘 · 문헌정보 용어 · 영양소 용어 · 연구윤리 용어"],
+    ["nonogram","Nonogram","게임",1,"","숫자 힌트를 보고 칸을 칠해 숨은 그림을 찾는 논리 퍼즐","칸마다 개념 문제, 다 풀면 숨은 그림과 개념 정리",
+     "숨은 그림을 수업 주제와 관련된 그림으로 바꾸고, 퍼즐을 다 풀면 그 그림과 이어지는 개념 설명 카드를 보여 줘. 막힐 때 [수업 내용] 확인 문제를 맞히면 힌트 칸이 하나 열리게 해 줘.",
+     [9,10,11,5],"반도체 공정 도식 · 알고리즘 · 아동 수학 지도"],
+    ["hole_in_one","Hole in one","게임",1,"","글자 모양으로 생긴 코스에서 공을 끌어 쏘는 미니 골프","코스 글자를 전공 용어로, 홀인원하면 개념 카드",
+     "코스 모양 글자를 [수업 내용]의 전공 용어로 바꾸고, 공을 홀에 넣을 때마다 그 용어의 뜻 카드를 보여 줘.",
+     [5,0,4],"유아 수 세기 · 교양 개념 · 디자인 용어"],
+    ["flashcard_maker","Flashcard Maker","학습 도구",1,"","주제만 넣으면 Gemini가 공부 카드 묶음을 만들어 주는 앱","시험 전 셀프 점검 카드",
+     "주제를 입력받는 대신 [수업 내용]으로 만든 카드 묶음이 처음부터 들어 있게 하고, '알아요/몰라요'를 눌러 모르는 카드만 다시 보게 해 줘.",
+     [12,8,9,10,0],"면접 질문 카드 · 영양소 기능 · 반도체 용어 · 생성형 AI 기초"],
+    ["video-to-learning-app","Video to Learning App","학습 도구",1,"유튜브 주소","유튜브 영상 주소를 넣으면 그 영상으로 배우는 인터랙티브 학습 앱을 만들어 줌","내 강의 영상·참고 영상을 학습 앱으로",
+     "영상 주소를 넣으면 만들어지는 학습 앱의 글자를 모두 한국어로, 대학생 눈높이로 만들고, 끝에 [수업 내용]으로 확인 문제 3개를 붙여 줘.",
+     [0,10,4,7],"교양 특강 영상 · AI 기초 강의 · 디자인 튜토리얼 · 마케팅 사례 영상"],
+    ["infinite_wiki","Infinite Wiki","학습 도구",1,"","모든 단어가 링크가 되어 누를 때마다 설명이 새로 만들어지는 끝없는 백과사전","개념 하나에서 출발하는 탐험 학습",
+     "첫 화면의 출발 단어를 [수업 내용]의 핵심 개념으로 바꾸고, 설명은 대학 1학년 눈높이의 한국어로 3문장 이내로 해 줘. 지나온 개념 경로를 화면 위에 보여 줘.",
+     [6,1,0],"정보검색 · 한국 문화 개념 · 교양 개념 탐험"],
+    ["peek-a-word","Interactive Visual Dictionary","학습 도구",1,"","글을 읽다 단어를 고르면 바로 그림과 뜻이 나오는 읽기 도구","외국어 읽기 자료 그림 사전",
+     "읽기 글을 [수업 내용]의 본문으로 바꾸고, 단어를 누르면 한국어 뜻과 그림이 나오게 해 줘.",
+     [1,2,0],"외국인 학생 한국어 읽기 · 문학 작품 읽기 · 교양 영어 읽기"],
+    ["codrawing","Gemini Co-Drawing","학습 도구",1,"","스케치를 그리고 말로 부탁하면 Gemini가 그림을 완성해 주는 공동 그리기","학생 스케치를 주제에 맞게 완성 + 피드백",
+     "학생이 그린 스케치를 [수업 내용]의 주제에 맞게 완성해 주고, 완성한 뒤 주제와 연결한 한 줄 피드백을 한국어로 보여 줘.",
+     [4,5,2],"디자인 스케치 · 아동미술 · 캐릭터·웹툰 콘셉트"],
+    ["stretchy_cat","Stretchy Cat","게임",2,"","고양이 몸을 늘려 판의 모든 칸을 채우고 깃발에 도착하는 길 찾기 퍼즐","물고기 대신 개념 카드 모으기, 판마다 확인 문제",
+     "물고기와 별 대신 [수업 내용]의 개념 카드를 모으게 하고, 판을 깰 때마다 모은 개념으로 확인 문제 1개를 내 줘.",
+     [10,11,9],"자료구조 · 알고리즘 · 회로 흐름"],
+    ["desk-racer","Desk Racer","게임",2,"","책상 위 미니 코스를 달리는 3D 타임어택 레이싱","체크포인트마다 문제, 맞히면 부스터",
+     "코스의 체크포인트마다 [수업 내용] 문제가 하나씩 나오게 하고, 맞히면 부스터, 틀리면 잠깐 느려지게 해 줘.",
+     [9,7,0],"반도체 공정 복습 · 경영 용어 · 교양 복습"],
+    ["gemini_runner","Gemini Runner","게임",2,"","우주를 질주하는 레트로 달리기 게임","갈림길 문 두 개에 보기를, 정답 문으로 통과",
+     "달리는 길에 문 두 개가 나오게 하고, 화면 위에 [수업 내용] 문제를, 두 문에 보기를 붙여 정답 문으로 지나가면 점수가 오르게 해 줘.",
+     [7,8,11,0],"경영통계 · 영양 OX · 보안 상식 · 교양 복습"],
+    ["neon_snake_3d","Multiplayer Neon Snake","게임",2,"","네온 격자에서 구슬을 먹으며 자라는 실시간 멀티플레이 뱀 게임","정답 구슬을 먹는 반 대항전",
+     "화면 위에 [수업 내용] 문제를 띄우고 구슬마다 보기를 붙여, 정답 구슬을 먹으면 점수, 오답 구슬을 먹으면 길이가 줄어들게 해 줘.",
+     [10,11,0],"프로그래밍 · 보안 용어 · 교양 반 대항전"],
+    ["dino_pal","Dino pal","게임",2,"","공룡을 씻기고 먹이고 놀아 주며 키우는 돌봄 게임","돌봄 대상을 영유아·환자로, 올바른 돌봄 선택",
+     "공룡 대신 [수업 내용]의 돌봄 대상(예: 영유아, 환자)을 돌보게 하고, 먹이·돌봄 선택지를 [수업 내용]에 맞는 올바른 선택과 잘못된 선택으로 바꿔 줘. 잘못 고르면 이유를 설명해 줘.",
+     [5,8],"영유아 돌봄 · 영유아 영양"],
+    ["guessing_game","Guessing Game","게임",2,"마이크","금지어를 쓰지 않고 단어를 설명해 Gemini가 맞히게 하는 말하기 게임","전공 용어를 금지어 없이 설명하기",
+     "설명할 단어를 [수업 내용]의 전공 용어로 바꾸고, 금지어는 그 용어를 설명할 때 가장 먼저 떠오르는 단어 3개로 정해 줘. 한국어로 말해도 되게 해 줘.",
+     [3,1,2],"화술 · 한국어 말하기 · 작법 용어"],
+    ["chatterbots","ChatterBots","학습 도구",2,"마이크","나만의 AI 캐릭터를 만들어 음성으로 대화하는 앱","상담 내담자·협상 상대·식당 점원 역할 대화",
+     "캐릭터를 [수업 내용]의 역할(예: 상담 내담자, 협상 상대, 중국 식당 점원)로 미리 만들어 두고, 대화가 끝나면 학생이 잘한 점과 고칠 점을 한국어로 정리해 줘.",
+     [3,12,1,7],"연기 상대역 · 모의 면접관 · 한국어 회화 · 고객 응대"],
+    ["voices_from_history","Voices from History","학습 도구",2,"","장소와 시대를 넣으면 그때 사람들의 대화를 상상해 들려주는 몰입형 앱","수업 속 장면을 귀로 듣고 생각 질문",
+     "장소와 시대를 [수업 내용]의 장면으로 미리 정해 두고, 대화가 끝나면 학생이 답할 생각 질문 3개를 보여 줘.",
+     [1,0,2,3],"한국사 장면 · 교양 역사 · 문학 작품 배경 · 희곡 배경"],
+    ["personalized_comics","Infinite Heroes","학습 도구",2,"","주인공과 이야기를 넣으면 만화책을 만들어 주는 앱","수업 사례를 만화로, 마지막 장에 토론 질문",
+     "주인공과 이야기를 [수업 내용]의 사례로 정해 두고, 대사는 한국어로, 마지막 장에 학생이 생각해 볼 질문을 넣어 줘.",
+     [2,4,5,12],"스토리텔링 · 웹툰 · 아동 그림책 · 연구윤리 사례 만화"],
+    ["research_visualization","Research Visualization","학습 도구",2,"자료 첨부","논문 한 편을 우아한 인터랙티브 웹사이트로 다시 꾸민 예시","내 논문·이번 주 강의를 멋진 소개 사이트로",
+     "이 사이트를 내 논문(또는 이번 주 강의자료) 소개 사이트로 바꿔 줘. 첨부한 자료에 있는 주장과 수치만 쓰고, 글자는 한국어로.",
+     [0,4,9,10,12],"모든 교수님 · 내 연구 소개 · 사업 성과 소개"],
+    ["ai-data-analyst","AI Data Analyst","학습 도구",2,"CSV","CSV를 올리고 질문하면 분석과 그래프를 만들어 주는 데이터 분석 앱","예시 데이터를 넣어 둔 통계 실습실",
+     "[수업 내용]의 예시 데이터를 처음부터 넣어 두고, 학생이 고를 수 있는 분석 질문 5개를 버튼으로 만들어 줘. 결과마다 해석을 한국어 두 문장으로.",
+     [7,8,10,12],"경영통계 · 영양 섭취 데이터 · 데이터 분석 · 취업 현황"],
+    ["wizard-chess-3d","Wizard Chess 3D","게임",3,"","고딕 성당 분위기의 3D 마법사 체스, 잡을 때 돌이 부서지는 연출","말을 잡으려면 문제를 맞혀야 하는 개념 체스 (강사 시연 ①)",
+     "상대 말을 잡으려 할 때마다 [수업 내용]에서 문제 하나가 4지선다로 나오게 하고, 맞히면 잡고 틀리면 차례가 넘어가게 해 줘. 틀리면 정답과 한 줄 설명을 보여 줘.",
+     [0,7,11],"교양 개념 · 경영 의사결정 · 보안 상식"],
+    ["isometric-town-builder","Isometric Town Builder","게임",3,"","타일을 깔아 마을을 짓는 아이소메트릭 도시 만들기","시설·제도를 배치하는 지역사회 시뮬레이션",
+     "건물 타일을 [수업 내용]의 시설·제도(예: 공공도서관, 보건소, 복지관)로 바꾸고, 배치할 때마다 주민 만족도와 예산 숫자가 바뀌게 해 줘. 다 지으면 왜 그렇게 배치했는지 한 줄 쓰는 칸을 보여 줘.",
+     [6,7,5],"공공도서관 배치 · 상권과 매장 입지 · 어린이집과 지역사회"],
+    ["sky_metropolis","Sky Metropolis","게임",3,"","Gemini가 주는 과제를 해결하며 하늘 도시를 운영하는 게임","정책·경영 과제를 해결하는 도시 운영",
+     "Gemini가 주는 과제를 [수업 내용]의 정책·경영 과제로 바꾸고, 학생의 선택마다 결과와 근거를 한국어로 보여 줘.",
+     [7,11],"경영 의사결정 · 보안 정책"],
+    ["pdb-viewer","PDB Viewer","전공 시각화",3,"","단백질 구조를 3D로 돌려 보며 AI 설명을 듣는 뷰어","단백질·효소 구조 탐구 (보여 주기용)",
+     "첫 화면에 [수업 내용]에 나오는 단백질(또는 효소)을 미리 불러와 두고, 설명을 한국어 대학생 눈높이로, 끝에 확인 문제 3개를 붙여 줘.",
+     [8],"영양생화학 · 식품화학"],
+    ["compound-monograph","Compound Monograph","전공 시각화",3,"","화합물의 구조·성질·활성을 찾아보는 화학 탐색기","식품·약물 성분 탐구 (보여 주기용)",
+     "[수업 내용]에 나오는 화합물을 목록으로 미리 넣어 두고, 고르면 구조와 성질을 한국어로 설명해 줘.",
+     [8,9],"식품 성분 · 반도체 소재"],
+    ["dinodraft","Dinosaur Fossil Map Explorer","전공 시각화",3,"","세계 공룡 화석 발굴지를 지도 위 조사 기록처럼 보여 주는 시각화","지도 위 현장 기록 (지역 조사·현장실습)",
+     "지도 위 장소를 [수업 내용]의 현장(예: 실습 기관, 지역 도서관)으로 바꾸고, 누르면 조사 기록 카드가 나오게 해 줘.",
+     [1,6,5],"한국 문화유산 지도 · 지역 도서관 · 지역 어린이 기관"],
+    ["dino_jump","Dino Jump!","게임",2,"카메라","카메라로 몸 움직임을 인식해, 실제로 점프하면 공룡이 뛰는 게임","동작 인식 운동·재활 게임 (동작 횟수 세기)",
+     "점프 대신 [수업 내용]에 맞는 동작(예: 두 팔 들기)을 할 때마다 1회로 세고, 목표 횟수를 채우면 칭찬 화면과 [수업 내용] 안내 카드를 보여 줘.",
+     [5,3],"아동동작 · 몸풀기 동작"]
+  ];
+  var LV=["","★ 쉬움","★★ 보통","★★★ 무거움"];
+  var URL="https://aistudio.google.com/apps/bundled/";
+  var grp=-1, lvl=0;
+  var gb=document.getElementById("groupBtns"), lb=document.getElementById("levelBtns"), grid=document.getElementById("tgrid");
+  function btn(box,label,on,fn){ var b=document.createElement("button"); b.type="button"; b.textContent=label; if(on) b.className="on"; b.onclick=fn; box.appendChild(b); return b; }
+  function drawFilters(){
+    gb.innerHTML=""; lb.innerHTML="";
+    btn(gb,"전체 보기",grp<0,function(){grp=-1;draw();});
+    G.forEach(function(g,i){ var b=btn(gb,g[1],grp===i,function(){grp=i;draw();}); b.innerHTML="<small>"+g[0]+"</small>"+g[1]; });
+    ["모든 난이도","★ 쉬움","★★ 보통","★★★ 무거움"].forEach(function(l,i){ btn(lb,l,lvl===i,function(){lvl=i;draw();}); });
+  }
+  function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function draw(){
+    drawFilters();
+    var list=T.map(function(t,i){return i;}).filter(function(i){ return !lvl || T[i][3]===lvl; });
+    if(grp>=0) list.sort(function(a,b){ return (T[b][8].indexOf(grp)>=0)-(T[a][8].indexOf(grp)>=0) || T[a][3]-T[b][3]; });
+    grid.innerHTML="";
+    list.forEach(function(i){
+      var t=T[i], rec=grp>=0 && t[8].indexOf(grp)>=0;
+      var d=document.createElement("div"); d.className="tcard"+(rec?" rec":"")+(grp>=0&&!rec?" dim":"");
+      d.innerHTML='<div class="th">'+(rec?'<span class="recb">추천</span>':'')+'<span class="kind">'+esc(t[2])+'</span><span class="lv lv'+t[3]+'">'+LV[t[3]]+'</span>'+(t[4]?'<span class="need">'+esc(t[4])+'</span>':'')+'</div>'+
+        '<b class="nm">'+esc(t[1])+'</b><p class="orig">'+esc(t[5])+'</p><p class="idea">💡 '+esc(t[6])+'</p><p class="fit">예) '+esc(t[9])+'</p>'+
+        '<div class="ta"><a href="'+URL+t[0]+'" target="_blank" rel="noopener">열어 보기 ↗</a><button type="button" data-i="'+i+'">이걸로 리믹스 →</button></div>'+(window.CASEMAP&&CASEMAP[t[0]]?'<a class="caselink" href="#case-'+t[0]+'">활용 사례 보기 ▸</a>':'');
+      grid.appendChild(d);
+    });
+  }
+  grid.addEventListener("click",function(e){ var b=e.target.closest("button[data-i]"); if(!b) return; sel.value=b.dataset.i; build(); location.hash="make"; });
+  var sel=document.getElementById("fTpl");
+  T.forEach(function(t,i){ var o=document.createElement("option"); o.value=i; o.textContent=t[1]+"  ·  "+LV[t[3]]+"  ·  "+t[6]; sel.appendChild(o); });
+  function v(id,ph){ var x=document.getElementById(id).value.trim(); return x||ph; }
+  function hi(t){ return '<mark class="chg">'+esc(t)+'</mark>'; }
+  function build(){
+    var t=T[+sel.value];
+    var W=(document.querySelector('input[name=fMode]:checked')||{}).value==="work";
+    var L=W?{sub:"부서",top:"쓰는 곳",stu:"대상",con:"안내할 내용 (질문과 답, 용어와 뜻, 절차를 한 줄에 하나씩. 여기 쓴 것만 들어가요)"}:{sub:"과목",top:"이번 주제",stu:"학생",con:"수업 내용 (문제, 용어와 뜻, 사례를 한 줄에 하나씩. 여기 쓴 것만 게임에 들어가요)"};
+    ["Sub","Top","Stu","Con"].forEach(function(k){ var el=document.getElementById("l"+k); if(el) el.textContent=L[k.toLowerCase()]; });
+    var P=W?{fSub:"예) 취업 지원팀, 산학협력단",fTop:"예) 취업 특강, 연구윤리 교육, 설명회",fStu:"예) 취업 준비 4학년, 신임 연구자",fCon:"예)&#10;운영 시간은? → 평일 9시~18시&#10;표절: 남의 글을 출처 없이 쓰는 것&#10;..."}:{fSub:"예) 사회복지학개론",fTop:"예) 6주차 · 사회복지 서비스 전달체계",fStu:"예) 휴먼케어평생교육학과 성인 학습자",fCon:"예)&#10;1. 사회복지 서비스를 직접 제공하는 기관: 복지관&#10;2. ..."};
+    Object.keys(P).forEach(function(k){ var el=document.getElementById(k); if(el) el.placeholder=P[k].replace(/&#10;/g,"\n"); });
+    var sub=v("fSub",W?"(부서명)":"(과목명)"), top=v("fTop",W?"(쓰는 곳)":"(이번 주제)"), stu=v("fStu",W?"(안내·교육 대상)":"(학과·학년)"), con=v("fCon",W?"(여기에 질문과 답, 용어와 뜻, 절차를 한 줄에 하나씩)":"(여기에 문제, 용어와 뜻, 사례를 한 줄에 하나씩)"), more=document.getElementById("fMore").value.trim();
+    document.getElementById("tplIdea").innerHTML="고른 템플릿: <b>"+esc(t[1])+"</b> · "+esc(t[5])+' · <a href="'+URL+t[0]+'" target="_blank" rel="noopener">열어 보기 ↗</a>';
+    var h=(W?"지금 이 앱을 내 업무에 쓸 수 있게 바꿔 줘.\n\n[내 업무]\n- 부서: "+hi(sub)+"\n- 쓰는 곳: "+hi(top)+"\n- 대상: "+hi(stu):"지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: "+hi(sub)+"\n- 이번 주제: "+hi(top)+"\n- 학생: "+hi(stu))+
+      "\n\n[바꾸는 방법]\n- "+hi(W?t[7].replace(/\[수업 내용\]/g,"[안내할 내용]").replace(/전공 /g,""):t[7])+
+      "\n- 게임 방식과 멋진 화면·효과는 최대한 그대로 살리고, 내용만 "+(W?"내 업무 내용":"내 수업")+"으로 바꿔 줘."+
+      "\n- 화면의 모든 글자는 한국어로 바꿔 줘. (전공 용어는 원어를 함께 써도 돼)"+
+      "\n- 시작 화면에 "+(W?"부서명과 쓰는 곳":"과목명과 이번 주제")+(W?"을":"를")+" 보여 줘. 글씨와 버튼은 크게."+
+      "\n- 끝나면 점수(또는 결과)와 함께 틀린 내용을 한 번 더 정리해 보여 줘."+
+      "\n- 문제·단어·설명은 아래 "+(W?"[안내할 내용]":"[수업 내용]")+"에 있는 것만 쓰고, 없는 내용은 지어내지 마."+
+      "\n- 학생 이름·학번 같은 개인정보는 받지 마."+
+      (more?"\n- "+hi(more):"")+
+      "\n\n"+(W?"[안내할 내용]":"[수업 내용]")+"\n"+hi(con);
+    document.getElementById("remixPrompt").innerHTML=h;
+  }
+  document.querySelectorAll('input[name=fMode]').forEach(function(x){ x.addEventListener("change",build); });
+  ["fTpl","fSub","fTop","fStu","fCon","fMore"].forEach(function(id){ document.getElementById(id).addEventListener("input",build); document.getElementById(id).addEventListener("change",build); });
+
+  window.CASEMAP={}; CASES.forEach(function(c){ CASEMAP[c[0]]=c; });
+  (function(){
+    var box=document.getElementById("caseList"); if(!box) return;
+    var groups=["간호·보건","언어·용어","공학·데이터","사회·행정","모든 과목"];
+    var RES={"pdb-viewer":"8464fa8d-c3cc-49d4-918a-2b4a5c01d2ea","flashcard_maker":"f5687521-b41f-449c-8450-54b209720f15","chatterbots":"df36ca59-d3cc-45cf-8062-13d18c928198"};
+    function tpl(slug){ for(var k=0;k<T.length;k++) if(T[k][0]===slug) return T[k]; }
+    function full(t,c){
+      return "지금 이 앱을 내 대학 수업용으로 바꿔 줘.\n\n[내 수업]\n- 과목: "+c[3]+"\n- 이번 주제: "+c[4]+"\n- 학생: "+c[5]+
+      "\n\n[바꾸는 방법]\n- "+t[7]+"\n- 게임 방식과 멋진 화면·효과는 최대한 그대로 살리고, 내용만 내 수업으로 바꿔 줘.\n- 화면의 모든 글자는 한국어로 바꿔 줘. (전공 용어는 원어를 함께 써도 돼)\n- 시작 화면에 과목명과 이번 주제를 보여 줘.\n- 끝나면 점수(또는 결과)와 함께 틀린 내용을 한 번 더 정리해 보여 줘.\n- 문제·단어·설명은 아래 [수업 내용]에 있는 것만 쓰고, 없는 내용은 지어내지 마.\n- 학생 이름·학번 같은 개인정보는 받지 마.\n\n[수업 내용]\n"+c[6];
+    }
+    groups.forEach(function(g){
+      var list=CASES.filter(function(c){return c[1]===g;}); if(!list.length) return;
+      var h=document.createElement("h3"); h.className="caseh"; h.textContent=g; box.appendChild(h);
+      list.forEach(function(c){
+        var t=tpl(c[0]); if(!t) return;
+        var d=document.createElement("details"); d.className="ex case"; d.id="case-"+c[0];
+        var res=RES[c[0]]?'<figure><img src="img/res-'+c[0]+'.jpg" alt="'+esc(t[1])+' 리믹스 결과" loading="lazy" onerror="this.parentNode.remove()"><figcaption>리믹스 결과 ('+esc(c[3])+')</figcaption></figure>':'';
+        d.innerHTML='<summary><b>'+esc(t[1])+'</b> <span class="lvs lv'+t[3]+'">'+LV[t[3]]+'</span>'+(t[4]?' <span class="needs">'+esc(t[4])+'</span>':'')+' <small>예) '+esc(c[3])+'</small></summary><div class="body">'+
+          '<p class="use"><b>이렇게 써요</b> '+esc(c[2])+'</p>'+(RES[c[0]]?'<p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/'+RES[c[0]]+'" target="_blank" rel="noopener">강사 완성본 열기 ↗</a></p>':'')+
+          '<div class="shots"><figure><img src="img/tpl-'+c[0]+'.jpg" alt="'+esc(t[1])+' 원본 화면" loading="lazy" onerror="this.parentNode.remove()"><figcaption>원본 화면 · <a href="'+URL+c[0]+'" target="_blank" rel="noopener">열어 보기 ↗</a></figcaption></figure>'+res+'</div>'+
+          '<div class="prompt"><div class="label">예시 부탁문 · '+esc(c[3])+' (원본 화면 왼쪽 아래 칸에 붙여 넣고 Remix)</div><button class="copy">복사</button><pre>'+esc(full(t,c))+'</pre></div>'+
+          '<h5 class="samph">이어서 고치기</h5><ul class="samplelist">'+c[7].map(function(x){return '<li><span class="tx">'+esc(x)+' 다른 부분은 그대로 둬.</span><button class="ex-copy" type="button">복사</button></li>';}).join('')+'</ul></div>';
+        box.appendChild(d);
+      });
+    });
+    function openHash(){ var h=location.hash.slice(1); if(h.indexOf("case-")===0){ var el=document.getElementById(h); if(el){ el.open=true; setTimeout(function(){el.scrollIntoView({block:"start"});},50);} } }
+    window.addEventListener("hashchange",openHash); setTimeout(openHash,100);
+    document.addEventListener("click",function(e){ var a=e.target.closest&&e.target.closest('a[href^="#case-"]'); if(!a) return; var el=document.getElementById(a.getAttribute("href").slice(1)); if(el) el.open=true; });
+  })();
+  draw(); build();
+})();
+
+(function(){
+  var box=document.getElementById("extraList"); if(!box||typeof EXTRA==="undefined") return; var OTHER={law:1,teacher:1,trade:1,daesoon:1,special:1,product:1}; var wbox=document.getElementById("workList")||box, obox=document.getElementById("otherList")||box, vbox=document.getElementById("wowList")||box;
+  var BASE={"word_wheel":"Word wheel 리믹스","chatterbots":"ChatterBots 리믹스","sky_metropolis":"Sky Metropolis 리믹스","personalized_comics":"Infinite Heroes 리믹스","voxel_toy_box":"Voxel Toy Box 리믹스","tessera":"Tessera 리믹스","product_mockup":"Product Mockup 리믹스","hole_in_one":"Hole in one 리믹스","guessing_game":"Guessing Game 리믹스","new":"새로 만들기 (New app)","new-game":"새로 만들기 (Create a game)","new-3d":"새로 만들기 (Three.js 3D)"};
+  function e(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  EXTRA.forEach(function(x){
+    var d=document.createElement("details"); d.className="ex case"; d.id="case-x-"+x.id;
+    var how=BASE[x.base]||x.base;
+    var src=x.base.indexOf("new")===0?'AI 스튜디오 첫 화면 → '+(x.base==="new-game"?'<b>Create a game</b> 칩 → ':(x.base==="new-3d"?'<b>Three.js 3D scenes</b> 칩 → ':''))+'부탁문 붙여 넣고 보내기':'<a href="https://aistudio.google.com/apps/bundled/'+x.base+'" target="_blank" rel="noopener">원본 템플릿 열기 ↗</a> → 왼쪽 아래 칸에 부탁문 → Remix';
+    var figs=x.imgs.map(function(f){ var cap=/prompt/.test(f)?'만드는 과정: 부탁문을 넣은 화면':'완성 화면'; return '<figure><img src="img/'+f+'" alt="'+e(x.title)+' '+cap+'" loading="lazy"><figcaption>'+cap+'</figcaption></figure>'; }).join('');
+    d.innerHTML='<summary><b>'+e(x.title)+'</b>'+(x.link||x.badge?'':' <span class="needs">부탁문만</span>')+(x.badge?' <span class="wowb">'+e(x.badge)+'</span>':'')+' <span class="needs">'+e(how)+'</span> <small>'+e(x.dept)+'</small></summary><div class="body">'+
+      '<p class="use"><b>'+(x.link||x.badge?'이렇게 써요':'이렇게 만들 계획이에요')+'</b> '+e(x.use)+'</p>'+
+      (x.link?'<p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/'+x.link+'" target="_blank" rel="noopener">강사 완성본 열기 ↗</a></p>'+(x.note?'<p class="tip"><b>강사가 겪은 일</b> '+e(x.note)+'</p>':''):(x.badge&&x.imgs.length?'<p class="tip"><b>완성본은 연수 때 강사 화면으로 보여 드려요.</b></p>'+(x.note?'<p class="tip"><b>강사가 겪은 일</b> '+e(x.note)+'</p>':''):'<p class="tip">완성본은 준비 중이에요. '+(x.note?e(x.note):'아래 부탁문으로 먼저 직접 만들어 보세요.')+'</p>'))+
+      '<p class="tip">만드는 길: '+src+'</p>'+
+      (figs?'<div class="shots">'+figs+'</div>':'')+
+      '<div class="prompt"><div class="label">강사가 쓴 부탁문 그대로 · '+e(x.dept)+'</div><button class="copy">복사</button><pre>'+e(x.prompt)+'</pre></div>'+
+      '<h5 class="samph">이어서 고치기</h5><ul class="samplelist">'+x.fixes.map(function(f){return '<li><span class="tx">'+e(f)+' 다른 부분은 그대로 둬.</span><button class="ex-copy" type="button">복사</button></li>';}).join('')+'</ul></div>';
+    (x.group==="우와"?vbox:(x.group==="업무"?wbox:(OTHER[x.id]?obox:box))).appendChild(d);
+  });
+})();
+
+(function(){
+  var box=document.getElementById("cvList"); if(!box) return;
+  var CV=[
+  ["교양학부","상생교양대학","딜레마 선택 시뮬레이터","트롤리 문제 같은 윤리 딜레마를 고르면 공리주의·의무론 등 입장별로 결과와 근거가 달라지는 도구",
+   "나는 [교양 '현대사회와 윤리'] 수업을 듣는 대학생이야. 수업에서 [공리주의와 의무론]을 배웠어.\n사용자가 딜레마 상황에서 선택지를 고르면, 두 입장이 각각 그 선택을 어떻게 평가하는지 나란히 보여 주는 웹 도구를 캔버스로 만들어 줘.\n- 딜레마 3개, 선택지는 각 2개\n- 마지막에 '나는 어느 입장에 가까운가' 정리 화면\n- 설명은 수업에서 배운 용어로, 한 화면으로, 한국어로",
+   ["두 입장의 핵심 원리를 정확히 구분했는가","딜레마와 선택지를 학생이 직접 설계했는가","마지막 정리에 자기 생각을 덧붙였는가"]],
+  ["한국학과","국제협력대학","외국인 친구를 위한 한국 문화 체험","명절 상차림 놓기, 상황별 존댓말 고르기처럼 한국 문화를 직접 해 보며 배우는 도구",
+   "나는 [한국학과 2학년] 학생이야. [한국 문화의 이해] 수업에서 [설날 차례상과 세배 예절]을 배웠어.\n외국인 친구가 직접 해 보며 배울 수 있는 웹 도구를 캔버스로 만들어 줘.\n- 음식 카드를 끌어 차례상에 놓으면 맞는 자리인지 알려 주기\n- 세배할 때 하는 말을 고르는 문제 5개\n- 설명은 한국어와 쉬운 영어를 함께, 확실하지 않은 내용은 넣지 마",
+   ["문화 설명이 수업 내용과 맞는가 (지역·집안마다 다른 점도 밝혔는가)","직접 해 보는 활동이 있는가","외국인 눈높이의 쉬운 설명인가"]],
+  ["문예콘텐츠창작학과","인문예술대학","선택형 인터랙티브 소설","읽는 사람이 갈림길에서 선택하면 다른 결말로 가는 짧은 소설",
+   "나는 [문예콘텐츠창작학과 1학년] 학생이야. [스토리텔링 기초]에서 [발단-전개-위기-절정-결말]을 배웠어.\n아래 내가 쓴 이야기로 선택형 인터랙티브 소설을 캔버스로 만들어 줘.\n- 갈림길 2번, 결말 3개\n- 화면 위에 지금 몇 단계인지 표시\n- 문장은 내가 쓴 그대로 쓰고, 없는 장면은 지어내지 마\n[내 이야기 붙여 넣기]",
+   ["5단계 구성이 갈래마다 살아 있는가","선택이 이야기 결과를 실제로 바꾸는가","학생 문장을 AI가 대신 쓰지 않았는가 (부탁문 기록 확인)"]],
+  ["연기예술학과","인문예술대학","내 배역 분석 카드","배역의 목표·장애물·전술을 입력하면 장면별 분석 카드와 감정 그래프가 만들어지는 도구",
+   "나는 [연기예술학과 2학년] 학생이야. [연기연출실습]에서 [배역의 목표·장애물·전술]로 인물을 분석하는 법을 배웠어.\n장면마다 목표, 장애물, 전술, 감정 세기(1~10)를 입력하면 장면 카드와 감정 그래프가 나오는 웹 도구를 캔버스로 만들어 줘.\n- 장면 5개까지\n- 카드 아래에 '이 장면에서 바꿔 볼 전술' 칸\n- 마이크·카메라는 쓰지 마, 한국어로",
+   ["목표·장애물·전술 개념을 정확히 썼는가","감정 그래프가 실제 대본 흐름과 맞는가","연습에 바로 쓸 수 있는 도구인가"]],
+  ["시각디자인학과","인문예술대학","색채 대비 실험실","배경색과 글자색을 바꾸면 대비 점수와 포스터 미리보기가 바로 바뀌는 도구",
+   "나는 [시각디자인학과 1학년] 학생이야. [색채학]에서 [명도 대비와 보색 대비]를 배웠어.\n배경색과 글자색을 고르면 명도 대비 점수, 읽기 쉬움 판정, 작은 포스터 미리보기가 바로 바뀌는 웹 도구를 캔버스로 만들어 줘.\n- 추천 조합 5개 버튼\n- 화면 아래에 대비 개념 설명 두 줄\n- 한 화면으로, 한국어로",
+   ["대비 개념과 판정 기준이 수업과 맞는가","색을 바꿔 보며 원리를 발견하게 했는가","미리보기 디자인 완성도"]],
+  ["아동학과","공공인재대학","유아 놀이 활동 웹","색깔 분류, 수 세기 같은 유아 놀이에 교사 지도 발문이 붙은 도구",
+   "나는 [아동학과 2학년] 학생이야. [아동 수학 지도]에서 [유아의 수 세기 원리]를 배웠어.\n유아가 과일을 눌러 세면 숫자가 커지고, 다 세면 '몇 개였을까요?'를 묻는 놀이를 캔버스로 만들어 줘.\n- 화면 옆에 교사용 지도 발문 3개\n- 큰 그림과 큰 버튼, 글자는 최소로\n- 한국어로",
+   ["수 세기 원리(일대일 대응 등)가 놀이에 담겼는가","교사 발문이 수업 내용과 맞는가","유아 눈높이 화면인가"]],
+  ["문헌정보학과","공공인재대학","나만의 북큐레이션 서가","주제나 고민을 고르면 추천 도서와 KDC 번호가 서가에 꽂히는 도구",
+   "나는 [문헌정보학과 2학년] 학생이야. [독서지도·자료조직] 수업에서 [북큐레이션과 KDC 분류]를 배웠어.\n고민 카드(진로, 관계, 휴식 등)를 고르면 내가 고른 책 목록에서 추천 도서 3권과 KDC 번호, 추천 이유가 나오는 웹 도구를 캔버스로 만들어 줘.\n- 책 목록은 아래 내가 준 것만 쓰고, 없는 책은 지어내지 마\n- 한국어로\n[내 책 목록 붙여 넣기]",
+   ["KDC 번호가 정확한가","추천 이유가 큐레이션 원리에 맞는가","학생이 고른 실제 책으로만 만들었는가"]],
+  ["경영학과","글로벌산업통상대학","가상 브랜드 런칭 페이지","가상 브랜드의 STP 전략과 가격을 바꿔 보는 런칭 페이지",
+   "나는 [경영학과 1학년] 학생이야. [마케팅원론]에서 [STP 전략과 가격 결정]을 배웠어.\n내가 기획한 가상 브랜드 [이름]의 런칭 페이지를 캔버스로 만들어 줘.\n- 시장세분화·타깃·포지셔닝을 카드 3장으로\n- 가격을 슬라이더로 바꾸면 예상 고객 반응이 바뀌는 간단한 계산\n- 수업용 가상 데이터라고 화면에 밝히고, 한국어로",
+   ["STP 개념을 정확히 적용했는가","가격 변화의 결과를 논리적으로 설계했는가","브랜드 기획의 일관성"]],
+  ["식품영양학과","보건과학대학","하루 식단 식품군 체크","하루 세 끼를 고르면 6가지 식품군이 채워지는 모습을 보여 주는 도구",
+   "나는 [식품영양학과 2학년] 학생이야. [영양교육]에서 [6가지 식품군과 균형 식단]을 배웠어.\n아침·점심·저녁 메뉴를 고르면 6가지 식품군 칸이 채워지고, 빠진 식품군을 알려 주는 웹 도구를 캔버스로 만들어 줘.\n- 메뉴 목록은 학교 식당 메뉴 20개\n- 열량과 영양소 숫자는 쓰지 마\n- 한국어로",
+   ["식품군 분류가 정확한가","빠진 식품군 안내가 교육적으로 적절한가","대상자 눈높이에 맞는가"]],
+  ["반도체융합공학과","공과대학","공정 단계 시뮬레이터","공정 버튼을 누르면 웨이퍼 단면이 단계별로 바뀌는 도구",
+   "나는 [반도체융합공학과 2학년] 학생이야. [반도체 공정 기초]에서 [8대 공정]을 배웠어.\n공정 버튼 8개를 순서대로 누르면 웨이퍼 단면 그림이 단계별로 바뀌고, 각 공정 설명 두 줄이 나오는 웹 도구를 캔버스로 만들어 줘.\n- 순서를 섞어 맞히는 퀴즈 모드\n- 설명은 수업에서 배운 용어로, 확실하지 않은 내용은 넣지 마\n- 한 화면으로, 한국어로",
+   ["공정 순서와 원리 설명이 정확한가","단면 변화가 공정 내용과 맞는가","퀴즈로 스스로 점검하게 했는가"]],
+  ["AI융합학부","AI융합대학","정렬 알고리즘 눈으로 보기","숫자 막대가 정렬되는 과정을 단계별로 보여 주고 비교 횟수를 세는 도구",
+   "나는 [AI융합학부 1학년] 학생이야. [자료구조와 알고리즘]에서 [버블 정렬과 선택 정렬]을 배웠어.\n숫자 막대 10개가 정렬되는 과정을 한 단계씩 보여 주고, 비교 횟수와 교환 횟수를 세는 웹 도구를 캔버스로 만들어 줘.\n- 두 정렬을 나란히 비교하는 모드\n- [다음 단계] 버튼과 속도 조절\n- 한국어로",
+   ["알고리즘 동작이 정확한가 (단계마다 확인)","비교·교환 횟수가 맞는가","두 알고리즘 차이를 설명할 수 있게 했는가"]],
+  ["스마트융합보안학과","AI융합대학","피싱 문자 판별 훈련기","실제와 비슷한 가상 문자를 보고 피싱인지 고르면 근거를 알려 주는 도구",
+   "나는 [스마트융합보안학과 1학년] 학생이야. [정보보호개론]에서 [피싱·스미싱 판별 기준]을 배웠어.\n가상 문자 10개를 하나씩 보여 주고, 사용자가 '안전/위험'을 고르면 판별 근거를 하이라이트로 보여 주는 훈련 도구를 캔버스로 만들어 줘.\n- 실제 기관 이름과 실제 링크는 쓰지 말고 가상으로\n- 끝에 점수와 틀린 문자 다시 보기\n- 한국어로",
+   ["판별 기준이 수업 내용과 맞는가","가상 문자가 현실적이되 실제 기관을 사칭하지 않았는가","틀린 문항 복습이 있는가"]],
+  ["취업팀 · 산학협력단","교직원","(학생 대상 프로그램) 나의 직무 탐색 카드","관심 직무를 고르면 필요한 역량과 내 경험을 연결해 보는 포트폴리오 카드",
+   "나는 취업을 준비하는 [3학년] 학생이야. 관심 직무는 [마케팅]이야.\n직무에 필요한 역량 5개를 카드로 보여 주고, 각 역량 옆에 내 경험을 적으면 '역량-경험 연결표'와 부족한 역량이 정리되는 웹 도구를 캔버스로 만들어 줘.\n- 이름·학번·연락처는 받지 마\n- 결과를 인쇄할 수 있게\n- 한국어로",
+   ["직무 역량을 구체적으로 정리했는가","내 경험과 연결이 설득력 있는가","상담 때 가져올 수 있는 결과물인가"]]
+  ];
+  var NX={"교양학부":"논리 오류 찾기 게임","한국학과":"한글은 이렇게 만들어졌다 · 역사 인물과 대화하기","문예콘텐츠창작학과":"AI 공동 작가와 갈래 이야기","연기예술학과":"3D 무대 조명 시뮬레이터","시각디자인학과":"디자인 원리 포스터 실험","아동학과":"유아 수 세기 미니골프","문헌정보학과":"AI 사서와 KDC 분류 대결","경영학과":"가격을 바꾸면 움직이는 시장 시뮬레이터","식품영양학과":"음식 사진 → AI가 식판 채우기","반도체융합공학과":"3D 웨이퍼 위에 쌓이는 반도체 8대 공정","AI융합학부":"논리회로 시뮬레이터","스마트융합보안학과":"디지털 포렌식 방탈출","취업팀 · 산학협력단":"AI 모의 면접관"};
+  function e(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  CV.forEach(function(c){
+    var d=document.createElement("details"); d.className="ex case";
+    d.innerHTML='<summary><b>'+e(c[0])+'</b> <span class="needs">'+e(c[2])+'</span> <small>'+e(c[1])+'</small></summary><div class="body">'+
+      '<p class="use"><b>학생이 만드는 것</b> '+e(c[3])+'</p>'+
+      '<div class="prompt"><div class="label">학생용 부탁문 · '+e(c[0])+'</div><button class="copy">복사</button><pre>'+e(c[4])+'</pre></div>'+
+      '<h5 class="samph">평가 포인트</h5><ul>'+c[5].map(function(p){return '<li>'+e(p)+'</li>';}).join('')+'</ul>'+
+      '<p class="tip">학생에게는 먼저 <b>공통 ① 주제 추천받기</b>로 스스로 주제를 고르게 하고, 위 부탁문은 예시로 보여 주세요.</p>'+
+      (NX[c[0]]?'<p class="tip">🚀 <b>4단계에서 더 크게:</b> 같은 학과 주제를 AI 스튜디오로 만든 <a href="#cases"><b>'+e(NX[c[0]])+'</b></a>도 보세요.</p>':'')+'</div>';
+    box.appendChild(d);
+  });
+})();
+
+(function(){
+  var box=document.getElementById("topicChips"), pre=document.getElementById("topicPrompt"); if(!box||!pre) return;
+  var T=[["기본 (빈칸)","주제","○○학과 ○학년","과목명","배운 내용"],
+  ["교양학부","윤리","교양학부 1학년","현대사회와 윤리","공리주의와 의무론"],
+  ["한국학과","한국 문화","한국학과 2학년","한국 문화의 이해","설날 차례상과 세배 예절"],
+  ["문예콘텐츠창작학과","스토리텔링","문예콘텐츠창작학과 1학년","스토리텔링 기초","발단·전개·위기·절정·결말 5단계 구성"],
+  ["연기예술학과","연기","연기예술학과 2학년","연기연출실습","배역의 목표·장애물·전술로 인물 분석하기"],
+  ["시각디자인학과","색채","시각디자인학과 1학년","색채학","명도 대비와 보색 대비"],
+  ["아동학과","유아 수학","아동학과 2학년","아동 수학 지도","유아의 수 세기 원리"],
+  ["문헌정보학과","자료 분류","문헌정보학과 2학년","자료조직론","KDC 한국십진분류법"],
+  ["경영학과","마케팅","경영학과 1학년","마케팅원론","STP 전략과 가격 결정"],
+  ["식품영양학과","영양","식품영양학과 2학년","영양교육","6가지 식품군과 균형 식단"],
+  ["반도체융합공학과","반도체 공정","반도체융합공학과 2학년","반도체 공정 기초","8대 공정의 순서와 원리"],
+  ["AI융합학부","알고리즘","AI융합학부 1학년","자료구조와 알고리즘","정렬 알고리즘의 동작 원리"],
+  ["스마트융합보안학과","정보보호","스마트융합보안학과 1학년","정보보호개론","피싱·스미싱 판별 기준"]];
+  function h(t){ return '<mark class="chg">['+String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;")+']</mark>'; }
+  function draw(i){
+    var t=T[i];
+    pre.innerHTML='나는 '+h(t[1])+' 관련 주제로 바이브코딩을 만들려고 해.\n나는 '+h(t[2])+' 학생이고, 이번 학기 '+h(t[3])+' 수업에서 '+h(t[4])+'에 대해 배웠어.\n이 내용을 다른 학생이 직접 눌러 보고 조작하며 이해할 수 있는 웹 도구를 만들고 싶은데, 어떤 주제가 좋을까?\n\n내가 사용할 수 있는 도구는 두 가지야.\n1. 제미나이의 캔버스 기능\n2. 캔바 AI의 코드(Canva Code) 기능\n이 두 가지로 구현할 수 있는 바이브코딩 주제 3개를 추천해 줘.\n주제마다 ① 사용자가 무엇을 조작하는지 ② 수업 내용과 어떻게 연결되는지 ③ 두 도구 중 어느 쪽이 더 맞는지와 그 이유 ④ 만들기 난이도(쉬움·보통·어려움)를 알려 줘.';
+    [].forEach.call(box.children,function(b,k){ b.className=k===i?"on":""; });
+  }
+  T.forEach(function(t,i){ var b=document.createElement("button"); b.type="button"; b.textContent=t[0]; b.onclick=function(){draw(i);}; box.appendChild(b); });
+  draw(0);
+})();
+
+(function(){
+  var box=document.getElementById("drChips"), pre=document.getElementById("drPrompt"); if(!box||!pre) return;
+  function h(t){ return '<mark class="chg">['+t+']</mark>'; }
+  /* [칩 이름, 과목명, 핵심 주제, 더 찾을 자료(없으면 ""), 더 뺄 자료(없으면 "")] */
+  var D=[
+   ["기본 (빈칸)","과목명","핵심 주제","",""],
+   ["식품영양 · 영양소 섭취기준","영양교육","한국인 영양소 섭취기준(KDRIs) 2025 영양소별 권장량과 한 끼 식단 평가","보건복지부·한국영양학회 발표 자료","건강식품 홍보 자료"],
+   ["반도체 · 수율과 불량 분석","반도체 공정 기초","공정 수율 계산과 불량 원인 분석","","기업 홍보 자료"],
+   ["교양 · 생명윤리 쟁점","현대사회와 윤리","생명윤리 쟁점과 국내 법·지침(생명윤리법 등)","국가법령정보센터·국가생명윤리정책원 자료",""],
+   ["한국학 · 국가무형유산","한국 문화의 이해","국가무형유산 지정 기준과 대표 사례","국가유산청 자료","여행 홍보 자료"],
+   ["문예콘텐츠창작 · 웹콘텐츠 산업","콘텐츠산업론","웹소설·웹툰 산업 현황과 저작권 쟁점","한국콘텐츠진흥원(KOCCA) 보고서","플랫폼 홍보 자료"],
+   ["연기예술 · 발성의 과학","연기를 위한 발성·화술","발성·호흡 훈련의 음성과학적 근거","","연기 학원 홍보 자료"],
+   ["시각디자인 · 접근성 색 대비","디지털 디자인","웹 접근성 색 대비 기준(WCAG)과 한국형 웹 콘텐츠 접근성 지침","W3C·한국지능정보사회진흥원 자료","디자인 툴 홍보 자료"],
+   ["아동 · 발달 지표","아동발달","연령별 발달 지표와 표준보육과정","육아정책연구소·보건복지부 자료","육아 커뮤니티 글"],
+   ["문헌정보 · 도서관 저작권","도서관 법규","저작권법상 도서관의 자료 복제 허용 범위","국가법령정보센터·한국저작권위원회 자료",""],
+   ["경영 · 손익분기점","원가회계","손익분기점 분석과 원가 구조(고정비·변동비)","","컨설팅 업체 홍보 자료"],
+   ["AI융합 · AI 법과 윤리","인공지능 윤리","AI 기본법과 국내외 AI 윤리 기준","국가법령정보센터·과학기술정보통신부 자료","AI 서비스 홍보 자료"],
+   ["스마트융합보안 · 개인정보 안전조치","개인정보보호","개인정보보호법상 안전성 확보조치 기준","개인정보보호위원회·KISA 자료","보안 제품 판매 자료"]
+  ];
+  function txt(d){
+    return h(d[1])+'의 '+h(d[2])+'에 대해 대학 전공 수업에서 쓸 수 있는 자료를 찾아 줘.\n학술 논문, 대학 강의자료(KOCW 등), '+(d[3]?h(d[3])+', ':'')+'정부·공공기관 보고서, 학회 자료 위주로 찾아 주고,\n개인 블로그, 광고, 쇼핑몰, 뉴스 요약 기사'+(d[4]?', '+h(d[4]):'')+'는 빼 줘.\n한국 자료와 영어 학술 자료를 함께 찾아 줘.';
+  }
+  function draw(i){ pre.innerHTML=txt(D[i]); [].forEach.call(box.children,function(b,k){ b.className=k===i?"on":""; }); }
+  D.forEach(function(d,i){ var b=document.createElement("button"); b.type="button"; b.textContent=d[0]; b.onclick=function(){draw(i);}; box.appendChild(b); });
+  draw(0);
+})();
+
+(function(){
+  var inp=document.getElementById("fbCfgIn"), btn=document.getElementById("fbCfgApply"), rst=document.getElementById("fbCfgReset"), msg=document.getElementById("fbCfgMsg"), pre=document.getElementById("fbPrompt");
+  if(!inp||!btn||!pre) return;
+  var PH="(여기에 2번에서 복사한 const firebaseConfig = { ... }; 를 붙여 넣기)";
+  var base=pre.textContent;
+  function esc(t){ return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function say(t,ok){ msg.textContent=t; msg.style.color=ok?"#1b7a3d":"#c62828"; }
+  btn.onclick=function(){
+    var v=inp.value.trim();
+    if(!v){ say("설정 코드를 먼저 붙여 넣어 주세요.",false); return; }
+    if(!/apiKey/.test(v)||!/projectId/.test(v)){ say("apiKey와 projectId가 들어 있는지 확인해 주세요. 중괄호 { } 까지 통째로 복사해요.",false); return; }
+    if(!/firebaseConfig/.test(v)) v="const firebaseConfig = "+v+(/;\s*$/.test(v)?"":";");
+    var i=base.indexOf(PH);
+    pre.innerHTML=esc(base.slice(0,i))+'<mark class="chg">'+esc(v)+'</mark>'+esc(base.slice(i+PH.length));
+    say("✓ 적용했어요. 아래 부탁문의 [복사]를 누르세요.",true);
+  };
+  rst.onclick=function(){ inp.value=""; pre.textContent=base; say("",true); };
+})();
+
+</script>
+<script>
+document.querySelectorAll('.prompt').forEach(function(box){
+  var btn = box.querySelector('button.copy');
+  var pre = box.querySelector('pre');
+  if(!btn || !pre) return;
+  btn.addEventListener('click', function(){
+    var text = pre.innerText;
+    function ok(){ btn.textContent='복사됨 ✓'; btn.classList.add('done'); setTimeout(function(){ btn.textContent='복사'; btn.classList.remove('done'); }, 1400); }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(ok, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); ok(); }catch(e){ btn.textContent='직접 복사'; }
+      document.body.removeChild(ta);
+    }
+  });
+});
+function toggleAll(open){ document.querySelectorAll('main details').forEach(function(d){ d.open = open; }); }
+
+</script>
+<!-- 교안 잠금 (한 번 맞히면 이 브라우저에서는 다시 묻지 않음) -->
+<style>
+#djGate{position:fixed;inset:0;z-index:99999;background:#1f2a44;display:flex;align-items:center;justify-content:center;padding:16px;font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+#djGate .box{background:#fff;border-radius:18px;padding:28px 24px;width:100%;max-width:360px;text-align:center;border-top:5px solid #b8963e}
+#djGate h2{margin:0 0 6px;font-size:20px;color:#1f2a44}#djGate p{margin:0 0 16px;color:#5b6475;font-size:15px}
+#djGate input{width:100%;box-sizing:border-box;font-size:22px;letter-spacing:.3em;text-align:center;padding:12px;border:1.5px solid #d6d9e0;border-radius:12px}
+#djGate button{margin-top:12px;width:100%;font:inherit;font-size:17px;font-weight:800;padding:12px;border:0;border-radius:12px;background:#d9534f;color:#fff;cursor:pointer}
+#djGate .err{color:#c62828;font-size:14px;min-height:20px;margin-top:8px}
+html.djlocked body{overflow:hidden}
+</style>
+<script>
+(function(){
+  var OKK=["dj2026-pm-ok"], ACC={"2085882786": ["dj2026-am-ok", "dj2026-pm-ok"]};
+  function has(k){ try{ if(localStorage.getItem(k)==='1') return true; }catch(e){} try{ if(sessionStorage.getItem(k)==='1') return true; }catch(e){} return false; }
+  function ok(){ for(var i=0;i<OKK.length;i++){ if(has(OKK[i])) return true; } return false; }
+  function setk(k){ try{localStorage.setItem(k,'1');}catch(x){} try{sessionStorage.setItem(k,'1');}catch(x){} }
+  if(ok()) return;
+  function h(s){ var x=5381; for(var i=0;i<s.length;i++){ x=(Math.imul(x,33)^s.charCodeAt(i))>>>0; } return x; }
+  document.documentElement.classList.add('djlocked');
+  function build(){
+    var d=document.createElement('div'); d.id='djGate';
+    d.innerHTML='<div class="box"><h2>🔒 오후반 교안</h2><p>강사가 알려 준 <b>오후반</b> 비밀번호를 입력하세요.<br>오후반 비밀번호로 들어오면 오전반 교안도 함께 열려요.</p><input id="djPw" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="● ● ● ●"><button type="button" id="djGo">열기</button><div class="err" id="djErr"></div></div>';
+    document.body.appendChild(d);
+    var i=d.querySelector('#djPw'), e=d.querySelector('#djErr');
+    function go(){ var ks=ACC[String(h(i.value.trim()))]; if(ks){ ks.forEach(setk); document.documentElement.classList.remove('djlocked'); d.remove(); } else { e.textContent='비밀번호가 맞지 않아요. 다시 입력해 주세요.'; i.select(); } }
+    d.querySelector('#djGo').onclick=go; i.addEventListener('keydown',function(ev){ if(ev.key==='Enter') go(); }); setTimeout(function(){ i.focus(); },50);
+  }
+  if(document.body) build(); else document.addEventListener('DOMContentLoaded',build);
+})();
+</script>
+</body>
+</html>
