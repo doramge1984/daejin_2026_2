@@ -83,6 +83,27 @@ nav.quick a.on{background:var(--navy);color:#fff;border-color:var(--navy);font-w
 #s2b .skcard .skt{margin:0 -22px 18px!important;border-radius:0;padding:22px 24px}
 @media(max-width:640px){#s2b .sknav{grid-template-columns:1fr}#s2b .skcard{padding:0 14px 16px}#s2b .skcard .skt{margin:0 -14px 16px!important}}
 </style>
+<style id="s2c-css">
+#s2c .xnavh{font-weight:800;margin:22px 0 8px}
+#s2c .xnav{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+#s2c .xnav a{display:block;background:#fff;border:2px solid #e3e1da;border-radius:12px;padding:10px 12px;color:#1f2328;text-decoration:none;font-weight:700;line-height:1.35}
+#s2c .xnav a span{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#1f2937;color:#fff;font-size:.8em;margin-right:6px}
+#s2c .xnav a small{display:block;color:#6b7280;font-weight:500;font-size:.8em;margin-top:2px}
+#s2c .xcard{border:3px solid #4338ca;border-radius:18px;background:#fff;margin:56px 0;padding:0 22px 20px;overflow:hidden;scroll-margin-top:80px}
+#s2c .xcard.x2{border-color:#0f766e}#s2c .xcard.x3{border-color:#b45309}
+#s2c .xh{background:#4338ca;color:#fff;margin:0 -22px 16px;padding:18px 24px}
+#s2c .x2 .xh{background:#0f766e}#s2c .x3 .xh{background:#b45309}
+#s2c .xt{font-size:.8em;background:rgba(255,255,255,.22);padding:2px 10px;border-radius:999px}
+#s2c .xn{font-size:1.6em;font-weight:800;line-height:1.35;margin:4px 0}
+#s2c .xn code{font-size:.55em;background:rgba(255,255,255,.18);color:#fff;padding:2px 8px;border-radius:6px;vertical-align:middle}
+#s2c .xo{opacity:.92}
+#s2c .xs{font-size:1.1em;font-weight:700;margin:22px 0 6px}
+#s2c .xs em{font-style:normal;font-weight:500;color:#6b7280;font-size:.8em;margin-left:6px}
+#s2c .st{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#d93025;color:#fff;font-size:.85em;margin-right:6px}
+#s2c .fbox{border:2px dashed #4338ca;border-radius:12px;padding:12px 16px;margin:18px 0}
+#s2c .fh{font-weight:700}#s2c .fh em{font-style:normal;font-weight:500;color:#6b7280;font-size:.85em;margin-left:6px}
+@media(max-width:640px){#s2c .xnav{grid-template-columns:1fr 1fr}#s2c .xcard{padding:0 14px 16px}#s2c .xh{margin:0 -14px 14px}}
+</style>
 </head>
 <body>
 
@@ -106,6 +127,7 @@ nav.quick a.on{background:var(--navy);color:#fff;border-color:var(--navy);font-w
   <a href="#s1">1 제미나이 인 크롬</a>
   <a href="#s2">2 제미나이 스킬 (크롬 /)</a>
   <a href="#s2b">2+ 앱 스킬 (@)</a>
+  <a href="#s2c">2++ 스킬 만들기 12종</a>
   <a href="#s3">3 폼 → 시트 AI</a>
   <a href="#s4">4 공유·예약·지메일</a>
   <a href="#s5">5 렌즈·음성·QR</a>
@@ -420,7 +442,7 @@ nav.quick a.on{background:var(--navy);color:#fff;border-color:var(--navy);font-w
       <div class="callout blue fallback"><b class="t">계정에 따라 다릅니다</b> 제미나이 앱 스킬은 <b>만 18세 이상 개인 구글 계정</b>부터 10월 중순~11월 중순에 순차 적용되고 있습니다. 대학(교육용) 계정은 아직 제공되지 않으며, 크롬 스킬도 지역·언어별로 순차 제공 중입니다. 오늘 화면에 없으면 앞 탭 2의 ③ “프롬프트 카드” 방식으로 똑같이 하시면 됩니다. [확인 필요: 연수일 기준 한국어 제공 범위]</div>
     </div>
   </details>
-  <div class="sknav"><a href="#sk-rg" class="n1" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sk-rg').scrollIntoView({block:'start'})"><span>①</span>루브릭 채점 조교<small>@rubric-grader</small></a><a href="#sk-nt" class="n2" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sk-nt').scrollIntoView({block:'start'})"><span>②</span>강의 공지 메일<small>@강의-공지-메일</small></a></div>
+  <div class="sknav"><a href="#sk-rg" class="n1" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sk-rg').scrollIntoView({block:'start',behavior:'instant'})"><span>①</span>루브릭 채점 조교<small>@rubric-grader</small></a><a href="#sk-nt" class="n2" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sk-nt').scrollIntoView({block:'start',behavior:'instant'})"><span>②</span>강의 공지 메일<small>@강의-공지-메일</small></a></div>
   <div class="skcard c1" id="sk-rg">
   <h3 class="skt">① 루브릭 채점 조교 · @rubric-grader<small>지난 연수의 채점 젬(Gem)을 스킬로 바꾼 것</small></h3>
   <p class="lead">루브릭을 주면 학생 과제를 항목별로 채점하고, 이의제기에 대비한 근거(쪽·단락)와 학생 전달용 피드백까지 써 줘요.</p>
@@ -579,6 +601,503 @@ nav.quick a.on{background:var(--navy);color:#fff;border-color:var(--navy);font-w
 </section>
 
 <!-- 3 -->
+<section id="s2c">
+  <h2 class="sec">2++ 내 업무 스킬 만들기 · 교수 7종 · 교직원 5종</h2>
+  <p class="lead">앞 탭에서 스킬을 받아 써 봤다면, 이번엔 <b>내 일에 맞는 스킬을 직접</b> 만들어요. 마음에 드는 스킬 하나를 골라 <b>① 만들기 프롬프트</b>를 <b>Gemini로 만들기</b>에 보내 저장하고, <b>② 테스트 부탁문</b>으로 바로 시험해 보세요. 테스트 자료의 이름·기관은 모두 가상이에요.</p>
+  <div class="callout gold"><b class="t">만드는 순서</b> 제미나이 ⚙ 설정 → 스킬 → 만들기 ▾ → <b>Gemini로 만들기</b> → "Create a skill"이 보내지면 ① 만들기 프롬프트를 붙여 넣기 → 제미나이가 정리한 이름·설명·지침 확인 후 <b>저장</b> → 새 채팅에서 ② 테스트 부탁문 보내기</div>
+  <div class="xnavh">교수님용 7종</div><div class="xnav"><a href="#sx1" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx1').scrollIntoView({block:'start',behavior:'instant'})"><span>1</span>학생 메일 답장<small>@학생-메일-답장</small></a><a href="#sx2" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx2').scrollIntoView({block:'start',behavior:'instant'})"><span>2</span>추천서 초안<small>@추천서-초안</small></a><a href="#sx3" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx3').scrollIntoView({block:'start',behavior:'instant'})"><span>3</span>회의록 정리<small>@회의록-정리</small></a><a href="#sx4" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx4').scrollIntoView({block:'start',behavior:'instant'})"><span>4</span>시험 문제 출제<small>@시험문제-출제</small></a><a href="#sx5" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx5').scrollIntoView({block:'start',behavior:'instant'})"><span>5</span>강의계획서 점검<small>@강의계획서-점검</small></a><a href="#sx6" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx6').scrollIntoView({block:'start',behavior:'instant'})"><span>6</span>수업 성찰 정리<small>@수업-성찰-정리</small></a><a href="#sx7" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx7').scrollIntoView({block:'start',behavior:'instant'})"><span>7</span>루브릭 만들기<small>@루브릭-만들기</small></a></div>
+  <div class="xnavh">교직원용 5종</div><div class="xnav"><a href="#sx8" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx8').scrollIntoView({block:'start',behavior:'instant'})"><span>8</span>공문 기안<small>@공문-기안</small></a><a href="#sx9" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx9').scrollIntoView({block:'start',behavior:'instant'})"><span>9</span>규정 근거 답변<small>@규정-근거-답변</small></a><a href="#sx10" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx10').scrollIntoView({block:'start',behavior:'instant'})"><span>10</span>민원 응대 답변<small>@민원-응대-답변</small></a><a href="#sx11" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx11').scrollIntoView({block:'start',behavior:'instant'})"><span>11</span>행사 계획·결과 보고<small>@행사-계획-결과보고</small></a><a href="#sx12" class="" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sx12').scrollIntoView({block:'start',behavior:'instant'})"><span>12</span>안내문 다국어<small>@안내문-다국어</small></a></div>
+  <div class="callout blue"><b class="t">규정은 노트북에 넣어 두면 편해요</b> 제미나이 <b>노트북</b>에 규정 PDF를 소스로 넣어 두면 매번 첨부하지 않아도 돼요. 노트북 안 채팅에서 @스킬이 함께 불러지는지는 [확인 필요]예요. 안 되면 노트북의 <b>안내(Instructions)</b> 칸에 규정-근거-답변 지침을 넣어 쓰세요.</div>
+
+  <div class="xcard x1" id="sx1">
+    <div class="xh"><span class="xt">1순위</span><div class="xn">1. 학생 메일 답장 <code>@학생-메일-답장</code></div><div class="xo">성적 이의·출석 인정·과제 연장 같은 학생 메일에 정중하지만 단호한 답장 초안</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">학생 메일에 답장 초안을 써 주는 스킬을 만들고 싶어. 이름은 학생-메일-답장으로 해 줘.
+
+[언제 쓰나] 학생이 보낸 메일(성적 이의, 출석 인정 요청, 과제 마감 연장, 수강 문의 등)을 붙여 넣고 "답장 써 줘"라고 할 때.
+
+[하는 일]
+1. 먼저 학생 메일의 요청 유형과 핵심 요청을 한 줄로 정리해.
+2. 내가 함께 준 원칙·규정·메모(예: "연장 불가", "진단서 있으면 출석 인정")만 근거로 답장을 써.
+3. 답장 초안은 두 가지로 줘: (A) 수락·부분 수락 버전 (B) 정중한 거절 버전. 내 메모에 결정이 이미 있으면 그 방향 하나만 써.
+4. 마지막에 "보내기 전에 확인할 것"을 3줄 이내로 정리해.
+
+[원칙]
+- 규정이나 내 메모에 없는 약속(점수 조정, 추가 기회, 예외 인정)은 절대 하지 마.
+- 모르는 정보(학칙 조항, 날짜, 제출 방법 등)는 지어내지 말고 [확인 필요: 항목]으로 남겨.
+- 학생 감정에는 공감하되, 결론은 분명하게. 사과를 남발하지 마.
+- 학번·연락처 같은 개인정보는 답장에 다시 쓰지 마. 호칭은 "OOO 학생"으로.
+- 정중한 존댓말, 메일 형식(제목, 인사, 본문, 맺음말, [교수명] 드림).</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 성적 이의</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@학생-메일-답장 아래 학생 메일에 답장 써 줘.
+내 메모: 중간고사 채점은 루브릭대로 했고 점수 변경은 없음. 다만 채점 기준표와 본인 답안은 면담에서 보여 줄 수 있음. 면담은 다음 주 화·목 오후 3~5시 연구실.
+
+---
+제목: 경영학원론 중간고사 점수 관련 문의드립니다
+
+교수님 안녕하세요, 경영학원론 수강 중인 경영학과 2학년 한바람(가상)입니다.
+이번 중간고사 서술형 3번에서 10점 중 4점을 받았는데요, 제가 쓴 내용이 수업 자료에 나온 내용과 거의 같다고 생각해서 왜 감점이 되었는지 궁금합니다. 친구는 비슷하게 썼는데 7점을 받았다고 해서 더 혼란스럽습니다.
+혹시 재채점이 가능할까요? 이번 학기 장학금이 걸려 있어서 너무 걱정됩니다.
+답변 기다리겠습니다. 감사합니다.</pre></div>
+<div class="prompt"><div class="label">부탁문 · 출석 인정</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@학생-메일-답장 아래 학생 메일에 답장 써 줘.
+내 메모: 진단서·입원확인서 같은 증빙이 있으면 출석 인정. 제출은 학과 사무실이 아니라 LMS 과제함 "출석 증빙"에 PDF로. 지난주 수업 퀴즈는 대체 과제로 처리 가능.
+
+---
+교수님 안녕하세요. 데이터분석기초 수강생 행정학과 3학년 오하늘(가상)입니다.
+지난주 목요일에 갑자기 아파서 수업에 못 갔습니다. 병원은 다녀왔는데 서류를 따로 받지는 않았어요. 혹시 출석 인정이 될까요? 그리고 그날 퀴즈가 있었다고 들었는데 그건 어떻게 되는지도 궁금합니다. 죄송합니다.</pre></div>
+<div class="prompt"><div class="label">부탁문 · 과제 연장</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@학생-메일-답장 아래 학생 메일에 답장 써 줘.
+내 메모: 과제 마감 연장은 원칙적으로 불가. 늦게 내면 하루당 10% 감점, 3일 넘으면 0점. 이 원칙은 강의계획서와 1주차 공지에 있음.
+
+---
+교수님, 미디어와 사회 듣고 있는 미디어커뮤니케이션학과 1학년 윤소리(가상)입니다.
+이번 주 금요일 마감인 3주차 리포트를 다음 주 월요일까지 내도 될까요? 동아리 축제 준비랑 다른 과목 시험이 겹쳐서 도저히 시간이 안 납니다. 다른 친구들도 힘들다고 해서 반 전체 연장도 가능하면 좋겠습니다!</pre></div>
+
+    <p class="tip"><b>볼 것:</b> 점수 변경·예외를 약속하지 않는지, 메모에 없는 학칙·날짜를 [확인 필요]로 남기는지, A/B 두 버전과 '보내기 전 확인할 것'이 나오는지 보세요.</p>
+  </div>
+
+  <div class="xcard x1" id="sx2">
+    <div class="xh"><span class="xt">1순위</span><div class="xn">2. 추천서 초안 <code>@추천서-초안</code></div><div class="xo">학생 이력과 교수 메모로 과장 없는 국문·영문 추천서 초안</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">추천서 초안을 써 주는 스킬을 만들고 싶어. 이름은 추천서-초안으로 해 줘.
+
+[언제 쓰나] 학생이 보낸 이력(성적, 활동, 지원처)과 내 메모 몇 줄을 주고 "추천서 써 줘"라고 할 때. 대학원, 교환학생, 장학금, 취업 추천서.
+
+[하는 일]
+1. 먼저 지원처·지원 분야·제출 언어를 확인해. 없으면 짧게 물어봐.
+2. 내 메모에서 '내가 직접 관찰한 사실'과 '학생이 스스로 적은 이력'을 구분해 표로 정리해.
+3. 추천서 초안을 써: 추천인 소개(관계·기간) → 학업 역량 → 구체적 일화 1~2개 → 인성·태도 → 종합 추천.
+4. 영문을 원하면 미국식 추천서 형식(Dear Admissions Committee, …)으로 따로 써 줘.
+5. 마지막에 "더 넣으면 좋은 구체적 사례" 질문을 2~3개 줘.
+
+[원칙]
+- 과장 금지. 메모·이력에 없는 수상, 순위(상위 1% 등), 경력은 절대 지어내지 마.
+- 구체적 근거 없는 칭찬 형용사(탁월한, 최고의)를 남발하지 마. 일화로 보여 줘.
+- 확인이 필요한 정보는 [확인 필요: 항목]으로 남겨.
+- 분량은 국문 A4 1쪽, 영문 400~600단어 안팎.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 대학원 추천서</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@추천서-초안 아래 자료로 대학원 추천서 초안 써 줘. 국문과 영문 둘 다.
+
+[지원처] OO대학교 일반대학원 데이터사이언스학과 석사과정 (가상)
+[학생 이력 – 학생이 보낸 것]
+- 이름: 정새벽(가상), 산업경영공학과 4학년
+- 전체 평점 3.9/4.5, 전공 4.1/4.5
+- 교내 데이터 분석 경진대회 장려상 (2026)
+- 학부 연구생 1년 (교수님 연구실, 설문 데이터 정제·시각화 담당)
+- 파이썬, R, SQL 사용 가능
+
+[내 메모 – 직접 본 것]
+- 내 수업 '경영통계' 2025-2 A+. 기말 프로젝트에서 공공데이터 결측치를 혼자 끝까지 추적해 원자료 오류를 찾아냄.
+- 연구실에서 1년, 주 2회 성실히 나옴. 맡긴 일은 기한 전에 끝내고, 모르면 먼저 물어봄.
+- 발표는 다소 긴장하는 편이지만 질문에는 근거를 들어 차분히 답함.
+- 리더형보다는 조용히 끝까지 파고드는 연구자형.</pre></div>
+<div class="fbox"><div class="fh">📎 파일로 해 보기 <em>파일을 ＋로 첨부</em></div><p><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/resume-jeong-saebyeok.pdf" download>⬇ [가상] 정새벽 이력서 PDF</a></p><div class="prompt"><div class="label">파일 첨부용 부탁문</div><button class="copy">복사</button><pre>@추천서-초안 첨부한 이력서로 대학원 추천서 초안 써 줘. 국문과 영문 둘 다.
+
+[내 메모 – 직접 본 것]
+- 내 수업 '경영통계' 2025-2 A+. 기말 프로젝트에서 공공데이터 결측치를 혼자 끝까지 추적해 원자료 오류를 찾아냄.
+- 연구실에서 1년, 주 2회 성실히 나옴. 맡긴 일은 기한 전에 끝내고, 모르면 먼저 물어봄.
+- 발표는 다소 긴장하는 편이지만 질문에는 근거를 들어 차분히 답함.
+- 리더형보다는 조용히 끝까지 파고드는 연구자형.</pre></div>
+</div>
+    <p class="tip"><b>볼 것:</b> 메모에 없는 업적(논문 게재, 상위 몇 %)을 지어내지 않는지, '직접 관찰'과 '학생 제출 이력'을 구분하는지, 약점(발표 긴장)을 어떻게 다루는지 보세요.</p>
+  </div>
+
+  <div class="xcard x1" id="sx3">
+    <div class="xh"><span class="xt">1순위</span><div class="xn">3. 회의록 정리 <code>@회의록-정리</code></div><div class="xo">회의 메모·녹음 받아쓰기를 결정 사항·할 일·다음 안건으로</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">회의록을 정리해 주는 스킬을 만들고 싶어. 이름은 회의록-정리로 해 줘.
+
+[언제 쓰나] 학과 회의, 교과목 협의, 위원회 회의의 메모나 녹음 받아쓰기 텍스트를 붙여 넣고 "회의록 정리해 줘"라고 할 때.
+
+[출력 양식]
+## 회의록
+- 회의명 / 일시 / 참석자 (메모에 있는 것만)
+### 1. 결정 사항 (번호 목록, 한 줄씩)
+### 2. 할 일 (표: 할 일 | 담당 | 기한)
+### 3. 논의했지만 결론 안 난 것
+### 4. 다음 회의 안건
+### 5. 공유용 3줄 요약 (단톡방에 바로 붙일 수 있게)
+
+[원칙]
+- 메모에 없는 결정·담당자·기한은 지어내지 마. 비어 있으면 [미정] 또는 [확인 필요]로 써.
+- "~하면 좋겠다"는 의견과 "~하기로 했다"는 결정을 구분해.
+- 말투는 개조식, 존칭 생략, 사람 이름은 메모에 나온 그대로.
+- 잡담·중복 발언은 빼.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 학과 회의 메모</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@회의록-정리 아래 메모로 회의록 정리해 줘.
+
+---
+11/4 학과회의 (교수 5명, 조교 1명) 회의실 302
+- 학과장님: 내년 1학기 신설 과목 'AI와 비즈니스' 담당 누가? → 김교수님(가상)이 해 보겠다고 함. 강의계획서는 12월 중순까지
+- 졸업작품 전시회 날짜 얘기. 12/10 vs 12/17. 학생회 의견 들어 보고 다시 정하기로
+- 조교: 학과 홈페이지 공지 업데이트 너무 늦다는 학생 민원. 박교수님(가상)이 홈페이지 담당 조교를 한 명 더 두면 좋겠다고 함. 예산 문제라 결론 X
+- 신입생 멘토링 → 교수 1인당 8명씩 배정, 첫 면담 3월 2주 차까지 완료. 명단은 조교가 다음 주까지 메일로
+- 이교수님(가상): 생성형 AI 과제 표절 기준 학과 공통으로 만들자. 다들 동의. 초안은 이교수님이, 다음 회의 때 검토
+- 회식 얘기 잠깐
+- 다음 회의 12/2(화) 4시</pre></div>
+<div class="fbox"><div class="fh">📎 파일로 해 보기 <em>파일을 ＋로 첨부</em></div><p><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/meeting-transcript-1104.txt" download>⬇ [가상] 학과회의 녹음 받아쓰기 원문 (TXT)</a></p><div class="prompt"><div class="label">파일 첨부용 부탁문</div><button class="copy">복사</button><pre>@회의록-정리 첨부한 회의 녹음 받아쓰기로 회의록 정리해 줘.</pre></div>
+</div>
+    <p class="tip"><b>볼 것:</b> 결정/의견을 구분하는지, 전시회 날짜를 '결론 안 난 것'으로 두는지, 메모에 없는 기한을 [확인 필요]로 남기는지 보세요.</p>
+  </div>
+
+  <div class="xcard x2" id="sx4">
+    <div class="xh"><span class="xt">2순위</span><div class="xn">4. 시험 문제 출제 <code>@시험문제-출제</code></div><div class="xo">강의 자료로 객관식·서술형 문항·정답·해설·출제 근거</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">강의 자료로 시험 문제를 만들어 주는 스킬을 만들고 싶어. 이름은 시험문제-출제로 해 줘.
+
+[언제 쓰나] 강의 자료(PDF 첨부 또는 텍스트 붙여 넣기)를 주고 "문제 만들어 줘"라고 할 때. 퀴즈, 중간·기말고사.
+
+[하는 일]
+1. 문항 수와 유형을 따로 말하지 않으면 객관식 5개 + 서술형 2개로 만들어.
+2. 난이도는 상·중·하를 섞고 문항마다 표시해.
+3. 문항마다 정답, 해설, 출제 근거(자료의 몇 쪽 또는 어느 문단/소제목)를 붙여.
+4. 서술형은 채점 기준(핵심 키워드와 부분 점수)을 함께 줘.
+5. 마지막에 학생용 시험지(정답 없는 버전)를 따로 정리해.
+
+[원칙]
+- 자료에 없는 내용으로 문제를 내지 마. 근거를 못 찾으면 그 문항은 만들지 마.
+- 객관식 오답 보기는 그럴듯하되 명백히 틀린 것이어야 하고, "모두 맞다/모두 틀리다" 보기는 쓰지 마.
+- 단순 암기보다 이해·적용 문항을 절반 이상.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 강의 자료로 퀴즈</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@시험문제-출제 아래 강의 자료로 퀴즈 만들어 줘. 객관식 5개, 서술형 1개.
+
+---
+[강의 자료 · 경영학원론 5주차] 시장 세분화와 STP (연수 연습용)
+
+1. 시장 세분화(Segmentation)
+시장 세분화는 전체 시장을 비슷한 욕구나 특성을 가진 소비자 집단으로 나누는 과정이다. 기준은 크게 인구통계적(나이, 성별, 소득), 지리적(지역, 기후), 심리적(라이프스타일, 가치관), 행동적(구매 빈도, 충성도, 추구 혜택) 기준으로 나눈다.
+
+2. 표적 시장 선정(Targeting)
+나눈 세분 시장 중 기업이 집중할 시장을 고르는 단계이다. 세분 시장의 규모와 성장성, 경쟁 강도, 기업의 자원과 목표와의 적합성을 평가한다. 하나의 세분 시장에 집중하는 것을 집중 마케팅, 여러 세분 시장에 각기 다른 전략을 쓰는 것을 차별화 마케팅이라 한다.
+
+3. 포지셔닝(Positioning)
+표적 고객의 마음속에 경쟁 제품과 구별되는 분명한 위치를 차지하도록 하는 활동이다. 포지셔닝 맵은 고객이 중요하게 여기는 두 가지 속성을 축으로 삼아 자사와 경쟁사의 위치를 시각화한다.
+
+4. 사례
+한 커피 브랜드는 '20~30대 직장인 중 출근길에 빠르게 커피를 사는 사람'을 표적으로 정하고, '빠르고 합리적인 가격'으로 포지셔닝했다. 반면 다른 브랜드는 '여유롭게 머무는 공간'을 강조해 고가 프리미엄으로 포지셔닝했다.</pre></div>
+<div class="fbox"><div class="fh">📎 파일로 해 보기 <em>파일을 ＋로 첨부</em></div><p><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/lecture-stp-week5.pdf" download>⬇ [가상] 경영학원론 5주차 강의 자료 PDF (3쪽)</a></p><div class="prompt"><div class="label">파일 첨부용 부탁문</div><button class="copy">복사</button><pre>@시험문제-출제 첨부한 강의 자료로 퀴즈 만들어 줘. 객관식 5개, 서술형 1개. 출제 근거는 쪽 번호로 붙여 줘.</pre></div>
+</div>
+    <p class="tip"><b>볼 것:</b> 출제 근거가 자료의 어느 소제목인지 붙는지, 자료에 없는 개념(예: 4P)을 끌어오지 않는지, 서술형 채점 기준이 나오는지 보세요. 실제로는 강의 PDF를 ＋로 첨부해서 써요.</p>
+  </div>
+
+  <div class="xcard x2" id="sx5">
+    <div class="xh"><span class="xt">2순위</span><div class="xn">5. 강의계획서 점검 <code>@강의계획서-점검</code></div><div class="xo">학습목표·주차별 내용·평가 방법이 서로 맞는지 점검</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">강의계획서를 점검해 주는 스킬을 만들고 싶어. 이름은 강의계획서-점검으로 해 줘.
+
+[언제 쓰나] 강의계획서(PDF 첨부 또는 텍스트)를 주고 "점검해 줘"라고 할 때.
+
+[하는 일]
+1. 학습목표를 번호로 뽑아 정리해.
+2. 정렬 점검표를 만들어: 학습목표 | 다루는 주차 | 평가하는 방법 | 판정(○ 잘 맞음 / △ 약함 / × 빠짐).
+3. 이런 문제를 찾아 줘: 평가하지 않는 목표, 목표와 무관한 평가, 주차 배분 쏠림, 평가 비율 합계 오류, 모호한 목표 동사(이해한다, 안다).
+4. 고칠 점을 우선순위 3개로 제안하고, 학습목표는 측정 가능한 동사로 바꾼 예시를 줘.
+
+[원칙]
+- 계획서에 적힌 내용만 근거로 판단해. 추측한 건 "추정"이라고 표시해.
+- 교수의 수업 철학을 바꾸라고 하지 말고, 목표·내용·평가의 '일치'만 점검해.
+- 표 위주로 짧게.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 일부러 어긋난 강의계획서</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@강의계획서-점검 아래 강의계획서 점검해 줘.
+
+---
+[강의계획서] 생활 속 데이터 리터러시 (교양, 3학점, 연수 연습용 가상 계획서)
+
+■ 학습목표
+1. 데이터의 개념과 종류를 이해한다.
+2. 스프레드시트로 데이터를 정리하고 간단한 그래프를 만들 수 있다.
+3. 뉴스·광고 속 통계의 오류를 비판적으로 찾아낼 수 있다.
+4. 데이터로 생활 속 문제를 정의하고 해결안을 발표할 수 있다.
+
+■ 주차별 내용
+1주 오리엔테이션 / 2주 데이터란 무엇인가 / 3주 데이터의 종류 / 4주 데이터 수집 방법 / 5주 데이터 윤리와 개인정보 / 6주 데이터 윤리 사례 토론 / 7주 개인정보 보호 법령 / 8주 중간고사 / 9주 스프레드시트 기초 / 10주 정렬과 필터 / 11주 함수 기초 / 12주 피벗 테이블 / 13주 그래프 만들기 / 14주 대시보드 꾸미기 / 15주 기말고사
+
+■ 평가
+중간고사 30% (객관식, 데이터 개념·윤리) / 기말고사 40% (객관식, 스프레드시트 기능) / 출석 20% / 과제 5%</pre></div>
+<div class="fbox"><div class="fh">📎 파일로 해 보기 <em>파일을 ＋로 첨부</em></div><p><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/syllabus-data-literacy.pdf" download>⬇ [가상] 생활 속 데이터 리터러시 강의계획서 PDF</a></p><div class="prompt"><div class="label">파일 첨부용 부탁문</div><button class="copy">복사</button><pre>@강의계획서-점검 첨부한 강의계획서 점검해 줘.</pre></div>
+</div>
+    <p class="tip"><b>볼 것:</b> 학습목표 3(통계 오류)·4(문제 해결 발표)를 다루는 주차와 평가가 없다는 것, 평가 합계가 95%라는 것, 윤리 주차 쏠림을 찾아내는지 보세요.</p>
+  </div>
+
+  <div class="xcard x2" id="sx6">
+    <div class="xh"><span class="xt">2순위</span><div class="xn">6. 수업 성찰 정리 <code>@수업-성찰-정리</code></div><div class="xo">강의평가 주관식 응답을 칭찬·개선 요청·다음 학기 바꿀 점으로</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">강의평가 주관식 응답을 정리해 주는 스킬을 만들고 싶어. 이름은 수업-성찰-정리로 해 줘.
+
+[언제 쓰나] 학기 말 강의평가 주관식 응답이나 수업 중 받은 익명 피드백을 붙여 넣고 "정리해 줘"라고 할 때.
+
+[출력 양식]
+### 1. 한눈에 보기 (응답 수, 전반적 분위기 2줄)
+### 2. 좋았던 점 (주제별로 묶고 응답 수 표시, 대표 응답 1개 인용)
+### 3. 개선 요청 (주제별로 묶고 응답 수 표시, 대표 응답 1개 인용)
+### 4. 다음 학기에 바꿀 점 3가지 (바로 할 수 있는 것 → 준비가 필요한 것 순)
+### 5. 학생들에게 돌려줄 한 문단 ("여러분 의견을 듣고 이렇게 바꾸겠습니다")
+
+[원칙]
+- 응답에 없는 내용을 지어내지 마. 응답 수는 실제로 세서 써.
+- 욕설·인신공격성 응답은 내용만 중립적으로 요약하고 원문 인용은 하지 마.
+- 서로 반대되는 의견(예: 과제가 많다 vs 적당하다)은 둘 다 보여 줘.
+- 학생을 특정할 수 있는 정보는 빼.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 강의평가 주관식 20개</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@수업-성찰-정리 아래 강의평가 주관식 응답 정리해 줘. (경영통계, 2026-1학기, 연수 연습용 가상 응답)
+
+---
+1. 예제가 실제 기업 데이터라서 재밌었어요.
+2. 과제가 너무 많아요. 매주 있으니까 다른 과목 할 시간이 없음
+3. 교수님이 질문하면 끝까지 설명해 주셔서 좋았습니다.
+4. 엑셀 실습 시간이 더 있었으면 좋겠어요. 따라가기 벅찼어요.
+5. 과제 양은 적당했던 것 같아요. 매주 하니까 오히려 복습이 됨
+6. 수업 자료를 미리 올려 주시면 좋겠습니다.
+7. 중간고사 범위가 너무 넓었어요.
+8. 실습 때 조교님이 돌아다니면서 봐 주셔서 도움 됐어요.
+9. 진도가 후반에 너무 빨라졌어요. 회귀분석 부분 이해 못 함
+10. 사례 위주라 통계 처음인데도 할 만했어요.
+11. 자료 업로드가 수업 직전이라 프린트를 못 했어요.
+12. 피드백이 빨라서 좋았어요.
+13. 엑셀 단축키 정리본 있으면 좋겠어요.
+14. 팀플 무임승차 문제 대책이 있었으면 좋겠습니다.
+15. 수업 너무 지루함. 그냥 책 읽는 수준
+16. 질문 게시판 답이 빨라서 좋았습니다.
+17. 후반부 회귀분석 진도 너무 빨랐어요 ㅠ
+18. 과제 피드백 덕분에 기말 준비가 쉬웠어요.
+19. 실습 파일을 미리 받고 싶어요.
+20. 팀 프로젝트 평가에 동료평가를 넣어 주세요.</pre></div>
+
+    <p class="tip"><b>볼 것:</b> '과제가 많다(2)' vs '적당하다(5)'를 둘 다 보여 주는지, 응답 수를 실제로 세는지(자료 미리 올리기 6·11·19 등), 15번 같은 부정 응답을 중립적으로 다루는지 보세요.</p>
+  </div>
+
+  <div class="xcard x1" id="sx7">
+    <div class="xh"><span class="xt">1순위</span><div class="xn">7. 루브릭 만들기 <code>@루브릭-만들기</code></div><div class="xo">과제 안내만 주면 점수 구간이 있는 채점 루브릭과 학생용 안내판까지</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">과제 채점 루브릭을 만들어 주는 스킬을 만들고 싶어. 이름은 루브릭-만들기로 해 줘.
+
+[언제 쓰나] 과제 안내문이나 과제 메모(주제, 분량, 목적, 학습목표)를 주고 "루브릭 만들어 줘"라고 할 때. 이미 있는 루브릭을 주고 "고쳐 줘"라고 할 때도.
+
+[하는 일]
+1. 과제의 학습목표를 2~4개로 뽑고, 목표마다 평가 기준을 하나씩 정해. 기준은 3~5개.
+2. 기준마다 배점을 정하고 합계가 정확히 100점(또는 내가 말한 만점)인지 계산해서 보여 줘.
+3. 표로 만들어: 평가 기준(배점) | 4수준 우수 | 3수준 양호 | 2수준 보통 | 1수준 미흡. 칸마다 점수 구간(예: 18~20점)을 붙여.
+4. 수준 설명은 눈으로 확인할 수 있는 행동·결과로 써(예: "근거 사례 2개 이상 제시"). "잘함, 우수함" 같은 말로만 쓰지 마.
+5. 표 아래에 ① 채점 유의 사항(감점·0점 기준, 분량 미달, 표절·AI 사용 처리) ② 학생에게 미리 보여 줄 쉬운 말 버전 ③ 이 루브릭으로 채점할 때 헷갈릴 수 있는 경계 사례 2개를 붙여.
+6. 기존 루브릭을 고칠 때는 문제점(목표와 안 맞음, 겹치는 기준, 측정 불가 표현, 배점 합계 오류)을 먼저 표로 짚고 고친 버전을 줘.
+
+[원칙]
+- 과제 안내에 없는 요구 사항(분량, 형식, 참고문헌 수)을 지어내지 마. 필요하면 [확인 필요: 항목]으로 남겨.
+- 한 기준에 두 가지를 섞지 마(예: 내용과 맞춤법을 한 칸에).
+- 이 루브릭은 rubric-grader 스킬에 그대로 넣어 채점할 수 있게, 기준 이름과 점수 구간을 분명히 써.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 과제 메모로 새로 만들기</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@루브릭-만들기 아래 과제로 100점 만점 루브릭 만들어 줘.
+
+---
+[과제 메모 · 연수 연습용]
+과목: 생활 속 데이터 리터러시 (교양, 1~2학년)
+과제: 뉴스 기사 1개를 골라 기사 속 통계(그래프, 숫자)가 독자를 오해하게 만들 수 있는 부분을 찾아 분석하는 보고서
+분량: A4 2~3쪽
+목적: 통계 오류를 비판적으로 찾아내고, 바르게 고친 표현을 제안할 수 있다
+조건: 기사 출처(링크) 필수, 원래 그래프 캡처 첨부, 고친 그래프나 문장 제안 포함
+AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부분은 각주로 밝히기</pre></div>
+<div class="prompt"><div class="label">부탁문 · 허술한 루브릭 고치기</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@루브릭-만들기 아래 루브릭의 문제점을 짚고 고쳐 줘.
+
+---
+[기존 루브릭 · 발표 과제 · 연수 연습용]
+- 내용 (40점): 내용이 좋고 충실함
+- 발표 (30점): 발표를 잘함, 자신감 있음, 시간 지킴, 슬라이드 깔끔함
+- 성실성 (20점): 열심히 준비함
+- 질의응답 (5점): 질문에 잘 대답함</pre></div>
+<div class="fbox"><div class="fh">📎 파일로 해 보기 <em>파일을 ＋로 첨부</em></div><p><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/assignment-brief-stats-news.pdf" download>⬇ [가상] 과제 안내문 PDF (뉴스 속 통계 분석 보고서)</a></p><div class="prompt"><div class="label">파일 첨부용 부탁문</div><button class="copy">복사</button><pre>@루브릭-만들기 첨부한 과제 안내문으로 100점 만점 루브릭 만들어 줘. 학생용 쉬운 말 버전도 같이.</pre></div>
+</div>
+    <p class="tip"><b>볼 것:</b> 배점 합계를 실제로 계산하는지(고치기 예시는 95점), '잘함·좋음'을 관찰 가능한 행동으로 바꾸는지, 한 칸에 섞인 기준(발표 30점)을 나누는지, 메모에 없는 조건을 지어내지 않는지 보세요. 만든 루브릭을 @rubric-grader에 넣어 채점까지 이어 보면 좋아요.</p>
+  </div>
+
+  <div class="xcard x3" id="sx8">
+    <div class="xh"><span class="xt">교직원</span><div class="xn">8. 공문 기안 <code>@공문-기안</code></div><div class="xo">메모 몇 줄로 대학 공문 형식의 기안문</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">대학 행정 공문(기안문)을 써 주는 스킬을 만들고 싶어. 이름은 공문-기안으로 해 줘.
+
+[언제 쓰나] 교직원이 업무 메모(무엇을, 누구에게, 언제까지, 근거)를 주고 "기안문 써 줘", "공문으로 만들어 줘"라고 할 때.
+
+[출력 형식]
+- 수신 / (경유) / 제목
+- 본문은 공문 항목 체계로: 1. → 가. → 1) → 가) 순서
+- 1항은 관련 근거(관련 공문 번호·규정), 2항부터 목적·내용·협조 요청
+- 일시·장소·대상·내용은 표 또는 항목으로 정리
+- 끝에 "붙임 1. ○○ 1부. 끝." 형식
+- 마지막에 "기안 전 확인할 것"을 3줄 이내로
+
+[원칙]
+- 메모에 없는 공문 번호, 날짜, 예산 액수, 담당자 이름은 절대 지어내지 마. [확인 필요: 항목]으로 남겨.
+- 날짜는 2026. 11. 6.(금) 형식, 시간은 14:00 형식.
+- 개조식, 명사형 종결("~바람", "~함"). 불필요한 미사여구 빼.
+- 학교마다 양식이 다르니 수신·발신 명의는 [기관명]처럼 비워 둬.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 교직원 연수 안내 기안</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@공문-기안 아래 메모로 기안문 써 줘.
+
+---
+- 전 교직원 대상 'AI 업무 활용 연수' 안내하고 참석 협조 요청
+- 일시: 11월 20일 목요일 오후 2시~5시
+- 장소: 본관 3층 대회의실 (노트북 지참)
+- 대상: 각 부서 교직원, 부서별 최소 1명 이상 참석
+- 신청: 11월 14일(금)까지 부서별로 명단을 교육지원팀 메일로
+- 근거: 2026 교직원 역량 강화 계획 (공문 번호 모름)
+- 붙임: 연수 안내문, 참석자 명단 양식</pre></div>
+
+    <p class="tip"><b>볼 것:</b> 모르는 공문 번호를 [확인 필요]로 남기는지, 1.→가.→1) 체계와 '붙임… 끝.' 형식을 지키는지, 11월 20일 요일을 확인하는지 보세요.</p>
+  </div>
+
+  <div class="xcard x3" id="sx9">
+    <div class="xh"><span class="xt">교직원</span><div class="xn">9. 규정 근거 답변 <code>@규정-근거-답변</code></div><div class="xo">학칙·학사 규정을 근거로 조항을 인용해 답변</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">학칙이나 학사 규정을 근거로 질문에 답해 주는 스킬을 만들고 싶어. 이름은 규정-근거-답변으로 해 줘.
+
+[언제 쓰나] 규정 PDF를 첨부하거나(또는 규정이 들어 있는 노트북에서) 학생·교직원 질문을 주고 "규정상 어떻게 돼?"라고 물을 때.
+
+[출력 형식]
+### 답: 한 줄 결론 (가능 / 불가 / 조건부 가능 / 규정에 없음)
+### 근거: 「규정명」 제○조 제○항 원문 그대로 인용 (여러 조항이면 모두)
+### 풀이: 학생에게 설명하듯 2~3문장
+### 담당·절차: 규정에 나온 신청 방법·기한·담당 부서 (없으면 [확인 필요])
+
+[원칙]
+- 첨부한 규정에 있는 내용만 근거로 써. 일반 상식이나 다른 학교 규정으로 채우지 마.
+- 해당 조항을 못 찾으면 "규정에 없음"이라고 분명히 쓰고, 어느 부서에 확인하면 좋을지만 제안해.
+- 조항 번호와 인용문이 정확히 일치해야 해. 바꿔 말한 문장을 인용처럼 쓰지 마.
+- 여러 조항이 부딪히면 둘 다 보여 주고 "담당 부서 판단 필요"라고 써.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 규정 PDF 첨부하고 질문 4개</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@규정-근거-답변 첨부한 학사 규정으로 아래 질문에 각각 답해 줘.
+
+1. 휴학 중에 계절학기 수업을 들을 수 있나요?
+2. 군 휴학 후 복학은 언제 신청해야 하나요?
+3. 재수강하면 성적은 최고 몇 점까지 받을 수 있나요?
+4. 계절학기도 장학금을 받을 수 있나요?</pre></div>
+<div class="prompt"><div class="label">부탁문 · 규정을 제미나이 노트북에 넣어 두었을 때 (확인 필요)</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">(규정 PDF를 소스로 넣어 둔 노트북 안의 채팅에서)
+@규정-근거-답변 이 노트북의 학사 규정으로 답해 줘. 재수강하면 성적은 최고 몇 점까지 받을 수 있나요?</pre></div>
+<div class="fbox"><div class="fh">📎 파일로 해 보기 <em>파일을 ＋로 첨부</em></div><p><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/regulation-academic.pdf" download>⬇ [가상] OO대학교 학사 규정 발췌 PDF</a></p><div class="prompt"><div class="label">파일 첨부용 부탁문</div><button class="copy">복사</button><pre>@규정-근거-답변 첨부한 학사 규정으로 답해 줘. 휴학 중에 계절학기 수업을 들을 수 있나요?</pre></div>
+</div>
+    <p class="tip"><b>볼 것:</b> 4번처럼 규정에 없는 질문에 '규정에 없음'이라고 답하는지, 조항 번호와 인용문이 PDF와 정확히 같은지, 1번처럼 두 조항을 함께 봐야 하는 질문을 처리하는지 보세요.</p>
+  </div>
+
+  <div class="xcard x3" id="sx10">
+    <div class="xh"><span class="xt">교직원</span><div class="xn">10. 민원 응대 답변 <code>@민원-응대-답변</code></div><div class="xo">학생·학부모 문의·항의에 절차 안내형 답변 초안</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">학생·학부모 민원에 답변 초안을 써 주는 스킬을 만들고 싶어. 이름은 민원-응대-답변으로 해 줘.
+
+[언제 쓰나] 학생이나 학부모의 문의·항의 메일, 게시판 글을 붙여 넣고 "답변 써 줘"라고 할 때.
+
+[하는 일]
+1. 먼저 민원을 표로 정리해: 민원 유형 | 핵심 요구 | 감정 수준(낮음/보통/높음) | 우리가 답할 수 있는 것 | 다른 부서로 넘길 것.
+2. 답변 초안을 써: 공감 한두 문장 → 사실 확인 → 처리 절차(담당 부서, 방법, 예상 기한) → 다음 연락 방법.
+3. 감정 수준이 높으면 전화·면담을 먼저 제안하는 짧은 버전도 따로 줘.
+4. 마지막에 "보내기 전 확인할 것"을 3줄 이내로.
+
+[원칙]
+- 내 메모에 없는 결과(환불, 배정 변경, 예외 인정)는 약속하지 마.
+- 처리 기한·담당자·연락처를 모르면 [확인 필요]로 남겨.
+- 책임 인정처럼 들리는 표현("저희 잘못입니다")은 사실이 확인된 경우에만.
+- 학번·연락처·주소 같은 개인정보는 답변에 다시 쓰지 마.
+- 정중한 존댓말, 기관 명의([부서명] 드림).</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 학부모 항의 (기숙사 배정)</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@민원-응대-답변 아래 학부모 메일에 답변 써 줘.
+내 메모: 기숙사 배정은 성적·거리 점수 합산 기준, 결과 변경 불가. 대기자 순번은 생활관 행정실 문의. 추가 모집은 2월 예정(날짜 미정).
+
+---
+제목: 기숙사 배정 결과 너무 이해가 안 갑니다
+
+안녕하세요. 이번에 신입생으로 입학하는 학생 엄마입니다(가상).
+저희 집이 학교에서 차로 2시간 넘게 걸리는데 기숙사에서 떨어졌다니 말이 됩니까? 옆집 아이는 1시간 거리인데 붙었다고 합니다. 기준이 뭔지 공개도 안 하고, 전화는 계속 통화 중이고요.
+당장 배정 결과 다시 확인해 주시고 오늘 안으로 연락 주세요. 안 되면 교육청에 민원 넣겠습니다.</pre></div>
+<div class="prompt"><div class="label">부탁문 · 학생 문의 (장학금 미지급)</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@민원-응대-답변 아래 학생 문의에 답변 써 줘.
+내 메모: 성적 장학금은 등록금 고지서에서 감면되는 방식이라 따로 입금되지 않음. 감면 내역은 포털 '등록금 고지서'에서 확인. 금액 이의는 장학팀 방문.
+
+---
+안녕하세요, 2학년 학생입니다(가상). 지난 학기 성적 장학금 대상자라고 문자를 받았는데 아직 통장에 돈이 안 들어왔어요. 언제 들어오나요? 혹시 누락된 건 아닌지 걱정됩니다.</pre></div>
+
+    <p class="tip"><b>볼 것:</b> '결과 변경 불가'를 지키면서 감정을 다독이는지, 오늘 안 연락 같은 요구에 지킬 수 없는 약속을 하지 않는지, 2월 추가 모집 날짜를 지어내지 않는지 보세요.</p>
+  </div>
+
+  <div class="xcard x3" id="sx11">
+    <div class="xh"><span class="xt">교직원</span><div class="xn">11. 행사 계획·결과 보고 <code>@행사-계획-결과보고</code></div><div class="xo">행사 메모로 계획서, 끝나면 결과보고서까지</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">행사 계획서와 결과보고서를 써 주는 스킬을 만들고 싶어. 이름은 행사-계획-결과보고로 해 줘.
+
+[언제 쓰나] 행사 메모를 주고 "계획서 써 줘"라고 할 때, 그리고 행사가 끝난 뒤 실적 메모를 주고 "결과보고서로 바꿔 줘"라고 할 때.
+
+[계획서 형식]
+1. 목적 2. 개요(일시, 장소, 대상, 인원) 3. 세부 일정표(시간 | 내용 | 담당) 4. 역할 분담 5. 예산 항목(항목 | 산출 근거 | 금액) 6. 홍보 계획 7. 준비 체크리스트(D-14, D-7, D-1, 당일)
+
+[결과보고서 형식]
+1. 개요 2. 추진 실적(계획 대비 실제 표) 3. 성과(정량: 참석 인원·만족도 / 정성: 주요 의견) 4. 예산 집행(계획 | 집행 | 차액) 5. 문제점과 개선 방안 6. 붙임 목록
+
+[원칙]
+- 메모에 없는 금액, 인원, 만족도 수치는 지어내지 마. [확인 필요]로 남겨.
+- 예산 합계는 직접 계산해서 맞는지 보여 줘.
+- 결과보고서는 계획서와 비교해 달라진 점을 반드시 표시해.
+- 개조식, 표 위주.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 계획서</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@행사-계획-결과보고 아래 메모로 행사 계획서 써 줘.
+
+---
+- 행사명: 2026 교직원 AI 업무 활용 연수
+- 목적: 반복 행정 업무에 생성형 AI 활용 역량 강화
+- 일시: 11월 20일(목) 14:00~17:00 / 장소: 본관 3층 대회의실
+- 대상: 교직원 40명 내외
+- 순서: 인사말(10분) - 강의·실습(150분) - 설문(10분) - 마무리(10분)
+- 담당: 교육지원팀 (총괄 팀장, 실무 주무관 2명)
+- 예산: 강사료 50만 원, 다과 40명 x 8천 원, 인쇄물 40부 x 2천 원
+- 홍보: 포털 공지, 부서별 메일</pre></div>
+<div class="prompt"><div class="label">부탁문 · 결과보고서로 바꾸기</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@행사-계획-결과보고 위 계획서를 아래 실적 메모로 결과보고서로 바꿔 줘.
+
+---
+- 실제 참석 33명 (신청 41명)
+- 시간 그대로 진행, 단 실습 중 와이파이 끊김 20분
+- 만족도 설문 응답 29명, 5점 만점 평균 4.4
+- 주요 의견: "공문 기안 실습이 바로 쓸 만했다", "실습 시간 더 필요", "노트북 없는 사람 배려 필요"
+- 예산 집행: 강사료 50만 원, 다과 33명분 26만 4천 원, 인쇄물 40부 8만 원</pre></div>
+
+    <p class="tip"><b>볼 것:</b> 예산 합계(계획 90만 원 / 집행 84만 4천 원)를 맞게 계산하는지, 신청 대비 참석률을 표시하는지, 와이파이 문제를 개선 방안으로 연결하는지 보세요.</p>
+  </div>
+
+  <div class="xcard x3" id="sx12">
+    <div class="xh"><span class="xt">교직원</span><div class="xn">12. 안내문 다국어 <code>@안내문-다국어</code></div><div class="xo">국문 공지를 쉬운 한국어·영어·중국어로, 핵심 정보 대조표까지</div></div>
+    <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
+    <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">국문 공지를 유학생용 다국어 안내문으로 바꿔 주는 스킬을 만들고 싶어. 이름은 안내문-다국어로 해 줘.
+
+[언제 쓰나] 국문 공지·안내문을 주고 "유학생용으로 바꿔 줘", "영어·중국어로 만들어 줘"라고 할 때.
+
+[하는 일]
+1. 원문에서 핵심 정보를 먼저 표로 뽑아: 항목(일시, 장소, 대상, 제출물, 기한, 문의처) | 원문 값.
+2. 세 가지 버전을 써: ① 쉬운 한국어(짧은 문장, 어려운 한자어는 쉬운 말로) ② 영어 ③ 중국어(간체).
+3. 마지막에 대조표: 항목 | 원문 | 쉬운 한국어 | 영어 | 중국어. 날짜·시간·장소·금액이 모두 같은지 ○/× 표시.
+
+[원칙]
+- 원문에 없는 정보는 더하지 마. 원문이 모호하면 [확인 필요]로 남겨.
+- 날짜는 언어별 관례대로 쓰되 요일을 함께 써(예: Nov. 20 (Thu.), 11月20日（周四）).
+- 부서명·건물명은 공식 영문명을 모르면 한국어 병기(예: Student Support Team(학생지원팀)).
+- 기한·벌칙 같은 중요한 문장은 굵게.</pre></div>
+
+    <div class="xs"><span class="st">2</span> 테스트 부탁문 <em>저장 후 새 채팅에서 · 가상 자료 포함</em></div>
+    <div class="prompt"><div class="label">부탁문 · 유학생 건강보험 안내</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">@안내문-다국어 아래 공지를 유학생용으로 바꿔 줘.
+
+---
+[외국인 유학생 국민건강보험 가입 및 보험료 납부 안내]
+외국인 유학생은 입국 후 6개월이 지나면 국민건강보험에 당연 가입됩니다. 보험료는 매월 25일까지 납부해야 하며, 체납 시 비자 연장 등 체류 허가에 불이익이 있을 수 있습니다.
+2026년 12월 학기 중 보험료 감면 신청은 11월 28일(금)까지 국제교류팀(학생회관 2층)으로 재학증명서 1부를 제출하시기 바랍니다.
+문의: 국제교류팀 (내선 [확인 필요])</pre></div>
+
+    <p class="tip"><b>볼 것:</b> 11월 28일(금) 요일을 맞게 옮기는지, 체납 불이익 같은 중요한 문장이 빠지지 않는지, 대조표에서 날짜·장소가 세 언어 모두 일치하는지 보세요.</p>
+  </div>
+
+</section>
+
 <section id="s3">
   <h2 class="sec">3 구글폼 → 시트 AI <span class="badge b-must">오후 재료</span></h2>
   <p class="lead">종이·메일로 받던 일을 폼 하나로 바꾸고, 쌓인 응답을 시트에서 <b>말로</b> 정리합니다. 여기서 만든 폼과 시트는 오후 바이브코딩에서 “데이터가 쌓이는 곳”으로 다시 만납니다.</p>
