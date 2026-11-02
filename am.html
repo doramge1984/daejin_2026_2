@@ -118,6 +118,18 @@ function set(g){sec.classList.toggle('g-staff',g==='staff');bs.forEach(function(
 bs.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-to'));var t=sec.querySelector('.gsw');var y=t.getBoundingClientRect().top+window.scrollY-70;if(window.scrollY>y)window.scrollTo({top:y,behavior:'instant'});})});
 var g='prof';try{g=localStorage.getItem('dj-s2c-grp')||'prof'}catch(e){}set(g);});
 </script>
+<style id="sec-gap">
+/* 섹션(소단원·카드)이 바뀔 때 3줄 이상 띄우기 */
+main section > details + details,
+main section > details + div, main section > div + details,
+main section > .callout + details, main section > details + .callout{margin-top:84px!important}
+main section > h3, main section > h4, #s2b .skt, #s2c .xs{margin-top:84px!important}
+#s2b .skcard, #s2c .xcard{margin-top:96px!important;margin-bottom:96px!important}
+#s2b .sknav, #s2c .gsw, #s2c-dl, #s2b .gem2skill{margin-top:72px!important}
+#s2b .mth + .mth, #s2b .mth + .tryb{margin-top:56px!important}
+#s2c .xcard .xs:first-of-type{margin-top:24px!important}
+#s2b .skcard .skt{margin-top:0!important}
+</style>
 </head>
 <body>
 
