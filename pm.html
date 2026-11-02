@@ -252,6 +252,50 @@ p.use{background:var(--gold-bg);border-radius:10px;padding:10px 12px;margin:6px 
     <li><a href="https://www.canva.com" target="_blank" rel="noopener">canva.com</a>에 로그인 (구글 계정으로 로그인하면 편해요)</li>
     <li>크롬 <b>자동 번역은 끄기</b> (부탁문과 화면 글자가 엉킬 수 있어요)</li></ol>
   </div></div>
+
+  <h3 class="caseh" style="margin-top:72px">🧸 몸풀기 · 나를 닮은 캐릭터 만들기 <small style="font-weight:500;color:#6b7280">휴대폰으로도 돼요</small></h3>
+  <p>바이브코딩 전에 손을 풀어요. <b>휴대폰 제미나이 앱</b>에서 셀카 한 장과 <b>내 소개 한 줄</b>이면, 나를 닮은 <b>3D 치비 캐릭터</b>가 나와요. 만든 캐릭터는 오늘 만드는 앱이나 첫 수업 자기소개 슬라이드에 그대로 쓸 수 있어요.</p>
+  <ol>
+    <li>휴대폰(또는 PC)에서 <b>제미나이 앱</b>을 열고 새 채팅을 시작해요.</li>
+    <li><b>＋</b> → <b>카메라</b>로 셀카를 찍거나 앨범에서 <b>얼굴이 잘 나온 정면 사진</b>을 골라요. 실습실 PC에 카메라가 없어도 휴대폰으로 하면 돼요.</li>
+    <li>아래 칸에 내 소개를 적고 <b>넣기</b> → 프롬프트를 복사해 사진과 함께 보내요.</li>
+  </ol>
+  <div class="chibibox">
+    <label for="chibiMe"><b>✏️ 내 소개 한 줄</b></label>
+    <div class="chibirow"><input type="text" id="chibiMe" placeholder="예: 나는 커피를 좋아하고 강아지와 산책하는 걸 좋아해"><select id="chibiSty" aria-label="스타일"><option>귀여운 3D 치비 스타일</option><option>지브리 느낌의 따뜻한 수채화 스타일</option><option>레고 미니피규어 스타일</option><option>클레이 애니메이션 스타일</option></select><button type="button" id="chibiGo">프롬프트에 넣기</button></div>
+    <div class="chips">예시: <button type="button" class="chip" data-me="나는 클래식 음악을 좋아하고 주말마다 등산을 해">나는 클래식 음악을 좋아하…</button><button type="button" class="chip" data-me="나는 책 읽기를 좋아하고 손주와 노는 시간이 가장 행복해">나는 책 읽기를 좋아하고 …</button><button type="button" class="chip" data-me="나는 텃밭 가꾸기를 좋아하고 아침마다 산책을 해">나는 텃밭 가꾸기를 좋아하…</button><button type="button" class="chip" data-me="나는 학생들과 토론하는 걸 좋아하고 여행 사진 찍기가 취미야">나는 학생들과 토론하는 걸…</button></div>
+  </div>
+  <div class="prompt"><div class="label">치비 캐릭터 프롬프트 · 셀카와 함께 보내기</div><button class="copy">복사</button><pre>내 소개: <span class="fill" data-k="me">나는 커피를 좋아하고 강아지와 산책하는 걸 좋아해</span>
+스타일: <span class="fill" data-k="sty">귀여운 3D 치비 스타일</span>
+캐릭터 이미지 제작: 첨부된 이미지와 내 소개를 보고, 내 소개가 잘 표현된 전신 캐릭터를 만들어 줘. 얼굴 특징과 헤어스타일은 사진 속 나를 알아볼 수 있게 살려 줘.</pre></div>
+  <p class="tip">마음에 안 들면 이어서 말로 고쳐요. <span class="say">“안경을 씌워 줘”</span>, <span class="say">“강아지를 웰시코기로 바꿔 줘”</span>, “배경을 대진대 캠퍼스 느낌으로”, “명함에 넣게 가로로 길게”.</p>
+  <details class="ex case"><summary><b>다른 스타일도 해 보기</b> <span class="needs">피규어 · 흑백 · 프로필</span></summary><div class="body">
+    <p>[대괄호] 부분만 내 취향대로 바꿔 쓰세요.</p>
+    <div class="prompt"><div class="label">🧸 나를 닮은 3D 피규어 (연구실 버전)</div><button class="copy">복사</button><pre>업로드한 사진 속 인물을 기반으로, 귀엽고 스타일화된 3D 캐릭터 피규어를 생성해 주세요. 사진 속 얼굴 특징, 헤어스타일과 의상 색상을 그대로 반영해, 실제 인물을 알아볼 수 있게 만들어 주세요. 피규어는 [연구실 책상에서 따뜻한 커피잔을 들고 편안하게 앉아 있는] 포즈로, [밝고 다정한] 표정을 지어 주세요. 배경은 [책이 가득한 아늑한 연구실]로 설정하되, 부드러운 파스텔 톤으로 단순하게 표현해 주세요. 피규어는 실제 판매되는 장난감처럼 보이도록 약간의 광택과 함께 세부 묘사를 더해 주세요.</pre></div>
+    <div class="prompt"><div class="label">📸 영화 같은 흑백 프로필</div><button class="copy">복사</button><pre>내가 지금 올린 사진으로 기본 얼굴로 만들어 주세요. 얼굴과 얼굴형은 최대한 바꾸지 않습니다. [단정한 짙은 색 재킷과 셔츠]를 입은 인물의 고해상도 흑백 초상화입니다. 미니멀한 스튜디오에서 약간 옆으로 비스듬히 서 있고, 극적인 스튜디오 조명이 얼굴과 배경에 대담한 기하학적 그림자를 만듭니다. 표정은 [차분하고 사려 깊어 보입니다]. 전체적으로 영화 같은 분위기를 자아냅니다.</pre></div>
+    <div class="prompt"><div class="label">🎓 학회·홈페이지용 단정한 프로필</div><button class="copy">복사</button><pre>내가 지금 올린 사진으로 기본 얼굴로 만들어 주세요. 얼굴과 얼굴형은 최대한 바꾸지 않습니다. 학회 발표자 소개와 학과 홈페이지에 쓸 단정한 프로필 사진으로 만들어 주세요. [밝은 회색] 배경, 부드러운 자연광, [네이비 재킷], 어깨까지 보이는 정면 구도, [온화하게 미소 짓는] 표정. 피부 결은 자연스럽게, 과한 보정은 하지 말아 주세요.</pre></div>
+  </div></details>
+  <div class="callout red"><b class="t">사진은 내 얼굴만</b> 본인 사진을 <b>개인 계정</b>에 올려 쓰세요. 학생이나 동료의 얼굴 사진은 올리지 않아요.</div>
+<style>
+#start .chibibox{background:#fff8e6;border:2px solid #e0b84f;border-radius:12px;padding:14px 16px;margin:16px 0}
+#start .chibirow{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+#start .chibirow input{flex:1;min-width:220px;font:inherit;padding:9px 10px;border:1px solid #cbb26a;border-radius:8px}
+#start .chibirow select{font:inherit;padding:9px 8px;border:1px solid #cbb26a;border-radius:8px;background:#fff}
+#start #chibiGo{font:inherit;font-weight:800;background:#d93025;color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer}
+#start .chips{margin-top:10px;font-size:.9rem;color:#6b5b2e;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#start .chip{font:inherit;font-size:.88rem;border:1px solid #cbb26a;background:#fff;border-radius:999px;padding:4px 10px;cursor:pointer}
+#start pre .fill{background:#fff1b8;border-radius:4px;padding:0 2px}#start pre .fill.on{background:#d9f2df}
+</style>
+<script>
+(function(){var me=document.getElementById('chibiMe'),st=document.getElementById('chibiSty');if(!me)return;
+function put(){var v=me.value.trim()||me.getAttribute('placeholder').replace(/^예:\s*/,'');if(!me.value.trim())me.value=v;
+document.querySelectorAll('#start pre .fill[data-k="me"]').forEach(function(x){x.textContent=v;x.classList.add('on')});
+document.querySelectorAll('#start pre .fill[data-k="sty"]').forEach(function(x){x.textContent=st.value;x.classList.add('on')});}
+document.getElementById('chibiGo').addEventListener('click',put);me.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();put()}});
+st.addEventListener('change',put);
+document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener('click',function(){me.value=c.getAttribute('data-me');put();})});
+})();
+</script>
 </section>
 
 <!-- 1단계: 캔바 코드 -->
