@@ -155,6 +155,15 @@ document.addEventListener('DOMContentLoaded',function(){
   apply();
 });
 </script>
+<style id="fcard-css">
+.fcintro{margin:40px 0 0;font-weight:700}
+.fcard{border:2px solid var(--fc);border-radius:16px;padding:0 18px 16px;margin:56px 0;background:#fff;overflow:hidden}
+.fcard+.fcard{margin-top:72px}
+.fch{background:var(--fc);color:#fff;margin:0 -18px 14px;padding:14px 18px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.fch b{font-size:1.25em}.fch em{font-style:normal;opacity:.85;font-size:.9em}
+.fcb{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--fc);font-weight:800}
+.fcard .prompt .label{display:none}.fcard .prompt pre{margin-top:26px!important}
+</style>
 </head>
 <body>
 
@@ -1169,14 +1178,22 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
       </ol>
       <div class="fillbox"><b>✏️ 내 수업으로 바꾸기</b> <span>여기 적으면 아래 프롬프트에 바로 들어가요</span>
         <div class="fillrow"><label>수업명 <input type="text" data-k="sub" placeholder="예: 경영학원론"></label><label>주차 <input type="number" data-k="wk" min="1" max="16" placeholder="예: 8"></label></div></div>
+      <p class="fcintro">아래 네 카드 중 <b>내 수업에 필요한 것 하나</b>를 골라 해 보세요.</p>
+      <div class="fcard" style="--fc:#4338ca"><div class="fch"><span class="fcb">A</span><b>중간 수업 피드백</b><em>학기 중간 · 익명</em></div>
       <div class="prompt"><div class="label">카드 A · 중간 수업 피드백 (익명)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 중간 수업 피드백 설문을 만들어줘.
 - 이해도 1~5점 척도 1문항
 - 가장 어려웠던 개념: 단답형
 - 수업 속도: 객관식(느림 / 적당 / 빠름)
 - 개선 제안: 장문형(선택 응답)
 - 이름·학번은 받지 않는 익명 설문</pre><button class="copy">복사</button></div>
+      </div>
+
+      <div class="fcard" style="--fc:#0f766e"><div class="fch"><span class="fcb">B</span><b>면담 전 사전 질문지</b><em>면담 전 · 고민 미리 받기</em></div>
       <div class="prompt"><div class="label">카드 B · 면담 전 사전 질문지</div><pre>교수 연구실 면담 전에 학생이 미리 적는 사전 질문지 폼을 만들어줘. 이름, 학과, 상담 주제(객관식: 진로 / 수업 / 과제 / 기타), 지금 가장 고민되는 점(장문형), 면담에서 꼭 듣고 싶은 것(단답형), 미리 보여 주고 싶은 자료 링크(단답형, 선택). 맨 아래에 개인정보 수집·이용 안내 문장을 한 줄 넣어줘.</pre><button class="copy">복사</button></div>
       <div class="callout blue"><b class="t">면담 “시간”은 폼이 아니라 캘린더로</b> 구글 폼은 누가 한 시간대를 고르면 다른 사람에게서 그 칸을 막는 기능이 없어서, 같은 시간에 신청이 겹쳐요. 시간 예약은 <a href="#s4">4단원 ③ 캘린더 예약 페이지</a>로 받으면 예약된 시간이 자동으로 사라져요. 폼은 이렇게 <b>면담 전에 고민을 미리 받는 용도</b>로 쓰고, 예약 페이지의 “예약 양식”에 이 폼 링크를 넣어 두면 깔끔해요.</div>
+      </div>
+
+      <div class="fcard" style="--fc:#b45309"><div class="fch"><span class="fcb">C</span><b>과제 수합</b><em>과제 마감 · PDF로 받아 채점까지</em></div>
       <div class="prompt"><div class="label">카드 C · 과제 수합 (PDF 제출)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 과제 제출 폼을 만들어줘.
 - 학번: 단답형(숫자만)
 - 이름: 단답형
@@ -1192,6 +1209,9 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
           <li>마감이 지나면 폼의 <b>응답 받기</b>를 끄면 돼요.</li>
           <li><b>PDF로 받는 이유</b>: 모인 과제를 <a href="#s2b">2단원 @rubric-grader(루브릭 채점 조교)</a>에 그대로 첨부해 채점 초안을 받을 수 있어요. 앱 스킬은 워드·한글 파일을 못 읽어요.</li>
         </ul></div>
+      </div>
+
+      <div class="fcard" style="--fc:#7c3aed"><div class="fch"><span class="fcb">D</span><b>첫 주 학생 배경 조사</b><em>학기 첫 주 · 수준 맞추기</em></div>
       <div class="prompt"><div class="label">카드 D · 첫 주 학생 배경 조사</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' 첫 주 학생 배경 조사 폼을 만들어줘. 수업 수준과 진도를 맞추는 데 쓸 거야.
 - 학과(전공): 단답형
 - 학년: 객관식(1 / 2 / 3 / 4 / 기타)
@@ -1202,6 +1222,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 - 수업에서 배려가 필요한 점(선택): 장문형 — "말하기 어려운 내용은 면담으로 알려 주세요" 안내 문장 포함
 이름·학번은 받지 않는 익명 설문으로 해 줘.</pre><button class="copy">복사</button></div>
       <p class="tip">“들어 본 과목” 칸은 폼을 만든 뒤 <b>내 수업의 선수 과목</b>으로 고쳐 주세요. 응답이 모이면 다음 실습(시트)에서 “학과별·수준별로 묶어 줘”라고 물어보면 첫 수업 수준을 정할 수 있어요.</p>
+      </div>
       <div class="callout blue fallback"><b class="t">✦ 버튼이 안 보이면</b> 계정에 따라 폼 안의 제미나이가 없을 수 있습니다. 같은 프롬프트를 <b>gemini.google.com</b>에 넣고 끝에 “<i>문항마다 질문 유형을 표시해줘</i>”를 붙이면, 그대로 옮겨 적기 쉬운 목록이 나옵니다.</div>
     </div>
   </details>
