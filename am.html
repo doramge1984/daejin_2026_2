@@ -1177,7 +1177,21 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 - 이름·학번은 받지 않는 익명 설문</pre><button class="copy">복사</button></div>
       <div class="prompt"><div class="label">카드 B · 면담 전 사전 질문지</div><pre>교수 연구실 면담 전에 학생이 미리 적는 사전 질문지 폼을 만들어줘. 이름, 학과, 상담 주제(객관식: 진로 / 수업 / 과제 / 기타), 지금 가장 고민되는 점(장문형), 면담에서 꼭 듣고 싶은 것(단답형), 미리 보여 주고 싶은 자료 링크(단답형, 선택). 맨 아래에 개인정보 수집·이용 안내 문장을 한 줄 넣어줘.</pre><button class="copy">복사</button></div>
       <div class="callout blue"><b class="t">면담 “시간”은 폼이 아니라 캘린더로</b> 구글 폼은 누가 한 시간대를 고르면 다른 사람에게서 그 칸을 막는 기능이 없어서, 같은 시간에 신청이 겹쳐요. 시간 예약은 <a href="#s4">4단원 ③ 캘린더 예약 페이지</a>로 받으면 예약된 시간이 자동으로 사라져요. 폼은 이렇게 <b>면담 전에 고민을 미리 받는 용도</b>로 쓰고, 예약 페이지의 “예약 양식”에 이 폼 링크를 넣어 두면 깔끔해요.</div>
-      <div class="prompt"><div class="label">카드 C · 팀 프로젝트 조 편성 희망 조사</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' 팀 프로젝트 조 편성 희망 조사 폼을 만들어줘. 관심 주제(객관식 5개 이하), 가능한 회의 시간대(체크박스), 맡고 싶은 역할(객관식: 자료조사 / 발표 / 정리·편집 / 디자인), 고려해 줬으면 하는 점(장문형, 선택).</pre><button class="copy">복사</button></div>
+      <div class="prompt"><div class="label">카드 C · 과제 수합 (PDF 제출)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 과제 제출 폼을 만들어줘.
+- 학번: 단답형(숫자만)
+- 이름: 단답형
+- 과제 파일: 파일 업로드(PDF만, 최대 1개, 10MB)
+- AI 사용 여부: 객관식(사용 안 함 / 아이디어 정리에만 / 초안 작성에 사용)
+- AI를 썼다면 어디에 어떻게 썼는지: 장문형(선택)
+- 제출 확인: 체크박스("제출 파일이 최종본이며 본인이 작성했음을 확인합니다")
+설명 칸에 제출 마감 일시를 적을 자리를 남겨줘.</pre><button class="copy">복사</button></div>
+      <div class="callout gold"><b class="t">과제 수합을 폼으로 할 때</b>
+        <ul style="margin:6px 0 0 18px;padding:0">
+          <li><b>파일 업로드 문항은 학생도 구글 로그인</b>이 필요해요. 첫 주에 “개인 Gmail로 로그인해서 제출”이라고 안내해 두세요.</li>
+          <li>제출 파일은 <b>내 드라이브에 폼 이름 폴더</b>로 자동으로 모이고, 제출 시각·학번은 응답 시트에 정리돼요. 늦은 제출도 시각으로 바로 보여요.</li>
+          <li>마감이 지나면 폼의 <b>응답 받기</b>를 끄면 돼요.</li>
+          <li><b>PDF로 받는 이유</b>: 모인 과제를 <a href="#s2b">2단원 @rubric-grader(루브릭 채점 조교)</a>에 그대로 첨부해 채점 초안을 받을 수 있어요. 앱 스킬은 워드·한글 파일을 못 읽어요.</li>
+        </ul></div>
       <div class="callout blue fallback"><b class="t">✦ 버튼이 안 보이면</b> 계정에 따라 폼 안의 제미나이가 없을 수 있습니다. 같은 프롬프트를 <b>gemini.google.com</b>에 넣고 끝에 “<i>문항마다 질문 유형을 표시해줘</i>”를 붙이면, 그대로 옮겨 적기 쉬운 목록이 나옵니다.</div>
       <figure><img src="img/form-simple.png" alt="간단한 구글폼 예시" loading="lazy"><figcaption>완성된 폼 예시</figcaption></figure>
     </div>
