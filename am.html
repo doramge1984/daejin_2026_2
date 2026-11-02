@@ -1137,6 +1137,10 @@ document.addEventListener('DOMContentLoaded',function(){
 <script>function toggleBlock(h){h.parentElement.classList.toggle('open');}function toggleItem(el){el.parentElement.classList.toggle('open');}
 function fallbackCopy(t,d){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();d();}
 function copyPrompt(btn){var t=btn.parentElement.querySelector('.prompt-text').innerText;var done=function(){btn.textContent='복사됨 ✓';setTimeout(function(){btn.textContent='복사';},1500);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(function(){fallbackCopy(t,done)});}else fallbackCopy(t,done);}</script>
+<style id="core-tabs">
+nav.quick a.core{border:2px solid #d93025!important;color:#b42318!important;font-weight:800!important;background:#fff5f4!important}
+nav.quick a.core.on{background:#d93025!important;color:#fff!important}
+</style>
 </head>
 <body>
 
@@ -1156,11 +1160,11 @@ function copyPrompt(btn){var t=btn.parentElement.querySelector('.prompt-text').i
 <nav class="quick"><div class="wrap">
   <a href="index.html">← 홈</a>
   <a href="#s0">0 시작</a>
-  <a href="#s0b">0+ 크롬 잘쓰기</a>
-  <a href="#s1">1 제미나이 인 크롬</a>
-  <a href="#s2b">2 앱 스킬 (@)</a>
+  <a class="core" href="#s0b">0+ 크롬 잘쓰기</a>
+  <a class="core" href="#s1">1 제미나이 인 크롬</a>
+  <a class="core" href="#s2b">2 앱 스킬 (@)</a>
   <a href="#s2c">2+ 스킬 만들기 12종</a>
-  <a href="#s3">3 폼 → 시트 AI</a>
+  <a class="core" href="#s3">3 폼 → 시트 AI</a>
   <a href="#s4">4 공유·예약·지메일</a>
   <a href="#s5">5 렌즈·음성·QR</a>
   <a href="#s6">6 확장 프로그램·마무리</a>
