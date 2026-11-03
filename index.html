@@ -1,37 +1,71 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>대진대 교수연수 홈</title>
+<title>대진대학교 교수 역량 강화 연수 · AI와 함께 일하고, AI로 수업을 설계합니다</title>
 <style>
-:root{--navy:#1f2a44;--gold:#b8963e;--red:#d9534f;--bg:#faf8f3;--line:#e3e0d6;--ink:#2b3140}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.6}
-header{background:var(--navy);color:#fff;padding:48px 16px 40px;text-align:center;border-bottom:4px solid var(--gold)}
-header .k{display:inline-block;font-size:13px;letter-spacing:.08em;color:#e9d9a8;border:1px solid #e9d9a8;border-radius:999px;padding:3px 12px;margin-bottom:12px}
-header .date{display:inline-block;margin:0 0 12px;font-size:18px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(233,217,168,.6);border-radius:999px;padding:4px 16px}header h1{margin:0 0 8px;font-size:clamp(24px,4vw,36px)}header p{margin:0;color:#cfd6e4}
-main{max-width:980px;margin:0 auto;padding:32px 16px 64px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-a.card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:0 2px 0 rgba(0,0,0,.03);transition:transform .15s,box-shadow .15s}
-a.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(31,42,68,.12)}
-.card .t{display:inline-block;font-size:13px;font-weight:800;color:#fff;background:var(--navy);border-radius:999px;padding:3px 12px}
-.card.pm .t{background:var(--red)}
-.card h2{margin:14px 0 6px;font-size:22px;color:var(--navy)}
-.card .sub{margin:0 0 14px;color:#5b6475}
-.card ul{margin:0;padding-left:18px;color:#3a4256;font-size:15px}
-.card .go{margin-top:18px;font-weight:800;color:var(--red)}
-.pad{margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px}.padhead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}.pad .t{display:inline-block;font-size:13px;font-weight:800;color:#fff;background:var(--red);border-radius:999px;padding:3px 12px}.pad h2{margin:10px 0 4px;font-size:22px;color:var(--navy)}.pad .sub{margin:0;color:#5b6475}a.padbtn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:800;border-radius:12px;padding:11px 18px}.padframe{border:1px solid var(--line);border-radius:12px;overflow:hidden;height:680px;background:#f4f2ec}.padframe iframe{width:100%;height:100%;border:0;display:block}.padnote{margin:10px 0 0;font-size:13.5px;color:#8a8f99}
-footer{text-align:center;color:#8a8f99;font-size:13px;padding:0 16px 32px}
-footer a{color:inherit}
+:root{--navy:#1f2a44;--navy2:#16233f;--gold:#e0b84f;--gold-soft:#e9d9a8;--red:#d9534f;--bg:#faf8f3;--line:#e3e0d6;--ink:#2b3140;--sub:#5b6475;--card:#fff;--note:#f3efe4}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.8 "Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+a{color:#2b5aa8}
+header.top{background:linear-gradient(135deg,var(--navy2),#24407a);color:#fff;padding:54px max(24px,calc((100vw - 1100px)/2)) 46px;border-bottom:4px solid var(--gold)}
+header.top small{color:var(--gold-soft);letter-spacing:2px;font-weight:700}
+header.top h1{font-size:clamp(30px,5vw,50px);line-height:1.3;margin:18px 0 14px}
+header.top p{color:#d6e0f5;max-width:760px;margin:0 0 16px}
+.pill{display:inline-block;border:1px solid rgba(233,217,168,.6);background:rgba(255,255,255,.08);border-radius:99px;padding:4px 14px;font-size:14px;margin:0 8px 8px 0;color:#fff}
+.pill b{color:var(--gold)}
+main{max-width:1100px;margin:auto;padding:30px 24px 70px}
+h2{font-size:26px;line-height:1.4;margin:2.4rem 0 .8rem;color:var(--navy)}
+.ins{position:relative;overflow:hidden;background:var(--navy);color:#fff;border-top:4px solid var(--gold);border-radius:18px;padding:28px 30px;margin:0 0 8px}
+.ins small{color:var(--gold-soft);letter-spacing:2px;font-weight:700}
+.ins .nm{font-size:30px;font-weight:800;line-height:1.3;margin:6px 0 2px}.ins .nm span{font-size:16px;font-weight:600;color:#cfd6e4;margin-left:10px;font-style:italic}
+.ins .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}.ins .chip{border:1px solid #5b6a8f;background:rgba(255,255,255,.07);border-radius:99px;padding:5px 14px;font-size:14px}.ins .chip b{color:var(--gold)}
+.ins .ct{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid #3a4870}
+.ins .ct a{color:#fff;text-decoration:none;border:1px solid var(--gold);border-radius:99px;padding:7px 16px;font-size:14px;font-weight:700}.ins .ct a:hover{background:rgba(224,184,79,.18)}
+details.insmore{margin:12px 0 0;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+details.insmore>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:15px 20px;font-weight:800;font-size:16px}
+details.insmore>summary::-webkit-details-marker{display:none}
+details.insmore>summary .pl{color:var(--red);font-size:22px;font-weight:800;line-height:1;transition:transform .2s}
+details.insmore[open]>summary .pl{transform:rotate(45deg)}
+details.insmore>summary .tg{margin-left:auto;font-size:13px;font-weight:700;color:var(--navy);background:var(--note);border-radius:99px;padding:4px 12px}
+.insgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px 34px;background:var(--navy);color:#fff;padding:24px 26px}
+.insgrid .col.wide{grid-column:1/-1}
+.insgrid h4{margin:0 0 10px;font-size:16px;color:var(--gold);border-bottom:1px solid #3a4870;padding-bottom:7px}
+.insgrid ul{margin:0;padding-left:18px}.insgrid li{margin:6px 0;font-size:15px;line-height:1.6;color:#d6e0f5}
+@media (max-width:560px){.insgrid{grid-template-columns:1fr}.insgrid .col.wide{grid-column:auto}}
+@media (max-width:480px){.ins{padding:22px 20px}.ins .nm{font-size:25px}.ins .nm span{display:block;margin:2px 0 0}details.insmore>summary .tg{display:none}}
+.parts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:1rem 0}
+@media (max-width:700px){.parts{grid-template-columns:1fr}}
+a.part{display:block;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--line);border-radius:20px;padding:26px 28px;transition:transform .15s,border-color .15s,box-shadow .15s}
+a.part:hover{transform:translateY(-3px);border-color:var(--navy);box-shadow:0 10px 24px rgba(31,42,68,.12)}
+a.part .no{font-size:13px;font-weight:800;color:#fff;background:var(--navy);display:inline-block;border-radius:99px;padding:3px 12px;letter-spacing:.5px}
+a.part.pm .no{background:var(--red)}
+a.part h3{font-size:24px;line-height:1.4;margin:12px 0 6px;color:var(--navy)}
+a.part .time{display:inline-block;background:var(--note);border-radius:99px;padding:2px 14px;font-size:14px;margin-bottom:10px;font-weight:700}
+a.part p{margin:0 0 .6rem;color:var(--sub)}
+a.part ul{margin:.2rem 0 0;padding-left:18px;font-size:15px}
+a.part .go{display:inline-block;margin-top:14px;background:var(--navy);color:#fff;border-radius:99px;padding:9px 22px;font-weight:800;font-size:15px}
+a.part.pm .go{background:var(--red)}
+.pad{margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px}.padhead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}.pad .sub{margin:0;color:var(--sub)}a.padbtn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:800;border-radius:99px;padding:10px 20px}.padframe{border:1px solid var(--line);border-radius:12px;overflow:hidden;height:680px;background:#f4f2ec}.padframe iframe{width:100%;height:100%;border:0;display:block}.padnote{margin:10px 0 0;font-size:13.5px;color:#8a8f99}
+footer{text-align:center;color:#8a8f99;font-size:13px;padding:30px 24px}footer a{color:inherit}
 </style></head><body>
-<header><span class="k">2026-2 · 대진대학교 교수 역량 강화 연수</span><h1>오늘의 웹교안</h1><div class="date">2026년 11월 6일(금)</div><p>들으시는 반을 눌러 들어가세요. 교안 안에서도 홈·오전반·오후반을 오갈 수 있어요.</p></header>
-<main><div class="cards">
-<a class="card am" href="am.html"><span class="t">오전반</span><h2>디지털 기본기</h2><p class="sub">제미나이와 크롬으로 완성하는 디지털 기본기</p>
-<ul><li>제미나이·크롬 신기능 바로 쓰기</li><li>스킬로 나만의 AI 업무 도우미 만들기</li></ul><div class="go">오전반 교안 열기 →</div></a>
-<a class="card pm" href="pm.html"><span class="t">오후반</span><h2>바이브코딩 수업 설계</h2><p class="sub">말하면 만들어지는 나만의 수업 도구</p>
-<ul><li>1단계 캔바 코드 · 2단계 제미나이 캔버스</li><li>3단계 노트북LM · 4단계 AI 스튜디오 · 5단계 백엔드·배포</li></ul><div class="go">오후반 교안 열기 →</div></a>
+<header class="top"><small>2026학년도 2학기 · 대진대학교 교수 역량 강화 연수</small>
+<h1>AI와 함께 일하고,<br>AI로 수업을 설계합니다.</h1>
+<p>오전에는 제미나이와 크롬으로 매일 하는 일을 빠르게 하고, 오후에는 말로 부탁해 내 수업에 쓸 도구를 직접 만들어 봅니다. 들으시는 반을 눌러 들어가세요.</p>
+<span class="pill"><b>일시</b> 2026.11.6(금)</span><span class="pill"><b>오전반</b> 10:00~12:00</span><span class="pill"><b>오후반</b> 13:30~</span><span class="pill"><b>장소</b> 정보전산원 202호</span><span class="pill"><b>강사</b> 이애진</span><span class="pill"><b>준비</b> 개인 Gmail 로그인</span></header>
+<main>
+<section class="ins" aria-label="강사 소개"><small>INSTRUCTOR · 강사</small>
+<div class="nm">이애진<span>Lee Ae-jin</span></div>
+<div class="chips"><span class="chip">구글 공식 PD 파트너사 · FlowDX <b>대표</b></span><span class="chip">구글 공식 트레이너 (Google Certified Trainer)</span><span class="chip">🎓 서울대학교 정보문화학(ICT)</span></div>
+<div class="ct"><a href="mailto:ai@flowdx.kr">✉ ai@flowdx.kr</a><a href="tel:01023198419">☎ 010-2319-8419</a><a href="https://capable-tarsier-97affe.netlify.app/" target="_blank" rel="noopener">🔗 프로필 보기</a></div></section>
+<details class="insmore"><summary><span class="pl">+</span>강사 상세 이력 보기<span class="tg">학력 · 경력 · 저서</span></summary><div class="insgrid"><div class="col"><h4>🎓 학력 · 자격</h4><ul><li>서울대학교 정보문화학(ICT)</li><li>Google Certified Trainer (구글 공식 트레이너)</li><li>Gemini Certified Educator (제미나이 에듀케이터)</li><li>ADsP · 데이터 분석 준전문가</li></ul></div><div class="col"><h4>📰 언론 보도 · 공식 성과</h4><ul><li>중앙뉴스타임스(2025.11) · 인천시교육청 교육연수원 직무연수</li><li>인천광역시교육청(2025.12) · 초·중등 교실수업혁명 직무연수 운영</li><li>미디어투데이(2025.07) · 파주교육지원청 AI 소통 역량 강화·실무 적용</li></ul></div><div class="col wide"><h4>🏫 교육 · 행정 혁신 주요 경력</h4><ul><li>구글 코리아 제미나이 아카데미 주강사</li><li>구글코리아 전국 대학생 연수 기획 및 교안 제작, 강사단 연수</li><li>전국 학교장·교감 대상 AI 리터러시 리더십 연수 200회+</li><li>대학 교직원·교수·학생 대상 AI 행정 혁신 연수</li><li>경기도교육연구원 박사급 연구원 대상 정책연구 AI 활용 연수</li><li>5~9급 교육행정직 공무원 AI 정책보고서 연수</li><li>한국과학창의재단 ‘찾아가는 학교컨설팅’ 코디네이터·주강사</li><li>대원외고 등 특목고 AI 연수 및 영재교육연구소 강사 양성 연수</li></ul></div><div class="col"><h4>🏛️ 대학 연수</h4><ul><li>고려대학교</li><li>한양대학교</li><li>성균관대학교</li><li>숙명여자대학교</li><li>대진대학교</li></ul></div><div class="col"><h4>🏢 기업 연수</h4><ul><li>삼성전자 임원 연수</li><li>삼성인력개발원</li><li>삼성바이오에피스</li><li>LG생활건강</li><li>SK에코플래닛</li></ul></div><div class="col"><h4>💼 산업 현장 실무</h4><ul><li>FlowDX 대표 — AI 비즈니스 모델링·공공기관 DX 전환 컨설팅 총괄</li><li>Ebay·G마켓·옥션 해외 플랫폼 개발 프로젝트 기획 참여</li><li>Nexon·Ebay 등 글로벌 기업 주요 프로젝트 기획·개발</li></ul></div><div class="col"><h4>📚 주요 저서</h4><ul><li>『HTML, CSS, JavaScript를 배우는 마법코딩학교』</li><li>『AI시대, 보고서가 당신의 무기가 된다』</li><li>『AI 기반 문화콘텐츠 기획』</li></ul></div></div></details>
+<h2>반을 골라 들어가세요</h2>
+<div class="parts">
+<a class="part am" href="am.html"><span class="no">오전반</span><h3>제미나이와 크롬으로 완성하는 디지털 기본기</h3><span class="time">10:00~12:00</span><p>알고 보면 쉬운 제미나이와 구글 신기능</p><ul><li>크롬 잘쓰기 · 제미나이 인 크롬</li><li>앱 스킬로 나만의 업무 도우미 만들기</li><li>노트북LM으로 반 전체 과제 근거 채점</li></ul><span class="go">오전반 교안 열기 →</span></a>
+<a class="part pm" href="pm.html"><span class="no">오후반 · 🔒 비밀번호</span><h3>바이브코딩으로 만드는 나만의 업무·수업·연구 도구</h3><span class="time">13:30~</span><p>말하면 만들어지는 나만의 도구, 교수를 위한 바이브코딩 첫걸음</p><ul><li>캔바 코드 · 제미나이 캔버스</li><li>노트북LM으로 강의계획서 → 근거가 있는 바이브코딩</li><li>심화: AI 스튜디오 · 백엔드·배포</li></ul><span class="go">🔒 오후반 교안 열기 →</span></a>
 </div>
-<section class="pad"><div class="padhead"><div><span class="t">오후반</span><h2>오늘의 패들렛</h2><p class="sub">결과물 공유와 질문은 여기에 올려 주세요.</p></div><a class="padbtn" href="https://padlet.com/doramge1984/_-s024yaofjn4v6mzfwnz4" target="_blank" rel="noopener">패들렛 새 창으로 열기 ↗</a></div>
-<div class="padframe"><iframe src="https://padlet.com/embed/s024yaofjn4v6mzfwnz4" title="대진대 오후반 패들렛" allow="camera;microphone;geolocation;clipboard-write" loading="lazy"></iframe></div>
-<p class="padnote">패들렛이 여기서 보이지 않으면 위의 <b>새 창으로 열기</b>를 눌러 주세요.</p></section>
+<h2>📌 오늘의 패들렛</h2>
+<section class="pad"><div class="padhead"><p class="sub">결과물 공유와 질문은 여기에 올려 주세요.</p><a class="padbtn" href="https://padlet.com/doramge1984/_-s024yaofjn4v6mzfwnz4" target="_blank" rel="noopener">🧱 패들렛 새 창으로 크게 열기 ↗</a></div>
+<div class="padframe"><iframe src="https://padlet.com/embed/s024yaofjn4v6mzfwnz4" title="대진대 패들렛" allow="camera;microphone;geolocation;clipboard-write" loading="lazy"></iframe></div>
+<p class="padnote">패들렛이 여기서 보이지 않으면 위의 <b>새 창으로 크게 열기</b>를 눌러 주세요.</p></section>
 </main>
-<footer>FlowDX · <a href="https://flowdx.kr" target="_blank" rel="noopener">flowdx.kr</a></footer>
+<footer>대진대학교 교수 역량 강화 연수 · 강사 이애진 (FlowDX · <a href="https://flowdx.kr" target="_blank" rel="noopener">flowdx.kr</a>)</footer>
 <style>
 .fontctl{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:4px;background:var(--navy,#1f2a44);border-radius:999px;padding:5px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 .fontctl button{border:0;background:#fff;color:var(--navy,#1f2a44);border-radius:999px;min-width:46px;height:46px;font:inherit;font-weight:800;font-size:18px;cursor:pointer;padding:0 10px}
