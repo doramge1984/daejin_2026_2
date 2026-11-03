@@ -1681,13 +1681,13 @@ service cloud.firestore {
 </script>
 <div class="fontctl" id="fontCtl" role="group" aria-label="글자 크기">
   <button type="button" id="fMinus" aria-label="글자 작게">가−</button>
-  <span id="fVal">110%</span>
+  <span id="fVal">120%</span>
   <button type="button" id="fPlus" aria-label="글자 크게">가+</button>
   <button type="button" class="reset" id="fReset" aria-label="기본 크기">기본</button>
 </div>
 <script>
 (function(){
-  var steps=[90,100,110,120,135,150,170], def=2, cur=def;
+  var steps=[90,100,110,120,135,150,170], def=3, cur=def;
   try{ var v=parseInt(localStorage.getItem('rxFontStep'),10); if(v>=0&&v<steps.length) cur=v; }catch(e){}
   var parts=document.querySelectorAll('header.hero, nav.quick, main, footer');
   function apply(){

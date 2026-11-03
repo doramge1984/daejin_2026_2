@@ -32,4 +32,38 @@ footer a{color:inherit}
 <p class="padnote">패들렛이 여기서 보이지 않으면 위의 <b>새 창으로 열기</b>를 눌러 주세요.</p></section>
 </main>
 <footer>FlowDX · <a href="https://flowdx.kr" target="_blank" rel="noopener">flowdx.kr</a></footer>
+<style>
+.fontctl{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:4px;background:var(--navy,#1f2a44);border-radius:999px;padding:5px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.fontctl button{border:0;background:#fff;color:var(--navy,#1f2a44);border-radius:999px;min-width:46px;height:46px;font:inherit;font-weight:800;font-size:18px;cursor:pointer;padding:0 10px}
+.fontctl button:hover{background:var(--gold-bg,#f7f2e7)}
+.fontctl button:disabled{opacity:.4;cursor:default}
+.fontctl span{color:#fff;font-size:14px;font-weight:700;min-width:48px;text-align:center}
+.fontctl button.reset{font-size:13px;min-width:auto}
+@media print{.fontctl{display:none}}
+</style>
+<div class="fontctl" id="fontCtl" role="group" aria-label="글자 크기">
+  <button type="button" id="fMinus" aria-label="글자 작게">가−</button>
+  <span id="fVal">120%</span>
+  <button type="button" id="fPlus" aria-label="글자 크게">가+</button>
+  <button type="button" class="reset" id="fReset" aria-label="기본 크기">기본</button>
+</div>
+<script>
+(function(){
+  var steps=[90,100,110,120,135,150,170], def=3, cur=def;
+  try{ var v=parseInt(localStorage.getItem('rxFontStep'),10); if(v>=0&&v<steps.length) cur=v; }catch(e){}
+  var parts=document.querySelectorAll('header, main, footer');
+  function apply(){
+    var z=steps[cur]/100;
+    [].forEach.call(parts,function(p){ p.style.zoom=z; });
+    document.getElementById('fVal').textContent=steps[cur]+'%';
+    document.getElementById('fMinus').disabled=cur===0;
+    document.getElementById('fPlus').disabled=cur===steps.length-1;
+    try{ localStorage.setItem('rxFontStep',cur); }catch(e){}
+  }
+  document.getElementById('fMinus').onclick=function(){ if(cur>0){cur--;apply();} };
+  document.getElementById('fPlus').onclick=function(){ if(cur<steps.length-1){cur++;apply();} };
+  document.getElementById('fReset').onclick=function(){ cur=def; apply(); };
+  apply();
+})();
+</script>
 </body></html>
