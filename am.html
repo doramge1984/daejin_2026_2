@@ -1573,7 +1573,7 @@ header.hero{position:relative}
 <!-- 1 -->
 <section id="s1" class="wp wp-hashero">
   <h2 class="sec">3 제미나이 인 크롬</h2>
-  <div class="wp-hero"><p class="k">오전반 · 3 제미나이 인 크롬</p><p class="t">제미나이 인 크롬</p><p class="d">탭을 옮기지 않고, 지금 보고 있는 페이지 옆에서 제미나이에게 묻습니다. 논문 PDF, 공문, 강의계획서, 유튜브 영상까지 “보면서 묻는” 방식입니다.</p></div>
+  <div class="wp-hero"><p class="k">오전반 · 3 제미나이 인 크롬</p><p class="t">제미나이 인 크롬</p><p class="d">탭을 옮기지 않고, 지금 보고 있는 페이지 옆에서 제미나이에게 묻습니다. 논문 PDF, 공문, 강의계획서, 유튜브 영상까지 “보면서 묻는” 방식입니다.</p><button type="button" class="wppt-open" data-deck="gic">▶ 1분 설명 보기 · 제미나이 인 크롬이란?</button></div>
 
 
   <details open>
@@ -3450,6 +3450,99 @@ document.addEventListener("DOMContentLoaded",function(){try{initWarmup()}catch(e
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else setTimeout(init,0);
 })();
+</script>
+<style id="wppt-style">
+.wppt-open{display:inline-flex;align-items:center;gap:8px;margin-top:16px;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:15px;color:#16233f;background:linear-gradient(135deg,#f3dc98,#d4ad52);border-radius:999px;padding:10px 20px;box-shadow:0 6px 18px rgba(212,173,82,.35);animation:wpptGlow 2.4s ease-in-out infinite}
+.wppt-open:hover{filter:brightness(1.05)}
+@keyframes wpptGlow{0%,100%{box-shadow:0 6px 18px rgba(212,173,82,.3)}50%{box-shadow:0 6px 28px rgba(212,173,82,.65)}}
+#wppt{display:none;position:fixed;inset:0;z-index:99999;background:radial-gradient(1200px 700px at 80% -10%,#24407a 0%,#111c33 55%,#0b1324 100%);color:#f4f1e8;font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+#wppt.on{display:block}
+#wppt .sl{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 7vw 10vh;box-sizing:border-box}
+#wppt .sl.on{display:flex}
+#wppt .k{color:#e6c877;font-weight:800;letter-spacing:.08em;font-size:clamp(13px,1.5vw,20px);margin:0 0 1.2vh}
+#wppt h2{font-size:clamp(28px,4.2vw,60px);line-height:1.22;margin:0 0 3.5vh;color:#fff;font-weight:900;border:0;padding:0;background:none}
+#wppt h2 em{font-style:normal;color:#f3dc98}
+#wppt p,#wppt li{font-size:clamp(16px,1.9vw,28px);line-height:1.6}
+#wppt .sub{color:#c9d3e8;margin:0 0 3vh}
+#wppt .row{display:flex;gap:2vw;align-items:stretch;flex-wrap:wrap}
+#wppt .card{flex:1 1 0;min-width:170px;background:rgba(255,255,255,.06);border:1px solid rgba(243,220,152,.25);border-radius:22px;padding:3vh 1.6vw;text-align:center;opacity:0;transform:translateY(18px)}
+#wppt .sl.on .card{animation:wpptUp .6s ease forwards}
+#wppt .sl.on .card:nth-child(2){animation-delay:.25s}#wppt .sl.on .card:nth-child(3){animation-delay:.5s}#wppt .sl.on .card:nth-child(4){animation-delay:.75s}
+#wppt .card .ic{font-size:clamp(40px,5vw,76px);line-height:1;display:block;margin-bottom:1.6vh}
+#wppt .card b{display:block;font-size:clamp(18px,2.2vw,32px);color:#fff;margin-bottom:.8vh}
+#wppt .card span{display:block;color:#c9d3e8;font-size:clamp(14px,1.5vw,22px);line-height:1.45}
+#wppt .card.gold{background:linear-gradient(160deg,rgba(243,220,152,.22),rgba(212,173,82,.12));border-color:#d4ad52}
+@keyframes wpptUp{to{opacity:1;transform:none}}
+#wppt .flow{display:flex;align-items:center;gap:1vw;flex-wrap:wrap}
+#wppt .flow .card{flex:1 1 0}
+#wppt .arr{flex:0 0 auto;width:clamp(30px,4vw,64px);height:24px;opacity:0}
+#wppt .sl.on .arr{animation:wpptUp .4s ease forwards}
+#wppt .sl.on .arr:nth-of-type(1){animation-delay:.35s}#wppt .sl.on .arr:nth-of-type(2){animation-delay:.6s}#wppt .sl.on .arr:nth-of-type(3){animation-delay:.85s}
+#wppt .arr path{stroke:#f3dc98;stroke-width:3;fill:none;stroke-dasharray:60;stroke-dashoffset:60}
+#wppt .sl.on .arr path{animation:wpptDraw .8s ease forwards .6s}
+@keyframes wpptDraw{to{stroke-dashoffset:0}}
+#wppt .vs{display:grid;grid-template-columns:1fr auto 1fr;gap:2vw;align-items:center}
+#wppt .vs .card.bad{border-color:rgba(255,140,130,.35)}
+#wppt .vs .mid{font-size:clamp(30px,4vw,60px);color:#f3dc98;opacity:0}
+#wppt .sl.on .vs .mid{animation:wpptUp .5s ease forwards .3s}
+#wppt .note{margin-top:3.5vh;color:#e6c877;font-size:clamp(15px,1.7vw,24px);opacity:0}
+#wppt .sl.on .note{animation:wpptUp .6s ease forwards 1s}
+#wppt .bar{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:1.8vh 2.4vw;font-size:15px;color:#9fb0d0}
+#wppt .bar button{font:inherit;font-size:16px;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(243,220,152,.35);border-radius:999px;padding:8px 18px;cursor:pointer;margin-left:6px}
+#wppt .x{position:absolute;top:2vh;right:2vw;font:inherit;font-size:18px;background:transparent;color:#e6c877;border:1px solid rgba(243,220,152,.4);border-radius:999px;padding:6px 16px;cursor:pointer;z-index:2}
+#wppt .prog{position:absolute;left:0;top:0;height:5px;background:linear-gradient(90deg,#d4ad52,#f3dc98);transition:width .3s}
+#wppt .dots{display:flex;gap:8px}#wppt .dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25)}#wppt .dots i.on{background:#f3dc98}
+@media(max-width:760px){#wppt .vs{grid-template-columns:1fr}#wppt .arr{display:none}}
+@media(prefers-reduced-motion:reduce){#wppt *{animation:none!important;opacity:1!important;transform:none!important;stroke-dashoffset:0!important}.wppt-open{animation:none}}
+</style>
+<div id="wppt" aria-hidden="true"><div class="prog"></div><button type="button" class="x" onclick="wpptClose()">✕ 닫기</button><div class="stage"></div>
+<div class="bar"><span>← → 방향키 · 화면 클릭으로 넘기기 · ESC 닫기</span><span style="display:flex;align-items:center;gap:10px"><span class="dots"></span><button type="button" onclick="wpptGo(-1)">이전</button><button type="button" onclick="wpptGo(1)">다음</button></span></div></div>
+<script id="wppt-js">
+(function(){
+  var ARR='<svg class="arr" viewBox="0 0 64 24"><path d="M2 12 H56 M46 3 L58 12 L46 21"/></svg>';
+  window.WPPT_DECKS=window.WPPT_DECKS||{};
+  var box=document.getElementById('wppt'), stage=box.querySelector('.stage'), dots=box.querySelector('.dots'), i=0, sl=[];
+  function show(){ sl.forEach(function(s,k){s.classList.toggle('on',k===i)}); [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)}); box.querySelector('.prog').style.width=((i+1)/sl.length*100)+'%'; }
+  window.wpptGo=function(d){ var n=Math.max(0,Math.min(sl.length-1,i+d)); if(n!==i){ i=n; sl[i].classList.remove('on'); void sl[i].offsetWidth; show(); } };
+  window.wpptOpen=function(key){ var deck=WPPT_DECKS[key]; if(!deck) return; stage.innerHTML=deck.map(function(h){return '<div class="sl">'+h.replace(/<arr\/>/g,ARR)+'</div>';}).join(''); sl=[].slice.call(stage.children); dots.innerHTML=sl.map(function(){return '<i></i>';}).join(''); i=0; show(); box.classList.add('on'); document.body.style.overflow='hidden'; try{ if(box.requestFullscreen) box.requestFullscreen().catch(function(){}); }catch(e){} };
+  window.wpptClose=function(){ box.classList.remove('on'); document.body.style.overflow=''; try{ if(document.fullscreenElement) document.exitFullscreen(); }catch(e){} };
+  document.addEventListener('keydown',function(e){ if(!box.classList.contains('on')) return; if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();wpptGo(1);} else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();wpptGo(-1);} else if(e.key==='Escape'){wpptClose();} });
+  document.addEventListener('fullscreenchange',function(){ if(!document.fullscreenElement && box.classList.contains('on')) wpptClose(); });
+  box.addEventListener('click',function(e){ if(e.target.closest('button')) return; wpptGo(e.clientX>innerWidth/3?1:-1); });
+  document.addEventListener('click',function(e){ var b=e.target.closest('.wppt-open'); if(b){ e.preventDefault(); wpptOpen(b.getAttribute('data-deck')); } });
+})();
+</script>
+<style id="wppt-mock">
+#wppt .mock{position:relative;width:min(900px,86vw);height:min(46vh,420px);margin:0 auto;border-radius:18px;background:#f7f4ec;box-shadow:0 20px 60px rgba(0,0,0,.45);overflow:hidden;color:#1f2a44}
+#wppt .mock .tb{height:38px;background:#e8e3d6;display:flex;align-items:center;gap:8px;padding:0 14px}
+#wppt .mock .tb i{width:12px;height:12px;border-radius:50%;background:#cfc6b2;display:inline-block}
+#wppt .mock .tb .url{flex:1;height:22px;border-radius:999px;background:#fff;margin-left:10px;font-size:13px;line-height:22px;padding:0 12px;color:#8a8f99}
+#wppt .mock .tb .gm{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#4f7cff,#b06bff);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+#wppt .sl.on .mock .tb .gm{animation:wpptPulse 1.2s ease 2 .3s}
+@keyframes wpptPulse{50%{transform:scale(1.25);box-shadow:0 0 0 10px rgba(79,124,255,.25)}}
+#wppt .mock .pg{position:absolute;left:24px;top:60px;right:24px;bottom:20px}
+#wppt .mock .pg h4{margin:0 0 10px;font-size:clamp(16px,1.6vw,22px)}
+#wppt .mock .pg .ln{height:11px;border-radius:6px;background:#ddd6c6;margin:10px 0}
+#wppt .mock .side{position:absolute;top:38px;right:0;bottom:0;width:40%;background:#fff;border-left:1px solid #e3ddcf;padding:16px;transform:translateX(100%);box-shadow:-10px 0 30px rgba(0,0,0,.08)}
+#wppt .sl.on .mock .side{animation:wpptSide .7s cubic-bezier(.2,.8,.2,1) forwards 1.2s}
+@keyframes wpptSide{to{transform:none}}
+#wppt .mock .side .q{background:#eef3ff;border-radius:12px;padding:10px 12px;font-size:clamp(12px,1.2vw,16px);opacity:0}
+#wppt .mock .side .a{margin-top:10px;background:#fbf6e8;border:1px solid #ead9a8;border-radius:12px;padding:10px 12px;font-size:clamp(12px,1.2vw,16px);line-height:1.5;opacity:0}
+#wppt .sl.on .mock .side .q{animation:wpptUp .5s ease forwards 2s}
+#wppt .sl.on .mock .side .a{animation:wpptUp .5s ease forwards 2.8s}
+#wppt .steps{display:flex;flex-direction:column;gap:1.4vh}#wppt .steps div{font-size:clamp(15px,1.7vw,24px)}
+#wppt .steps div{display:flex;align-items:center;gap:1.2vw;background:rgba(255,255,255,.06);border-radius:14px;padding:1.2vh 1.4vw;opacity:0;transform:translateX(-14px)}
+#wppt .sl.on .steps div{animation:wpptUp .45s ease forwards}
+#wppt .sl.on .steps div:nth-child(2){animation-delay:.2s}#wppt .sl.on .steps div:nth-child(3){animation-delay:.4s}#wppt .sl.on .steps div:nth-child(4){animation-delay:.6s}#wppt .sl.on .steps div:nth-child(5){animation-delay:.8s}
+#wppt .steps b{flex:none;width:2em;height:2em;border-radius:50%;background:rgba(255,140,130,.25);color:#ffd2cc;display:flex;align-items:center;justify-content:center}
+#wppt .steps.good b{background:#d4ad52;color:#16233f}
+</style>
+<script id="wppt-decks">WPPT_DECKS['gic']=[
+'<p class="k">3 제미나이 인 크롬 · 이 도구는?</p><h2>지금 보고 있는 화면 <em>옆에서</em> 묻는 제미나이</h2><div class="mock"><div class="tb"><i></i><i></i><i></i><span class="url">대진대 교수학습센터 · AI 수업혁신 사례 공모 안내</span><span class="gm">✦</span></div><div class="pg"><h4>2026학년도 2학기 AI 수업혁신 사례 공모</h4><div class="ln" style="width:92%"></div><div class="ln" style="width:80%"></div><div class="ln" style="width:86%"></div><div class="ln" style="width:60%"></div><div class="ln" style="width:75%"></div></div><div class="side"><div class="q">이 공지, 회의에서 30초로 보고하게 3줄로 요약해 줘</div><div class="a">① 11월 24일까지 메일 신청<br>② 10건 선정, 최대 200만 원<br>③ 우수 사례 3건은 워크숍 발표</div></div></div><p class="note">크롬 오른쪽 위 ✦ 단추 하나면 열려요. 탭을 옮기지 않아요.</p>',
+'<p class="k">이런 것을 할 수 있어요</p><h2>보고 있는 것이면 <em>무엇이든</em> 물어봐요</h2><div class="row"><div class="card"><span class="ic">📰</span><b>웹페이지</b><span>공지·기사를 요약하고 날짜·금액만 뽑기</span></div><div class="card"><span class="ic">📑</span><b>PDF</b><span>강의계획서·논문을 열어 둔 채 질문, 쪽수로 근거 확인</span></div><div class="card gold"><span class="ic">🗂️</span><b>탭 여러 개</b><span>작년·올해 계획서, 공고 두세 개를 한 표로 비교</span></div><div class="card"><span class="ic">▶️</span><b>유튜브 · 메일</b><span>강연을 시간대별로 정리, 메일 속 일정을 캘린더로</span></div></div>',
+'<p class="k">왜 쓰나요</p><h2>복사해서 옮기던 <em>네 단계</em>가 한 번으로</h2><div class="vs"><div class="card bad" style="text-align:left"><b style="color:#ffd2cc">지금까지</b><div class="steps"><div><b>1</b>PDF 내용을 전부 복사</div><div><b>2</b>새 탭에서 챗봇 열기</div><div><b>3</b>붙여 넣고 질문 쓰기</div><div><b>4</b>답과 원문을 오가며 확인</div></div></div><div class="mid">→</div><div class="card gold" style="text-align:left"><b>제미나이 인 크롬</b><div class="steps good"><div><b>✦</b>보던 화면에서 바로 질문</div><div><b>✓</b>답의 근거를 그 화면에서 바로 확인</div></div></div></div>',
+'<p class="k">내 수업에서는</p><h2>오늘 실습이 <em>바로 내일 업무</em>가 돼요</h2><div class="row"><div class="card"><span class="ic">🧾</span><b>학과 공문</b><span>“해야 할 일·기한·제출처만 표로”</span></div><div class="card"><span class="ic">📘</span><b>내 강의계획서</b><span>“학습목표와 평가가 연결되는지 점검”</span></div><div class="card"><span class="ic">🔬</span><b>논문 세 편</b><span>“연구 대상과 방법을 비교표로”</span></div></div><p class="note">답 옆 근거를 Ctrl+F로 한 번 확인하는 습관이면 충분해요.</p>'
+];
 </script>
 </body>
 </html>
