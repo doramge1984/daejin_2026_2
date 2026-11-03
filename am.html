@@ -2340,13 +2340,20 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   <p class="tip">표가 나오면 <b>학생 10명이 모두 있는지</b> 먼저 세어 보세요.</p>
   </div></details>
 <div style="height:1.6em"></div>
-  <div class="prompt"><div class="label">🔢 성적 점수로 바꾸기 (채점표 바로 다음, 같은 채팅창에서)</div><button class="copy">복사</button><pre>위 채점표의 합계(16점 만점)를 성적 반영 점수로 바꿔 줘. 이 과제는 성적의 30%야.
-| 학생 | 합계(16점) | 100점 환산 | 30점 만점 환산 |
+  <div class="prompt"><div class="label">🔢 성적 점수로 바꾸기 (채점표 바로 다음, 같은 채팅창에서)</div><button class="copy">복사</button><pre>위 채점표의 합계(16점 만점)를 성적 반영 점수로 바꿔 줘. 이 과제는 성적의 <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30%</span>야.
+| 학생 | 합계(16점) | 100점 환산 | <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30점</span> 만점 환산 |
 - 100점 환산 = 합계 ÷ 16 × 100
-- 30점 만점 환산 = 합계 ÷ 16 × 30
+- <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30점</span> 만점 환산 = 합계 ÷ 16 × <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30</span>
 - 소수 둘째 자리에서 반올림해 줘.
 - 위 채점표의 합계를 그대로 쓰고, 다시 채점하지 마.</pre></div>
-  <p class="tip"><b>30%</b>와 <b>30점</b>은 내 과목의 비율로 바꿔 쓰세요. <b>"다시 채점하지 마"</b>가 없으면 노트북LM이 처음부터 다시 채점해 합계가 바뀔 수 있어요. 결과는 한두 명만 직접 검산해 보세요 (예: 14점 → 14 ÷ 16 × 30 = 26.25 → 26.3점).</p>
+  <p class="tip"><b>빨간 곳 네 군데만</b> 내 과목 비율로 바꾸면 돼요. 나머지는 그대로 두세요. 예를 들어 이 과제가 <b>20%</b>라면 아래처럼 바뀌어요.</p>
+  <div class="prompt"><div class="label">예시 · 20% 과제일 때 (빨간 곳만 달라졌어요)</div><button class="copy">복사</button><pre>위 채점표의 합계(16점 만점)를 성적 반영 점수로 바꿔 줘. 이 과제는 성적의 <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">20%</span>야.
+| 학생 | 합계(16점) | 100점 환산 | <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">20점</span> 만점 환산 |
+- 100점 환산 = 합계 ÷ 16 × 100
+- <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">20점</span> 만점 환산 = 합계 ÷ 16 × <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">20</span>
+- 소수 둘째 자리에서 반올림해 줘.
+- 위 채점표의 합계를 그대로 쓰고, 다시 채점하지 마.</pre></div>
+  <p class="tip"> <b>"다시 채점하지 마"</b>가 없으면 노트북LM이 처음부터 다시 채점해 합계가 바뀔 수 있어요. 결과는 한두 명만 직접 검산해 보세요 (예: 14점 → 30%면 14 ÷ 16 × 30 = 26.25 → 26.3점, 20%면 14 ÷ 16 × 20 = 17.5점).</p>
   <details class="mth" style="margin-top:10px"><summary class="mh"><span class="mn">다른 방법</span> 과제 안내에 적힌 비율 그대로 쓰기 · 어떤 점수를 넣을까</summary><div class="body">
   <div class="prompt"><div class="label">과제 안내의 평가 비율로 환산</div><button class="copy">복사</button><pre>위 채점표의 합계(16점 만점)를 과제 안내에 적힌 평가 비율로 환산해 줘.
 | 학생 | 합계(16점) | 100점 환산 | 성적 반영 점수 |
