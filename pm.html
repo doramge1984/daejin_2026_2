@@ -299,7 +299,8 @@ header.hero{position:relative}
 .homebtn:hover{background:rgba(255,255,255,.22)}
 .homebtns{position:absolute;top:16px;right:max(16px,calc((100vw - 1100px)/2));display:flex;gap:8px;z-index:5}.homebtns .homebtn{position:static}.homebtn.alt{border-color:#f0b7b3;background:rgba(217,83,79,.35)}.homebtn.alt:hover{background:rgba(217,83,79,.55)}
 </style>
-<style id="tabfit">nav.quick .wrap{max-width:1240px!important}nav.quick .wrap>a,nav.quick.tabs .wrap>button{font-size:13.5px!important;padding:6px 11px!important}</style>
+<style id="tabfit">nav.quick .wrap{max-width:1240px!important;justify-content:center!important}nav.quick .wrap>a,nav.quick.tabs .wrap>button{font-size:13.5px!important;padding:6px 11px!important}</style>
+<style id="pmcore">nav.quick.tabs .wrap>button.core{border:2px solid #d93025!important;color:#b42318!important;font-weight:800!important;background:#fff5f4!important}nav.quick.tabs .wrap>button.core.on{background:#d93025!important;color:#fff!important}</style>
 </head>
 <body>
 <header class="hero"><div class="homebtns"><a class="homebtn" href="index.html">🏠 홈으로</a><a class="homebtn alt" href="am.html">오전반 교안 →</a></div>
@@ -734,7 +735,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
 
   <h3 class="caseh" style="margin-top:72px" id="live-h3" data-part="3">2 · 내 대시보드 만들기 — 붙여 넣기만 하면 돼요</h3>
   <div class="lvsw"><button type="button" class="on" data-to="prof">👩‍🏫 교수님 트랙<small>Mid-term Course Check</small></button><button type="button" data-to="staff">🗂️ 교직원 트랙<small>Event Check</small></button></div>
-  <div data-lv="prof"><div class="callout gold"><b class="t">Mid-term Course Check · 강의 개선 의사결정 보드</b> 학기 중간에 받는 <b>익명 수업 피드백</b>으로 다음 수업에서 <b>무엇을 다시 설명하고, 속도와 활동을 어떻게 바꿀지</b> 정해요. 오전반 9 폼→시트 <b>카드 A(중간 수업 피드백)</b>와 같은 문항이에요.</div></div>
+  <div data-lv="prof"><div class="callout gold"><b class="t">Mid-term Course Check · 강의 개선 의사결정 보드</b> 학기 중간에 받는 <b>익명 수업 피드백</b>으로 다음 수업에서 <b>무엇을 다시 설명하고, 속도와 활동을 어떻게 바꿀지</b> 정해요. 오전반 8 폼→시트 <b>카드 A(중간 수업 피드백)</b>와 같은 문항이에요.</div></div>
   <div data-lv="staff"><div class="callout gold"><b class="t">Event Check · 행사 개선 의사결정 보드</b> 행사·연수가 끝나고 받는 <b>만족도 조사</b>로 다음 행사의 <b>주제·순서·시간</b>을 정하고, <b>결과보고서 숫자</b>를 바로 뽑아요.</div></div>
   <ol style="margin-top:16px">
     <li><b>gemini.google.com</b>을 열고 아래 도구 메뉴에서 <b>Canvas</b>를 켜요.</li>
@@ -1071,7 +1072,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
 
   <details class="ex case" style="margin-top:48px"><summary><b>이렇게도 쓸 수 있어요</b> <span class="needs">같은 틀, 다른 폼</span></summary><div class="body">
     <ul>
-      <li><b>교수님 · 다음 학기 첫 주:</b> 오전반 9 폼→시트 <b>카드 D(첫 주 학생 배경 조사)</b>로 폼을 바꾸면 <b>수강생 프로필 보드</b>가 돼요.</li>
+      <li><b>교수님 · 다음 학기 첫 주:</b> 오전반 8 폼→시트 <b>카드 D(첫 주 학생 배경 조사)</b>로 폼을 바꾸면 <b>수강생 프로필 보드</b>가 돼요.</li>
       <li><b>교직원 · 행사 전:</b> 신청 폼(부서, 희망 세션, 식사, 주차)으로 바꾸면 <b>세션 배정·식수 결정 보드</b>가 돼요.</li>
       <li>프롬프트의 <b>항목 이름과 KPI</b>만 바꾸면 됩니다.</li>
       <li>교직원 트랙의 3줄 요약은 오전반 <b>@행사-계획-결과보고</b> 스킬에 붙여 결과보고서로 이어 쓸 수 있어요.</li>
@@ -2219,7 +2220,7 @@ document.addEventListener('click',function(e){
   var sub=document.createElement('div'); sub.className='wrap subtabs'; sub.id='subbar'; bar.parentNode.appendChild(sub); var gbtn={};
   function full(t){ return t.g?t.g.split(' ')[0]+' · '+t.label:t.label; }
   TABS.forEach(function(t,k){
-    var b=document.createElement('button'); b.type='button'; b.textContent=t.label; if(t.adv) b.className='adv';
+    var b=document.createElement('button'); b.type='button'; b.textContent=t.label; if(t.adv) b.className='adv'; if(['canva','canvas','nlmSyl','nlm'].indexOf(t.id)>=0) b.classList.add('core');
     b.onclick=function(){ show(k,null,true); }; t.btn=b;
     if(t.g){ sub.appendChild(b); if(!gbtn[t.g]){ var gb=document.createElement('button'); gb.type='button'; gb.textContent=t.g+' ▾'; gb.onclick=function(){ show(k,null,true); }; bar.appendChild(gb); gbtn[t.g]=gb; } t.gb=gbtn[t.g]; }
     else bar.appendChild(b);
