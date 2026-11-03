@@ -279,6 +279,8 @@ body.toc-open #sidetoc{display:block!important}
 body.toc-open #tocBtn{display:none}
 @media print{#sidetoc,#tocBtn{display:none!important}body{padding-left:0!important}}
 </style>
+
+<style id="tabwrap">nav.quick.tabs .wrap{flex-wrap:wrap!important;overflow-x:visible!important;row-gap:6px}</style>
 </head>
 <body>
 <header class="hero">
@@ -302,12 +304,13 @@ body.toc-open #tocBtn{display:none}
   <h2 class="sec">오늘 오후에 할 일</h2>
   <div class="wp-hero"><p class="k">오후반</p><p class="t">오늘 오후에 할 일</p><p class="d">코딩을 몰라도 됩니다. <b>말로 부탁하면 앱이 되는</b> 바이브코딩을, 쉬운 도구부터 한 단계씩 올라가며 해 봅니다. 교직원 선생님은 "내 수업" 대신 <b>"내 업무"</b>로 바꿔 생각하시면 돼요.</p></div>
 
+  <div class="callout gold" style="margin-bottom:10px"><b class="t">오늘은 앞쪽 단계를 시간이 되는 만큼 해요</b> 아래 5단계는 <b>바이브코딩으로 이런 것까지 할 수 있다</b>는 지도예요. 오늘은 <b>1~3단계</b>를 시간이 되는 데까지 함께 하고, <b>4·5단계</b>는 강사가 결과만 보여 드리거나 연수 후에 교안을 보며 해 보시면 돼요.</div>
   <div class="trio">
     <div><span>1</span><b>캔바 코드 · 몸풀기</b><p>로또 생성기, 취미 앱처럼 생활 속 작은 앱을 한 줄 부탁으로 만들어 봅니다.</p></div>
     <div><span>2</span><b>제미나이 캔버스 · 학생 과제</b><p>학생에게 "이렇게 만들어 오세요"라고 낼 수 있는 과제 흐름과 부탁문을 가져갑니다.</p></div>
     <div><span>3</span><b>노트북LM · 강의계획서 → 근거 있는 바이브코딩</b><p>딥리서치로 자료를 모아 대진대 양식 강의계획서를 만들고, 같은 노트북으로 AI가 추측하지 않고 자료대로 도구를 만들게 합니다.</p></div>
-    <div><span>4</span><b>구글 AI 스튜디오 · 우리 학과 앱</b><p>구글이 만든 게임 템플릿을 내 과목 게임으로 바꾸고, 학과별 "우와" 사례를 봅니다.</p></div>
-    <div><span>5</span><b>백엔드·배포</b><p>파이어베이스로 답을 모으고, 넷리파이·깃허브·버셀로 주소를 받는 심화 과정이에요.</p></div>
+    <div style="opacity:.75"><span>4</span><b>구글 AI 스튜디오 · 우리 학과 앱 <small style="color:#a8433b">심화 · 보기만</small></b><p>구글이 만든 게임 템플릿을 내 과목 게임으로 바꾸고, 학과별 "우와" 사례를 봅니다.</p></div>
+    <div style="opacity:.75"><span>5</span><b>백엔드·배포 <small style="color:#a8433b">심화 · 연수 후</small></b><p>파이어베이스로 답을 모으고, 넷리파이·깃허브·버셀로 주소를 받는 심화 과정이에요.</p></div>
   </div>
   <div class="callout blue"><b class="t">패들렛에 올리는 법</b>
     <ul><li><a href="https://padlet.com/doramge1984/_-s024yaofjn4v6mzfwnz4" target="_blank" rel="noopener"><b>오늘의 패들렛 열기 ↗</b></a></li></ul></div>
@@ -2177,20 +2180,20 @@ document.addEventListener('click',function(e){
 <script>
 (function(){
   var TABS=[
-    {id:'start',label:'시작하기',secs:['start']},
-    {id:'canva',label:'1단계 캔바 코드',secs:['canva']},
-    {id:'canvas',label:'2단계 제미나이 캔버스',secs:['canvas']},
-    {id:'live',label:'2+ 실시간 라이브 대시보드',secs:['live']},
-    {id:'nlmSyl',label:'3단계 노트북LM 강의계획서',secs:['nlmSyl']},
-    {id:'nlm',label:'3+ 노트북LM 바이브코딩',secs:['nlm']},
-    {id:'demoA',label:'시연 ① 체스',secs:['demoA'],g:'4단계 AI 스튜디오 (심화)'},
-    {id:'demoB',label:'시연 ② 단어 퍼즐',secs:['demoB'],g:'4단계 AI 스튜디오 (심화)'},
-    {id:'pick',label:'템플릿 고르기',secs:['pick'],g:'4단계 AI 스튜디오 (심화)'},
-    {id:'make',label:'내 수업·업무로 리믹스',secs:['make'],g:'4단계 AI 스튜디오 (심화)'},
-    {id:'share',label:'공유·활용하기',secs:['share'],g:'4단계 AI 스튜디오 (심화)'},
-    {id:'cases',label:'활용 사례',secs:['cases'],g:'4단계 AI 스튜디오 (심화)'},
-    {id:'help',label:'🛟 막혔을 때',secs:['help'],g:'4단계 AI 스튜디오 (심화)'},
-    {id:'more',label:'5단계 백엔드·배포 (심화)',secs:['more'],adv:true}
+    {id:'start',label:'시작',secs:['start']},
+    {id:'canva',label:'1 캔바 코드',secs:['canva']},
+    {id:'canvas',label:'2 캔버스',secs:['canvas']},
+    {id:'live',label:'2+ 라이브 대시보드',secs:['live']},
+    {id:'nlmSyl',label:'3 강의계획서',secs:['nlmSyl']},
+    {id:'nlm',label:'3+ 근거 바이브코딩',secs:['nlm']},
+    {id:'demoA',label:'시연 ① 체스',secs:['demoA'],g:'4 AI 스튜디오 (심화)'},
+    {id:'demoB',label:'시연 ② 단어 퍼즐',secs:['demoB'],g:'4 AI 스튜디오 (심화)'},
+    {id:'pick',label:'템플릿 고르기',secs:['pick'],g:'4 AI 스튜디오 (심화)'},
+    {id:'make',label:'내 수업·업무로 리믹스',secs:['make'],g:'4 AI 스튜디오 (심화)'},
+    {id:'share',label:'공유·활용하기',secs:['share'],g:'4 AI 스튜디오 (심화)'},
+    {id:'cases',label:'활용 사례',secs:['cases'],g:'4 AI 스튜디오 (심화)'},
+    {id:'help',label:'🛟 막혔을 때',secs:['help'],g:'4 AI 스튜디오 (심화)'},
+    {id:'more',label:'5 배포 (심화)',secs:['more'],adv:true}
   ];
   var bar=document.getElementById('tabbar'), cur=null;
   function tabOf(secId){ for(var k=0;k<TABS.length;k++){ if(TABS[k].secs.indexOf(secId)>=0) return k; } return -1; }
@@ -2239,7 +2242,7 @@ document.addEventListener('click',function(e){
     var h='';
     TABS.forEach(function(t,k){
       if(t.g && (k===0||TABS[k-1].g!==t.g)) h+='<div class="stg">'+t.g+'</div>';
-      h+='<a href="#" data-k="'+k+'" class="stt'+(k===cur?' on':'')+(t.g?' sub':'')+'">'+full(t).replace(/^4단계 · /,'')+'</a>';
+      h+='<a href="#" data-k="'+k+'" class="stt'+(k===cur?' on':'')+(t.g?' sub':'')+'">'+full(t).replace(/^4 · /,'')+'</a>';
       if(k===cur){ tocFor(k).forEach(function(it){ h+='<a href="#" data-k="'+k+'" data-id="'+it.id+'" class="sti lv'+it.lv+'">'+it.txt.replace(/</g,'&lt;')+'</a>'; }); }
     });
     stb.innerHTML=h;
