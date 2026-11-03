@@ -281,6 +281,18 @@ body.toc-open #tocBtn{display:none}
 </style>
 
 <style id="tabwrap">nav.quick.tabs .wrap{flex-wrap:wrap!important;overflow-x:visible!important;row-gap:6px}</style>
+<style id="gap2">
+/* 내용이 바뀔 때 2줄 이상 띄우기 */
+.wp>*+*{margin-top:3em!important}
+.wp>h2+*,.wp>h3+*,.wp>h4+*{margin-top:.9em!important}
+.wp>.prompt+details,.wp>.prompt+.tip,.wp>details+.tip,.wp>.prompt+p,.wp>p+p,.wp>.tip+.tip,.wp>.tip+.fltr,.wp>.fltr+.prompt{margin-top:.7em!important}
+.wp>div[style*="height"],.wp>div[style*="height"]+*{margin-top:0!important}
+.wp :is(.step>div,details>.body,.item-body)>*+*{margin-top:2.4em!important}
+.wp :is(.step>div,details>.body,.item-body)>:is(h3,h4,h5)+*,.wp :is(.step>div,details>.body,.item-body)>:is(.prompt+details,.prompt+.tip,details+.tip,p+p,.tip+.tip,.tip+.fltr,.fltr+.prompt,ol+.tip,.prompt+p){margin-top:.7em!important}
+.wp :is(.step>div,details>.body,.item-body)>div[style*="height"],.wp :is(.step>div,details>.body,.item-body)>div[style*="height"]+*{margin-top:0!important}
+.wp ul>li.item-detail+li.item-detail{margin-top:2.4em!important}
+.wp-hero *+*{margin-top:revert}
+</style>
 </head>
 <body>
 <header class="hero">
