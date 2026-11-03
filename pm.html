@@ -1450,7 +1450,17 @@ show();
     <p class="tip">줄마다 <b>맞음 / 자료에 없음</b>과 근거 자료가 나오고, 출처 숫자를 누르면 해당 판례·안내서로 바로 가요. 11번 기본 입력값처럼 화면 편의를 위해 넣은 값은 <b>"자료에 없음"</b>으로 나와요. 이런 줄은 고치지 않아도 되지만, 법령·수치인데 "자료에 없음"이면 꼭 따로 확인하세요.</p>
     </details>
     <div style="height:2.5em"></div>
-    <div class="prompt"><div class="label">⑤-3 다른 줄만 고치기 (캔버스·AI 스튜디오)</div><button class="copy">복사</button><pre><span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">[번호]</span>번 항목을 <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">[바른 값]</span>로 고쳐 줘. 다른 부분은 그대로 둬.</pre></div>
+    <div class="prompt"><div class="label">⑤-2+ 확인이 필요한 줄만 골라내기 (노트북LM, 같은 채팅창)</div><button class="copy">복사</button><pre>방금 표에서 "자료에 없음"으로 나온 줄 중에 법령, 수치, 판례 번호처럼 사실 확인이 필요한 줄만 골라 줘.
+화면 편의를 위해 넣은 값(기본 입력값, 단추 값)은 빼 줘.</pre></div>
+    <div class="tblwrap"><table>
+    <tr><th>"자료에 없음"의 종류</th><th>예</th><th>할 일</th></tr>
+    <tr><td>화면 편의 값</td><td>기본 매출액, 빠른 설정 단추 값</td><td>그대로 둬도 돼요</td></tr>
+    <tr><td>법령·수치·판례</td><td>과징금 비율, 배상 배수, 판례 번호</td><td>공식 자료에서 직접 확인 → 맞으면 그 자료를 노트북 소스로 넣어 근거 남기기, 틀리면 ⑤-3</td></tr>
+    </table></div>
+    <div style="height:2.5em"></div>
+    <div class="prompt"><div class="label">⑤-3 (틀린 줄이 있을 때만) 고치기 부탁문 받기 · 노트북LM, 같은 채팅창</div><button class="copy">복사</button><pre>방금 표에서 "다름"으로 나온 줄만 자료에 있는 값으로 고치는 부탁문을 써 줘.
+만든 앱의 채팅창에 그대로 붙여 넣을 거야. 다른 부분은 그대로 두라는 말도 넣어 줘.</pre></div>
+    <p class="tip">다 "맞음"이면 ⑤-3은 건너뛰세요. 받은 부탁문은 <b>캔버스·AI 스튜디오에서 앱을 만든 같은 채팅창</b>에 붙여 넣으면 틀린 줄만 고쳐져요. 앱을 처음부터 다시 만들지 않아도 돼요.</p>
     <p class="tip" style="background:#fdeceb;color:#8a2b22"><b>⚠ 노트북LM이 "맞음"이라고 해도 끝이 아니에요.</b> 노트북에 옛 자료만 있으면 옛 값도 "맞음"으로 나와요. 법령·수치·판례 번호는 <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터 ↗</a> 같은 최신 공식 자료로 직접 확인하세요. 예: 징벌적 손해배상 3배 → 현행 <b>5배</b>(개인정보 보호법 제39조 제3항, 2023년 개정)</p>
   </div></div>
 
