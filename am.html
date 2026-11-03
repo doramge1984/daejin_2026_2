@@ -1386,6 +1386,31 @@ nav.quick a.core.on{background:#d93025!important;color:#fff!important}
 .wp-flow a{min-width:140px}
 .wp .step{border-radius:16px!important;box-shadow:0 4px 14px rgba(20,30,60,.05)}
 </style>
+<style id="toc-toggle">
+#sidetoc{position:fixed;left:0;top:0;bottom:0;width:250px;overflow-y:auto;background:#fff;border-right:1px solid #e3e0d6;padding:14px 10px 40px;z-index:9000;font-size:14px;font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+#sidetoc .sthome{display:flex;gap:4px;margin:0 0 12px;padding-bottom:12px;border-bottom:1px solid #e3e0d6}
+#sidetoc .sthome a{flex:1;text-align:center;padding:6px 4px;border:1px solid #e3e0d6;border-radius:8px;font-weight:700;font-size:13px;color:#1f2a44;text-decoration:none}
+#sidetoc .sthome a.on{background:#d9534f;border-color:#d9534f;color:#fff}
+#sidetoc .sthead{display:flex;align-items:center;justify-content:space-between;font-weight:800;color:#1f2a44;padding:4px 6px 10px 10px;font-size:15px}
+#sidetoc .stclose{border:1px solid #e3e0d6;background:#fff;border-radius:8px;padding:3px 9px;font:inherit;font-size:13px;font-weight:700;color:#5b6475;cursor:pointer}
+#sidetoc .stclose:hover{background:#f3efe4}
+#sidetoc a{display:block;text-decoration:none;color:#3a4256;padding:6px 10px;border-radius:8px;line-height:1.35}
+#sidetoc a:hover{background:#fbf6ea}
+#sidetoc a.stt{font-weight:700;color:#1f2a44;margin-top:2px}
+#sidetoc a.stt.sub{padding-left:20px;font-weight:600}
+#sidetoc a.stt.on{background:#1f2a44;color:#fff}
+#sidetoc .stg{margin:10px 10px 2px;font-size:12px;font-weight:800;color:#a8433b}
+#sidetoc a.sti{font-size:13px;color:#555}
+#sidetoc a.sti.lv1{padding-left:22px;font-weight:600;color:#7a5a12}
+#sidetoc a.sti.lv2{padding-left:34px}
+body:not(.toc-open) #sidetoc{display:none!important}
+body.toc-open #sidetoc{display:block!important}
+@media(min-width:1360px){body.toc-open{padding-left:262px!important}body:not(.toc-open){padding-left:0!important}}
+@media(max-width:1359px){body{padding-left:0!important}body.toc-open #sidetoc{box-shadow:6px 0 30px rgba(15,27,46,.25)}}
+#tocBtn{position:fixed;left:12px;bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:8999;border:0;background:#1f2a44;color:#fff;border-radius:999px;padding:11px 18px;font:inherit;font-weight:800;font-size:15px;box-shadow:0 6px 20px rgba(0,0,0,.25);cursor:pointer;font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+body.toc-open #tocBtn{display:none}
+@media print{#sidetoc,#tocBtn{display:none!important}body{padding-left:0!important}}
+</style>
 </head>
 <body>
 
@@ -3497,6 +3522,65 @@ document.addEventListener("DOMContentLoaded",function(){try{initWarmup()}catch(e
   document.getElementById('fPlus').onclick=function(){ if(cur<steps.length-1){cur++;apply();} };
   document.getElementById('fReset').onclick=function(){ cur=def; apply(); };
   apply();
+})();
+</script>
+<script id="am-sidetoc">
+(function(){
+  var nav=document.querySelector('nav.quick'); if(!nav) return;
+  var links=[].slice.call(nav.querySelectorAll('a[href^="#"]'));
+  var side=document.createElement('aside'); side.id='sidetoc';
+  side.innerHTML='<div class="sthome"><a href="index.html">🏠 홈</a><a href="am.html" class="on">오전반</a><a href="pm.html">오후반</a></div><div class="sthead">목차</div><div id="stbody"></div>';
+  document.body.appendChild(side);
+  var stb=side.querySelector('#stbody'), n=0;
+  function items(sec){
+    var out=[];
+    sec.querySelectorAll(':scope>h3[data-part], :scope>details>summary, :scope>.wrap>details>summary').forEach(function(h){
+      var tgt=h.tagName==='SUMMARY'?h.parentNode:h; if(!tgt.id) tgt.id='am-toc-'+(++n);
+      var c=h.cloneNode(true); [].forEach.call(c.querySelectorAll('.badge,.mn,.tg,em,small'),function(x){x.remove();});
+      var t=c.textContent.replace(/\s+/g,' ').trim(); if(!t) return; if(t.length>30) t=t.slice(0,29)+'…';
+      out.push({id:tgt.id,t:t,lv:h.tagName==='H3'?1:2});
+    });
+    return out;
+  }
+  function draw(){
+    var cur=(document.querySelector('main section.active')||{}).id||'';
+    var h='';
+    links.forEach(function(a){
+      var id=a.getAttribute('href').slice(1);
+      h+='<a class="stt'+(id===cur?' on':'')+'" href="#'+id+'">'+a.textContent.replace(/</g,'&lt;')+'</a>';
+      if(id===cur){ var sec=document.getElementById(id); if(sec) items(sec).forEach(function(it){ h+='<a class="sti lv'+it.lv+'" href="#" data-id="'+it.id+'">'+it.t.replace(/</g,'&lt;')+'</a>'; }); }
+    });
+    stb.innerHTML=h;
+  }
+  stb.addEventListener('click',function(e){
+    var a=e.target.closest('a[data-id]'); if(!a) return; e.preventDefault();
+    var el=document.getElementById(a.getAttribute('data-id')); if(!el) return;
+    if(el.tagName==='DETAILS') el.open=true;
+    var y=el.getBoundingClientRect().top+window.scrollY-120; window.scrollTo({top:y,behavior:'instant'});
+  });
+  window.addEventListener('hashchange',function(){setTimeout(draw,0);});
+  draw();
+})();
+</script>
+<script id="toc-toggle-js">
+(function(){
+  var KEY='dj-toc-open';
+  function init(){
+    var side=document.getElementById('sidetoc'); if(!side) return;
+    var head=side.querySelector('.sthead');
+    if(head && !head.querySelector('.stclose')){ head.innerHTML='<span>목차</span><button type="button" class="stclose" aria-label="목차 닫기">✕ 닫기</button>'; }
+    var btn=document.createElement('button'); btn.id='tocBtn'; btn.type='button'; btn.textContent='☰ 목차'; btn.setAttribute('aria-label','목차 열기'); document.body.appendChild(btn);
+    var wide=window.matchMedia('(min-width:1360px)');
+    var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
+    function set(o,save){ document.body.classList.toggle('toc-open',o); if(save){try{localStorage.setItem(KEY,o?'1':'0');}catch(e){}} }
+    set(wide.matches && saved!=='0', false);
+    btn.onclick=function(){ set(true,true); };
+    side.addEventListener('click',function(e){
+      if(e.target.closest('.stclose')){ set(false,true); return; }
+      if(!wide.matches && e.target.closest('a[data-k],a[data-id],a.stt,a.sti')){ setTimeout(function(){set(false,false);},50); }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else setTimeout(init,0);
 })();
 </script>
 </body>
