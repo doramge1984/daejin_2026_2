@@ -238,6 +238,15 @@ p.use{background:var(--gold-bg);border-radius:10px;padding:10px 12px;margin:6px 
 .wp-meta span{background:rgba(255,255,255,.1);border-radius:999px;padding:5px 12px;font-size:.88em;color:#e6edf9}
 .wp .tip{border-radius:10px}
 </style>
+<style id="wp-style2">
+.wp-hashero>h2:first-of-type{display:none!important}
+.wp p,.wp li{line-height:1.75}
+.wp>p.lead{font-size:1.05em}
+.wp .callout{border-radius:14px!important;padding:16px 18px!important}
+.wp .tblwrap table,.wp>table{border-radius:12px;overflow:hidden}
+.wp-flow a{min-width:140px}
+.wp .step{border-radius:16px!important;box-shadow:0 4px 14px rgba(20,30,60,.05)}
+</style>
 </head>
 <body>
 <header class="hero">
@@ -257,9 +266,10 @@ p.use{background:var(--gold-bg);border-radius:10px;padding:10px 12px;margin:6px 
 <main><div class="wrap">
 
 <!-- 시작 -->
-<section id="start">
+<section id="start" class="wp wp-hashero">
   <h2 class="sec">오늘 오후에 할 일</h2>
-  <p class="lead">코딩을 몰라도 됩니다. <b>말로 부탁하면 앱이 되는</b> 바이브코딩을, 쉬운 도구부터 한 단계씩 올라가며 해 봅니다. 교직원 선생님은 "내 수업" 대신 <b>"내 업무"</b>로 바꿔 생각하시면 돼요.</p>
+  <div class="wp-hero"><p class="k">오후반</p><p class="t">오늘 오후에 할 일</p><p class="d">코딩을 몰라도 됩니다. <b>말로 부탁하면 앱이 되는</b> 바이브코딩을, 쉬운 도구부터 한 단계씩 올라가며 해 봅니다. 교직원 선생님은 "내 수업" 대신 <b>"내 업무"</b>로 바꿔 생각하시면 돼요.</p></div>
+
   <div class="trio">
     <div><span>1</span><b>캔바 코드 · 몸풀기</b><p>로또 생성기, 취미 앱처럼 생활 속 작은 앱을 한 줄 부탁으로 만들어 봅니다.</p></div>
     <div><span>2</span><b>제미나이 캔버스 · 학생 과제</b><p>학생에게 "이렇게 만들어 오세요"라고 낼 수 있는 과제 흐름과 부탁문을 가져갑니다.</p></div>
@@ -334,10 +344,11 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
 </section>
 
 <!-- 1단계: 캔바 코드 -->
-<section id="canva">
+<section id="canva" class="wp wp-hashero">
   <h2 class="sec">1단계 · 캔바 AI로 '작동하는 도구' 만들기 — 캔바 코드</h2>
-  <p class="lead"><b>캔바 코드(Canva Code)</b>는 캔바에 한국어로 설명만 하면 계산기·체크리스트·안내 위젯처럼 <b>실제로 작동하는 도구</b>를 만들어 줘요. 코딩 지식이 전혀 없어도 되고, <b>무료 계정</b>도 쓸 수 있어요. 만든 결과는 캔바 안에서 쓰거나 발표·화이트보드에 넣어 쓸 수 있어요. (파일로 내보내기는 안 돼요.)</p>
-    <div class="step"><div class="no">0-1</div><div>
+  <div class="wp-hero"><p class="k">오후반 · 1단계</p><p class="t">캔바 AI로 '작동하는 도구' 만들기 — 캔바 코드</p><p class="d"><b>캔바 코드(Canva Code)</b>는 캔바에 한국어로 설명만 하면 계산기·체크리스트·안내 위젯처럼 <b>실제로 작동하는 도구</b>를 만들어 줘요. 코딩 지식이 전혀 없어도 되고, <b>무료 계정</b>도 쓸 수 있어요. 만든 결과는 캔바 안에서 쓰거나 발표·화이트보드에 넣어 쓸 수 있어요. (파일로 내보내기는 안 돼요.)</p><div class="wp-flow"><a href="#canva-st1"><em>0-1</em><b>캔바 가입하기 (처음이라면 먼저!)</b><span></span></a><a href="#canva-st2"><em>0-2</em><b>캔바 초대 링크로 참여하기 (가입 다음에 꼭!)</b><span></span></a><a href="#canva-st3"><em>1</em><b>Code 켜기</b><span></span></a><a href="#canva-st4"><em>2</em><b>먼저 재미있는 것부터! · 커피 주문 정리 &…</b><span></span></a><a href="#canva-st5"><em>3</em><b>대화하며 완성해 가기 (이게 바이브코딩!)</b><span></span></a><a href="#canva-st6"><em>4</em><b>이런 것도 같은 방식으로 · 수업에 바로 쓰는…</b><span></span></a></div></div>
+
+    <div class="step" id="canva-st1"><div class="no">0-1</div><div>
     <h4>캔바 가입하기 (처음이라면 먼저!)</h4>
     <ol><li><a href="https://www.canva.com/" target="_blank" rel="noopener">www.canva.com</a> 접속 → 오른쪽 위 <b>가입</b></li>
     <li><b>Google로 계속하기</b>를 누르고 <b>개인 Gmail</b>을 고릅니다 (오늘 AI 스튜디오·제미나이와 같은 계정이면 편해요)</li>
@@ -345,7 +356,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <li>캔바 홈 화면이 보이면 준비 끝! <b>무료 계정</b>으로 오늘 실습을 모두 할 수 있어요</li></ol>
     <p class="tip">이미 캔바 계정이 있으면 <b>로그인</b>만 하세요. 학교 메일 계정은 기관 설정 때문에 일부 기능이 막혀 있을 수 있어요.</p>
   </div></div>
-  <div class="step"><div class="no">0-2</div><div>
+  <div class="step" id="canva-st2"><div class="no">0-2</div><div>
     <h4>캔바 초대 링크로 참여하기 (가입 다음에 꼭!)</h4>
     <p class="mylink"><a class="dl" href="https://www.canva.com/brand/join?token=FndXt3CvV6TNLHwHyFLjTA&amp;brandingVariant=edu&amp;invitationDestinationType=group" target="_blank" rel="noopener">✉️ 오늘의 캔바 초대 링크 열기 ↗</a></p>
     <ol><li>캔바에 <b>로그인한 상태</b>에서 위 초대 링크를 엽니다</li>
@@ -353,7 +364,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <li>캔바 홈 왼쪽 위 계정 이름 아래에 <b>초대받은 팀</b>이 보이면 완료!</li></ol>
     <p class="tip"><b>캔바 먼저 가입 → 그다음 초대 링크</b> 순서예요. 가입하기 전에 링크를 누르면 참여가 안 될 수 있어요. 참여가 안 보이면 왼쪽 위 계정 이름을 눌러 팀을 바꿔 보세요.</p>
   </div></div>
-  <div class="step"><div class="no">1</div><div>
+  <div class="step" id="canva-st3"><div class="no">1</div><div>
     <h4>Code 켜기</h4>
     <p class="mylink"><a class="dl" href="https://www.canva.com/ko_kr/" target="_blank" rel="noopener">🧩 캔바 열기 → Code 시작하기 ↗</a></p>
     <ol><li>캔바 홈에서 <b>[Code]</b> 선택 (또는 디자인 안에서 <b>Canva AI → Code</b>)</li>
@@ -362,14 +373,14 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <div class="shots"><figure><img src="img/cc-screen.jpg" alt="캔바 코드 화면 구성" loading="lazy"><figcaption>캔바 코드 화면: ① 내가 보낸 부탁문 ② 고칠 때마다 쌓이는 버전(이전 버전으로 돌아갈 수 있어요) ③ 여기에 이어서 말로 다듬기 ④ 완성된 앱을 바로 눌러 보기</figcaption></figure></div>
     <p class="tip">💡 캔바가 <b>"수집된 데이터는 연결된 시트에 저장된다"</b>고 알려 줘요. 캔바 코드로 만든 앱은 입력한 내용을 캔바 <b>데이터 패널(시트)</b>에 모을 수 있어요. 그래서 개인정보는 넣지 않도록 안내해 주세요.</p>
   </div></div>
-  <div class="step"><div class="no">2</div><div>
+  <div class="step" id="canva-st4"><div class="no">2</div><div>
     <h4>먼저 재미있는 것부터! · 커피 주문 정리 &amp; 커피 셔틀 룰렛</h4>
     <p>첫 실습은 무조건 <b>"와, 이게 진짜 되네?"</b> 하는 게 좋아요. 이름과 메뉴를 입력하면 주문할 메뉴 개수를 자동으로 정리해 주고, 돌림판으로 오늘 커피 사러 갈 사람까지 뽑아 줘요.</p>
     <div class="prompt"><div class="label">부탁문 · 커피 셔틀 룰렛</div><button class="copy">복사</button><pre>이름과 메뉴를 입력하면 목록에 저장되고, 돌림판(룰렛)을 돌려서 오늘 커피 사러 갈 사람을 랜덤으로 뽑아주는 웹앱을 만들어줘. 당첨되면 전체 주문 목록도 정리해서 보여주고, 스마트폰에서도 잘 보이게 해줘.</pre></div>
     <p class="mylink"><a class="dl" href="https://yimid.my.canva.site/dahzyalxuc0" target="_blank" rel="noopener">✅ 강사 완성본 · 커피 주문 정리 &amp; 셔틀 룰렛 ↗</a></p>
     <div class="shots"><figure><img src="img/cc-coffee.jpg" alt="커피 셔틀 룰렛 완성 화면" loading="lazy"><figcaption>캔바 코드로 만든 완성 화면</figcaption></figure><figure><img src="img/cc-qr2.png" alt="커피 룰렛 QR" loading="lazy"><figcaption>📱 휴대폰으로 바로 열기</figcaption></figure></div>
   </div></div>
-  <div class="step"><div class="no">3</div><div>
+  <div class="step" id="canva-st5"><div class="no">3</div><div>
     <h4>대화하며 완성해 가기 (이게 바이브코딩!)</h4>
     <p>처음 결과가 나오면, 그걸 보고 <span class="say">"이런 기능 추가해 줘 / 이건 빼 줘"</span>라고 이어서 말하면 원하는 대로 다듬어져요. 아래는 실제로 이렇게 완성해 간 순서예요.</p>
     <div class="prompt"><div class="label">① 새 접수용 초기화 버튼 추가</div><button class="copy">복사</button><pre>데이터 시트 어디와 연결이 되는 거야? 그리고 이 커피 접수가 한 건이 끝나고 다음 건을 처리할 때는 데이터를 비우고 새로 시작해야 할 것 같은데, 새 접수용 초기화 버튼 만들어줘.</pre></div>
@@ -387,7 +398,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <div class="shots"><figure><img src="img/cc-v7.jpg" alt="메뉴 칩 8개가 나온 버전 7" loading="lazy"><figcaption>다듬은 부탁을 보낸 결과 <b>버전 7</b>: 적어 준 메뉴 <b>8개</b>가 그대로 칩으로 나왔고, 칩을 누르면 아래 입력칸에 메뉴 이름이 채워져요 (이름은 가렸어요)</figcaption></figure></div>
     <p class="tip">💡 <b>원하는 게 있으면 예시와 동작을 적어 주세요.</b> "메뉴를 칩으로"만 말하면 AI가 메뉴를 알아서 고르고, 칩을 눌렀을 때 어떻게 될지도 제멋대로 정해요. 강사도 처음엔 칩을 눌러도 입력칸이 채워지지 않아서 다시 부탁했어요. <b>메뉴 목록</b>과 <b>"누르면 입력칸에 채워지게"</b>를 함께 적으면 한 번에 원하는 대로 나와요.</p>
   </div></div>
-  <div class="step"><div class="no">4</div><div>
+  <div class="step" id="canva-st6"><div class="no">4</div><div>
     <h4>이런 것도 같은 방식으로 · 수업에 바로 쓰는 쉬운 도구</h4>
     <p class="tip">부탁문 한두 줄이면 2~3분 만에 나와요. 오늘 몸풀기로 하나 골라 보세요.</p>
     <details class="ex case hot"><summary><b>👥 랜덤 조 뽑기</b> <small>학생 입력 · 교수 모드 · 캔바 시트까지 완성해 본 예시</small></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 👥 랜덤 조 뽑기</div><button class="copy">복사</button><pre>이름들을 입력하면 원하는 인원수의 조로 랜덤하게 나눠주는 팀·조 뽑기 웹앱을 만들어줘. 결과는 큰 글씨 카드로, 다시 섞기 버튼도 넣어줘.</pre></div><p class="tip">⚠️ <b>강사가 해 보니</b> 위 부탁만 하면 <b>교수 혼자 이름을 입력하는</b> 도구가 돼요. 학생이 각자 휴대폰으로 이름을 넣게 하려면 아래처럼 한 번 더 부탁하세요.</p><div class="prompt"><div class="label">이어서 다듬기 · 학생이 이름·학과를 직접 입력하고, 교수만 조 나누기</div><button class="copy">복사</button><pre>학생들이 자기 이름과 학과를 입력할 수 있게 해줘.
@@ -497,9 +508,10 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
 
 
 <!-- 2단계: 제미나이 캔버스 · 학생 과제 -->
-<section id="canvas">
+<section id="canvas" class="wp wp-hashero">
   <h2 class="sec">2단계 · 제미나이 캔버스로 학생 과제 내기</h2>
-  <p class="lead">제미나이 캔버스는 <b>제미나이 채팅창에서 바로</b> 웹 도구를 만드는 기능이에요. 설치도, 따로 가입할 것도 없어서 <b>학생 과제로 내기 가장 쉬운 바이브코딩 도구</b>입니다. 이 탭은 "학생에게 이렇게 시키면 된다"를 그대로 가져가시도록 만들었어요. 학생에게 줄 부탁문, 학과별 과제 예시, 평가 기준까지 들어 있습니다.</p>
+  <div class="wp-hero"><p class="k">오후반 · 2단계</p><p class="t">제미나이 캔버스로 학생 과제 내기</p><p class="d">제미나이 캔버스는 <b>제미나이 채팅창에서 바로</b> 웹 도구를 만드는 기능이에요. 설치도, 따로 가입할 것도 없어서 <b>학생 과제로 내기 가장 쉬운 바이브코딩 도구</b>입니다. 이 탭은 "학생에게 이렇게 시키면 된다"를 그대로 가져가시도록 만들었어요. 학생에게 줄 부탁문, 학과별 과제 예시, 평가 기준까지 들어 있습니다.</p><div class="wp-flow"><a href="#canvas-h1"><em>PART 1</em><b>👀 먼저 보기 · 학생들은 이런 걸 만들어요</b><span></span></a><a href="#canvas-h2"><em>PART 2</em><b>⭐ 공통 프롬프트 · 교수님이 지금 직접 해 …</b><span></span></a><a href="#canvas-h3"><em>PART 3</em><b>📚 참고용 · 학과별 과제 아이디어와 평가 포…</b><span></span></a><a href="#canvas-h4"><em>PART 4</em><b>대학생 과제라면 이런 결과물이 나와요 · 전공…</b><span></span></a><a href="#canvas-h5"><em>PART 5</em><b>📝 학생 결과물 평가하기 · 결과물 + 보고서</b><span></span></a><a href="#canvas-h6"><em>PART 6</em><b>평가 루브릭 (예시 · 100점)</b><span></span></a></div></div>
+
 
   <div class="trio">
     <div><span>1</span><b>몸풀기</b><p><span class="say">"우리 과목 핵심 용어 10개로 낱말 맞히기 게임 만들어 줘"</span> 한 줄로 첫 작품. 디자인 바꾸기, 힌트 넣기로 두 번 고쳐 봅니다.</p></div>
@@ -508,7 +520,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <div><span>4</span><b>공유 링크 + 성찰</b><p>공유 링크를 패들렛에 올리고, 성찰 세 문항을 씁니다.</p></div>
   </div>
 
-  <h3 class="caseh">👀 먼저 보기 · 학생들은 이런 걸 만들어요</h3>
+  <h3 class="caseh" id="canvas-h1" data-part="1">👀 먼저 보기 · 학생들은 이런 걸 만들어요</h3>
   <div id="cvShowcase">
     <details class="ex case" open><summary><b>예시 1 · 조소과 「3D 조형 및 음영 시뮬레이터」</b> <span class="needs">제미나이 캔버스</span> <small>조소·미술 · 조형론</small></summary><div class="body">
       <p class="use"><b>이렇게 써요</b> 원형(구체·토러스·매듭체 등)을 고르고 <b>부풀리기·밀어넣기·다듬기·평평하게</b> 브러시로 직접 조각해요. 재질(점토·석고·대리석·청동)과 표면 거칠기를 바꾸고, 조명을 돌리면 <b>빛의 방향에 따라 음영과 그림자가 어떻게 달라지는지</b> 바로 보여요.</p>
@@ -540,7 +552,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <p class="tip">공유 링크를 열면 <b>완성 화면</b>을 바로 볼 수 있어요. 학생이 어떻게 부탁하고 고쳤는지는 제출할 때 <b>부탁문 기록</b>을 같이 내게 하세요. (아래 보고서 양식)</p>
   </div></div>
 
-  <h3 class="caseh">⭐ 공통 프롬프트 · 교수님이 지금 직접 해 보세요</h3>
+  <h3 class="caseh" id="canvas-h2" data-part="2">⭐ 공통 프롬프트 · 교수님이 지금 직접 해 보세요</h3>
   <div class="callout gold"><b>오늘 2단계에서 가장 중요한 실습이에요.</b> 교수님이 학생이 되어 ①→②→③ 순서로 직접 만들어 보시고, 수업에서는 이 프롬프트를 그대로 학생 과제로 주시면 됩니다.
   <ol style="margin:8px 0 0 18px;padding:0"><li>아래에서 <b>내 학과</b>를 누르고 ① 프롬프트를 복사해 제미나이(캔버스 켜기)에 보내요</li>
   <li>추천받은 주제 중 하나를 골라 ② 프롬프트의 <b>[2번 주제]</b>를 바꿔 보내요</li>
@@ -566,11 +578,11 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
 3차: 설명 중에 수업 자료와 다른 부분이 있어. [○○는 △△가 아니라 □□야]로 고쳐 줘.</pre></div>
   <p class="tip"><b>3차 고치기가 핵심이에요.</b> 학생이 AI가 틀린 곳을 <b>수업 내용으로 찾아 고치는</b> 순간, 바이브코딩이 전공 공부가 됩니다.</p>
 
-  <h3 class="caseh">📚 참고용 · 학과별 과제 아이디어와 평가 포인트</h3>
+  <h3 class="caseh" id="canvas-h3" data-part="3">📚 참고용 · 학과별 과제 아이디어와 평가 포인트</h3>
   <p class="tip">실습은 위 <b>공통 프롬프트</b>로 하시고, 이 부분은 <b>수업에서 과제를 낼 때 참고</b>하세요. 학과를 눌러 펼치면 과제 이름, 학생이 만드는 것, 예시 부탁문, <b>평가 포인트</b>가 있어요. 같은 주제를 <b>4단계 AI 스튜디오</b>에서 더 크게 만든 예시도 이어서 볼 수 있어요.</p>
   <div id="cvList"></div>
 
-  <h3 class="caseh">대학생 과제라면 이런 결과물이 나와요 · 전공별 예시</h3>
+  <h3 class="caseh" id="canvas-h4" data-part="4">대학생 과제라면 이런 결과물이 나와요 · 전공별 예시</h3>
   <p class="tip">학생이 <b>공통 ① 주제 추천받기</b>로 자기 전공 주제를 받아 캔버스로 만들 수 있는 웹 도구 예시예요.</p>
   <div class="tblwrap"><table>
     <tr><th>전공 · 수업</th><th>학생이 만드는 웹 도구</th></tr>
@@ -584,7 +596,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
   </table></div>
 
 
-  <h3 class="caseh">📝 학생 결과물 평가하기 · 결과물 + 보고서</h3>
+  <h3 class="caseh" id="canvas-h5" data-part="5">📝 학생 결과물 평가하기 · 결과물 + 보고서</h3>
   <p class="lead">바이브코딩 과제는 <b>"잘 돌아가는 앱"</b>만 보면 AI 실력을 평가하게 돼요. <b>결과물(공유 링크)</b>과 <b>보고서(어떻게 만들고 고쳤는지)</b>를 함께 받아야 학생의 <b>전공 이해</b>를 평가할 수 있어요.</p>
 
   <div class="trio">
@@ -603,7 +615,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
   ⑤ 성찰: 다시 만든다면 무엇을 더하고 싶나요?
 ※ 이름·학번·연락처를 받는 화면은 만들지 않기 / 교재 본문을 통째로 붙여 넣지 않기</pre></div>
 
-  <h3 class="caseh">평가 루브릭 (예시 · 100점)</h3>
+  <h3 class="caseh" id="canvas-h6" data-part="6">평가 루브릭 (예시 · 100점)</h3>
   <div class="tblwrap"><table>
     <tr><th>평가 항목 (배점)</th><th>우수</th><th>보통</th><th>미흡</th></tr>
     <tr><td><b>내용 정확성</b> (30)<br><small>결과물 + 보고서 ④</small></td><td>개념·용어·공식이 수업과 일치하고, AI 오류를 근거와 함께 찾아 고침</td><td>대체로 맞지만 오류 한두 곳이 남아 있음</td><td>수업 내용과 다르거나 확인하지 않음</td></tr>
@@ -642,9 +654,10 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
 
 
 <!-- 2+단계: 실시간 라이브 대시보드 -->
-<section id="live">
+<section id="live" class="wp wp-hashero">
   <h2 class="sec">2+ 실시간 라이브 대시보드 · 감이 아니라 근거로 다음을 정하다</h2>
-  <p class="lead">설문 응답이 쌓이는 구글 시트를 <b>제미나이 캔버스</b>가 30초마다 불러와 KPI와 차트를 그립니다. 응답이 하나 들어오면 화면이 바로 바뀌어요. 오늘은 <b>강사가 미리 만든 데이터 주소</b>를 쓰니까, 교수님들은 <b>프롬프트를 복사해 붙여 넣기만</b> 하면 돼요.</p>
+  <div class="wp-hero"><p class="k">오후반 · 2+ 실시간 라이브 대시보드</p><p class="t">감이 아니라 근거로 다음을 정하다</p><p class="d">설문 응답이 쌓이는 구글 시트를 <b>제미나이 캔버스</b>가 30초마다 불러와 KPI와 차트를 그립니다. 응답이 하나 들어오면 화면이 바로 바뀌어요. 오늘은 <b>강사가 미리 만든 데이터 주소</b>를 쓰니까, 교수님들은 <b>프롬프트를 복사해 붙여 넣기만</b> 하면 돼요.</p><div class="wp-flow"><a href="#live-h1"><em>PART 1</em><b>👀 먼저 보기 · 오늘 만들 대시보드는 이렇게…</b><span></span></a><a href="#live-h2"><em>PART 2</em><b>1 · 라이브 체험 — 학생이 되어 응답해 보기</b><span></span></a><a href="#live-h3"><em>PART 3</em><b>2 · 내 대시보드 만들기 — 붙여 넣기만 하…</b><span></span></a><a href="#live-h4"><em>PART 4</em><b>3 · 꾸미고 고치기 — 한 줄씩 더해 보세요</b><span></span></a><a href="#live-h5"><em>PART 5</em><b>＋ 내 시트로 연결하기 — 원하는 분만</b><span></span></a></div></div>
+
 
   <div class="trio">
     <div><span>1</span><b>라이브 체험</b><p>교수님이 학생이 되어 휴대폰으로 중간 강의 점검 폼에 응답해요.</p></div>
@@ -653,11 +666,11 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <div><span>+</span><b>내 시트로 연결</b><p>원하는 분은 내 시트를 웹에 게시해 연결해요. 앱스 스크립트는 심화예요.</p></div>
   </div>
 
-  <h3 class="caseh" style="margin-top:56px">👀 먼저 보기 · 오늘 만들 대시보드는 이렇게 나와요</h3>
+  <h3 class="caseh" style="margin-top:56px" id="live-h1" data-part="1">👀 먼저 보기 · 오늘 만들 대시보드는 이렇게 나와요</h3>
   <p>가상 응답으로 미리 만든 <b>완성 예시</b>예요. 위쪽 <b>[응답 1개 들어오기]</b>를 누르면 새 응답이 들어올 때 숫자와 차트가 어떻게 바뀌는지 볼 수 있어요.</p>
   <p><a class="dl" href="files/live/course-check-demo.html" target="_blank" rel="noopener">👩‍🏫 교수님 예시 · Mid-term Course Check 열기 ↗</a> &nbsp; <a class="dl" href="files/live/event-check-demo.html" target="_blank" rel="noopener">🗂️ 교직원 예시 · Event Check 열기 ↗</a></p>
 
-  <h3 class="caseh" style="margin-top:72px">1 · 라이브 체험 — 학생이 되어 응답해 보기</h3>
+  <h3 class="caseh" style="margin-top:72px" id="live-h2" data-part="2">1 · 라이브 체험 — 학생이 되어 응답해 보기</h3>
   <p>지금부터 교수님들은 <b>[가상] 경영통계 8주차 수업을 듣는 학생</b>이에요. 휴대폰으로 아래 폼에 응답해 주세요. 강사 화면의 <b>Mid-term Course Check 대시보드</b>에 여러분의 응답이 <b>실시간으로</b> 더해지고, 평균 이해도와 “다시 설명할 개념”이 바뀌는 걸 함께 봅니다.</p>
   <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:#fff;border:2px solid #1f3a5f;border-radius:16px;padding:20px 24px;margin:18px 0">
     <img src="img/qr-course-check.png" alt="Mid-term Course Check 응답 폼 QR" style="width:180px;height:180px;border-radius:8px">
@@ -665,7 +678,7 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
   </div>
   <p class="tip">강사 시트에는 가상 응답 40건이 먼저 들어 있어요. 교수님들 응답이 더해질 때마다 숫자가 움직여요.</p>
 
-  <h3 class="caseh" style="margin-top:72px">2 · 내 대시보드 만들기 — 붙여 넣기만 하면 돼요</h3>
+  <h3 class="caseh" style="margin-top:72px" id="live-h3" data-part="3">2 · 내 대시보드 만들기 — 붙여 넣기만 하면 돼요</h3>
   <div class="lvsw"><button type="button" class="on" data-to="prof">👩‍🏫 교수님 트랙<small>Mid-term Course Check</small></button><button type="button" data-to="staff">🗂️ 교직원 트랙<small>Event Check</small></button></div>
   <div data-lv="prof"><div class="callout gold"><b class="t">Mid-term Course Check · 강의 개선 의사결정 보드</b> 학기 중간에 받는 <b>익명 수업 피드백</b>으로 다음 수업에서 <b>무엇을 다시 설명하고, 속도와 활동을 어떻게 바꿀지</b> 정해요. 오전반 3단원 <b>카드 A(중간 수업 피드백)</b>와 같은 문항이에요.</div></div>
   <div data-lv="staff"><div class="callout gold"><b class="t">Event Check · 행사 개선 의사결정 보드</b> 행사·연수가 끝나고 받는 <b>만족도 조사</b>로 다음 행사의 <b>주제·순서·시간</b>을 정하고, <b>결과보고서 숫자</b>를 바로 뽑아요.</div></div>
@@ -738,12 +751,12 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
   <p class="tip">🔴 <b>빨강</b>(숫자 정확하게 · 열 이름 그대로) · 🟢 <b>초록</b>(진짜 데이터로 · 30초 새로고침 · 실패하면 솔직하게) 규칙은 지우지 마세요. AI는 모르면 그럴듯하게 지어내요. 🔵 디자인 부분만 마음대로 바꿔도 돼요.</p>
   <p class="tip">숫자가 안 나오면 이어서 <span class="say">“데이터를 못 불러오면 이유를 화면에 보여줘”</span>라고 보내 보세요. 그래도 안 되면 손을 들어 주세요.</p>
 
-  <h3 class="caseh" style="margin-top:72px">3 · 꾸미고 고치기 — 한 줄씩 더해 보세요</h3>
+  <h3 class="caseh" style="margin-top:72px" id="live-h4" data-part="4">3 · 꾸미고 고치기 — 한 줄씩 더해 보세요</h3>
   <p>같은 채팅창에 아래를 <b>하나씩</b> 이어 붙여 보세요. 붙일 때마다 대시보드가 바뀌어요. 다 만들면 캔버스 <b>공유</b> 링크를 패들렛에 올려요.</p>
   <div data-lv="prof"><div class="prompt"><div class="label">🎨 ① 디자인 테마 바꾸기</div><button class="copy">복사</button><pre>대시보드 디자인을 '[○○]' 테마로 바꿔줘. 데이터와 차트 내용은 그대로 두고 보이는 스타일만 바꿔줘.</pre></div><p class="tip" style="margin:-4px 0 18px">[○○] 예시: 학회 포스터 · 연구실 화이트보드 · 강의 슬라이드 · 대진대 교색 · 다크 모드</p><div class="prompt"><div class="label">🖱️ ② 막대 클릭 → 응답 원문</div><button class="copy">복사</button><pre>각 차트의 막대나 조각을 클릭하면, 그 항목을 고른 응답들의 '개선 제안' 원문을 아래 표로 보여줘. 이미 불러온 데이터만 쓰고, 새 내용은 지어내지 마.</pre></div><div class="prompt"><div class="label">🔎 ③ 키워드 검색</div><button class="copy">복사</button><pre>하단에 검색창을 추가해줘. 키워드를 넣으면 '개선 제안'에 그 단어가 들어간 응답만 카드로 보여줘.</pre></div><div class="prompt"><div class="label">🎛️ ④ 조건 필터</div><button class="copy">복사</button><pre>학년·전공 구분·수업 속도 필터를 추가해줘. 드롭다운 항목은 데이터에 실제로 있는 값만 자동으로 뽑아서 채우고(임의 생성 금지), 여러 필터를 함께 걸면 교집합(AND)으로 모든 KPI와 차트가 다시 계산되게 해줘.</pre></div><div class="prompt"><div class="label">🎲 ⑤ 관점 바꾸기</div><button class="copy">복사</button><pre>지금 대시보드를 '[관점]' 교수의 관점으로 다시 강조해줘. 그 관점에서 가장 중요한 KPI와 차트를 맨 위에 크게, 나머지는 작게 정리해줘. 데이터는 이미 불러온 것만 그대로 써.</pre></div><p class="tip" style="margin:-4px 0 18px">[관점] 예시: 대형 교양 강의 · 전공 심화 · 실습 위주 · 처음 맡은 과목</p></div>
   <div data-lv="staff"><div class="prompt"><div class="label">🎨 ① 디자인 테마 바꾸기</div><button class="copy">복사</button><pre>대시보드 디자인을 '[○○]' 테마로 바꿔줘. 데이터와 차트 내용은 그대로 두고 보이는 스타일만 바꿔줘.</pre></div><p class="tip" style="margin:-4px 0 18px">[○○] 예시: 결재 보고서 · 대학 홈페이지 공지 · 연수원 브로슈어 · 대진대 교색</p><div class="prompt"><div class="label">🖱️ ② 막대 클릭 → 응답 원문</div><button class="copy">복사</button><pre>각 차트의 막대나 조각을 클릭하면, 그 항목을 고른 응답들의 '아쉬웠던 점' 원문과 부서를 아래 표로 보여줘. 이미 불러온 데이터만 써.</pre></div><div class="prompt"><div class="label">🏢 ③ 부서별 보기</div><button class="copy">복사</button><pre>부서 드롭다운을 추가해줘. 부서를 고르면 그 부서 응답만으로 모든 KPI와 차트가 다시 계산되게 해줘. 항목은 데이터에 실제로 있는 부서만 자동으로 채워줘.</pre></div><div class="prompt"><div class="label">📄 ④ 결과보고서 표</div><button class="copy">복사</button><pre>맨 아래에 결과보고서에 붙일 표를 만들어줘. 항목 | 결과 형식으로 응답 수, 평균 만족도, 만족 비율, 재참여 의향, 유익했던 순서 1위, 희망 주제 1위를 넣고 표 전체 복사 버튼을 달아줘.</pre></div><div class="prompt"><div class="label">🎲 ⑤ 관점 바꾸기</div><button class="copy">복사</button><pre>지금 대시보드를 '[관점]' 관점으로 다시 강조해줘. 그 관점에서 가장 중요한 KPI를 맨 위에 크게 배치해줘. 데이터는 이미 불러온 것만 그대로 써.</pre></div><p class="tip" style="margin:-4px 0 18px">[관점] 예시: 예산 담당 · 부서장 보고용 · 다음 연수 기획자</p></div>
 
-  <h3 class="caseh" style="margin-top:72px">＋ 내 시트로 연결하기 — 원하는 분만</h3>
+  <h3 class="caseh" style="margin-top:72px" id="live-h5" data-part="5">＋ 내 시트로 연결하기 — 원하는 분만</h3>
   <p>오늘은 강사 데이터로 연습했어요. <b>내 수업 설문</b>으로 쓰려면 내 시트 주소를 넣으면 돼요. 방법은 두 가지예요.</p>
   <div class="callout gold"><b class="t">🚀 빠른 길 · 강사 예시 사본 만들기</b> 아래 버튼을 누르고 <b>[사본 만들기]</b>를 누르면 오늘 쓴 폼과 가상 응답 40건이 든 시트가 <b>내 드라이브</b>에 생겨요. 문항만 내 수업에 맞게 고치고, 가상 응답 줄은 지운 뒤 아래 방법으로 연결하세요.<p style="margin:12px 0 0"><a class="dl" href="https://docs.google.com/spreadsheets/d/1puhChn7AeXFxT87OJUhwIximWx5mtcGLA8gckfOIXYU/copy" target="_blank" rel="noopener">📊 응답 시트 + 폼 사본 만들기 ↗</a> &nbsp; <a class="dl" href="https://docs.google.com/forms/d/1tJ4hReXaZ720EH9hpaTc5XOyXDtA8xcK7hUTXb7Clxg/copy" target="_blank" rel="noopener">📝 폼만 사본 만들기 ↗</a></p><p class="tip" style="margin:10px 0 0">시트 사본을 만들면 연결된 폼도 함께 복사돼요. 폼만 필요할 때는 오른쪽 버튼을 쓰세요.</p></div>
   <details class="ex case"><summary><b>중급 · 웹에 게시로 연결하기</b> <span class="needs">코드 없음 · 메뉴 클릭만</span></summary><div class="body">
@@ -1042,7 +1055,7 @@ var g='prof';try{g=localStorage.getItem('dj-live-grp')||'prof'}catch(e){}set(g);
 </script>
 
 <!-- 3단계: 노트북LM 강의계획서 (오전반 2+++ 탭 복사본) -->
-<section id="nlmSyl" class="wp">
+<section id="nlmSyl" class="wp wp-hashero">
 <style>
 #nlmSyl .mth{border:1px solid #e5e7eb;border-radius:12px;padding:12px 16px;margin:8px 0 14px;background:#fff}
 #nlmSyl details.mth>summary.mh{cursor:pointer;font-weight:700;list-style:none}
@@ -1354,7 +1367,7 @@ show();
 </section>
 
 <!-- 3단계: 노트북LM 연결 -->
-<section id="nlm" class="wp">
+<section id="nlm" class="wp wp-hashero">
   <h2 class="sec">3+단계 · 노트북LM에서 근거가 있는 바이브코딩으로</h2>
   <div class="callout green"><b class="t">강의계획서 노트북이 있다면</b> <a href="#nlmSyl"><b>3단계 노트북LM 강의계획서</b></a>에서 만든 노트북을 그대로 쓰세요. 아래 ①의 딥리서치는 건너뛰고 ②부터 하면 돼요.</div>
   <div class="callout blue"><b class="t">강사 시연으로 진행해요</b> 이 단계는 강사가 준비한 자료로 직접 보여 드립니다. 아래는 나중에 다시 해 볼 수 있게 부탁문과 흐름을 모아 둔 참고 자료예요.</div>
@@ -1368,8 +1381,6 @@ show();
     <tr><td>예: 12주차 상대위험도 계산기</td><td>칸 배치를 잘못 짚어 RR <b>4.28</b> (틀림)</td><td>강의자료의 칸 배치대로 RR <b>2.85</b> (정답)</td></tr>
     <tr><td>확인 방법</td><td>내가 처음부터 다 확인해야 함</td><td>답 옆 <b>출처 숫자</b>를 눌러 자료의 어느 줄인지 바로 확인</td></tr>
   </table></div>
-
-  </div>
 
   <div class="step" id="nlm-s①"><div class="no">①</div><div>
     <h4>노트북LM에서 · 딥리서치로 내 과목 자료 모으기 <span style="color:#a8433b">(교수님 직접 해 보기)</span></h4>
@@ -1508,7 +1519,7 @@ show();
 
 
 <!-- 시연 A -->
-<section id="demoA">
+<section id="demoA" class="wp wp-hashero">
   <div class="callout gold"><b class="t">4단계 · 구글 AI 스튜디오: 템플릿 리믹스</b>
     <p style="margin:4px 0 0">구글이 만들어 둔 멋진 게임을 하나 골라 <b><span class="say">"이 게임을 내 수업 내용으로 바꿔 줘"</span></b>라고 말하면, AI가 코드를 고쳐 내 과목 게임으로 바꿔 줍니다. 이것을 <b>리믹스</b>라고 해요. 흐름은 <b>강사 시연(체스·단어 퍼즐) → 템플릿 고르기 → 리믹스 → 공유</b> 순서예요.</p></div>
   <div class="callout red"><b class="t">4단계는 심화예요 · 오늘은 여기까지만 해도 충분해요</b>
@@ -1519,7 +1530,7 @@ show();
     <ul><li><b>빈 화면에서 시작하지 않아요.</b> 화면, 효과, 게임 규칙은 이미 완성되어 있고, 우리는 <b>내용</b>만 바꿉니다.</li>
     <li><b>이것이 바이브코딩이에요.</b> 코드를 한 줄도 쓰지 않고, 말로 부탁하고 결과를 보고 다시 말로 고칩니다.</li>
     <li><b>학생과도 똑같이 할 수 있어요.</b> 오늘 교수님이 하신 활동을 학생 팀 과제로 그대로 낼 수 있습니다. (공유·활용하기 탭에서 안내)</li></ul></div>
-  <div class="step"><div class="no">✓</div><div>
+  <div class="step" id="demoA-st1"><div class="no">✓</div><div>
     <h4>AI 스튜디오 시작 전 준비</h4>
     <ol><li>크롬에서 <b>개인 Gmail</b>로 로그인 (학교 계정은 AI 스튜디오가 막혀 있을 수 있어요)</li>
     <li><a href="https://aistudio.google.com/apps" target="_blank">aistudio.google.com/apps</a> 접속 → 처음이면 약관 동의</li>
@@ -1527,14 +1538,15 @@ show();
     <div class="shots"><figure><img src="img/nav-1-home.jpg" alt="AI 스튜디오 첫 화면" loading="lazy"><figcaption>① 왼쪽 메뉴의 <b>Gallery</b></figcaption></figure><figure><img src="img/nav-2-gallery.jpg" alt="Gallery 화면" loading="lazy"><figcaption>② 위 검색창에 템플릿 영어 이름을 치거나, <b>Games and Visualizations</b>로 게임만 모아 보기</figcaption></figure><figure><img src="img/nav-3-search.jpg" alt="검색 결과" loading="lazy"><figcaption>③ 카드를 누르면 템플릿이 열려요</figcaption></figure></div>
   </div></div>
   <h2 class="sec">강사 시연 ① 무거운 템플릿: 체스 <span class="time">완성본만</span></h2>
-  <p class="lead">3D 체스를 <b>'개념 체스'</b>로 바꾼 완성본을 3분만 함께 둬 봅니다. 상대 말을 잡으려면 수업 문제를 맞혀야 해요. 예시는 간호 과목이지만, 보실 것은 하나예요. <b>게임의 규칙(잡으려면 맞혀야 한다)이 그대로 수업 활동이 된다</b>는 것. 무거운 템플릿이라 만드는 데 9분쯤 걸려서, 오늘은 만들지 않고 완성본만 봅니다.</p>
-  <div class="step"><div class="no">1</div><div>
+  <div class="wp-hero"><p class="k">오후반</p><p class="t">강사 시연 ① 무거운 템플릿: 체스 완성본만</p><p class="d">3D 체스를 <b>'개념 체스'</b>로 바꾼 완성본을 3분만 함께 둬 봅니다. 상대 말을 잡으려면 수업 문제를 맞혀야 해요. 예시는 간호 과목이지만, 보실 것은 하나예요. <b>게임의 규칙(잡으려면 맞혀야 한다)이 그대로 수업 활동이 된다</b>는 것. 무거운 템플릿이라 만드는 데 9분쯤 걸려서, 오늘은 만들지 않고 완성본만 봅니다.</p><div class="wp-flow"><a href="#demoA-st1"><em>✓</em><b>AI 스튜디오 시작 전 준비</b><span></span></a><a href="#demoA-st2"><em>1</em><b>원본 먼저 해 보기 강사 화면</b><span></span></a><a href="#demoA-st3"><em>참고</em><b>리믹스 부탁문 보내기 강사 화면</b><span></span></a><a href="#demoA-st4"><em>2</em><b>완성본 보기</b><span></span></a></div></div>
+
+  <div class="step" id="demoA-st2"><div class="no">1</div><div>
     <h4>원본 먼저 해 보기 <span class="badge b-demo">강사 화면</span></h4>
     <p><b>Wizard Chess 3D</b>: 고딕 성당 분위기의 3D 마법사 체스. 말을 잡을 때 돌조각이 부서지는 연출이 있고, 컴퓨터와 대결합니다.</p>
     <a class="dl alt" href="https://aistudio.google.com/apps/bundled/wizard-chess-3d" target="_blank">Wizard Chess 3D 원본 열기</a> <a class="dl" href="https://aistudio.google.com/apps/40bfac5f-b9d4-47c0-bd03-f5509db14d53" target="_blank">간호 개념 체스 완성본 ↗</a>
     <div class="shots"><figure><img src="img/nav-2-gallery.jpg" alt="Gallery 첫 화면의 체스" loading="lazy"><figcaption>Gallery 첫 화면(Featured)에 체스가 있어요</figcaption></figure><figure><img src="img/chess-orig.jpg" alt="체스 원본" loading="lazy"><figcaption>원본: 영어로 된 3D 마법사 체스</figcaption></figure></div>
   </div></div>
-  <details class="ex case"><summary><b>참고: 강사가 체스를 만든 과정과 부탁문</b> <span class="needs">접어 두기</span></summary><div class="body"><div class="step"><div class="no">참고</div><div>
+  <details class="ex case"><summary><b>참고: 강사가 체스를 만든 과정과 부탁문</b> <span class="needs">접어 두기</span></summary><div class="body"><div class="step" id="demoA-st3"><div class="no">참고</div><div>
     <h4>리믹스 부탁문 보내기 <span class="badge b-demo">강사 화면</span></h4>
     <div class="prompt"><div class="label">시연 부탁문 A · 간호 개념 체스 (기본간호학 · 활력징후)</div><button class="copy">복사</button><pre>지금 이 체스 게임을 내 대학 수업용 '개념 체스'로 바꿔 줘.
 
@@ -1564,7 +1576,7 @@ show();
     <p class="tip">강사가 해 보니 <b>약 9분</b> 걸렸어요. 시연 때는 미리 만들어 둔 완성본을 보여 주세요.</p>
   </div></div>
   </div></details>
-  <div class="step"><div class="no">2</div><div>
+  <div class="step" id="demoA-st4"><div class="no">2</div><div>
     <h4>완성본 보기</h4>
     <p>말을 잡으려는 순간 문제가 뜨고, 맞혀야 잡히는 모습을 봅니다. 미리보기 화면에서 직접 한 판 둬 봅니다.</p>
     <div class="shots"><figure><img src="img/chess-intro.jpg" alt="개념 체스 시작 화면" loading="lazy"><figcaption>시작 화면: 과목·주제·학습 목표·규칙</figcaption></figure><figure><img src="img/chess-quiz.jpg" alt="말을 잡을 때 문제" loading="lazy"><figcaption>말을 잡으려 하면 문제가 떠요</figcaption></figure><figure><img src="img/chess-correct.jpg" alt="정답" loading="lazy"><figcaption>맞히면 말을 잡고 한 줄 설명</figcaption></figure></div>
@@ -1573,16 +1585,17 @@ show();
 </section>
 
 <!-- 시연 B -->
-<section id="demoB">
+<section id="demoB" class="wp wp-hashero">
   <h2 class="sec">강사 시연 ② 가벼운 템플릿: 단어 퍼즐</h2>
-  <p class="lead">글자를 이어 단어를 만드는 퍼즐 <b>Word wheel</b>을 <b>'생성형 AI 핵심 용어 퍼즐'</b>로 바꿉니다. 교수님들이 함께 풀면서 <b>프롬프트·환각·에이전트·바이브코딩</b> 같은 요즘 용어도 익힐 수 있어요. 강사는 부탁문을 먼저 보내 놓고, 기다리는 동안 다음 탭의 템플릿 메뉴판을 함께 봅니다.</p>
-  <div class="step"><div class="no">1</div><div>
+  <div class="wp-hero"><p class="k">오후반</p><p class="t">강사 시연 ② 가벼운 템플릿: 단어 퍼즐</p><p class="d">글자를 이어 단어를 만드는 퍼즐 <b>Word wheel</b>을 <b>'생성형 AI 핵심 용어 퍼즐'</b>로 바꿉니다. 교수님들이 함께 풀면서 <b>프롬프트·환각·에이전트·바이브코딩</b> 같은 요즘 용어도 익힐 수 있어요. 강사는 부탁문을 먼저 보내 놓고, 기다리는 동안 다음 탭의 템플릿 메뉴판을 함께 봅니다.</p><div class="wp-flow"><a href="#demoB-st1"><em>1</em><b>템플릿 열기</b><span></span></a><a href="#demoB-st2"><em>2</em><b>부탁문 붙여 넣고 Remix</b><span></span></a><a href="#demoB-st3"><em>3</em><b>말로 한 번 더 고치기</b><span></span></a></div></div>
+
+  <div class="step" id="demoB-st1"><div class="no">1</div><div>
     <h4>템플릿 열기</h4>
     <p><b>Word wheel</b>: 동그란 바퀴의 글자를 한 번에 이어 단어를 만들면 가로세로 퍼즐 칸이 채워지는 게임입니다. <b>용어와 뜻만 바꾸면 어느 과목이든</b> 됩니다.</p>
     <a class="dl alt" href="https://aistudio.google.com/apps/bundled/word_wheel" target="_blank">Word wheel 원본 열기</a> <a class="dl" href="https://aistudio.google.com/apps/8639d63d-0c34-454e-af25-d1077403c10f" target="_blank">생성형 AI 용어 퍼즐 완성본 ↗</a>
     <div class="shots"><figure><img src="img/ww-template.jpg" alt="템플릿을 열면 오른쪽에 원본 게임, 왼쪽 아래에 부탁문 칸이 있어요" loading="lazy"><figcaption>템플릿을 열면 오른쪽에 원본 게임, 왼쪽 아래에 부탁문 칸이 있어요</figcaption></figure></div>
   </div></div>
-  <div class="step"><div class="no">2</div><div>
+  <div class="step" id="demoB-st2"><div class="no">2</div><div>
     <h4>부탁문 붙여 넣고 Remix</h4>
     <div class="prompt"><div class="label">시연 부탁문 B · 생성형 AI 핵심 용어 퍼즐 (AI 리터러시)</div><button class="copy">복사</button><pre>지금 이 단어 퍼즐 게임을 내 대학 수업용으로 바꿔 줘.
 
@@ -1613,7 +1626,7 @@ show();
     <div class="callout gold"><b class="t">강사가 직접 해 보니</b> 처음 Remix를 누르자 <b>"The task was canceled"</b>가 떴어요. 같은 부탁문을 왼쪽 아래 칸에 다시 보냈더니 이번엔 <b>"An internal error occurred"</b>가 나와 <b>Retry</b>를 눌렀고, 그 뒤 약 9분 만에 완성됐어요. 당황하지 말고 '막혔을 때' 탭의 순서대로 하면 돼요.</div>
     <p class="okline">✓ 바퀴에 한글 글자가 나오고, 용어를 맞히면 뜻이 뜨면 성공</p>
   </div></div>
-  <div class="step"><div class="no">3</div><div>
+  <div class="step" id="demoB-st3"><div class="no">3</div><div>
     <h4>말로 한 번 더 고치기</h4>
     <p>마음에 안 드는 곳은 <b>딱 한 가지씩</b> 말로 고칩니다.</p>
     <ul class="samplelist">
@@ -1626,9 +1639,10 @@ show();
 </section>
 
 <!-- 템플릿 고르기 -->
-<section id="pick">
+<section id="pick" class="wp wp-hashero">
   <h2 class="sec">4단계-1 · 내 수업·업무에 맞는 템플릿 고르기</h2>
-  <p class="lead"><b>오늘 오신 학과·부서</b>를 누르면 어울리는 템플릿에 <b>추천</b> 표시가 붙고 앞으로 모입니다. 카드 아래 <b>예)</b>에 내 학과에서 쓸 만한 주제가 있어요. 처음이라면 <b>난이도 ★</b>부터 고르세요. 카드의 <b>열어 보기</b>로 원본을 먼저 해 보고, 마음에 들면 다음 탭에서 리믹스합니다.</p>
+  <div class="wp-hero"><p class="k">오후반 · 4단계-1</p><p class="t">내 수업·업무에 맞는 템플릿 고르기</p><p class="d"><b>오늘 오신 학과·부서</b>를 누르면 어울리는 템플릿에 <b>추천</b> 표시가 붙고 앞으로 모입니다. 카드 아래 <b>예)</b>에 내 학과에서 쓸 만한 주제가 있어요. 처음이라면 <b>난이도 ★</b>부터 고르세요. 카드의 <b>열어 보기</b>로 원본을 먼저 해 보고, 마음에 들면 다음 탭에서 리믹스합니다.</p></div>
+
   <div class="fltr" id="groupBtns"></div>
   <div class="fltr" id="levelBtns"></div>
   <div class="tgrid" id="tgrid"></div>
@@ -1644,17 +1658,18 @@ show();
 </section>
 
 <!-- 리믹스 -->
-<section id="make">
+<section id="make" class="wp wp-hashero">
   <h2 class="sec">4단계-2 · 내 수업·업무로 리믹스하기</h2>
-  <p class="lead">아래 칸을 채우면 부탁문이 완성됩니다. <b>교직원 선생님은 [업무용]</b>을 고르세요. 수업 대신 내가 안내·교육하는 대상(학생, 신임 연구자 등)에게 쓸 도구로 바뀌어요. 바뀌는 부분은 <mark class="chg">빨간색</mark>으로 보여요.</p>
-  <div class="step"><div class="no">1</div><div>
+  <div class="wp-hero"><p class="k">오후반 · 4단계-2</p><p class="t">내 수업·업무로 리믹스하기</p><p class="d">아래 칸을 채우면 부탁문이 완성됩니다. <b>교직원 선생님은 [업무용]</b>을 고르세요. 수업 대신 내가 안내·교육하는 대상(학생, 신임 연구자 등)에게 쓸 도구로 바뀌어요. 바뀌는 부분은 <mark class="chg">빨간색</mark>으로 보여요.</p><div class="wp-flow"><a href="#make-st1"><em>1</em><b>템플릿 열기 (Remix는 부탁문과 함께)</b><span></span></a><a href="#make-st2"><em>2</em><b>부탁문 만들기</b><span></span></a><a href="#make-st3"><em>3</em><b>보내고 기다리기</b><span></span></a><a href="#make-st4"><em>4</em><b>한 가지씩 말로 고치기</b><span></span></a></div></div>
+
+  <div class="step" id="make-st1"><div class="no">1</div><div>
     <h4>템플릿 열기 (Remix는 부탁문과 함께)</h4>
     <ol><li>템플릿 고르기 탭에서 고른 템플릿의 <b>열어 보기</b>를 누릅니다</li>
     <li>원본을 1분만 해 보며 "어디에 내 수업 내용을 넣을까" 생각합니다</li>
     <li>왼쪽 아래 칸에 다음 단계의 부탁문을 붙여 넣고 <b>Remix</b> → 앱 이름을 한글로 바꾸고 <b>Remix app</b></li></ol>
     <div class="shots"><figure><img src="img/ww-prompt.jpg" alt="부탁문 칸과 Remix 버튼" loading="lazy"><figcaption>원본 화면 왼쪽 아래 칸에 부탁문을 붙여 넣고 칸 안의 <b>Remix</b></figcaption></figure><figure><img src="img/ww-dialog.jpg" alt="Remix 이름 정하기 창" loading="lazy"><figcaption>앱 이름을 한글로 바꾸고 <b>Remix app</b> (AI를 쓰는 템플릿은 <b>Next</b>)</figcaption></figure><figure><img src="img/api-dialog.jpg" alt="Gemini API 연결 안내 창" loading="lazy"><figcaption>AI를 쓰는 템플릿은 이런 창이 한 번 더 떠요. <b>Link a paid API key</b>는 누르지 말고 <b>Remix app</b></figcaption></figure></div>
   </div></div>
-  <div class="step"><div class="no">2</div><div>
+  <div class="step" id="make-st2"><div class="no">2</div><div>
     <h4>부탁문 만들기</h4>
     <div class="modesw" role="radiogroup" aria-label="수업용 또는 업무용"><label><input type="radio" name="fMode" value="class" checked> 📚 수업용 (교수님)</label><label><input type="radio" name="fMode" value="work"> 🗂️ 업무용 (교직원)</label></div>
     <div class="mine">
@@ -1671,14 +1686,14 @@ show();
     <div class="prompt"><div class="label">부탁문 · 내 수업·업무로 리믹스</div><button class="copy">복사</button><pre id="remixPrompt"></pre></div>
     <p class="tip">수업 내용이 아직 없다면 강의자료 PDF를 대화창의 <b>+</b>로 첨부하고, [수업 내용] 칸에 "첨부한 강의자료의 핵심 용어 8개"라고만 써도 됩니다.</p>
   </div></div>
-  <div class="step"><div class="no">3</div><div>
+  <div class="step" id="make-st3"><div class="no">3</div><div>
     <h4>보내고 기다리기</h4>
     <ol><li>왼쪽 대화창에 붙여 넣고 보내기</li>
     <li>AI가 코드를 고치는 동안 <b>5~10분</b> 기다립니다. 그동안 다른 템플릿을 하나 더 열어 구경해 보세요</li>
     <li>오른쪽 <b>미리보기</b>에서 직접 해 보기</li></ol>
     <div class="shots"><figure><img src="img/ww-working.jpg" alt="AI가 코드를 고치는 중" loading="lazy"><figcaption>파일 목록에 초록 체크가 하나씩 붙어요. 다 끝나면 오른쪽에 게임이 떠요</figcaption></figure><figure><img src="img/ww-failed.jpg" alt="Failed to load app 화면" loading="lazy"><figcaption>끝났는데 <b>Failed to load app</b>이 보이면 당황하지 말고 <b>Retry</b></figcaption></figure></div>
   </div></div>
-  <div class="step"><div class="no">4</div><div>
+  <div class="step" id="make-st4"><div class="no">4</div><div>
     <h4>한 가지씩 말로 고치기</h4>
     <p><span class="say">"더 좋게 해 줘"</span>처럼 넓게 말하지 말고, <b>"○○만 바꿔 줘. 다른 부분은 그대로 둬."</b>라고 말합니다.</p>
     <h5 class="samph">내용</h5>
@@ -1708,9 +1723,11 @@ show();
 </section>
 
 <!-- 나누기 -->
-<section id="share">
+<section id="share" class="wp wp-hashero">
   <h2 class="sec">4단계-3 · 공유하고, 수업·업무에 쓰기</h2>
-  <div class="step"><div class="no">1</div><div>
+<div class="wp-hero"><p class="k">오후반 · 4단계-3</p><p class="t">공유하고, 수업·업무에 쓰기</p><p class="d"></p><div class="wp-flow"><a href="#share-st1"><em>1</em><b>공유 링크 만들기</b><span></span></a><a href="#share-st2"><em>2</em><b>수업·업무에서 이렇게 써 보세요</b><span></span></a></div></div>
+
+  <div class="step" id="share-st1"><div class="no">1</div><div>
     <h4>공유 링크 만들기</h4>
     <div class="shots"><figure><img src="img/nav-myapps.jpg" alt="My apps" loading="lazy"><figcaption>다음에 다시 열 때는 왼쪽 <b>My apps</b>에서 내가 만든 앱을 찾아요</figcaption></figure></div>
     <ol><li>오른쪽 위 <b>Share</b> 버튼</li>
@@ -1719,7 +1736,7 @@ show();
     <p class="tip"><b>꼭 알아 두세요:</b> Public으로 바꿔도 링크를 연 사람이 <b>Google 계정에 로그인</b>해야 열려요. 로그인하지 않으면 Google 로그인 화면이 먼저 나와요(강사가 로그아웃 상태로 직접 확인함). 학생들에게 나눠 줄 때는 "학교·개인 Google 계정으로 로그인한 뒤 여세요"라고 함께 안내하세요.</p>
     <div class="shots"><figure><img src="img/share.jpg" alt="공유 설정 창" loading="lazy"><figcaption>오른쪽 위 Share → ① Share 탭 → ② 접근 권한을 <b>Public</b>으로 → ③ <b>Copy link</b></figcaption></figure><figure><img src="img/publish.jpg" alt="Publish 탭" loading="lazy"><figcaption><b>Publish</b>는 따로 공개 주소를 만드는 기능이에요. 오늘은 Share 링크까지만 해도 충분합니다</figcaption></figure></div>
   </div></div>
-  <div class="step"><div class="no">2</div><div>
+  <div class="step" id="share-st2"><div class="no">2</div><div>
     <h4>수업·업무에서 이렇게 써 보세요</h4>
     <div class="uses">
       <div><b>수업 시작 5분 복습</b><p>지난 시간 내용을 게임으로. 강의실 화면에 띄우고 다 같이 풉니다.</p></div>
@@ -1746,12 +1763,13 @@ show();
 </section>
 
 <!-- 활용 사례 -->
-<section id="cases">
+<section id="cases" class="wp wp-hashero">
   <h2 class="sec">리믹스 활용 사례 <span class="time">참고</span></h2>
-  <p class="lead">막히거나 아이디어가 필요할 때 펼쳐 보세요. <b>④에서 직접 부탁문을 만들어 본 뒤</b> 열어 보시길 권해요. 각 사례에는 원본 화면, 대진대 과목으로 바꾼 예시 부탁문, 이어서 고치는 말이 들어 있어요.</p>
+  <div class="wp-hero"><p class="k">오후반</p><p class="t">리믹스 활용 사례 참고</p><p class="d">막히거나 아이디어가 필요할 때 펼쳐 보세요. <b>④에서 직접 부탁문을 만들어 본 뒤</b> 열어 보시길 권해요. 각 사례에는 원본 화면, 대진대 과목으로 바꾼 예시 부탁문, 이어서 고치는 말이 들어 있어요.</p><div class="wp-flow"><a href="#cases-h1"><em>PART 1</em><b>강사가 직접 만들어 본 완성 사례</b><span></span></a><a href="#cases-h2"><em>PART 2</em><b>✨ 우와! 오늘 오신 학과 쇼케이스</b><span></span></a><a href="#cases-h3"><em>PART 3</em><b>오늘 오시는 학과 사례 · 따라 하기 쉬운 버전</b><span></span></a><a href="#cases-h4"><em>PART 4</em><b>🗂️ 교직원 업무용 사례</b><span></span></a></div></div>
+
   <p class="tip"><b>완성본 열기</b> 링크는 강사가 만든 앱이고, 모두 Public으로 열어 두었어요. Google 계정에 로그인한 상태에서 열면 바로 해 볼 수 있어요. 오른쪽 위에 <b>Remix</b> 버튼이 보이면 눌러서 내 것으로 복사해 고쳐 쓰셔도 돼요.</p>
 
-  <h3 class="caseh">강사가 직접 만들어 본 완성 사례</h3>
+  <h3 class="caseh" id="cases-h1" data-part="1">강사가 직접 만들어 본 완성 사례</h3>
   <details class="ex case" id="case-chess-done"><summary><b>간호 개념 체스</b> <span class="lvs lv3">★★★ 무거움</span> <small>기본간호학 · 약 9분</small></summary><div class="body">
     <p class="use"><b>이렇게 써요</b> 상대 말을 잡으려면 활력징후 문제를 맞혀야 하는 3D 체스예요. 시작 화면, 메뉴, 점수판까지 모두 한국어로 바뀌었고, AI는 준 [수업 내용] 8가지 안에서만 문제를 냈어요. 부탁문은 <a href="#demoA">시연 ①</a>에 있어요.</p>
     <p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/40bfac5f-b9d4-47c0-bd03-f5509db14d53" target="_blank" rel="noopener">간호 개념 체스 완성본 열기 ↗</a></p>
@@ -1815,13 +1833,13 @@ show();
     <p class="tip">같은 방법으로 폐, 신장, 뇌, 뼈대처럼 다른 기관도 만들 수 있어요. [수업 내용]만 바꿔 넣으세요.</p>
   </div></details>
 
-  <h3 class="caseh">✨ 우와! 오늘 오신 학과 쇼케이스</h3>
+  <h3 class="caseh" id="cases-h2" data-part="2">✨ 우와! 오늘 오신 학과 쇼케이스</h3>
   <p class="tip">강사가 미리 만들어 둔 <b>보여 주기용</b> 완성본이에요. <b>3D로 움직이거나, 앱 안의 AI가 대답</b>합니다. 하나에 10~15분 걸려서 오늘 실습용은 아니고, "이런 것까지 되는구나"를 느끼는 용도예요. 부탁문은 그대로 복사해 가셔도 됩니다.</p>
   <div id="wowList"></div>
-  <h3 class="caseh">오늘 오시는 학과 사례 · 따라 하기 쉬운 버전</h3>
+  <h3 class="caseh" id="cases-h3" data-part="3">오늘 오시는 학과 사례 · 따라 하기 쉬운 버전</h3>
   <p class="tip">10분 안팎이면 만들어지는 간단한 버전이에요. 오늘 직접 해 보신다면 이쪽부터 시작하세요. 쓴 부탁문을 그대로 복사해 과목·내용만 바꿔 쓰시면 됩니다.</p>
   <div id="extraList"></div>
-  <h3 class="caseh">🗂️ 교직원 업무용 사례</h3>
+  <h3 class="caseh" id="cases-h4" data-part="4">🗂️ 교직원 업무용 사례</h3>
   <p class="tip">수업 대신 <b>내가 안내·교육하는 사람에게 보여 줄 도구</b>예요. 부서 이름과 내용만 바꿔 쓰세요.</p>
   <div id="workList"></div>
   <details class="ex case" id="otherDepts"><summary><b>다른 학과 사례 더 보기</b> <span class="needs">법학·교직·국제통상·대순·특수교육·산업디자인</span></summary><div class="body"><p class="tip">오늘 참석 학과는 아니지만, 아이디어를 빌려 오기 좋은 사례예요.</p><div id="otherList"></div></div></details>
@@ -1831,10 +1849,11 @@ show();
 
 <!-- 막혔을 때 -->
 <!-- 5단계: 백엔드·배포 -->
-<section id="more">
+<section id="more" class="wp wp-hashero">
   <h2 class="sec">5단계 · 백엔드·배포 (파이어베이스 · 넷리파이 · 깃허브 · 버셀)</h2>
   <div class="callout blue"><b class="t">심화 과정이에요 · 시간이 되면, 아니면 연수 후에 따라 해 보세요</b> 오늘 다 못 하셔도 괜찮아요. 캡처를 보며 순서대로 따라 하실 수 있게 적어 두었어요. <b>꼭 개인 Gmail</b>로 하세요. 학교 계정은 파이어베이스가 막혀 있을 수 있어요.</div>
-  <p class="lead">지금까지 만든 앱은 대부분 <b>내 화면 안에서만</b> 기록이 남아요. <small>(1단계 캔바 코드는 예외로, 입력한 내용이 <b>캔바 시트</b>에 모여요.)</small> 학생 30명의 답이 <b>한곳에 모이려면 저장소(백엔드)</b>가 필요하고, 학생이 휴대폰이나 PC로 들어오려면 <b>인터넷 주소(배포)</b>가 필요해요.</p>
+  <div class="wp-hero"><p class="k">오후반 · 5단계</p><p class="t">백엔드·배포 (파이어베이스 · 넷리파이 · 깃허브 · 버셀)</p><p class="d">지금까지 만든 앱은 대부분 <b>내 화면 안에서만</b> 기록이 남아요. <small>(1단계 캔바 코드는 예외로, 입력한 내용이 <b>캔바 시트</b>에 모여요.)</small> 학생 30명의 답이 <b>한곳에 모이려면 저장소(백엔드)</b>가 필요하고, 학생이 휴대폰이나 PC로 들어오려면 <b>인터넷 주소(배포)</b>가 필요해요.</p><div class="wp-flow"><a href="#more-h1"><em>PART 1</em><b>B. 파이어베이스로 데이터 연동하기</b><span></span></a><a href="#more-h2"><em>PART 2</em><b>C. 인터넷 주소 받기 · 배포 세 가지 방법</b><span></span></a></div></div>
+
   <div class="callout gold"><b class="t">캔바 시트로 모으면 되지 않나요? · 용량 한계가 있어요</b>
     <ul><li>캔바 도움말 기준으로 캔바 시트 하나는 <b>최대 1,000행 · 104열, 편집 가능한 칸은 모두 20,800칸</b>까지예요.</li>
     <li>예를 들어 한 번 제출에 10칸(이름·답 등)을 쓰면 <b>약 2,000번 제출</b>이면 가득 차요. 한 학기 내내 여러 반이 쓰는 도구라면 금방 찰 수 있어요.</li>
@@ -1851,7 +1870,7 @@ show();
     <div><span>C</span><b>주소 · 배포</b><p>넷리파이 · 깃허브 · 버셀 중 하나로 인터넷 주소 받기</p></div>
   </div>
 
-  <h3 class="caseh">B. 파이어베이스로 데이터 연동하기</h3>
+  <h3 class="caseh" id="more-h1" data-part="1">B. 파이어베이스로 데이터 연동하기</h3>
 
   <details class="ex case be-step"><summary><span class="beno">1</span> <b>프로젝트 만들기</b> <span class="needs">눌러서 펼치기</span></summary><div class="body">
     <ol><li><a href="https://console.firebase.google.com" target="_blank" rel="noopener">console.firebase.google.com</a> 접속 → <b>새 Firebase 프로젝트 만들기</b></li>
@@ -1986,7 +2005,7 @@ service cloud.firestore {
     <div class="shots"><figure><img src="img/be-fb-21-data.jpg" alt="Firestore 데이터 탭에 쌓인 문서" loading="lazy"><figcaption>창고 안의 모습: 학생이 입력할 때마다 문서가 하나씩 쌓여요.</figcaption></figure></div>
   </div></details>
 
-  <h3 class="caseh">C. 인터넷 주소 받기 · 배포 세 가지 방법</h3>
+  <h3 class="caseh" id="more-h2" data-part="2">C. 인터넷 주소 받기 · 배포 세 가지 방법</h3>
   <p class="tip">셋 중 <b>하나만</b> 하면 돼요. 처음이라면 <b>넷리파이</b>를 권해요.</p>
   <div class="tblwrap"><table>
     <tr><th>방법</th><th>올리는 법</th><th>좋은 점</th><th>주의</th></tr>
@@ -2040,8 +2059,10 @@ service cloud.firestore {
     <li>주소는 QR로 만들어 수업 슬라이드에 붙여 두세요 (크롬 주소창 공유 → QR 코드)</li></ul></div>
 </section>
 
-<section id="help">
+<section id="help" class="wp wp-hashero">
   <h2 class="sec">4단계 · 막혔을 때 (AI 스튜디오)</h2>
+<div class="wp-hero"><p class="k">오후반 · 4단계</p><p class="t">막혔을 때 (AI 스튜디오)</p><p class="d"></p></div>
+
   <div class="callout gold"><b class="t">다 만들었는데 미리보기가 안 뜰 때: 이 순서로 해 보세요</b>
     <ol><li><b>화면 가운데 버튼부터 누르기</b>: <b>Retry</b>, <b>Reload the app</b>, <b>Launch</b> 중 보이는 것.</li>
     <li><b>그래도 그대로면 크롬 새로고침(F5)</b>. 만든 앱은 사라지지 않아요. 강사도 미니골프가 이렇게 해서 열렸어요.</li>
