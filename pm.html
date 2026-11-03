@@ -210,6 +210,34 @@ p.use{background:var(--gold-bg);border-radius:10px;padding:10px 12px;margin:6px 
 .mine select{font:inherit;font-size:15px;font-weight:400;border:1px solid #d9cfb5;border-radius:8px;padding:7px 10px;background:#fff;color:var(--ink)}
 
 </style>
+<style id="wp-style">
+/* 웹PPT 스타일 · 노트북LM 탭 */
+.wp :is(.prompt){background:#fff!important;border:1px solid #e6e8ee!important;border-left:6px solid #d93025!important;border-radius:14px!important;box-shadow:0 4px 14px rgba(20,30,60,.06);padding:16px 18px!important}
+.wp .prompt .label{display:inline-block;background:#fdecea;color:#a8332a!important;border-radius:999px;padding:4px 12px;font-size:.92em!important;font-weight:800;margin-bottom:10px!important}
+.wp .prompt pre{font-size:1.02em;line-height:1.8;white-space:pre-wrap}
+.wp details.mth,.wp details.wpd{border:1px solid #dfe5f0!important;border-radius:14px!important;background:#f8fafd!important;padding:0!important;overflow:hidden}
+.wp details.mth>summary,.wp details.wpd>summary{padding:12px 16px;font-weight:700;cursor:pointer}
+.wp details.mth[open]>summary,.wp details.wpd[open]>summary{border-bottom:1px solid #dfe5f0;background:#eef3fb}
+.wp details.mth>.body,.wp details.wpd>:not(summary){padding:0 16px}
+.wp details .mn{display:inline-block;background:#1a56db!important;color:#fff!important;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px}
+.wp img.doc-img,.wp details img{display:block;margin:14px auto!important;border-radius:12px!important;box-shadow:0 6px 20px rgba(20,30,60,.12);border:1px solid #e3e6ee!important;max-width:100%}
+.wp>h3[data-part]{position:relative;margin-top:24px!important;background:linear-gradient(135deg,#16233f,#24407a);color:#fff!important;border-radius:16px;padding:18px 22px 18px 92px!important;font-size:1.25em;border:0!important}
+.wp>h3[data-part]::before{content:"PART " attr(data-part);position:absolute;left:18px;top:50%;transform:translateY(-50%);background:#f5c84c;color:#16233f;font-weight:900;font-size:.62em;border-radius:8px;padding:6px 8px;letter-spacing:.04em}
+.wp>div[style="height:4.5em"]{height:4.5em;background:linear-gradient(#e3e6ee,#e3e6ee) center/60% 1px no-repeat}
+.wp-hero{background:linear-gradient(135deg,#0f1b2e,#1d3a72);color:#fff;border-radius:20px;padding:26px 26px 22px;margin:14px 0 26px;box-shadow:0 10px 30px rgba(15,27,46,.25)}
+.wp-hero .k{color:#9cc0ff;font-weight:800;font-size:.9em;letter-spacing:.05em;margin:0 0 6px}
+.wp-hero .t{font-size:1.55em;font-weight:900;line-height:1.3;margin:0 0 8px;color:#fff}
+.wp-hero .d{color:#d6e0f5;margin:0 0 16px;line-height:1.6}
+.wp-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.wp-flow a{flex:1 1 150px;display:block;text-decoration:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 14px;color:#fff!important}
+.wp-flow a:hover{background:rgba(255,255,255,.16)}
+.wp-flow b{display:block;font-size:1.05em;margin:2px 0}
+.wp-flow em{font-style:normal;color:#f5c84c;font-weight:900;font-size:.85em}
+.wp-flow span{display:block;color:#c4d0e8;font-size:.85em;line-height:1.45}
+.wp-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.wp-meta span{background:rgba(255,255,255,.1);border-radius:999px;padding:5px 12px;font-size:.88em;color:#e6edf9}
+.wp .tip{border-radius:10px}
+</style>
 </head>
 <body>
 <header class="hero">
@@ -1014,7 +1042,7 @@ var g='prof';try{g=localStorage.getItem('dj-live-grp')||'prof'}catch(e){}set(g);
 </script>
 
 <!-- 3단계: 노트북LM 강의계획서 (오전반 2+++ 탭 복사본) -->
-<section id="nlmSyl">
+<section id="nlmSyl" class="wp">
 <style>
 #nlmSyl .mth{border:1px solid #e5e7eb;border-radius:12px;padding:12px 16px;margin:8px 0 14px;background:#fff}
 #nlmSyl details.mth>summary.mh{cursor:pointer;font-weight:700;list-style:none}
@@ -1033,8 +1061,10 @@ var g='prof';try{g=localStorage.getItem('dj-live-grp')||'prof'}catch(e){}set(g);
   <h2 class="sec">3단계 · 노트북LM으로 강의계획서 만들기 · 대진대 양식으로 15주 초안</h2>
   <div class="callout blue" style="margin-bottom:10px"><b class="t">이 탭에서 만든 노트북을 그대로 이어 써요</b> 강의계획서를 만든 뒤, 맨 아래 <b>⑦~⑧</b>에서 같은 노트북으로 <b>근거가 있는 바이브코딩</b>까지 해요.</div>
   <p class="lead">대진대 수업계획서 양식을 노트북에 넣고, <b>Deep Research</b>로 수업할 내용을 찾아 보고서와 소스를 더한 뒤, 양식 칸 순서대로 초안을 받아요. 자료에 근거가 없는 칸은 <b>[확인 필요]</b>로 비워 두게 해서 교수님이 채워요.</p>
+<div class="wp-hero"><p class="k">오후반 · 3단계 · 강의계획서</p><p class="t">딥리서치로 근거를 모아 대진대 양식 강의계획서 만들기</p><p class="d">과목명만 내 과목으로 바꾸면 그대로 따라 할 수 있어요. 근거가 없는 칸은 <b>[확인 필요]</b>로 남겨 교수님이 채워요.</p><div class="wp-flow"><a href="#nlmSyl-a1"><em>STEP 1</em><b>양식 올리기</b><span>대진대 수업계획서 PDF를 새 노트북에</span></a><a href="#nlmSyl-a2"><em>STEP 2</em><b>딥리서치로 자료 모으기</b><span>기다리는 동안 패스트 리서치와 비교</span></a><a href="#nlmSyl-a3"><em>STEP 3</em><b>양식대로 초안 받기</b><span>④-1 1~9번 → ④-2 15주 → ④-3 비교과</span></a><a href="#nlmSyl-a4"><em>STEP 4</em><b>워드로 받고 점검</b><span>.docx 내려받기 → 한글로 다른 이름 저장</span></a><a href="#nlmSyl-a5"><em>STEP 5</em><b>같은 노트북으로 바이브코딩</b><span>도구 아이디어 → 웹앱 부탁문 → 캔버스</span></a></div><div class="wp-meta"><span>⏱ 약 30분 (딥리서치 5~10분 대기 포함)</span><span>🖥 기다리는 동안 슬라이드 보기</span><span>✅ 학교 규정·평가 비율은 직접 확인</span></div></div>
+
 <div style="height:4.5em"></div>
-  <div class="dlbox"><b class="t">📥 대진대 수업계획서 양식 (2026학년도 1학기)</b><p style="margin:6px 0 10px"><a class="dl" style="display:inline-block;padding:10px 18px;border-radius:10px;background:#d93025;color:#fff;border:2px solid #d93025;font-weight:700;text-decoration:none" href="files/syllabus-form/daejin-syllabus-form-2026-1.pdf" download>⬇ 수업계획서 양식 PDF 내려받기</a></p><p class="tip" style="margin:0">학교 양식은 한글(hwp) 파일이라 노트북LM이 읽지 못해요. 그래서 PDF로 바꿔 두었어요. 교과목 정보, 6대 핵심역량 정의, 수업방법, 평가방법, 과제, 1~15주차 주별 수업계획 칸이 들어 있어요.</p></div>
+  <div class="dlbox" id="nlmSyl-a1"><b class="t">📥 대진대 수업계획서 양식 (2026학년도 1학기)</b><p style="margin:6px 0 10px"><a class="dl" style="display:inline-block;padding:10px 18px;border-radius:10px;background:#d93025;color:#fff;border:2px solid #d93025;font-weight:700;text-decoration:none" href="files/syllabus-form/daejin-syllabus-form-2026-1.pdf" download>⬇ 수업계획서 양식 PDF 내려받기</a></p><p class="tip" style="margin:0">학교 양식은 한글(hwp) 파일이라 노트북LM이 읽지 못해요. 그래서 PDF로 바꿔 두었어요. 교과목 정보, 6대 핵심역량 정의, 수업방법, 평가방법, 과제, 1~15주차 주별 수업계획 칸이 들어 있어요.</p></div>
 <div style="height:4.5em"></div>
   <ol class="steps-gap"><li><b>notebooklm.google.com</b> → <b>새 노트북</b> → 내려받은 <b>수업계획서 양식 PDF</b>를 소스로 올리기</li><li>왼쪽 출처 위의 <b>웹에서 새 소스를 검색하세요</b> 칸에 내 과목 주제를 적고 <b>Deep Research</b>와 <b>Fast Research</b>를 비교한 뒤, 딥리서치 보고서와 소스를 <b>가져오기</b></li><li>아래 부탁문을 차례로 보내기 · <b>빨간 곳</b>만 내 과목으로 바꾸세요</li></ol>
   <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 양식 PDF를 올린 새 노트북</summary><div class="body">
@@ -1042,8 +1072,8 @@ var g='prof';try{g=localStorage.getItem('dj-live-grp')||'prof'}catch(e){}set(g);
   <p class="tip">양식만 올려도 노트북LM이 6대 핵심역량, 수업방법, 평가방법, 주별 수업계획 등 <b>양식의 구성</b>을 먼저 요약해 줘요. 이제 왼쪽 위 검색 칸에서 <b>Deep Research</b>로 수업 내용을 찾아 더해요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">① Deep Research로 먼저 돌려 두기 · 검색 칸 아래 두 번째 단추에서 <b>Deep Research</b> 고르기</div><button class="copy">복사</button><pre><span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>를 위한 대학생들을 대상으로 하는 강의를 위한 자료를 찾아줘.</pre></div>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> Deep Research 완료 → 보고서 펼치기</summary><div class="body">
+  <div class="prompt" id="nlmSyl-a2"><div class="label">① Deep Research로 먼저 돌려 두기 · 검색 칸 아래 두 번째 단추에서 <b>Deep Research</b> 고르기</div><button class="copy">복사</button><pre><span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>를 위한 대학생들을 대상으로 하는 강의를 위한 자료를 찾아줘.</pre></div>
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> Deep Research 완료 → 보고서 펼치기</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-deep-research.jpg" alt="Deep Research 완료 → 펼치기, 소스 32개 기반 보고서와 보고서에 인용됨 32·인용되지 않음 9" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <ol class="steps-gap"><li>검색어를 적고 <b>웹</b> 옆 두 번째 단추를 <b>Deep Research</b>로 바꾼 뒤 <b>→</b> (5분쯤 걸려요)</li><li><b>Deep Research 완료</b>가 뜨면 오른쪽 위 <b>펼치기</b> → 보고서와 자료 목록 보기 (예시: <b>소스 32개</b>를 바탕으로 쓴 보고서)</li><li><b>보고서에 인용됨</b>과 <b>인용되지 않음</b> 탭을 나눠 볼 수 있어요</li></ol>
   </div></details>
@@ -1245,7 +1275,7 @@ show();
   </div></details>
   <p class="tip">강의계획서에 쓸 만한 자료를 찾는 단계예요. 해외 강의계획서를 더 찾고 싶으면 영어로도 한 번 검색해 보세요. 교재 목차나 지난 학기 강의자료가 있으면 그것도 함께 소스로 올리면 더 내 수업에 가까운 초안이 나와요.</p>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">④-1 대진대 양식으로 초안 받기 (1~9번) · 소스는 <b>양식 + 가져온 보고서·자료</b> 모두 선택</div><button class="copy">복사</button><pre>소스의 대진대 수업계획서 양식을 칸 순서대로 채워서 「<span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>」 수업계획서 초안을 써 줘. 이번에는 1~9번까지만 써 줘.
+  <div class="prompt" id="nlmSyl-a3"><div class="label">④-1 대진대 양식으로 초안 받기 (1~9번) · 소스는 <b>양식 + 가져온 보고서·자료</b> 모두 선택</div><button class="copy">복사</button><pre>소스의 대진대 수업계획서 양식을 칸 순서대로 채워서 「<span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>」 수업계획서 초안을 써 줘. 이번에는 1~9번까지만 써 줘.
 - 1. 수업의 개요와 유용성
 - 2. 선행학습 및 선수과목 요건 → [확인 필요]로 남겨 줘.
 - 3. 핵심역량 및 수업목표 → 대진대 6대 핵심역량 중 주역량 1개와 부역량 1개를 골라 비율과 수업목표를 써 줘.
@@ -1264,7 +1294,7 @@ show();
 - 표의 칸은 양식대로 주차 | 수업주제 | 주요 학습내용 | 수업방식 | 선행학습 및 준비사항 | 교재 및 참고자료로 해 줘.
 - 주요 학습내용은 Deep Research 보고서와 가져온 소스에 있는 내용만 쓰고, '교재 및 참고자료' 칸에 근거가 된 소스 이름을 적어 줘.
 - 중간시험·기말시험 주차는 [확인 필요]로 표시해 줘.</pre></div>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 10. 주별 수업계획 표</summary><div class="body">
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 10. 주별 수업계획 표</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-syllabus-draft-2.jpg" alt="10. 주별 수업계획 — 주차·수업주제·주요 학습내용·수업방식·선행학습 및 준비사항·교재 및 참고자료 6개 칸의 표" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">양식의 6개 칸 그대로 표가 나와요. 노트북LM이 중간시험을 <b>8주차</b>, 기말시험을 <b>15주차</b>로 잡고 [확인 필요]를 붙였어요. 학교 학사일정과 맞는지 꼭 확인하세요. 표가 길어서 채팅 아래로 내려 가며 봐야 해요.</p>
   </div></details>
@@ -1275,8 +1305,8 @@ show();
   <p class="tip"><b>이 줄이 없을 때 나온 결과예요.</b> 노트북LM이 「대진대학교 교수학습개발센터(CTL)·학술정보원과 연계」라고 쓰고 프로그램 3개를 <b>새로 지어냈어요.</b> 소스에는 대진대 비교과 프로그램 정보가 없어요. 그래서 부탁문에 「학교 부서와 프로그램 이름은 지어내지 말고 [확인 필요]로 남겨 줘」를 넣었어요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">⑤ 전체를 워드 파일로 받기 (같은 채팅창)</div><button class="copy">복사</button><pre>그러면 전체 문서를 워드파일로 완성해서 저장해줘</pre></div>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 스튜디오에 저장된 워드 파일</summary><div class="body">
+  <div class="prompt" id="nlmSyl-a4"><div class="label">⑤ 전체를 워드 파일로 받기 (같은 채팅창)</div><button class="copy">복사</button><pre>그러면 전체 문서를 워드파일로 완성해서 저장해줘</pre></div>
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 스튜디오에 저장된 워드 파일</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-syllabus-docx.jpg" alt="워드파일로 저장해 달라고 하자 스튜디오에 daejin_syllabus_ai_critical_thinking.docx 생성" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <img class="doc-img" src="img/notebooklm-syllabus-docx-open.jpg" alt="워드 파일 미리 보기(8쪽) — ⋮ 메뉴의 다운로드, 기본 정보 표가 두 번 반복됨" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">1~11번을 모두 모은 워드 파일(.docx)이 오른쪽 <b>스튜디오</b>에 생겨요. 파일을 누르면 미리 보기가 열리고(예시는 8쪽), 오른쪽 위 <b>⋮ → 다운로드</b>로 내려받아요. 미리 보기를 보면 <b>기본 정보 표가 두 번 반복</b>되어 있어요. 이렇게 겹치거나 빠진 곳이 없는지 훑어보고, 최종본은 학교 한글 양식에 옮겨 제출하세요.</p>
@@ -1288,9 +1318,9 @@ show();
   <p class="tip">오전반 교안의 <a href="am.html#s2n">2++ 노트북LM 채점</a> 탭에 있는 '강의계획서 점검 → 수정안' 부탁문도 이어서 쓸 수 있어요.</p>
 <div style="height:4.5em"></div>
 <div style="height:4.5em"></div>
-  <h3 class="caseh">이어서 · 같은 노트북으로 바이브코딩</h3>
+  <h3 class="caseh" data-part="+">이어서 · 같은 노트북으로 바이브코딩</h3>
   <p class="tip">강의계획서를 만들며 모은 <b>딥리서치 보고서와 소스</b>가 그대로 바이브코딩의 근거가 돼요. 새 노트북을 만들지 말고, <b>지금 노트북의 같은 채팅창</b>에서 이어서 보내세요.</p>
-  <div class="prompt"><div class="label">⑦ 주차에 맞는 수업 도구 아이디어 받기 (노트북LM)</div><button class="copy">복사</button><pre>방금 만든 「<span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>」 수업계획서의 주별 수업계획에 맞춰, 학생이 직접 조작하거나 연습하며 이해를 확인할 수 있는 웹 도구 아이디어 3개를 제안해 줘.
+  <div class="prompt" id="nlmSyl-a5"><div class="label">⑦ 주차에 맞는 수업 도구 아이디어 받기 (노트북LM)</div><button class="copy">복사</button><pre>방금 만든 「<span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>」 수업계획서의 주별 수업계획에 맞춰, 학생이 직접 조작하거나 연습하며 이해를 확인할 수 있는 웹 도구 아이디어 3개를 제안해 줘.
 도구 아이디어는 네가 새로 만들어도 되지만, 도구 안에 들어갈 내용(개념, 기준, 사례, 공식, 숫자)은 반드시 이 노트북의 자료에서 가져와 줘.
 | 번호 | 도구 이름 | 쓰는 주차 | 학생이 하는 일 | 도구에 들어갈 자료 내용 | 근거 자료 |
 - 예: 사례를 보고 맞는 기준 고르기, 단계별 체크리스트, 개념 짝 맞추기, 값을 넣으면 결과가 나오는 계산기
@@ -1304,7 +1334,7 @@ show();
 ④ 자료에 근거한 연습 문제와 정답·해설 3개 (출처 표시) ⑤ 맞았을 때와 틀렸을 때 보여 줄 피드백 문구 ⑥ 화면에 넣을 용어 설명
 ⑦ 만들 때 지킬 조건: HTML·CSS·JavaScript를 한 파일에, 외부 서버·로그인·데이터 저장 없이, 휴대폰에서도 보기 좋게, 한국어
 자료에 없는 항목은 지어내지 말고 "자료에 없음"이라고 써 줘.</pre></div>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 노트북LM이 써 준 캔버스용 부탁문</summary><div class="body">
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 노트북LM이 써 준 캔버스용 부탁문</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-vibe-prompt.jpg" alt="노트북LM이 소크라테스식 AI 역반론 시뮬레이터의 제미나이 캔버스용 바이브코딩 부탁문을 작성" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">노트북LM이 10주차에 쓸 「소크라테스식 AI 역반론 시뮬레이터」의 캔버스용 부탁문을 써 줬어요. 회색 상자 안의 <b>[요청사항]</b>부터 끝까지 복사해 제미나이 캔버스에 붙여 넣으면 돼요. 붙이기 전에 용어 설명과 연습 문제가 자료와 맞는지 한 번 훑어보세요.</p>
   </div></details>
@@ -1324,11 +1354,13 @@ show();
 </section>
 
 <!-- 3단계: 노트북LM 연결 -->
-<section id="nlm">
+<section id="nlm" class="wp">
   <h2 class="sec">3+단계 · 노트북LM에서 근거가 있는 바이브코딩으로</h2>
   <div class="callout green"><b class="t">강의계획서 노트북이 있다면</b> <a href="#nlmSyl"><b>3단계 노트북LM 강의계획서</b></a>에서 만든 노트북을 그대로 쓰세요. 아래 ①의 딥리서치는 건너뛰고 ②부터 하면 돼요.</div>
   <div class="callout blue"><b class="t">강사 시연으로 진행해요</b> 이 단계는 강사가 준비한 자료로 직접 보여 드립니다. 아래는 나중에 다시 해 볼 수 있게 부탁문과 흐름을 모아 둔 참고 자료예요.</div>
   <p class="lead"><b>"AI는 강의계획서의 제목만 압니다. 내용을 알려 주면 내 수업 그대로 만듭니다."</b> 캔버스에서 느낀 한계는 대부분 <b>AI가 내 수업 자료를 모르기 때문</b>이에요. 노트북LM에 자료를 올리고 "이런 바이브코딩을 하고 싶다"고 말하면, 자료를 근거로 <b>웹앱 부탁문</b>을 써 줍니다.</p>
+<div class="wp-hero"><p class="k">오후반 · 3+단계</p><p class="t">내 자료로 근거가 있는 바이브코딩</p><p class="d">노트북LM이 내 자료를 근거로 웹앱 부탁문을 써 주고, 캔버스·AI 스튜디오가 앱을 만들어요. 마지막에 <b>자료와 대조</b>해서 확인해요.</p><div class="wp-flow"><a href="#nlm-s①"><em>①</em><b>자료 모으기</b><span>딥리서치 또는 내 강의자료</span></a><a href="#nlm-s②"><em>②</em><b>도구 아이디어 받기</b><span>내용은 자료에서, 아이디어는 AI가</span></a><a href="#nlm-s③"><em>③</em><b>웹앱 부탁문 받기</b><span>단일 HTML 웹앱용</span></a><a href="#nlm-s④"><em>④</em><b>캔버스·AI 스튜디오로 만들기</b><span>완성 앱 2개 비교</span></a><a href="#nlm-s⑤"><em>⑤</em><b>자료와 대조하고 고치기</b><span>값 뽑기 → 노트북LM 대조</span></a></div><div class="wp-meta"><span>⏱ 약 30분 (AI 스튜디오는 10분 대기)</span><span>🎬 완성 예시: 개인정보 시뮬레이터</span><span>⚠ 법령·수치는 최신 공식 자료로 확인</span></div></div>
+
 
   <div class="tblwrap"><table>
     <tr><th></th><th>제목만 주면 (캔버스만)</th><th>내 자료를 주면 (노트북LM → 캔버스)</th></tr>
@@ -1337,15 +1369,9 @@ show();
     <tr><td>확인 방법</td><td>내가 처음부터 다 확인해야 함</td><td>답 옆 <b>출처 숫자</b>를 눌러 자료의 어느 줄인지 바로 확인</td></tr>
   </table></div>
 
-  <div class="trio">
-    <div><span>①</span><b>자료 올리기</b><p>내 강의자료를 올리거나 <b>딥리서치</b>로 과목 자료를 모읍니다.</p></div>
-    <div><span>②</span><b>도구 추천받기</b><p>자료 내용을 넣은 도구 아이디어 3개를 제안받습니다.</p></div>
-    <div><span>③</span><b>웹앱 부탁문 받기</b><p>공식·예제·정답·출처가 든 단일 HTML 웹앱 부탁문을 받습니다.</p></div>
-    <div><span>④</span><b>캔버스로 만들기</b><p>받은 부탁문을 캔버스에 붙여 넣어 화면을 만듭니다.</p></div>
-    <div><span>⑤</span><b>자료와 대조</b><p>앱의 값을 뽑아 노트북LM에서 자료와 대조하고 고칩니다.</p></div>
   </div>
 
-  <div class="step"><div class="no">①</div><div>
+  <div class="step" id="nlm-s①"><div class="no">①</div><div>
     <h4>노트북LM에서 · 딥리서치로 내 과목 자료 모으기 <span style="color:#a8433b">(교수님 직접 해 보기)</span></h4>
     <ol><li><a href="https://notebooklm.google.com" target="_blank" rel="noopener">notebooklm.google.com</a> → <b>새 노트북 만들기</b></li>
     <li>소스 추가 창의 검색칸에서 <b>Deep Research</b>(자세히) 또는 <b>Fast Research</b>(빠르게)를 고릅니다</li>
@@ -1360,7 +1386,7 @@ show();
     <p class="tip">교재 PDF도 올릴 수 있지만, <b>저작권이 있는 교재를 올린 노트북은 학생에게 공유하지 마세요.</b> 공유할 노트북에는 공개 자료와 직접 만든 강의자료를 넣습니다.</p>
   </div></div>
 
-  <div class="step"><div class="no">②</div><div>
+  <div class="step" id="nlm-s②"><div class="no">②</div><div>
     <h4>노트북LM에서 · "이런 바이브코딩을 하고 싶어"</h4>
     <div class="prompt"><div class="label">부탁문 · 도구 추천받기 (노트북LM)</div><button class="copy">복사</button><pre>이 노트북의 자료를 공부한 학생이 직접 조작하거나 연습하며 이해를 확인할 수 있는 웹 도구 아이디어 3개를 제안해 줘.
 도구 아이디어는 네가 새로 만들어도 되지만, 도구 안에 들어갈 내용(개념, 기준, 사례, 공식, 숫자)은 반드시 이 노트북의 자료에서 가져와 줘.
@@ -1370,7 +1396,7 @@ show();
     <p class="tip">답 옆의 <b>숫자 단추</b>가 출처예요. 눌러 보면 내 자료의 어느 줄에서 왔는지 보입니다.</p>
   </div></div>
 
-  <div class="step"><div class="no">③</div><div>
+  <div class="step" id="nlm-s③"><div class="no">③</div><div>
     <h4>노트북LM에서 · 웹앱 부탁문 받기</h4>
     <div class="prompt"><div class="label">부탁문 · 단일 HTML 웹앱 부탁문 받기 (노트북LM)</div><button class="copy">복사</button><pre><span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">[도구 번호]</span>번 도구를 단일 HTML 파일 하나로 동작하는 웹앱으로 만들고 싶어.
 제미나이 캔버스나 구글 AI 스튜디오에 그대로 붙여 넣으면 바로 만들어지는 바이브코딩 부탁문을 써 줘. 이 노트북의 자료만 근거로.
@@ -1379,14 +1405,14 @@ show();
 ④ 계산이 있으면 반올림·예외 규칙 ⑤ 자료에 근거한 예제나 연습 문제와 정답·해설 3개 (출처 표시) ⑥ 화면에 넣을 용어 설명
 ⑦ 만들 때 지킬 조건: HTML·CSS·JavaScript를 한 파일에, 계산이 있으면 AI를 부르지 말고 화면 안의 계산식으로 하고 결과 옆에 계산식을 보여 주기, 외부 서버·로그인·데이터 저장 없이, 이름·학번은 받지 않기, 휴대폰에서도 보기 좋게, 한국어
 자료에 없는 항목은 지어내지 말고 "자료에 없음"이라고 써 줘.</pre></div>
-    <details style="margin:8px 0 6px;border:1px solid #e5e7eb;border-radius:12px;padding:10px 14px;background:#fff"><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 개인정보보호 노트북에서 받은 부탁문</summary>
+    <details class="wpd" style="margin:8px 0 6px"><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 개인정보보호 노트북에서 받은 부탁문</summary>
     <img src="img/notebooklm-vibe-prompt-privacy.jpg" alt="개인정보 유출 사고 과징금·손해배상액 산출 시뮬레이터의 캔버스·AI 스튜디오용 부탁문" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:10px 0">
     <p class="tip">개인정보보호 법령·판례 자료로 「개인정보 유출 사고 과징금·손해배상액 산출 시뮬레이터」 부탁문이 나왔어요. 자료에 없는 반올림 규칙은 지어내지 않고 <b>"자료에 없음"</b>이라고 적었어요. 회색 상자의 부탁문을 복사해 캔버스나 AI 스튜디오에 붙여 넣으면 돼요.</p>
     </details>
     <p class="tip"><b style="color:#d93025">빨간 [도구 번호]</b>를 ② 추천 표에서 고른 번호(예: 2)로 꼭 바꿔서 보내세요. 받은 부탁문의 공식과 예제가 자료와 맞는지 출처 숫자를 눌러 한 번 훑어보고, <b>메모에 저장</b>해 두세요.</p>
   </div></div>
 
-  <div class="step"><div class="no">④</div><div>
+  <div class="step" id="nlm-s④"><div class="no">④</div><div>
     <h4>제미나이 캔버스에 붙여 넣어 만들기</h4>
     <ol><li>gemini.google.com 새 채팅 → <b>캔버스</b> 켜기</li>
     <li>③에서 받은 부탁문을 그대로 붙여 넣어 보내면 단일 HTML 웹앱이 만들어져요</li></ol>
@@ -1400,7 +1426,7 @@ show();
       <a href="https://ai.studio/apps/95dab645-beee-4ccc-8b18-b4bc354cf306?fullscreenApplet=true" target="_blank" rel="noopener" style="display:inline-block;padding:10px 16px;border-radius:10px;background:#0f766e;color:#fff;font-weight:700;text-decoration:none">▶ 구글 AI 스튜디오로 만든 앱 ↗</a>
       <span style="width:100%;font-size:13.5px;color:#555">개인정보보호 노트북에서 받은 「개인정보 유출 사고 과징금·손해배상액 산출 시뮬레이터」 부탁문 하나로 두 곳에서 만든 결과예요. 만드는 과정 화면은 아래 결과 보기에 있어요.</span>
     </div>
-    <details style="margin:8px 0 6px;border:1px solid #e5e7eb;border-radius:12px;padding:10px 14px;background:#fff"><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 캔버스에 붙여 넣고 보낸 화면</summary>
+    <details class="wpd" style="margin:8px 0 6px" open><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 캔버스에 붙여 넣고 보낸 화면</summary>
     <img src="img/gemini-canvas-privacy-start.jpg" alt="제미나이 캔버스에 부탁문을 보내자 개인정보 유출 시뮬레이터를 만드는 중인 화면" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:10px 0">
     <p class="tip">부탁문을 보내면 오른쪽에 캔버스가 열리고 「개인정보 유출 시뮬레이터」를 만들기 시작해요. 다 만들어지면 <b>미리보기</b>에서 바로 써 볼 수 있고, <b>코드</b>로 바꾸면 HTML을 볼 수 있어요.</p>
     <img src="img/gemini-canvas-privacy-done.jpg" alt="완성된 개인정보 유출 사고 과징금·손해배상액 산출 시뮬레이터 — 조건 입력과 실시간 산출 결과, 적용된 산출 공식과 근거 조항" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:10px 0">
@@ -1409,7 +1435,7 @@ show();
     <p class="tip"><b>완성 화면</b> · 왼쪽에 조건을 넣으면 오른쪽에 과징금·과태료·손해배상액이 바로 바뀌고, 아래에 <b>적용된 산출 공식과 근거 조항</b>이 나와요.</p>
     <p class="tip" style="background:#fdeceb;color:#8a2b22"><b>⚠ 꼭 대조해 보세요.</b> 화면에는 징벌적 손해배상이 "최대 3배"로 나오지만, 개인정보 보호법 제39조 제3항은 2023년 개정으로 <b>손해액의 5배</b>까지로 바뀌었어요. 노트북에 옛 자료가 섞여 있으면 AI는 그대로 옮겨요. 그래서 ⑤ 자료와 대조와 <b>최신 법령 확인</b>이 꼭 필요해요. (<a href="https://www.law.go.kr/법령/개인정보보호법" target="_blank" rel="noopener">국가법령정보센터 ↗</a>)</p>
     </details>
-    <details style="margin:8px 0 6px;border:1px solid #e5e7eb;border-radius:12px;padding:10px 14px;background:#fff"><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 구글 AI 스튜디오에 붙여 넣은 화면</summary>
+    <details class="wpd" style="margin:8px 0 6px"><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 구글 AI 스튜디오에 붙여 넣은 화면</summary>
     <img src="img/aistudio-privacy-start.jpg" alt="구글 AI 스튜디오 Build의 New app 입력창에 같은 부탁문을 붙여 넣은 화면" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:10px 0">
     <p class="tip"><b>aistudio.google.com</b> → 왼쪽 <b>Build · New app</b> → 가운데 입력창에 같은 부탁문을 붙여 넣고 <b>↑</b>를 눌러요.</p>
     <p style="margin:6px 0"><a href="https://ai.studio/apps/95dab645-beee-4ccc-8b18-b4bc354cf306?fullscreenApplet=true" target="_blank" rel="noopener" style="display:inline-block;padding:8px 14px;border-radius:10px;background:#1a56db;color:#fff;font-weight:700;text-decoration:none">▶ AI 스튜디오로 만든 시뮬레이터 열어 보기 ↗</a></p>
@@ -1430,13 +1456,13 @@ show();
     <p class="tip"><b>구글 AI 스튜디오</b>(aistudio.google.com → Build)에 붙여 넣어도 돼요. AI 스튜디오는 파일 여러 개로 나눠 만들 수 있지만 그대로 실행·공유돼요. 입력창 <b>+ → NotebookLM</b>으로 노트북을 함께 붙이면 자료를 한 번 더 근거로 삼아요.</p>
   </div></div>
 
-  <div class="step"><div class="no">⑤</div><div>
+  <div class="step" id="nlm-s⑤"><div class="no">⑤</div><div>
     <h4>자료와 대조하고 고치기</h4>
     <p class="tip" style="margin-bottom:8px">앱을 만든 AI는 노트북 자료를 몰라요. 그래서 <b>앱 안의 값은 캔버스·AI 스튜디오에서 뽑고</b>, <b>대조는 출처를 보여 주는 노트북LM</b>에서 해요.</p>
     <div class="prompt"><div class="label">⑤-1 앱 안의 값 뽑기 (캔버스·AI 스튜디오, 만든 앱의 같은 채팅창)</div><button class="copy">복사</button><pre>이 앱에 들어간 공식, 기준, 숫자, 연습 문제 정답을 코드에 실제로 쓴 값 그대로 표로 모두 뽑아 줘.
 | 번호 | 항목 | 앱에 들어간 값 | 화면 어디에 나오는지 |
 아직 고치지는 마.</pre></div>
-    <details style="margin:8px 0 6px;border:1px solid #e5e7eb;border-radius:12px;padding:10px 14px;background:#fff"><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 캔버스가 뽑아 준 앱 안의 값</summary>
+    <details class="wpd" style="margin:8px 0 6px"><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 캔버스가 뽑아 준 앱 안의 값</summary>
     <img src="img/verify-5-1.jpg" alt="캔버스 앱의 같은 채팅창에서 공식·기준·숫자·정답을 표로 뽑은 결과 — 과징금 3%, 면제 0원, 산정 곤란 시 20억 원, 과태료 3,000만 원 등" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:10px 0">
     <p class="tip">코드에 들어간 값이 <code>rawSales * 0.03</code>처럼 그대로 나와요. 표 전체를 복사해 ⑤-2에서 노트북LM에 붙여 넣으세요.</p>
     </details>
@@ -1445,7 +1471,7 @@ show();
 이 값들이 이 노트북의 자료와 맞는지 한 줄씩 대조해 줘.
 | 번호 | 항목 | 앱에 들어간 값 | 자료에 있는 값 | 맞음 / 다름 / 자료에 없음 | 근거 자료 |
 자료끼리 값이 서로 다르면 그것도 알려 줘.</pre></div>
-    <details style="margin:8px 0 6px;border:1px solid #e5e7eb;border-radius:12px;padding:10px 14px;background:#fff"><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 노트북LM의 대조 결과</summary>
+    <details class="wpd" style="margin:8px 0 6px" open><summary style="cursor:pointer;font-weight:700"><span style="display:inline-block;background:#374151;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px">결과 보기</span> 노트북LM의 대조 결과</summary>
     <img src="img/verify-5-2.jpg" alt="노트북LM 대조 결과 표 — 항목마다 앱에 들어간 값, 자료에 있는 값, 맞음 또는 자료에 없음, 근거 자료와 출처 번호" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:10px 0">
     <p class="tip">줄마다 <b>맞음 / 자료에 없음</b>과 근거 자료가 나오고, 출처 숫자를 누르면 해당 판례·안내서로 바로 가요. 11번 기본 입력값처럼 화면 편의를 위해 넣은 값은 <b>"자료에 없음"</b>으로 나와요. 이런 줄은 고치지 않아도 되지만, 법령·수치인데 "자료에 없음"이면 꼭 따로 확인하세요.</p>
     </details>

@@ -1346,6 +1346,34 @@ nav.quick a.core.on{background:#d93025!important;color:#fff!important}
 #warm .hidden{display:none!important}
 #warm,#warm h2,#warm h3,#warm b{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
 </style>
+<style id="wp-style">
+/* 웹PPT 스타일 · 노트북LM 탭 */
+.wp :is(.prompt){background:#fff!important;border:1px solid #e6e8ee!important;border-left:6px solid #d93025!important;border-radius:14px!important;box-shadow:0 4px 14px rgba(20,30,60,.06);padding:16px 18px!important}
+.wp .prompt .label{display:inline-block;background:#fdecea;color:#a8332a!important;border-radius:999px;padding:4px 12px;font-size:.92em!important;font-weight:800;margin-bottom:10px!important}
+.wp .prompt pre{font-size:1.02em;line-height:1.8;white-space:pre-wrap}
+.wp details.mth,.wp details.wpd{border:1px solid #dfe5f0!important;border-radius:14px!important;background:#f8fafd!important;padding:0!important;overflow:hidden}
+.wp details.mth>summary,.wp details.wpd>summary{padding:12px 16px;font-weight:700;cursor:pointer}
+.wp details.mth[open]>summary,.wp details.wpd[open]>summary{border-bottom:1px solid #dfe5f0;background:#eef3fb}
+.wp details.mth>.body,.wp details.wpd>:not(summary){padding:0 16px}
+.wp details .mn{display:inline-block;background:#1a56db!important;color:#fff!important;border-radius:999px;padding:2px 10px;font-size:.8em;margin-right:6px}
+.wp img.doc-img,.wp details img{display:block;margin:14px auto!important;border-radius:12px!important;box-shadow:0 6px 20px rgba(20,30,60,.12);border:1px solid #e3e6ee!important;max-width:100%}
+.wp>h3[data-part]{position:relative;margin-top:24px!important;background:linear-gradient(135deg,#16233f,#24407a);color:#fff!important;border-radius:16px;padding:18px 22px 18px 92px!important;font-size:1.25em;border:0!important}
+.wp>h3[data-part]::before{content:"PART " attr(data-part);position:absolute;left:18px;top:50%;transform:translateY(-50%);background:#f5c84c;color:#16233f;font-weight:900;font-size:.62em;border-radius:8px;padding:6px 8px;letter-spacing:.04em}
+.wp>div[style="height:4.5em"]{height:4.5em;background:linear-gradient(#e3e6ee,#e3e6ee) center/60% 1px no-repeat}
+.wp-hero{background:linear-gradient(135deg,#0f1b2e,#1d3a72);color:#fff;border-radius:20px;padding:26px 26px 22px;margin:14px 0 26px;box-shadow:0 10px 30px rgba(15,27,46,.25)}
+.wp-hero .k{color:#9cc0ff;font-weight:800;font-size:.9em;letter-spacing:.05em;margin:0 0 6px}
+.wp-hero .t{font-size:1.55em;font-weight:900;line-height:1.3;margin:0 0 8px;color:#fff}
+.wp-hero .d{color:#d6e0f5;margin:0 0 16px;line-height:1.6}
+.wp-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.wp-flow a{flex:1 1 150px;display:block;text-decoration:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 14px;color:#fff!important}
+.wp-flow a:hover{background:rgba(255,255,255,.16)}
+.wp-flow b{display:block;font-size:1.05em;margin:2px 0}
+.wp-flow em{font-style:normal;color:#f5c84c;font-weight:900;font-size:.85em}
+.wp-flow span{display:block;color:#c4d0e8;font-size:.85em;line-height:1.45}
+.wp-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.wp-meta span{background:rgba(255,255,255,.1);border-radius:999px;padding:5px 12px;font-size:.88em;color:#e6edf9}
+.wp .tip{border-radius:10px}
+</style>
 </head>
 <body>
 
@@ -2316,10 +2344,12 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 
 </section>
 
-<section id="s2n">
+<section id="s2n" class="wp">
   <h2 class="sec">2++ 노트북LM 채점 · 반 전체 과제를 근거로 채점</h2>
 
   <p class="lead">스킬은 과제를 <b>한 편씩</b> 같은 형식으로 채점해요. 노트북LM에는 <b>강의자료·과제 안내·루브릭·학생 과제 10편</b>을 한꺼번에 넣어, 반 전체를 비교하고 <b>점수의 근거가 어느 문장인지 출처 번호로</b> 바로 확인할 수 있어요.</p>
+<div class="wp-hero"><p class="k">오전반 · 2++ 노트북LM 채점</p><p class="t">반 전체 과제를 근거로 채점하기</p><p class="d">강의자료·루브릭·학생 과제 10편을 한 노트북에 넣고, 점수마다 <b>출처 번호</b>로 근거를 확인해요. 모든 자료는 가상이에요.</p><div class="wp-flow"><a href="#s2n-p1"><em>PART 1</em><b>평가하기</b><span>채점표 → 점수 환산 → 엑셀 → 학생별 피드백</span></a><a href="#s2n-p2"><em>PART 2</em><b>루브릭 점검·다시 만들기</b><span>빈틈 찾기 → 새로 만들기 → 비교 → 안내서</span></a><a href="#s2n-p3"><em>PART 3</em><b>강의계획서·손글씨 채점</b><span>한국어 글쓰기 노트북 · 유학생 원고지 10장</span></a></div><div class="wp-meta"><span>⏱ 전체 약 45분 · PART 하나만 해도 돼요</span><span>📦 아래 ZIP 하나로 두 과목 자료</span><span>✅ 점수는 교수님이 최종 결정</span></div></div>
+
   <div class="gap3" style="height:4.2em"></div>
   <table style="width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:.95em"><tr style="background:#f3f4f6"><th style="padding:8px;border:1px solid #e3e1da;text-align:left"></th><th style="padding:8px;border:1px solid #e3e1da;text-align:left">제미나이 스킬 (2 탭)</th><th style="padding:8px;border:1px solid #e3e1da;text-align:left">노트북LM (이 탭)</th></tr><tr><td style="padding:8px;border:1px solid #e3e1da"><b>잘하는 것</b></td><td style="padding:8px;border:1px solid #e3e1da">같은 형식으로 한 편씩 빠르게 피드백</td><td style="padding:8px;border:1px solid #e3e1da">여러 자료를 근거로 반 전체를 비교하고 출처 확인</td></tr><tr><td style="padding:8px;border:1px solid #e3e1da"><b>넣는 것</b></td><td style="padding:8px;border:1px solid #e3e1da">루브릭(스킬 안에 고정) + 과제 1편</td><td style="padding:8px;border:1px solid #e3e1da">강의자료(강의계획서) + 과제 안내 + 루브릭 + 과제 10편</td></tr><tr><td style="padding:8px;border:1px solid #e3e1da"><b>언제</b></td><td style="padding:8px;border:1px solid #e3e1da">과제가 들어올 때마다 바로</td><td style="padding:8px;border:1px solid #e3e1da">채점 기준 점검, 공통 약점 찾기, 보충 수업 설계</td></tr></table>
 <div class="gap3" style="height:4.2em"></div>
@@ -2327,7 +2357,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 <div class="gap3" style="height:4.2em"></div>
   <ol class="steps-gap"><li>내려받은 ZIP을 <b>압축 풀기</b> (스킬 파일과 달리 여기서는 풀어요)</li><li><b>notebooklm.google.com</b> → 새 노트북 → <b>소스 추가</b>에 한 과목 폴더의 파일을 모두 끌어다 놓기 (과목마다 노트북 하나)</li><li>아래 부탁문을 차례로 보내고, 답의 <b>숫자 단추</b>를 눌러 학생 글의 어느 문장이 근거인지 확인</li></ol>
 <div class="gap3" style="height:4.2em"></div>
-  <h3 style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">1. 평가하기 · 비판적사고 노트북</h3>
+  <h3 id="s2n-p1" data-part="1" style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">1. 평가하기 · 비판적사고 노트북</h3>
   <p class="tip" style="margin-top:0">강의자료·과제 안내·루브릭·학생 에세이 10편을 넣은 노트북에서 해요. 채점 → 성적 환산 → 엑셀 → 피드백 보고서까지 한 채팅창에서 이어져요.</p>
   <div class="prompt"><div class="label">① 반 전체 채점표</div><button class="copy">복사</button><pre>소스의 루브릭으로 학생01~학생10의 과제를 채점해 줘. 기준마다 4·3·2·1점 중 하나를 주고 합계(16점 만점)를 내.
 | 학생 | 기준1 | 기준2 | 기준3 | 기준4 | 합계 | 가장 낮은 기준의 근거(학생 글 그대로 인용) |
@@ -2374,7 +2404,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 <div style="height:4.5em"></div>
   <div class="prompt"><div class="label">③ 엑셀 파일로 받기 (환산표 바로 다음, 같은 채팅창에서)</div><button class="copy">복사</button><pre>위 채점 결과와 성적 환산 표를 엑셀 파일로 생성해 줘.</pre></div>
   <p class="tip">엑셀 파일(.xlsx)이 오른쪽 <b>스튜디오</b>에 만들어져요. 내려받아 성적 파일에 붙여 넣으면 돼요.</p>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 환산표와 엑셀 파일이 실제로 이렇게 나와요</summary><div class="body">
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 환산표와 엑셀 파일이 실제로 이렇게 나와요</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-convert-xlsx.jpg" alt="노트북LM 성적 환산 결과표와 엑셀 파일 생성 화면" loading="lazy" style="max-width:520px;width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">강사가 해 본 결과 계산은 모두 맞았어요(14점 → 87.5점 / 26.3점). 그래도 한두 명은 직접 검산해 보세요.</p>
   <p style="margin:14px 0 4px"><b>스튜디오에 엑셀 파일이 생긴 모습</b> — 오른쪽 스튜디오 목록에 <b>.xlsx 파일</b>이 생기고, 채팅에는 파일 구성이 설명돼요. 합계·환산 칸에는 <b>수식</b>(=SUM, =ROUND)이 들어가 있어 점수를 고치면 자동으로 다시 계산돼요.</p>
@@ -2385,7 +2415,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 <div style="height:4.5em"></div>
   <div class="prompt"><div class="label">④ 학생별 상세 피드백 보고서 (채점이 끝난 같은 채팅창에서)</div><button class="copy">복사</button><pre>학생별 상세 피드백 보고서를 만들어 줘</pre></div>
   <p class="tip">보고서는 오른쪽 <b>스튜디오</b>에 저장돼요. 짧게 부탁해도 학생별 평가 요약, 감점 이유, 고쳐 쓰기 예시까지 정리돼요.</p>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 보고서와 구글 문서로 내보내기 <em>더 자세히 부탁하는 방법도</em></summary><div class="body">
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 보고서와 구글 문서로 내보내기 <em>더 자세히 부탁하는 방법도</em></summary><div class="body">
   <div class="prompt"><div class="label">더 자세히 정해서 부탁하려면</div><button class="copy">복사</button><pre>학생01~학생10 모두에게 줄 학생별 상세 피드백 보고서를 만들어 줘.
 - 학생마다: 잘한 점 1개(학생 글 짧게 인용), 고칠 점 2개(루브릭 기준 번호 표시), 다음 과제에서 할 행동 1개
 - 학생마다 그 학생 글에만 있는 내용으로 쓰고, 비슷한 문장을 여러 학생에게 반복하지 마.
@@ -2399,7 +2429,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   <p class="tip">보고서는 오른쪽 <b>스튜디오</b>에 저장돼요. 소스가 <b>채점 결과 메모 하나만</b> 체크돼 있으면 학생 원문을 못 보고 메모 내용만으로 쓰니, <b>모두 선택</b>으로 학생 글까지 체크한 뒤 부탁하세요. 학생에게 보내기 전에 인용문이 실제 학생 글에 있는지 꼭 확인하세요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <h3 style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">2. 내 루브릭 점검하고 다시 만들기 · 비판적사고 노트북</h3>
+  <h3 id="s2n-p2" data-part="2" style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">2. 내 루브릭 점검하고 다시 만들기 · 비판적사고 노트북</h3>
   <p class="tip" style="margin-top:0">같은 노트북에서 해요. 지금 루브릭의 빈틈을 찾고 → 새로 만들고 → 비교한 뒤 → 과제 안내까지 고쳐요. 단계마다 체크할 소스가 달라요.</p>
   <details class="mth" style="margin:0 0 14px"><summary class="mh"><span class="mn">참고</span> 단계마다 체크할 소스 <em>헷갈리면 여기를 보세요</em></summary><div class="body">
   <table style="width:100%;border-collapse:collapse;font-size:.95em"><tr style="background:#f3f4f6"><th style="padding:8px;border:1px solid #e3e1da">순서</th><th style="padding:8px;border:1px solid #e3e1da">번호</th><th style="padding:8px;border:1px solid #e3e1da">내용</th><th style="padding:8px;border:1px solid #e3e1da">체크할 소스</th></tr><tr><td style="padding:8px;border:1px solid #e3e1da">1</td><td style="padding:8px;border:1px solid #e3e1da">①</td><td style="padding:8px;border:1px solid #e3e1da">먼저 내 루브릭의 빈틈 찾기</td><td style="padding:8px;border:1px solid #e3e1da"><b>과제 안내 + 루브릭 (2개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">2</td><td style="padding:8px;border:1px solid #e3e1da">②</td><td style="padding:8px;border:1px solid #e3e1da">루브릭 새로 만들기</td><td style="padding:8px;border:1px solid #e3e1da"><b>강의자료 + 과제 안내 (2개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">3</td><td style="padding:8px;border:1px solid #e3e1da">③</td><td style="padding:8px;border:1px solid #e3e1da">내 루브릭과 비교하기</td><td style="padding:8px;border:1px solid #e3e1da"><b>강의자료 + 과제 안내 + 루브릭 (3개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">4</td><td style="padding:8px;border:1px solid #e3e1da">④</td><td style="padding:8px;border:1px solid #e3e1da">기존 과제 안내를 고친 안내서 PDF</td><td style="padding:8px;border:1px solid #e3e1da"><b>위와 같은 3개</b></td></tr></table>
@@ -2426,7 +2456,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 <div style="height:4.5em"></div>
   <div class="prompt"><div class="label">③ 내 루브릭과 비교하기 · 이번에는 <b>루브릭 파일도 체크</b> (소스 3개)</div><button class="copy">복사</button><pre>방금 만든 루브릭과 소스의 루브릭을 비교해서, 서로 다른 점과 어느 쪽이 더 분명한지 표로 정리해 줘.</pre></div>
   <p class="tip">같은 채팅창에서 이어서 보내세요. 왼쪽 출처에서 <b>루브릭 파일을 체크</b>해 강의자료·과제 안내·루브릭 <b>소스 3개</b>로 만든 뒤 보내요.</p>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 기존 루브릭 vs 새로 만든 루브릭</summary><div class="body">
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 기존 루브릭 vs 새로 만든 루브릭</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-rubric-compare.jpg" alt="소스 3개로 기존 루브릭과 새 루브릭을 비교한 표" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">기존 루브릭은 "막연함", "경미한 오류"처럼 <b>교수 판단에 맡기는 표현</b>이 많고, 새 루브릭은 "한 연구에 따르면" 같은 <b>학생 글에서 바로 확인할 수 있는 행동</b>으로 적혀 있다고 비교해 줘요. 둘 중 좋은 표현만 골라 내 루브릭을 다듬으면 돼요.</p>
   </div></details>
@@ -2440,7 +2470,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   <p class="tip">나눠 주기 전에 <b>성적 반영 비율·분량·제출일</b>이 내 수업과 맞는지 꼭 확인하세요. 강사가 해 보니 원래 과제 안내는 10%인데, 앞 대화에서 "30%"로 환산해 달라고 했더니 안내서에도 <b>30%</b>로 들어갔어요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <h3 style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">3. 강의계획서와 손글씨 채점 · 한국어 글쓰기 노트북</h3>
+  <h3 id="s2n-p3" data-part="3" style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">3. 강의계획서와 손글씨 채점 · 한국어 글쓰기 노트북</h3>
   <p class="tip" style="margin-top:0">강의계획서·과제 안내·루브릭·유학생 손글씨 작문 10장을 넣은 새 노트북에서 해요. 성적 환산·엑셀·피드백은 1번 칸과 같은 방법이라 생략하고, <b>강의계획서</b>와 <b>손글씨 채점</b>만 해 봐요. 단계마다 체크할 소스가 달라요.</p>
   <div class="prompt"><div class="label">① 강의계획서 점검 · 소스는 <b>강의계획서 1개만</b> 체크</div><button class="copy">복사</button><pre>강의계획서의 학습목표, 주차별 내용, 평가 방법이 서로 맞는지 표로 점검해 줘.
 - 어느 평가와도 연결되지 않은 학습목표, 학습목표와 연결되지 않은 평가가 있으면 표시해 줘.
@@ -2459,7 +2489,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 - 문법은 강의계획서 4~5주차에 배운 문법(-아서/어서, -는데, -보다)을 썼는지, 바르게 썼는지로 판단해.
 - 사진에서 읽기 어려운 부분이 있으면 점수 대신 "원본 확인 필요"라고 써.</pre></div>
   <p class="tip">성적 환산·엑셀·피드백 보고서가 필요하면 1번 칸의 ②~④ 부탁문을 같은 채팅창에서 이어서 보내면 돼요.</p>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 손글씨 작문 10편 채점표 (소스 13개 모두 선택)</summary><div class="body">
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 손글씨 작문 10편 채점표 (소스 13개 모두 선택)</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-handwriting-grading.jpg" alt="소스 13개를 모두 선택해 손글씨 작문 10편을 16점 루브릭으로 채점한 표" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">사진만 올렸는데도 기준별 점수와 학생 글 인용, 목표 문법(-는데, -보다, -아서) 사용 여부까지 정리돼요.</p>
   <p class="tip">그런데 학생02의 근거에 <b>"동근 빵인" → 둥근</b>이라는 맞춤법 오류가 나와요. 학생이 실제로 쓴 글은 <b>"둥근 빵인"</b>이에요. AI는 맨 위에 "손글씨는 모두 선명하게 읽을 수 있어 정상 채점했다"고 했지만, 실제로는 손글씨를 잘못 읽고 학생 탓으로 적은 거예요. 그래서 아래 ⑤처럼 <b>옮겨 적기로 한 번 확인</b>하는 단계가 필요해요.</p>
@@ -2489,12 +2519,14 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 <div class="callout red"><b class="t">꼭 기억하세요</b> AI가 손글씨를 잘못 읽으면 채점도 틀려요. 손글씨 과제는 <b>옮겨 적기부터 확인</b>하세요. 점수는 <b>교수님이 최종 결정</b>하고, 실제 학생 과제는 이름·학번을 지운 뒤 넣으세요. 노트북LM은 <b>개인 구글 계정</b>으로 여세요(학교 계정은 막혀 있을 수 있어요).</div>
   </section>
 
-<section id="s2s">
+<section id="s2s" class="wp">
   <h2 class="sec">2+++ 노트북LM 강의계획서 · 대진대 양식으로 15주 수업계획서 초안 만들기</h2>
   <div class="callout blue" style="margin-bottom:10px"><b class="t">🕐 이 탭은 오후반에서 실습해요</b> 오전반에서도 내용은 미리 보고 따라 해 보셔도 돼요. 오후반에서는 이렇게 만든 노트북으로 이어서 <b>바이브코딩</b>까지 해요.</div>
   <p class="lead">대진대 수업계획서 양식을 노트북에 넣고, <b>Deep Research</b>로 수업할 내용을 찾아 보고서와 소스를 더한 뒤, 양식 칸 순서대로 초안을 받아요. 자료에 근거가 없는 칸은 <b>[확인 필요]</b>로 비워 두게 해서 교수님이 채워요.</p>
+<div class="wp-hero"><p class="k">2+++ 노트북LM · 강의계획서</p><p class="t">딥리서치로 근거를 모아 대진대 양식 강의계획서 만들기</p><p class="d">과목명만 내 과목으로 바꾸면 그대로 따라 할 수 있어요. 근거가 없는 칸은 <b>[확인 필요]</b>로 남겨 교수님이 채워요.</p><div class="wp-flow"><a href="#s2s-a1"><em>STEP 1</em><b>양식 올리기</b><span>대진대 수업계획서 PDF를 새 노트북에</span></a><a href="#s2s-a2"><em>STEP 2</em><b>딥리서치로 자료 모으기</b><span>기다리는 동안 패스트 리서치와 비교</span></a><a href="#s2s-a3"><em>STEP 3</em><b>양식대로 초안 받기</b><span>④-1 1~9번 → ④-2 15주 → ④-3 비교과</span></a><a href="#s2s-a4"><em>STEP 4</em><b>워드로 받고 점검</b><span>.docx 내려받기 → 한글로 다른 이름 저장</span></a></div><div class="wp-meta"><span>⏱ 약 30분 (딥리서치 5~10분 대기 포함)</span><span>🖥 기다리는 동안 슬라이드 보기</span><span>✅ 학교 규정·평가 비율은 직접 확인</span></div></div>
+
 <div style="height:4.5em"></div>
-  <div class="dlbox"><b class="t">📥 대진대 수업계획서 양식 (2026학년도 1학기)</b><p style="margin:6px 0 10px"><a class="dl" style="display:inline-block;padding:10px 18px;border-radius:10px;background:#d93025;color:#fff;border:2px solid #d93025;font-weight:700;text-decoration:none" href="files/syllabus-form/daejin-syllabus-form-2026-1.pdf" download>⬇ 수업계획서 양식 PDF 내려받기</a></p><p class="tip" style="margin:0">학교 양식은 한글(hwp) 파일이라 노트북LM이 읽지 못해요. 그래서 PDF로 바꿔 두었어요. 교과목 정보, 6대 핵심역량 정의, 수업방법, 평가방법, 과제, 1~15주차 주별 수업계획 칸이 들어 있어요.</p></div>
+  <div class="dlbox" id="s2s-a1"><b class="t">📥 대진대 수업계획서 양식 (2026학년도 1학기)</b><p style="margin:6px 0 10px"><a class="dl" style="display:inline-block;padding:10px 18px;border-radius:10px;background:#d93025;color:#fff;border:2px solid #d93025;font-weight:700;text-decoration:none" href="files/syllabus-form/daejin-syllabus-form-2026-1.pdf" download>⬇ 수업계획서 양식 PDF 내려받기</a></p><p class="tip" style="margin:0">학교 양식은 한글(hwp) 파일이라 노트북LM이 읽지 못해요. 그래서 PDF로 바꿔 두었어요. 교과목 정보, 6대 핵심역량 정의, 수업방법, 평가방법, 과제, 1~15주차 주별 수업계획 칸이 들어 있어요.</p></div>
 <div style="height:4.5em"></div>
   <ol class="steps-gap"><li><b>notebooklm.google.com</b> → <b>새 노트북</b> → 내려받은 <b>수업계획서 양식 PDF</b>를 소스로 올리기</li><li>왼쪽 출처 위의 <b>웹에서 새 소스를 검색하세요</b> 칸에 내 과목 주제를 적고 <b>Deep Research</b>와 <b>Fast Research</b>를 비교한 뒤, 딥리서치 보고서와 소스를 <b>가져오기</b></li><li>아래 부탁문을 차례로 보내기 · <b>빨간 곳</b>만 내 과목으로 바꾸세요</li></ol>
   <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 양식 PDF를 올린 새 노트북</summary><div class="body">
@@ -2502,8 +2534,8 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   <p class="tip">양식만 올려도 노트북LM이 6대 핵심역량, 수업방법, 평가방법, 주별 수업계획 등 <b>양식의 구성</b>을 먼저 요약해 줘요. 이제 왼쪽 위 검색 칸에서 <b>Deep Research</b>로 수업 내용을 찾아 더해요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">① Deep Research로 먼저 돌려 두기 · 검색 칸 아래 두 번째 단추에서 <b>Deep Research</b> 고르기</div><button class="copy">복사</button><pre><span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>를 위한 대학생들을 대상으로 하는 강의를 위한 자료를 찾아줘.</pre></div>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> Deep Research 완료 → 보고서 펼치기</summary><div class="body">
+  <div class="prompt" id="s2s-a2"><div class="label">① Deep Research로 먼저 돌려 두기 · 검색 칸 아래 두 번째 단추에서 <b>Deep Research</b> 고르기</div><button class="copy">복사</button><pre><span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>를 위한 대학생들을 대상으로 하는 강의를 위한 자료를 찾아줘.</pre></div>
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> Deep Research 완료 → 보고서 펼치기</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-deep-research.jpg" alt="Deep Research 완료 → 펼치기, 소스 32개 기반 보고서와 보고서에 인용됨 32·인용되지 않음 9" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <ol class="steps-gap"><li>검색어를 적고 <b>웹</b> 옆 두 번째 단추를 <b>Deep Research</b>로 바꾼 뒤 <b>→</b> (5분쯤 걸려요)</li><li><b>Deep Research 완료</b>가 뜨면 오른쪽 위 <b>펼치기</b> → 보고서와 자료 목록 보기 (예시: <b>소스 32개</b>를 바탕으로 쓴 보고서)</li><li><b>보고서에 인용됨</b>과 <b>인용되지 않음</b> 탭을 나눠 볼 수 있어요</li></ol>
   </div></details>
@@ -2705,7 +2737,7 @@ show();
   </div></details>
   <p class="tip">강의계획서에 쓸 만한 자료를 찾는 단계예요. 해외 강의계획서를 더 찾고 싶으면 영어로도 한 번 검색해 보세요. 교재 목차나 지난 학기 강의자료가 있으면 그것도 함께 소스로 올리면 더 내 수업에 가까운 초안이 나와요.</p>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">④-1 대진대 양식으로 초안 받기 (1~9번) · 소스는 <b>양식 + 가져온 보고서·자료</b> 모두 선택</div><button class="copy">복사</button><pre>소스의 대진대 수업계획서 양식을 칸 순서대로 채워서 「<span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>」 수업계획서 초안을 써 줘. 이번에는 1~9번까지만 써 줘.
+  <div class="prompt" id="s2s-a3"><div class="label">④-1 대진대 양식으로 초안 받기 (1~9번) · 소스는 <b>양식 + 가져온 보고서·자료</b> 모두 선택</div><button class="copy">복사</button><pre>소스의 대진대 수업계획서 양식을 칸 순서대로 채워서 「<span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">생성형 AI 시대의 비판적 사고</span>」 수업계획서 초안을 써 줘. 이번에는 1~9번까지만 써 줘.
 - 1. 수업의 개요와 유용성
 - 2. 선행학습 및 선수과목 요건 → [확인 필요]로 남겨 줘.
 - 3. 핵심역량 및 수업목표 → 대진대 6대 핵심역량 중 주역량 1개와 부역량 1개를 골라 비율과 수업목표를 써 줘.
@@ -2724,7 +2756,7 @@ show();
 - 표의 칸은 양식대로 주차 | 수업주제 | 주요 학습내용 | 수업방식 | 선행학습 및 준비사항 | 교재 및 참고자료로 해 줘.
 - 주요 학습내용은 Deep Research 보고서와 가져온 소스에 있는 내용만 쓰고, '교재 및 참고자료' 칸에 근거가 된 소스 이름을 적어 줘.
 - 중간시험·기말시험 주차는 [확인 필요]로 표시해 줘.</pre></div>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 10. 주별 수업계획 표</summary><div class="body">
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 10. 주별 수업계획 표</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-syllabus-draft-2.jpg" alt="10. 주별 수업계획 — 주차·수업주제·주요 학습내용·수업방식·선행학습 및 준비사항·교재 및 참고자료 6개 칸의 표" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">양식의 6개 칸 그대로 표가 나와요. 노트북LM이 중간시험을 <b>8주차</b>, 기말시험을 <b>15주차</b>로 잡고 [확인 필요]를 붙였어요. 학교 학사일정과 맞는지 꼭 확인하세요. 표가 길어서 채팅 아래로 내려 가며 봐야 해요.</p>
   </div></details>
@@ -2735,8 +2767,8 @@ show();
   <p class="tip"><b>이 줄이 없을 때 나온 결과예요.</b> 노트북LM이 「대진대학교 교수학습개발센터(CTL)·학술정보원과 연계」라고 쓰고 프로그램 3개를 <b>새로 지어냈어요.</b> 소스에는 대진대 비교과 프로그램 정보가 없어요. 그래서 부탁문에 「학교 부서와 프로그램 이름은 지어내지 말고 [확인 필요]로 남겨 줘」를 넣었어요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">⑤ 전체를 워드 파일로 받기 (같은 채팅창)</div><button class="copy">복사</button><pre>그러면 전체 문서를 워드파일로 완성해서 저장해줘</pre></div>
-  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 스튜디오에 저장된 워드 파일</summary><div class="body">
+  <div class="prompt" id="s2s-a4"><div class="label">⑤ 전체를 워드 파일로 받기 (같은 채팅창)</div><button class="copy">복사</button><pre>그러면 전체 문서를 워드파일로 완성해서 저장해줘</pre></div>
+  <details class="mth" style="margin-top:8px" open><summary class="mh"><span class="mn">결과 보기</span> 스튜디오에 저장된 워드 파일</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-syllabus-docx.jpg" alt="워드파일로 저장해 달라고 하자 스튜디오에 daejin_syllabus_ai_critical_thinking.docx 생성" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <img class="doc-img" src="img/notebooklm-syllabus-docx-open.jpg" alt="워드 파일 미리 보기(8쪽) — ⋮ 메뉴의 다운로드, 기본 정보 표가 두 번 반복됨" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">1~11번을 모두 모은 워드 파일(.docx)이 오른쪽 <b>스튜디오</b>에 생겨요. 파일을 누르면 미리 보기가 열리고(예시는 8쪽), 오른쪽 위 <b>⋮ → 다운로드</b>로 내려받아요. 미리 보기를 보면 <b>기본 정보 표가 두 번 반복</b>되어 있어요. 이렇게 겹치거나 빠진 곳이 없는지 훑어보고, 최종본은 학교 한글 양식에 옮겨 제출하세요.</p>
