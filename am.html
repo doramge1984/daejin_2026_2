@@ -2324,7 +2324,9 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 <div class="gap3" style="height:4.2em"></div>
   <ol class="steps-gap"><li>내려받은 ZIP을 <b>압축 풀기</b> (스킬 파일과 달리 여기서는 풀어요)</li><li><b>notebooklm.google.com</b> → 새 노트북 → <b>소스 추가</b>에 한 과목 폴더의 파일을 모두 끌어다 놓기 (과목마다 노트북 하나)</li><li>아래 부탁문을 차례로 보내고, 답의 <b>숫자 단추</b>를 눌러 학생 글의 어느 문장이 근거인지 확인</li></ol>
 <div class="gap3" style="height:4.2em"></div>
-  <div class="prompt"><div class="label">① 반 전체 채점표 (두 과목 공통)</div><button class="copy">복사</button><pre>소스의 루브릭으로 학생01~학생10의 과제를 채점해 줘. 기준마다 4·3·2·1점 중 하나를 주고 합계(16점 만점)를 내.
+  <h3 style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">1. 평가하기 · 비판적사고 노트북</h3>
+  <p class="tip" style="margin-top:0">강의자료·과제 안내·루브릭·학생 에세이 10편을 넣은 노트북에서 해요. 채점 → 성적 환산 → 엑셀 → 피드백 보고서까지 한 채팅창에서 이어져요.</p>
+  <div class="prompt"><div class="label">① 반 전체 채점표</div><button class="copy">복사</button><pre>소스의 루브릭으로 학생01~학생10의 과제를 채점해 줘. 기준마다 4·3·2·1점 중 하나를 주고 합계(16점 만점)를 내.
 | 학생 | 기준1 | 기준2 | 기준3 | 기준4 | 합계 | 가장 낮은 기준의 근거(학생 글 그대로 인용) |
 - 표의 기준 이름은 루브릭에 적힌 그대로 써.
 - 루브릭과 강의자료(강의계획서)에 없는 기준으로 평가하지 마.
@@ -2340,7 +2342,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   <p class="tip">표가 나오면 <b>학생 10명이 모두 있는지</b> 먼저 세어 보세요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">🔢 성적 점수로 바꾸기 (채점표 바로 다음, 같은 채팅창에서)</div><button class="copy">복사</button><pre>위 채점표의 합계(16점 만점)를 성적 반영 점수로 바꿔 줘. 이 과제는 성적의 <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30%</span>야.
+  <div class="prompt"><div class="label">② 성적 점수로 바꾸기 (채점표 바로 다음, 같은 채팅창에서)</div><button class="copy">복사</button><pre>위 채점표의 합계(16점 만점)를 성적 반영 점수로 바꿔 줘. 이 과제는 성적의 <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30%</span>야.
 | 학생 | 합계(16점) | 100점 환산 | <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30점</span> 만점 환산 |
 - 100점 환산 = 합계 ÷ 16 × 100
 - <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30점</span> 만점 환산 = 합계 ÷ 16 × <span style="color:#d93025;font-weight:800;background:#fde8e7;border-radius:4px;padding:0 3px">30</span>
@@ -2367,7 +2369,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   </div></details>
   <p class="tip"> <b>"다시 채점하지 마"</b>가 없으면 노트북LM이 처음부터 다시 채점해 합계가 바뀔 수 있어요. 결과는 한두 명만 직접 검산해 보세요 (예: 14점 → 30%면 14 ÷ 16 × 30 = 26.25 → 26.3점, 20%면 14 ÷ 16 × 20 = 17.5점).</p>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">📥 엑셀 파일로 받기 (환산표 바로 다음, 같은 채팅창에서)</div><button class="copy">복사</button><pre>위 채점 결과와 성적 환산 표를 엑셀 파일로 생성해 줘.</pre></div>
+  <div class="prompt"><div class="label">③ 엑셀 파일로 받기 (환산표 바로 다음, 같은 채팅창에서)</div><button class="copy">복사</button><pre>위 채점 결과와 성적 환산 표를 엑셀 파일로 생성해 줘.</pre></div>
   <p class="tip">엑셀 파일(.xlsx)이 오른쪽 <b>스튜디오</b>에 만들어져요. 내려받아 성적 파일에 붙여 넣으면 돼요.</p>
   <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 환산표와 엑셀 파일이 실제로 이렇게 나와요</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-convert-xlsx.jpg" alt="노트북LM 성적 환산 결과표와 엑셀 파일 생성 화면" loading="lazy" style="max-width:520px;width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
@@ -2378,14 +2380,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   <img class="doc-img" src="img/notebooklm-xlsx-download.jpg" alt="essay_grading_results.xlsx 미리보기와 ⋮ 메뉴의 다운로드" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:4px 0 12px">
   </div></details>
 <div style="height:4.5em"></div>
-<div style="height:1.6em"></div>
-  <div class="prompt"><div class="label">② 반 전체 공통 약점 → 다음 수업 보충</div><button class="copy">복사</button><pre>10편을 비교해서 가장 많이 반복되는 약점 3가지를 정리하고(해당 학생 번호 표시), 다음 수업 첫 10분에 할 보충 활동 1개를 강의자료(강의계획서) 내용으로만 설계해 줘.</pre></div>
-<div style="height:1.6em"></div>
-  <div class="prompt"><div class="label">③ 손글씨 먼저 확인 (한국어 글쓰기)</div><button class="copy">복사</button><pre>학생10 작문 사진을 글자 그대로 옮겨 적어 줘. 틀린 글자나 띄어쓰기도 고치지 말고 보이는 대로. 읽기 어려운 글자는 [?]로 표시해 줘.</pre></div>
-<div style="height:1.6em"></div>
-  <div class="prompt"><div class="label">④ 학생에게 돌려줄 피드백</div><button class="copy">복사</button><pre>학생03에게 돌려줄 피드백을 써 줘. 잘한 점 1개, 고칠 점 2개(학생 글 인용), 다음 과제에서 할 행동 1개. 유학생이면 TOPIK 3급이 읽을 수 있는 쉬운 한국어로. 점수는 쓰지 마.</pre></div>
-<div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">📝 학생별 상세 피드백 보고서 (채점이 끝난 같은 채팅창에서)</div><button class="copy">복사</button><pre>학생별 상세 피드백 보고서를 만들어 줘</pre></div>
+  <div class="prompt"><div class="label">④ 학생별 상세 피드백 보고서 (채점이 끝난 같은 채팅창에서)</div><button class="copy">복사</button><pre>학생별 상세 피드백 보고서를 만들어 줘</pre></div>
   <p class="tip">보고서는 오른쪽 <b>스튜디오</b>에 저장돼요. 짧게 부탁해도 학생별 평가 요약, 감점 이유, 고쳐 쓰기 예시까지 정리돼요.</p>
   <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 보고서와 구글 문서로 내보내기 <em>더 자세히 부탁하는 방법도</em></summary><div class="body">
   <div class="prompt"><div class="label">더 자세히 정해서 부탁하려면</div><button class="copy">복사</button><pre>학생01~학생10 모두에게 줄 학생별 상세 피드백 보고서를 만들어 줘.
@@ -2401,23 +2396,20 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   <p class="tip">보고서는 오른쪽 <b>스튜디오</b>에 저장돼요. 소스가 <b>채점 결과 메모 하나만</b> 체크돼 있으면 학생 원문을 못 보고 메모 내용만으로 쓰니, <b>모두 선택</b>으로 학생 글까지 체크한 뒤 부탁하세요. 학생에게 보내기 전에 인용문이 실제 학생 글에 있는지 꼭 확인하세요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-<div style="height:1.6em"></div>
-  <div class="prompt"><div class="label">⑤ 교수의 검증</div><button class="copy">복사</button><pre>방금 채점에서 판단이 가장 어려웠던 칸 2개를 골라, 한 점 위·아래로 볼 수도 있는 이유를 루브릭 문장과 함께 설명해 줘.</pre></div>
-<div style="height:4.5em"></div>
-  <h3 style="font-size:1.2em;margin:0 0 6px;color:var(--navy,#1f2a44)">🧩 루브릭 만들기 · 과제 안내만 주면 초안이 나와요</h3>
-  <p class="tip" style="margin-top:0">채점 전에 쓰는 단계예요. 연습 노트북에는 루브릭이 이미 있어서, AI가 만든 루브릭과 비교해 볼 수 있어요.</p>
+  <h3 style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">2. 내 루브릭 점검하고 다시 만들기 · 비판적사고 노트북</h3>
+  <p class="tip" style="margin-top:0">같은 노트북에서 해요. 지금 루브릭의 빈틈을 찾고 → 새로 만들고 → 비교한 뒤 → 과제 안내까지 고쳐요. 단계마다 체크할 소스가 달라요.</p>
   <details class="mth" style="margin:0 0 14px"><summary class="mh"><span class="mn">참고</span> 단계마다 체크할 소스 <em>헷갈리면 여기를 보세요</em></summary><div class="body">
-  <table style="width:100%;border-collapse:collapse;font-size:.95em"><tr style="background:#f3f4f6"><th style="padding:8px;border:1px solid #e3e1da">순서</th><th style="padding:8px;border:1px solid #e3e1da">번호</th><th style="padding:8px;border:1px solid #e3e1da">내용</th><th style="padding:8px;border:1px solid #e3e1da">체크할 소스</th></tr><tr><td style="padding:8px;border:1px solid #e3e1da">1</td><td style="padding:8px;border:1px solid #e3e1da">⑥</td><td style="padding:8px;border:1px solid #e3e1da">먼저 내 루브릭의 빈틈 찾기</td><td style="padding:8px;border:1px solid #e3e1da"><b>과제 안내 + 루브릭 (2개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">2</td><td style="padding:8px;border:1px solid #e3e1da">⑦</td><td style="padding:8px;border:1px solid #e3e1da">루브릭 새로 만들기</td><td style="padding:8px;border:1px solid #e3e1da"><b>강의자료 + 과제 안내 (2개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">3</td><td style="padding:8px;border:1px solid #e3e1da">⑧</td><td style="padding:8px;border:1px solid #e3e1da">내 루브릭과 비교하기</td><td style="padding:8px;border:1px solid #e3e1da"><b>강의자료 + 과제 안내 + 루브릭 (3개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">4</td><td style="padding:8px;border:1px solid #e3e1da">⑨</td><td style="padding:8px;border:1px solid #e3e1da">기존 과제 안내를 고친 안내서 PDF</td><td style="padding:8px;border:1px solid #e3e1da"><b>위와 같은 3개</b></td></tr></table>
+  <table style="width:100%;border-collapse:collapse;font-size:.95em"><tr style="background:#f3f4f6"><th style="padding:8px;border:1px solid #e3e1da">순서</th><th style="padding:8px;border:1px solid #e3e1da">번호</th><th style="padding:8px;border:1px solid #e3e1da">내용</th><th style="padding:8px;border:1px solid #e3e1da">체크할 소스</th></tr><tr><td style="padding:8px;border:1px solid #e3e1da">1</td><td style="padding:8px;border:1px solid #e3e1da">①</td><td style="padding:8px;border:1px solid #e3e1da">먼저 내 루브릭의 빈틈 찾기</td><td style="padding:8px;border:1px solid #e3e1da"><b>과제 안내 + 루브릭 (2개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">2</td><td style="padding:8px;border:1px solid #e3e1da">②</td><td style="padding:8px;border:1px solid #e3e1da">루브릭 새로 만들기</td><td style="padding:8px;border:1px solid #e3e1da"><b>강의자료 + 과제 안내 (2개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">3</td><td style="padding:8px;border:1px solid #e3e1da">③</td><td style="padding:8px;border:1px solid #e3e1da">내 루브릭과 비교하기</td><td style="padding:8px;border:1px solid #e3e1da"><b>강의자료 + 과제 안내 + 루브릭 (3개)</b></td></tr><tr><td style="padding:8px;border:1px solid #e3e1da">4</td><td style="padding:8px;border:1px solid #e3e1da">④</td><td style="padding:8px;border:1px solid #e3e1da">기존 과제 안내를 고친 안내서 PDF</td><td style="padding:8px;border:1px solid #e3e1da"><b>위와 같은 3개</b></td></tr></table>
   <p class="tip">입력창 오른쪽에 보이는 <b>소스 ○개</b> 숫자로 맞게 체크했는지 확인할 수 있어요.</p>
   </div></details>
-  <div class="prompt"><div class="label">⑥ 먼저 내 루브릭의 빈틈 찾기 · 소스는 <b>과제 안내와 루브릭 2개만</b> 체크</div><button class="copy">복사</button><pre>과제 안내와 루브릭을 비교해서, 과제 안내에서 요구했는데 루브릭에 없는 것, 루브릭에 있는데 과제 안내에서 학생에게 알려 주지 않은 것을 표로 정리해 줘.</pre></div>
+  <div class="prompt"><div class="label">① 먼저 내 루브릭의 빈틈 찾기 · 소스는 <b>과제 안내와 루브릭 2개만</b> 체크</div><button class="copy">복사</button><pre>과제 안내와 루브릭을 비교해서, 과제 안내에서 요구했는데 루브릭에 없는 것, 루브릭에 있는데 과제 안내에서 학생에게 알려 주지 않은 것을 표로 정리해 줘.</pre></div>
   <p class="tip">새로 만들기 전에 <b>지금 루브릭이 과제 안내와 어긋나는 곳</b>부터 찾아요. 과제 안내에서 요구했는데 루브릭으로는 평가하지 않는 것, 루브릭으로 평가하는데 학생에게 미리 알려 주지 않은 것이 표로 나와요.</p>
   <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 과제 안내 vs 루브릭 빈틈</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-rubric-gap.jpg" alt="과제 안내와 루브릭 2개만 체크해 빈틈을 찾은 비교표" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">과제 안내에는 <b>"A4 1쪽 이상"</b> 분량 조건이 있는데 루브릭에는 분량 기준이 없고, 루브릭은 <b>"첫 문단"</b>에 주장을 쓰라고 하는데 과제 안내에는 그 말이 없다는 걸 찾아냈어요. 이 빈틈을 보고 나서 다음 단계에서 루브릭을 새로 만들어요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">⑦ 루브릭 새로 만들기 · 소스는 <b>강의자료와 과제 안내 2개만</b> 체크</div><button class="copy">복사</button><pre>과제 안내와 강의자료만 근거로 이 과제의 루브릭을 새로 만들어 줘.
+  <div class="prompt"><div class="label">② 루브릭 새로 만들기 · 소스는 <b>강의자료와 과제 안내 2개만</b> 체크</div><button class="copy">복사</button><pre>과제 안내와 강의자료만 근거로 이 과제의 루브릭을 새로 만들어 줘.
 - 기준 4개, 기준마다 4·3·2·1점 칸, 칸마다 학생이 쓴 글에서 확인할 수 있는 행동으로 적어 줘.
 - 기준마다 근거가 된 강의자료·과제 안내 문장을 표시해 줘.
 - 표 아래에 학생에게 나눠 줄 쉬운 말 버전도 써 줘.</pre></div>
@@ -2429,20 +2421,42 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   <img class="doc-img" src="img/notebooklm-rubric-result.jpg" alt="노트북LM이 만든 루브릭 — 기준별 근거 문장, 4점 척도 평가표, 학생 배포용 쉬운 말 체크리스트" loading="lazy" style="max-width:640px;width:100%;border:1px solid #e3e1da;border-radius:10px;margin:4px 0 12px">
   </div></details>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">⑧ 내 루브릭과 비교하기 · 이번에는 <b>루브릭 파일도 체크</b> (소스 3개)</div><button class="copy">복사</button><pre>방금 만든 루브릭과 소스의 루브릭을 비교해서, 서로 다른 점과 어느 쪽이 더 분명한지 표로 정리해 줘.</pre></div>
+  <div class="prompt"><div class="label">③ 내 루브릭과 비교하기 · 이번에는 <b>루브릭 파일도 체크</b> (소스 3개)</div><button class="copy">복사</button><pre>방금 만든 루브릭과 소스의 루브릭을 비교해서, 서로 다른 점과 어느 쪽이 더 분명한지 표로 정리해 줘.</pre></div>
   <p class="tip">같은 채팅창에서 이어서 보내세요. 왼쪽 출처에서 <b>루브릭 파일을 체크</b>해 강의자료·과제 안내·루브릭 <b>소스 3개</b>로 만든 뒤 보내요.</p>
   <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 기존 루브릭 vs 새로 만든 루브릭</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-rubric-compare.jpg" alt="소스 3개로 기존 루브릭과 새 루브릭을 비교한 표" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p class="tip">기존 루브릭은 "막연함", "경미한 오류"처럼 <b>교수 판단에 맡기는 표현</b>이 많고, 새 루브릭은 "한 연구에 따르면" 같은 <b>학생 글에서 바로 확인할 수 있는 행동</b>으로 적혀 있다고 비교해 줘요. 둘 중 좋은 표현만 골라 내 루브릭을 다듬으면 돼요.</p>
   </div></details>
 <div style="height:4.5em"></div>
-  <div class="prompt"><div class="label">⑨ 기존 과제 안내를 새 루브릭에 맞게 고친 안내서 PDF 만들기 (같은 채팅창, 소스 3개 그대로)</div><button class="copy">복사</button><pre>새로 만든 루브릭으로 과제 안내서 PDF를 만들어 줘</pre></div>
+  <div class="prompt"><div class="label">④ 기존 과제 안내를 새 루브릭에 맞게 고친 안내서 PDF 만들기 (같은 채팅창, 소스 3개 그대로)</div><button class="copy">복사</button><pre>새로 만든 루브릭으로 과제 안내서 PDF를 만들어 줘</pre></div>
   <p class="tip">처음부터 새로 쓰는 게 아니라, 소스에 있는 <b>기존 과제 안내를 바탕으로 새 루브릭을 넣어 고친 안내서</b>가 나와요. 과제 주제·분량·제출 방법은 기존 안내에서, 필수 작성 요소·출처 표기 규칙·평가표는 새 루브릭에서 가져와 <b>과제 안내서 PDF</b>로 오른쪽 <b>스튜디오</b>에 만들어져요. 내려받아 LMS 과제 공지에 첨부하면 돼요.</p>
   <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">결과 보기</span> 스튜디오에 생긴 과제 안내서 PDF</summary><div class="body">
   <img class="doc-img" src="img/notebooklm-rubric-guide-pdf.jpg" alt="새 루브릭으로 만든 과제 안내서 PDF가 스튜디오에 생성된 화면" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:6px 0 10px">
   <p style="margin:14px 0 4px"><b>고쳐진 과제 안내서 (2쪽)</b> — 기존 과제 안내의 내용에 새 루브릭 평가표와 출처 표기 규칙이 더해져 학생용 문서로 정리돼요. 기존 안내와 나란히 놓고 무엇이 바뀌었는지 비교해 보세요.</p>
   <img class="doc-img" src="img/notebooklm-rubric-guide-pdf-view.jpg" alt="노트북LM이 만든 교양 비판적 사고 6주차 과제 안내서 PDF 미리보기" loading="lazy" style="max-width:100%;border:1px solid #e3e1da;border-radius:10px;margin:4px 0 12px">
   <p class="tip">나눠 주기 전에 <b>성적 반영 비율·분량·제출일</b>이 내 수업과 맞는지 꼭 확인하세요. 강사가 해 보니 원래 과제 안내는 10%인데, 앞 대화에서 "30%"로 환산해 달라고 했더니 안내서에도 <b>30%</b>로 들어갔어요.</p>
+  </div></details>
+<div style="height:4.5em"></div>
+  <h3 style="font-size:1.25em;margin:0 0 6px;color:var(--navy,#1f2a44)">3. 손글씨 채점과 강의계획서 · 한국어 글쓰기 노트북</h3>
+  <p class="tip" style="margin-top:0">강의계획서·과제 안내·루브릭·유학생 손글씨 작문 10장을 넣은 새 노트북에서 해요. 성적 환산·엑셀·피드백은 1번 칸과 같은 방법이라 생략하고, <b>손글씨 채점</b>과 <b>강의계획서</b>만 해 봐요. 소스는 <b>모두 선택</b>(13개).</p>
+  <div class="prompt"><div class="label">① 손글씨 먼저 확인</div><button class="copy">복사</button><pre>학생10 작문 사진을 글자 그대로 옮겨 적어 줘. 틀린 글자나 띄어쓰기도 고치지 말고 보이는 대로. 읽기 어려운 글자는 [?]로 표시해 줘.</pre></div>
+  <p class="tip">AI가 손글씨를 잘못 읽으면 채점도 틀려요. 학생10은 첫 '등불'을 흐리게, '소원을'을 붙여 썼어요. 사진과 대조해 보세요.</p>
+<div style="height:4.5em"></div>
+  <div class="prompt"><div class="label">② 손글씨 작문 채점</div><button class="copy">복사</button><pre>루브릭으로 학생01~학생10 작문을 채점해 줘. 기준마다 4·3·2·1점 중 하나를 주고 합계(16점 만점)를 내.
+| 학생 | ① 내용 | ② 구조 | ③-1 문법 | ③-2 어휘·맞춤법 | 합계 | 근거(학생 글 인용) |
+- 문법은 강의계획서 4~5주차에 배운 문법(-아서/어서, -는데, -보다)을 썼는지, 바르게 썼는지로 판단해.
+- 사진에서 읽기 어려운 부분이 있으면 점수 대신 "원본 확인 필요"라고 써.</pre></div>
+  <p class="tip">성적 환산·엑셀·피드백 보고서가 필요하면 1번 칸의 ②~④ 부탁문을 같은 채팅창에서 이어서 보내면 돼요.</p>
+<div style="height:4.5em"></div>
+  <div class="prompt"><div class="label">③ 강의계획서 점검</div><button class="copy">복사</button><pre>강의계획서의 학습목표, 주차별 내용, 평가 방법이 서로 맞는지 표로 점검해 줘.
+- 어느 평가와도 연결되지 않은 학습목표, 학습목표와 연결되지 않은 평가가 있으면 표시해 줘.
+- 소스에 없는 내용은 지어내지 말고 [확인 필요]로 표시해 줘.</pre></div>
+  <p class="tip">강의계획서는 학기 시작 전에 16주를 다 짜서 내요. 그래서 학기 중이 아니라 <b>학기가 끝난 뒤 다음 학기를 준비할 때</b> 쓰는 장면이에요.</p>
+<div style="height:4.5em"></div>
+  <div class="prompt"><div class="label">④ 다음 학기에 고칠 점 (학생 작문 근거)</div><button class="copy">복사</button><pre>학생 작문 10편에서 많이 틀린 부분을 근거로, 다음 학기 강의계획서에서 고치면 좋을 주차와 내용을 3가지 제안해 줘. 제안마다 근거가 된 학생 번호와 틀린 문장을 붙여 줘.</pre></div>
+  <p class="tip">이번 학기 평가 결과가 다음 학기 강의계획서로 이어져요. 많이 틀린 '-아서 뒤 명령·청유'(학생03·05·06·09)를 근거로 4주차를 늘리자는 제안이 나올 수 있어요.</p>
+  <details class="mth" style="margin-top:8px"><summary class="mh"><span class="mn">선택</span> 다음 학기 강의계획서 초안까지 받기</summary><div class="body">
+  <div class="prompt"><div class="label">같은 채팅창에서 이어서</div><button class="copy">복사</button><pre>위 제안을 반영해서 다음 학기 「한국어 글쓰기 Ⅰ」 강의계획서를 같은 형식으로 다시 써 줘. 바뀐 주차는 표에 [변경]이라고 표시해 줘.</pre></div>
   </div></details>
 <div class="gap3" style="height:4.2em"></div>
   <div class="callout red"><b class="t">꼭 기억하세요</b> AI가 손글씨를 잘못 읽으면 채점도 틀려요. 손글씨 과제는 <b>옮겨 적기부터 확인</b>하세요. 점수는 <b>교수님이 최종 결정</b>하고, 실제 학생 과제는 이름·학번을 지운 뒤 넣으세요. 노트북LM은 <b>개인 구글 계정</b>으로 여세요(학교 계정은 막혀 있을 수 있어요).</div>
