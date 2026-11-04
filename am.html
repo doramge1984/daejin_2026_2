@@ -1580,7 +1580,7 @@ header.hero{position:relative}
     <summary><span class="badge b-do">실습</span>① 제미나이 패널 열기 + 페이지 요약</summary>
     <div class="body">
       <ol>
-        <li>실습용 공지 페이지 <a href="files/am/notice.html" target="_blank" rel="noopener"><b>[가상] AI 활용 수업혁신 사례 공모 안내</b></a>를 새 탭으로 엽니다. (아무 기사나 학과 공지 페이지로 하셔도 됩니다)</li>
+        <li>아래 버튼을 눌러 실습용 공지 페이지를 새 탭으로 엽니다.<br><a class="notice-btn" href="files/am/notice.html" target="_blank" rel="noopener">📄 [가상] AI 활용 수업혁신 사례 공모 안내 열기 &nbsp;→</a><br> (아무 기사나 학과 공지 페이지로 하셔도 됩니다)</li>
         <li>크롬 오른쪽 위의 <b>✦ Gemini 버튼</b>을 누릅니다. 오른쪽에 패널이 열립니다.</li>
         <li>아래 프롬프트를 붙여넣습니다.</li>
       </ol>
@@ -3679,6 +3679,15 @@ WPPT_DECKS['lib']=[
 #drs td.dp,#drs th.dp{background:#fff6dc!important}
 #drs ol.chk li{background:#fff!important;border:1px solid #ead9a8!important}
 #drs .prog,#wppt .prog{background:linear-gradient(90deg,#d4ad52,#f3dc98)!important}
+</style>
+<style id="prompt-glow">
+.notice-btn{display:inline-flex;align-items:center;gap:8px;margin:10px 0 6px;padding:11px 20px;border-radius:999px;background:#C0392B;color:#fff!important;font-weight:800;font-size:16px;text-decoration:none!important;box-shadow:0 6px 16px rgba(192,57,43,.3);transition:transform .15s}
+.notice-btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.prompt{position:relative;border:1.5px solid #e2c06a!important;animation:promptGlow 2.6s ease-in-out infinite}
+@keyframes promptGlow{0%,100%{box-shadow:0 0 0 0 rgba(212,173,82,.0),0 4px 14px rgba(212,173,82,.18)}50%{box-shadow:0 0 0 3px rgba(212,173,82,.22),0 6px 26px rgba(212,173,82,.5)}}
+.prompt:hover{animation-play-state:paused;box-shadow:0 0 0 3px rgba(212,173,82,.35),0 8px 30px rgba(212,173,82,.6)}
+@media (prefers-reduced-motion:reduce){.prompt{animation:none;box-shadow:0 0 0 2px rgba(212,173,82,.3),0 6px 20px rgba(212,173,82,.4)}}
+@media print{.prompt{animation:none;box-shadow:none}}
 </style>
 </body>
 </html>
