@@ -3685,10 +3685,12 @@ WPPT_DECKS['lib']=[
 <style id="prompt-glow">
 .notice-btn{display:inline-flex;align-items:center;gap:8px;margin:10px 0 6px;padding:11px 20px;border-radius:999px;background:#C0392B;color:#fff!important;font-weight:800;font-size:16px;text-decoration:none!important;box-shadow:0 6px 16px rgba(192,57,43,.3);transition:transform .15s}
 .notice-btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
-.prompt{position:relative;border:1.5px solid #e2c06a!important;animation:promptGlow 2.6s ease-in-out infinite}
-@keyframes promptGlow{0%,100%{box-shadow:0 0 0 0 rgba(212,173,82,.0),0 4px 14px rgba(212,173,82,.18)}50%{box-shadow:0 0 0 3px rgba(212,173,82,.22),0 6px 26px rgba(212,173,82,.5)}}
-.prompt:hover{animation-play-state:paused;box-shadow:0 0 0 3px rgba(212,173,82,.35),0 8px 30px rgba(212,173,82,.6)}
-@media (prefers-reduced-motion:reduce){.prompt{animation:none;box-shadow:0 0 0 2px rgba(212,173,82,.3),0 6px 20px rgba(212,173,82,.4)}}
+.wp .prompt,.prompt{position:relative;background:linear-gradient(135deg,#fff3f1 0%,#fde6e2 100%)!important;border:1.5px solid #ef9a8f!important;border-left:5px solid #d93025!important;animation:promptGlow 2.6s ease-in-out infinite}
+.wp .prompt .label{background:#fff!important;border:1px solid #f3c2bb}
+.wp .prompt pre,.prompt pre{background:transparent!important;color:#3a1714!important}
+@keyframes promptGlow{0%,100%{box-shadow:0 0 0 0 rgba(217,48,37,0),0 4px 14px rgba(217,48,37,.14)}50%{box-shadow:0 0 0 3px rgba(217,48,37,.16),0 6px 26px rgba(217,48,37,.36)}}
+.prompt:hover{animation-play-state:paused;box-shadow:0 0 0 3px rgba(217,48,37,.25),0 8px 30px rgba(217,48,37,.45)}
+@media (prefers-reduced-motion:reduce){.prompt{animation:none;box-shadow:0 0 0 2px rgba(217,48,37,.2),0 6px 20px rgba(217,48,37,.3)}}
 @media print{.prompt{animation:none;box-shadow:none}}
 </style>
 </body>
