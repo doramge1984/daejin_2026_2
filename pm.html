@@ -2032,6 +2032,7 @@ show();
 #gas .grevh{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:10px}#gas .grevh>div{flex:1 1 320px}#gas .grevh b{display:block;font-size:1.3em;color:#3b2a6b}#gas .grevh span{display:block;color:#4b5563;margin-top:4px}
 #gas .grev2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
 #gas details.grev{border-color:#c9b6ec;background:#faf7ff}#gas details.grev>summary{color:#5b3fa0}#gas details.grev>summary small{font-weight:600;color:#7a6aa0;margin-left:6px}
+#gas .relget{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:0 0 14px}#gas .relget>div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}#gas .relget span{font-size:26px}#gas .relget b{display:block;color:var(--navy);margin:4px 0 2px}#gas .relget p{margin:0;font-size:13.5px;color:#4b5563}
 #gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
 #gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
 #gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
@@ -2041,7 +2042,7 @@ show();
 @keyframes spkShine{0%{left:-60%}60%,100%{left:130%}}
 </style>
   <h2 class="sec">6 · 앱스크립트 바이브코딩 · 시트로 돌아가는 웹 앱</h2>
-  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">폼은 <b>받기만</b> 해요. 앱스크립트는 시트를 <b>읽고 → 판단하고 → 보여 줘요.</b> 코드는 붙여 넣고, 고치는 건 말로 해요.</p><div class="wp-flow"><a href="#gas-h1"><em>STEP 1</em><b>👀 완성 화면 보기</b><span></span></a><a href="#gas-try"><em>STEP 2</em><b>🙋 학생이 되어 체험</b><span></span></a><a href="#gas-h2"><em>STEP 3</em><b>🛠️ 실습① ② 직접 만들기</b><span></span></a><a href="#gas-h4"><em>＋</em><b>⏳ 시간이 되면 · 실습③④⑤</b><span></span></a></div></div>
+  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">폼은 <b>받기만</b> 해요. 앱스크립트는 시트를 <b>읽고 → 판단하고 → 보여 줘요.</b> 코드는 붙여 넣고, 고치는 건 말로 해요.</p><div class="wp-flow"><a href="#gas-h1"><em>STEP 1</em><b>👀 완성 화면 보기</b><span></span></a><a href="#gas-try"><em>STEP 2</em><b>🙋 학생이 되어 체험</b><span></span></a><a href="#gas-h2"><em>STEP 3</em><b>🛠️ 실습① ② 직접 만들기</b><span></span></a><a href="#gas-h4"><em>＋</em><b>⏳ 시간이 되면 · 실습③~⑥</b><span></span></a></div></div>
 
   <h3 class="caseh" id="gas-h1">👀 오늘 만드는 것 · 완성하면 이렇게 나와요 <small style="font-size:.6em;color:#6b7280;font-weight:600">🔍 이미지를 누르면 크게 보여요</small></h3>
   <div class="gshow">
@@ -2460,11 +2461,12 @@ function lookup(sid, code) {
 
   <div class="gsep">실습② 끝 · 여기부터 시간이 되면</div>
   <h3 class="caseh" id="gas-h4">＋ 시간이 되면 · 이런 것도 만들 수 있어요</h3>
-  <p>카드를 눌러 펼쳐 보세요. 셋 다 <b>사본·코드가 준비</b>돼 있어서 실습①과 똑같은 순서로 따라 하면 돼요.</p>
+  <p>카드를 눌러 펼쳐 보세요. 모두 <b>사본·코드가 준비</b>돼 있어요. ③④⑤는 실습①과 같은 웹 앱, ⑥은 내 시트에서 ▶ 실행만 하는 정리 도구예요.</p>
   <div class="gmore">
     <a class="gm hot" href="#gas-h5"><img src="img/gas-prev-meet.png?v=1106" alt="면담 시간 예약 보드 완성 화면" loading="lazy"><span class="gmt">실습③ · 사본 준비됨</span><b>📅 면담 시간 예약 보드</b><p>누가 고른 시간은 다른 학생 화면에서 사라져요. 같은 학번은 한 번만.</p><em>펼쳐서 따라 하기 ▾</em></a>
     <a class="gm" href="#gas-h6"><img src="img/gas-prev-attend.png?v=1106" alt="QR 출석 완성 화면" loading="lazy"><span class="gmt">실습④ · 사본 준비됨</span><b>📲 QR 출석·출구 티켓</b><p>QR + 오늘의 단어 → 출석 티켓. 교수 화면에 실시간 인원.</p><em>펼쳐서 따라 하기 ▾</em></a>
     <a class="gm" href="#gas-h7"><img src="img/gas-prev-equip.png?v=1106" alt="장비 대여·반납 완성 화면" loading="lazy"><span class="gmt">실습⑤ · 사본 준비됨</span><b>🔧 실습실 장비 대여·반납 대장</b><p>남은 수량, 지금 빌려 간 장비, 연체는 빨간색.</p><em>펼쳐서 따라 하기 ▾</em></a>
+    <a class="gm" href="#gas-h8"><div class="gmi" style="background:#fff8e1">📊</div><span class="gmt" style="background:#fff2c2;color:#7a5b12">실습⑥ · ▶ 실행형</span><b>📊 성적 상대평가 정리</b><p>석차 → A+~D 배정, 경계 ±1점 노란색, 동점자·기준 초과 표시</p><em>펼쳐서 따라 하기 ▾</em></a>
   </div>
   <details class="gpx" id="gas-h5"><summary class="gpart">실습③ 면담 시간 예약 보드 <small>시간이 되면 · 실습①과 같은 순서 · 시간 탭만 바꾸면 내 면담표</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   <p style="margin:0 0 12px"><img src="img/gas-prev-meet.png?v=1106" alt="면담 시간 예약 보드 완성 화면" loading="lazy" style="max-width:520px;width:100%;border:1px solid #d7dce3;border-radius:12px"><br><small>✅ 완성하면 이렇게 나와요 · 남은 시간만 보이고, 예약한 칸은 사라져요</small></p>
@@ -3069,6 +3071,250 @@ function giveBack(form) {
 <span class="gslot" data-src="src-equip-index">[여기에 Index.html 붙여 넣기]</span></pre></div>
     <details class="gx"><summary>한 줄씩 더 고쳐 보기 (조교 확인 · 장비 사진)</summary><div class="prompt"><div class="label">한 줄 더 · 조교 확인</div><button class="copy">복사</button><pre>반납할 때 조교 비밀번호 [4자리]를 넣어야 반납 처리되게 해 줘. 비밀번호는 Code.gs에만 두고 화면 코드에는 넣지 마.</pre></div><div class="prompt"><div class="label">한 줄 더 · 장비 사진</div><button class="copy">복사</button><pre>"장비" 탭 C열에 사진 주소를 넣으면 장비 카드에 사진이 보이게 해 줘.</pre></div></details></div></div>
   </details>
+  <details class="gpx" id="gas-h8"><summary class="gpart">실습⑥ 성적 상대평가 정리 <small>시간이 되면 · 웹 앱 아님 · 내 시트에서 ▶ 실행 한 번</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
+  <div class="callout gold" style="margin:0 0 12px"><b class="t">앱스크립트의 다른 얼굴 · ▶ 실행형</b> 실습①~⑤는 학생이 주소로 들어오는 <b>웹 앱</b>이었어요. 이번엔 교수님 시트 안에서 <b>버튼 한 번으로 매 학기 같은 정리</b>를 끝내요. 배포도, QR도 필요 없어요.</div>
+  <div class="relget"><div><span>⏱</span><b>컷 맞추는 시간 절약</b><p>누적 비율대로 A+~D를 자동 배정</p></div><div><span>🟨</span><b>경계선 학생 다시 보기</b><p>학점 경계 ±1점은 노란색 + 목록</p></div><div><span>⚖️</span><b>동점자·기준 초과 표시</b><p>이의 제기 때 근거가 되는 요약표</p></div><div><span>🔁</span><b>매 학기 재사용</b><p>성적만 붙여 넣고 ▶ 다시</p></div></div>
+  <div class="step"><div class="no">1</div><div><h4>가상 30명 시트 사본 만들기</h4>
+    <p class="mylink"><a class="goldbtn" href="https://docs.google.com/spreadsheets/d/1zZyLEyupDgfG6RU6QycYIrtmD2ZffkdpmJ-SHASQbbs/copy" target="_blank" rel="noopener">✨ 성적 상대평가 연습 30명 사본 만들기 ↗</a></p>
+    <p><b>성적</b> 탭(학번·이름·출석률·중간·과제·기말)과 <b>기준</b> 탭(반영 비율·학점별 누적 비율·출석 F 기준)이 들어 있어요. 기준 탭 값은 모두 <b>예시</b>예요. <b style="color:#a5372f">[학교 기준 확인 필요]</b></p></div></div>
+  <div class="step"><div class="no">2</div><div><h4>코드 붙여 넣기</h4>
+    <ol><li>사본 시트에서 <b>확장 프로그램 → Apps Script</b></li><li>원래 있던 코드를 모두 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b></li></ol>
+    <div class="prompt gcode"><div class="label">성적정리_상대평가.gs (전체 복사)</div><button class="copy">복사</button><pre>/**
+ * 성적 정리 · 상대평가 버전 (가상 데이터 연습용)
+ * 시트 준비
+ *  - &#x27;성적&#x27; 탭: A 학번 | B 이름 | C 출석률 | D 중간 | E 과제 | F 기말 (1행은 제목)
+ *  - &#x27;기준&#x27; 탭: 반영 비율, 학점별 누적 비율, 출석 F 기준  ← 모두 [학교 기준 확인 필요] · 예시 값
+ * 하는 일
+ *  ① 총점 계산 → ② 석차(동점은 같은 석차) → ③ 누적 비율로 A+~D 배정, 출석 미달은 F
+ *  ④ 학점 경계 ±1점 학생 노란색 + &#x27;경계선&#x27; 탭 목록 → ⑤ 경계에 걸친 동점자 표시
+ *  ⑥ &#x27;요약&#x27; 탭: 학점별 인원·비율·기준 비교 + 막대그래프
+ * 메일 발송·외부 접근은 없습니다. 학점은 초안이며, 확정은 교수님이 직접 합니다.
+ */
+function 상대평가정리() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sh = ss.getSheetByName(&#x27;성적&#x27;) || ss.getSheets()[0];
+  const cfg = ss.getSheetByName(&#x27;기준&#x27;);
+  if (!cfg) { ss.toast(&quot;&#x27;기준&#x27; 탭이 없어요. 사본 시트를 그대로 쓰세요.&quot;); return; }
+  const last = sh.getLastRow();
+  if (last &lt; 2) { ss.toast(&#x27;성적 데이터가 없어요.&#x27;); return; }
+
+  const c = readConfig_(cfg);
+  const raw = sh.getRange(2, 1, last - 1, 6).getValues();
+  const res = computeGrades(raw, c);
+
+  // 결과 쓰기 (G 총점 | H 석차 | I 학점(초안) | J 확인 메모) 후 총점순 정렬
+  sh.getRange(&#x27;G1:J1&#x27;).setValues([[&#x27;총점&#x27;, &#x27;석차&#x27;, &#x27;학점(초안)&#x27;, &#x27;확인 메모&#x27;]]).setFontWeight(&#x27;bold&#x27;);
+  const out = res.rows.map(function (r) { return r.src.concat([r.total, r.rank, r.grade, r.memo]); });
+  sh.getRange(2, 1, out.length, 10).setValues(out).setBackground(null);
+  res.rows.forEach(function (r, i) {
+    if (r.border) sh.getRange(i + 2, 1, 1, 10).setBackground(&#x27;#fff2a8&#x27;);
+    if (r.tie) sh.getRange(i + 2, 10).setFontColor(&#x27;#b45309&#x27;).setFontWeight(&#x27;bold&#x27;);
+    if (r.grade === &#x27;F&#x27;) sh.getRange(i + 2, 9).setFontColor(&#x27;#c0392b&#x27;).setFontWeight(&#x27;bold&#x27;);
+  });
+
+  writeSummary_(ss, res, c);
+  writeBorder_(ss, res);
+  ss.toast(&#x27;정리 완료! 노란 줄은 학점 경계 ±1점 학생이에요. 요약·경계선 탭을 확인하세요.&#x27;, &#x27;상대평가 정리&#x27;, 8);
+}
+
+/* ---------- 기준 읽기 ---------- */
+function readConfig_(cfg) {
+  const v = cfg.getDataRange().getValues();
+  const get = function (label) {
+    for (let i = 0; i &lt; v.length; i++) if (String(v[i][0]).trim() === label) return Number(v[i][1]);
+    return NaN;
+  };
+  const grades = [&#x27;A+&#x27;, &#x27;A0&#x27;, &#x27;B+&#x27;, &#x27;B0&#x27;, &#x27;C+&#x27;, &#x27;C0&#x27;, &#x27;D&#x27;];
+  return {
+    w: [get(&#x27;출석 반영(%)&#x27;), get(&#x27;중간 반영(%)&#x27;), get(&#x27;과제 반영(%)&#x27;), get(&#x27;기말 반영(%)&#x27;)].map(function (x) { return x / 100; }),
+    grades: grades,
+    cum: grades.map(function (g) { return get(g + &#x27; 누적(%)&#x27;) / 100; }),
+    attMin: get(&#x27;출석률 F 기준(미만)&#x27;),
+    band: get(&#x27;경계 범위(±점)&#x27;) || 1
+  };
+}
+
+/* ---------- 핵심 계산 (시트와 상관없는 순수 함수) ---------- */
+function computeGrades(raw, c) {
+  const n = raw.length;
+  let rows = raw.map(function (r) {
+    const t = Math.round((Number(r[2]) * c.w[0] + Number(r[3]) * c.w[1] + Number(r[4]) * c.w[2] + Number(r[5]) * c.w[3]) * 10) / 10;
+    return { src: r.slice(0, 6), total: t, att: Number(r[2]), memo: &#x27;&#x27;, border: false, tie: false };
+  });
+  rows.sort(function (a, b) { return b.total - a.total; });
+  // 석차: 동점은 같은 석차
+  rows.forEach(function (r, i) { r.rank = (i &gt; 0 &amp;&amp; r.total === rows[i - 1].total) ? rows[i - 1].rank : i + 1; });
+
+  // 출석 미달은 F, 나머지(m명)로 상대평가
+  const pool = rows.filter(function (r) { return !(r.att &lt; c.attMin); });
+  rows.forEach(function (r) { if (r.att &lt; c.attMin) { r.grade = &#x27;F&#x27;; r.memo = &#x27;출석 미달 → F&#x27;; } });
+  const m = pool.length;
+  const quota = c.cum.map(function (p) { return Math.floor(p * m + 1e-9); }); // 누적 허용 인원
+  let gi = 0;
+  pool.forEach(function (r, i) {
+    while (gi &lt; c.grades.length - 1 &amp;&amp; i + 1 &gt; quota[gi]) gi++;
+    r.grade = c.grades[gi];
+  });
+  // 동점자: 같은 점수는 같은 학점(윗 학점)으로 맞추고, 경계에 걸쳤으면 표시
+  for (let i = 1; i &lt; m; i++) {
+    if (pool[i].total === pool[i - 1].total &amp;&amp; pool[i].grade !== pool[i - 1].grade) {
+      const g = pool[i - 1].grade, j0 = i;
+      for (let j = i; j &lt; m &amp;&amp; pool[j].total === pool[i - 1].total; j++) { pool[j].grade = g; }
+      for (let j = j0 - 1; j &gt;= 0 &amp;&amp; pool[j].total === pool[j0].total; j--) pool[j].tie = true;
+      for (let j = j0; j &lt; m &amp;&amp; pool[j].total === pool[j0 - 1].total; j++) pool[j].tie = true;
+    }
+  }
+  pool.forEach(function (r) { if (r.tie) r.memo = &#x27;동점자 · 학점 경계에 걸침 (기준 비율 초과 여부 확인)&#x27;; });
+
+  // 경계 ±band점: 위 학점 마지막 학생과 아래 학점 첫 학생의 가운데 점수 기준
+  const borders = [];
+  for (let i = 1; i &lt; m; i++) {
+    if (pool[i].grade !== pool[i - 1].grade) {
+      const mid = (pool[i - 1].total + pool[i].total) / 2;
+      const label = pool[i - 1].grade + &#x27; ↔ &#x27; + pool[i].grade;
+      borders.push({ label: label, upper: pool[i - 1].total, lower: pool[i].total });
+      pool.forEach(function (r) {
+        if (Math.abs(r.total - mid) &lt;= c.band) {
+          r.border = true;
+          if (r.memo.indexOf(label) &lt; 0) r.memo = (r.memo ? r.memo + &#x27; / &#x27; : &#x27;&#x27;) + label + &#x27; 경계 ±&#x27; + c.band + &#x27;점&#x27;;
+        }
+      });
+    }
+  }
+  // 학점별 인원
+  const all = c.grades.concat([&#x27;F&#x27;]);
+  const count = all.map(function (g) { return rows.filter(function (r) { return r.grade === g; }).length; });
+  return { rows: rows, n: n, m: m, grades: all, count: count, quota: quota, borders: borders };
+}
+
+/* ---------- 요약 탭 + 그래프 ---------- */
+function writeSummary_(ss, res, c) {
+  let sum = ss.getSheetByName(&#x27;요약&#x27;);
+  if (sum) ss.deleteSheet(sum);
+  sum = ss.insertSheet(&#x27;요약&#x27;);
+  const head = [[&#x27;학점&#x27;, &#x27;인원&#x27;, &#x27;비율(%)&#x27;, &#x27;실제 누적(%)&#x27;, &#x27;기준 누적(%)&#x27;, &#x27;확인&#x27;]];
+  let acc = 0;
+  const body = res.grades.map(function (g, i) {
+    const k = res.count[i]; acc += (g === &#x27;F&#x27;) ? 0 : k;
+    const pct = Math.round(k / res.n * 1000) / 10;
+    if (g === &#x27;F&#x27;) return [g, k, pct, &#x27;&#x27;, &#x27;&#x27;, &#x27;출석 미달 등&#x27;];
+    const real = Math.round(acc / res.m * 1000) / 10, std = Math.round(c.cum[i] * 1000) / 10;
+    return [g, k, pct, real, std, real &gt; std ? &#x27;⚠ 기준 초과 (동점자 확인)&#x27; : &#x27;✓&#x27;];
+  });
+  sum.getRange(1, 1, 1, 6).setValues(head).setFontWeight(&#x27;bold&#x27;).setBackground(&#x27;#eef3fb&#x27;);
+  sum.getRange(2, 1, body.length, 6).setValues(body);
+  sum.getRange(body.length + 3, 1, 2, 2).setValues([[&#x27;수강 인원&#x27;, res.n], [&#x27;상대평가 대상(출석 미달 제외)&#x27;, res.m]]);
+  sum.getRange(body.length + 6, 1).setValue(&#x27;※ 기준 비율은 예시 값이에요. 소속 학교 학칙·학사 규정을 확인해 기준 탭을 고치세요. [학교 기준 확인 필요]&#x27;).setFontColor(&#x27;#a5372f&#x27;);
+  sum.autoResizeColumns(1, 6);
+  const chart = sum.newChart().asColumnChart()
+    .addRange(sum.getRange(1, 1, body.length + 1, 2)).setNumHeaders(1)
+    .setOption(&#x27;title&#x27;, &#x27;학점별 인원&#x27;).setOption(&#x27;legend&#x27;, { position: &#x27;none&#x27; })
+    .setPosition(2, 8, 0, 0).build();
+  sum.insertChart(chart);
+}
+
+/* ---------- 경계선 탭 ---------- */
+function writeBorder_(ss, res) {
+  let b = ss.getSheetByName(&#x27;경계선&#x27;);
+  if (b) ss.deleteSheet(b);
+  b = ss.insertSheet(&#x27;경계선&#x27;);
+  const list = res.rows.filter(function (r) { return r.border || r.tie; })
+    .map(function (r) { return [r.src[0], r.src[1], r.total, r.rank, r.grade, r.memo]; });
+  b.getRange(1, 1, 1, 6).setValues([[&#x27;학번&#x27;, &#x27;이름&#x27;, &#x27;총점&#x27;, &#x27;석차&#x27;, &#x27;학점(초안)&#x27;, &#x27;왜 다시 볼까요?&#x27;]]).setFontWeight(&#x27;bold&#x27;).setBackground(&#x27;#fff2a8&#x27;);
+  if (list.length) b.getRange(2, 1, list.length, 6).setValues(list);
+  b.getRange(list.length + 3, 1).setValue(&#x27;이 학생들은 채점 실수 1~2점으로 학점이 바뀔 수 있어요. 답안·과제를 한 번 더 확인하세요.&#x27;).setFontColor(&#x27;#5b6475&#x27;);
+  b.autoResizeColumns(1, 6);
+}</pre></div></div></div>
+  <div class="step"><div class="no">3</div><div><h4>▶ 실행</h4>
+    <ol><li>위쪽 함수 목록에서 <b>상대평가정리</b>를 고르고 <b>▶ 실행</b></li><li>처음 한 번 <b>권한 검토 → 내 계정 → 고급 → (프로젝트)로 이동 → 허용</b></li></ol></div></div>
+  <div class="step"><div class="no">4</div><div><h4>결과 확인</h4>
+    <ul><li><b>성적</b> 탭: 총점·석차·학점(초안)·확인 메모가 생기고 총점순으로 정렬돼요. <b>노란 줄</b> = 학점 경계 ±1점, 주황 메모 = 경계에 걸친 <b>동점자</b>, 빨간 F = 출석 미달</li>
+    <li><b>요약</b> 탭: 학점별 인원·비율, 실제 누적 vs 기준 누적, <b>⚠ 기준 초과</b> 표시와 막대그래프</li>
+    <li><b>경계선</b> 탭: 한 번 더 확인할 학생 목록과 이유</li></ul>
+    <p class="tip">가상 30명에서는 <b>A0와 B+ 경계에 동점자 2명</b>이 있어서 A0 누적이 기준(30%)을 넘는 장면을 볼 수 있어요. 이때 어떻게 할지는 <b>학교 규정과 교수님 판단</b>이에요.</p></div></div>
+  <div class="step"><div class="no">5</div><div><h4>✨ 바이브코딩 · 우리 학교 기준으로 바꿔 줘</h4><div class="prompt"><div class="label">⭐ 우리 학교 기준으로 바꿔 줘 · 제미나이에 보내기</div><button class="copy">복사</button><pre>아래 앱스크립트는 구글 시트에서 상대평가 학점 초안을 만드는 코드야. 우리 학교 기준으로 바꿔 줘.
+- 학점 단계: [A+, A0, A-, B+, B0, B-, C+, C0, C-, D, F]
+- 누적 비율: [A 계열 상위 35%, A·B 계열 합쳐 75%]
+- 수강 인원 [20명 미만]이면 상대평가 대신 절대평가(90/80/70/60점)로
+- 바꾼 전체 코드를 주고, &#x27;기준&#x27; 탭에 무엇을 적어야 하는지 목록으로 알려 줘.
+
+[여기에 코드 붙여 넣기]</pre></div></div></div>
+  <div class="callout red"><b class="t">꼭 아세요</b> 결과는 <b>학점 초안</b>이에요. 비율·반올림·동점 처리·F 기준은 학교마다 달라요. 실제 성적 파일은 <b>사본에서 먼저</b> 시험하고, 학점 확정은 교수님이 직접 하세요.</div>
+  <details class="gx"><summary>간단 버전 · 절대평가 성적정리 (12명, 90/80/70점 기준)</summary>
+      <p>시트 정리를 <b>코드 한 덩어리로 저장해 두고 ▶ 한 번으로 다시 돌리는 도구</b>가 앱스크립트입니다. 코드는 제가 준비했고, 붙여넣고 실행만 하시면 됩니다.</p>
+      <ol>
+        <li><b>가상 성적 시트 사본 만들기</b><br><a class="goldbtn" style="margin:8px 0 4px" href="https://docs.google.com/spreadsheets/d/11wpFydi21RGYhdQUqlt1NNWeRPHXq_hPuLaGXZyZ17U/copy" target="_blank" rel="noopener">📋 성적 가상데이터 시트 사본 만들기</a><br><span class="gsub">[사본 만들기]를 누르면 내 드라이브에 학생 12명 가상 성적 시트가 생겨요. (<a href="files/성적_가상데이터.csv" download>CSV로 받기</a>도 돼요)</span></li>
+        <li>시트 메뉴 <b>확장 프로그램 → Apps Script</b> → 기존 코드를 모두 지우고, 아래 코드를 <b>복사</b>해 붙여 넣은 뒤 저장(💾)합니다.<div class="prompt" style="margin:10px 0 4px"><div class="label">성적정리 앱스크립트 (전체 복사)</div><button class="copy">복사</button><pre style="max-height:320px;overflow:auto">/**
+ * 가상 성적 시트 한 방 정리
+ * 전제: 첫 번째 시트에 A~F열 = 학번, 이름, 출석률, 중간, 과제, 기말 (1행은 제목)
+ * 하는 일: 총점·학점(초안) 계산 → 출석 80 미만/총점 60 미만 표시 → 총점순 정렬 → '요약' 시트와 그래프 생성
+ * 이미 손으로 G·H열을 만들었어도 덮어씁니다. 메일 발송·외부 접근은 없습니다.
+ */
+function 성적정리() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sh = ss.getSheets()[0];
+  const last = sh.getLastRow();
+  if (last &lt; 2) { ss.toast('데이터가 없습니다. A1에 표를 먼저 붙여넣으세요.'); return; }
+  const n = last - 1;
+
+  // 1) 총점·학점(초안) — 출석 10%, 중간 30%, 과제 20%, 기말 40%
+  sh.getRange('G1:H1').setValues([['총점', '학점(초안)']]);
+  const f = [];
+  for (let r = 2; r &lt;= last; r++) {
+    f.push([
+      '=ROUND(C' + r + '*0.1+D' + r + '*0.3+E' + r + '*0.2+F' + r + '*0.4,1)',
+      '=IF(G' + r + '&gt;=90,"A",IF(G' + r + '&gt;=80,"B",IF(G' + r + '&gt;=70,"C","D")))'
+    ]);
+  }
+  sh.getRange(2, 7, n, 2).setFormulas(f);
+
+  // 2) 서식: 제목 줄, 출석 80 미만(빨강), 총점 60 미만(노랑)
+  sh.getRange('A1:H1').setFontWeight('bold').setBackground('#23303f').setFontColor('#ffffff');
+  const rules = [
+    SpreadsheetApp.newConditionalFormatRule().whenNumberLessThan(80)
+      .setBackground('#f4c7c3').setRanges([sh.getRange(2, 3, n, 1)]).build(),
+    SpreadsheetApp.newConditionalFormatRule().whenNumberLessThan(60)
+      .setBackground('#fce8b2').setRanges([sh.getRange(2, 7, n, 1)]).build()
+  ];
+  sh.setConditionalFormatRules(rules);
+
+  // 3) 총점 높은 순 정렬, 열 너비, 1행 고정
+  sh.getRange(2, 1, n, 8).sort({ column: 7, ascending: false });
+  sh.setFrozenRows(1);
+  sh.autoResizeColumns(1, 8);
+
+  // 4) 요약 시트 (있으면 지우고 다시 만듦)
+  let sum = ss.getSheetByName('요약');
+  if (sum) { sum.clear(); sum.getCharts().forEach(function (c) { sum.removeChart(c); }); }
+  else { sum = ss.insertSheet('요약'); }
+  const name = sh.getName().replace(/'/g, "''");
+  sum.getRange('A1:B1').setValues([['학점', '인원']]);
+  const grades = ['A', 'B', 'C', 'D'];
+  sum.getRange(2, 1, 4, 1).setValues(grades.map(function (g) { return [g]; }));
+  sum.getRange(2, 2, 4, 1).setFormulas(grades.map(function (g, i) {
+    return ["=COUNTIF('" + name + "'!H2:H" + last + ",A" + (i + 2) + ")"];
+  }));
+  sum.getRange('D1:E1').setValues([['전체 평균 총점', '출석 80 미만 인원']]);
+  sum.getRange('D2:E2').setFormulas([[
+    "=ROUND(AVERAGE('" + name + "'!G2:G" + last + "),1)",
+    "=COUNTIF('" + name + "'!C2:C" + last + ",\"&lt;80\")"
+  ]]);
+  sum.getRange('A1:E1').setFontWeight('bold');
+  sum.insertChart(sum.newChart().setChartType(Charts.ChartType.COLUMN)
+    .addRange(sum.getRange('A1:B5')).setNumHeaders(1).setPosition(8, 1, 0, 0)
+    .setOption('title', '학점별 인원(초안)').build());
+
+  ss.setActiveSheet(sum);
+  ss.toast('정리 완료! 학점 기준과 확정은 교수님이 직접 확인하세요.');
+}</pre></div></li>
+        <li><b>▶ 실행</b> → 권한 검토 → 내 계정 → 고급 → (프로젝트)로 이동 → 허용.</li>
+        <li>시트로 돌아오면 총점·학점(초안), 색 표시, 정렬, ‘요약’ 탭과 그래프가 한 번에 만들어집니다.</li>
+      </ol>
+      
+      <div class="callout red"><b class="t">꼭 아세요</b> 권한 승인은 <b>내가 직접 붙여넣은 코드</b>일 때만 합니다. 실제 성적 파일에는 <b>복사본에서 먼저</b> 시험하세요. 학점 기준과 확정은 교수님이 직접 합니다.</div>
+    </details>
+  </details>
+
 
 
 
