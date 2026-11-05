@@ -1943,6 +1943,13 @@ show();
 #gas .gqr{display:flex;align-items:center;gap:10px;margin-top:10px}#gas .gqr img{width:110px;height:110px;border:1px solid var(--line);border-radius:8px}#gas .gqr small{color:#6b7280}
 #gas .gtry-sum{margin-top:12px;background:#eef3fb;border-radius:12px;padding:10px 14px}
 #gas .gtry-note{margin:10px 0 0;font-size:14px;color:#a5372f}
+#gas .gfill{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0;background:#f3f7ff;border:1px dashed #8fb0ec;border-radius:12px;padding:10px 12px}
+#gas .gfill span{font-weight:800;color:var(--navy);margin-right:4px}
+#gas .gfill button{border:2px solid #1a56db;background:#fff;color:#1a56db;border-radius:999px;padding:7px 14px;font:inherit;font-weight:800;cursor:pointer}
+#gas .gfill button.all{background:#1a56db;color:#fff}
+#gas .gfill button.on{background:#1a7f4e;border-color:#1a7f4e;color:#fff}
+#gas .gslot{background:#fff3c4;border-radius:4px;padding:0 4px;font-weight:700;color:#8a5a00}
+#gas .gslot.filled{display:block;background:#fff;border:1px solid #d7dce3;border-left:4px solid #1a7f4e;color:#222;font-weight:400;font-family:ui-monospace,Consolas,monospace;font-size:12px;white-space:pre;max-height:160px;overflow:auto;padding:8px 10px;margin:4px 0}
 #gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
 #gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
 #gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
@@ -1990,7 +1997,7 @@ show();
     <p>열린 창에서 <b>사본 만들기</b>를 누르면 내 드라이브에 내 시트가 생겨요. 시트 안의 탭과 1행 제목은 그대로 두세요.</p></div></div>
   <div class="step"><div class="no">2</div><div><h4>앱스크립트 열고 Code.gs 붙여 넣기</h4>
     <ol><li>내 사본 시트 메뉴에서 <b>확장 프로그램 → Apps Script</b></li><li>원래 있던 <code>function myFunction() { }</code>를 <b>모두 지우고</b> 아래 코드를 붙여 넣기</li></ol>
-    <div class="prompt gcode"><div class="label">Code.gs · 주제 선착순 보드 (서버)</div><button class="copy">복사</button><pre>/**
+    <div class="prompt gcode"><div class="label">Code.gs · 주제 선착순 보드 (서버)</div><button class="copy">복사</button><pre id="src-topic-code">/**
  * 팀 프로젝트 주제 선착순 보드 — 서버 코드(Code.gs)
  * 시트 탭: &#x27;주제&#x27; (A 주제번호 | B 주제 | C 설명 | D 정원(팀 수))
  *          &#x27;신청&#x27; (A 신청 시각 | B 팀 이름 | C 대표 학번 | D 대표 이름 | E 주제번호 | F 주제)
@@ -2049,7 +2056,7 @@ function apply(form) {
 }</pre></div></div></div>
   <div class="step"><div class="no">3</div><div><h4>HTML 파일 하나 더 만들고 붙여 넣기</h4>
     <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol>
-    <div class="prompt gcode"><div class="label">Index.html · 주제 선착순 보드 (학생 화면)</div><button class="copy">복사</button><pre>&lt;!DOCTYPE html&gt;
+    <div class="prompt gcode"><div class="label">Index.html · 주제 선착순 보드 (학생 화면)</div><button class="copy">복사</button><pre id="src-topic-index">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ko&quot;&gt;
 &lt;head&gt;
 &lt;base target=&quot;_top&quot;&gt;
@@ -2158,6 +2165,7 @@ function apply(form) {
     <li>학생이 되어 신청해 보고, 시트의 <b>신청</b> 탭에 한 줄이 쌓이는지 확인!</li></ol></div></div>
   <div class="step"><div class="no">6</div><div><h4>✨ 바이브코딩 · 내 수업으로 바꿔 줘</h4>
     <p>제미나이(또는 클로드)에 아래 부탁문을 보내고, [ ] 안을 내 수업으로 바꿔요. 받은 코드로 2·3번 칸을 바꿔 붙이고 <b>새 버전으로 다시 배포</b>하면 끝!</p>
+    <div class="gfill"><span>👇 먼저 누르세요 → 부탁문 안에 코드가 들어가요</span><button type="button" data-src="src-topic-code">＋ Code.gs 넣기</button><button type="button" data-src="src-topic-index">＋ Index.html 넣기</button><button type="button" class="all" data-src="src-topic-code,src-topic-index">⚡ 둘 다 넣기</button></div>
     <div class="prompt"><div class="label">⭐ 내 수업으로 바꿔 줘 · 제미나이에 보내기</div><button class="copy">복사</button><pre>아래 Code.gs와 Index.html은 구글 시트에 붙어 돌아가는 앱스크립트 웹 앱이야.
 [과목: 경영학원론] 수업의 [팀 발표 주제 신청 보드]로 바꿔 줘.
 - 주제는 [8개], 주제마다 정원은 [2팀]
@@ -2168,9 +2176,9 @@ function apply(form) {
 - 바꾼 Code.gs와 Index.html을 각각 전체 코드로, 따로따로 줘.
 - 시트 탭 이름과 1행 제목을 어떻게 고쳐야 하는지 마지막에 표 없이 목록으로 알려 줘.
 
-[여기에 Code.gs 붙여 넣기]
+<span class="gslot" data-src="src-topic-code">[여기에 Code.gs 붙여 넣기]</span>
 
-[여기에 Index.html 붙여 넣기]</pre></div>
+<span class="gslot" data-src="src-topic-index">[여기에 Index.html 붙여 넣기]</span></pre></div>
     <details class="gx"><summary>한 줄씩 더 고쳐 보기 (마감 시간 · 취소)</summary><div class="prompt"><div class="label">한 줄 더 · 마감 시간</div><button class="copy">복사</button><pre>[11월 20일 18시]가 지나면 신청 버튼이 잠기고 "신청이 마감됐어요"가 보이게 해 줘. 바꾼 전체 코드를 줘.</pre></div><div class="prompt"><div class="label">한 줄 더 · 취소 기능</div><button class="copy">복사</button><pre>교수용 비밀번호 [4자리]를 넣으면 신청 한 줄을 취소할 수 있게 해 줘. 비밀번호는 Code.gs에만 두고 화면 코드에는 넣지 마.</pre></div></details></div></div>
 
   <div class="gpart" id="gas-h3">실습② 내 점수·피드백 조회 페이지<small>오전 6탭 성적 시트와 이어져요 · 학번 + 조회 코드가 맞아야 본인 것만 보여요</small></div>
@@ -2181,7 +2189,7 @@ function apply(form) {
     <p>열린 창에서 <b>사본 만들기</b>를 누르면 내 드라이브에 내 시트가 생겨요. 시트 안의 탭과 1행 제목은 그대로 두세요.</p></div></div>
   <div class="step"><div class="no">2</div><div><h4>앱스크립트 열고 Code.gs 붙여 넣기</h4>
     <ol><li>내 사본 시트 메뉴에서 <b>확장 프로그램 → Apps Script</b></li><li>원래 있던 <code>function myFunction() { }</code>를 <b>모두 지우고</b> 아래 코드를 붙여 넣기</li></ol>
-    <div class="prompt gcode"><div class="label">Code.gs · 내 점수 조회 (서버)</div><button class="copy">복사</button><pre>/**
+    <div class="prompt gcode"><div class="label">Code.gs · 내 점수 조회 (서버)</div><button class="copy">복사</button><pre id="src-score-code">/**
  * 내 점수·피드백 조회 페이지 — 서버 코드(Code.gs)
  * 시트 탭: &#x27;점수&#x27; (A 학번 | B 조회 코드 | C 이름 | D~G 기준별 점수 | H 총점 | I 피드백)
  *   - D~G·H 열의 제목(1행)이 그대로 화면에 나와요. 기준 이름을 바꾸려면 1행만 고치세요.
@@ -2216,7 +2224,7 @@ function lookup(sid, code) {
 }</pre></div></div></div>
   <div class="step"><div class="no">3</div><div><h4>HTML 파일 하나 더 만들고 붙여 넣기</h4>
     <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol>
-    <div class="prompt gcode"><div class="label">Index.html · 내 점수 조회 (학생 화면)</div><button class="copy">복사</button><pre>&lt;!DOCTYPE html&gt;
+    <div class="prompt gcode"><div class="label">Index.html · 내 점수 조회 (학생 화면)</div><button class="copy">복사</button><pre id="src-score-index">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ko&quot;&gt;
 &lt;head&gt;
 &lt;base target=&quot;_top&quot;&gt;
@@ -2290,6 +2298,7 @@ function lookup(sid, code) {
     <ol><li>배포가 끝나면 나오는 <b>웹 앱 URL</b>을 복사해 새 탭에서 열어 보기</li><li>크롬 ⋮ → <b>전송, 저장, 공유 → QR 코드 만들기</b> → 내려받아 수업 슬라이드에 넣기</li>
     <li>학번 <b>2026001</b> · 조회 코드 <b>2186</b>을 넣어 보세요. 코드를 틀리게 넣으면 아무것도 안 보여요.</li></ol></div></div>
   <div class="step"><div class="no">6</div><div><h4>✨ 바이브코딩 · 내 수업으로 바꿔 줘</h4>
+    <div class="gfill"><span>👇 먼저 누르세요 → 부탁문 안에 코드가 들어가요</span><button type="button" data-src="src-score-code">＋ Code.gs 넣기</button><button type="button" data-src="src-score-index">＋ Index.html 넣기</button><button type="button" class="all" data-src="src-score-code,src-score-index">⚡ 둘 다 넣기</button></div>
     <div class="prompt"><div class="label">⭐ 내 수업으로 바꿔 줘 · 제미나이에 보내기</div><button class="copy">복사</button><pre>아래 Code.gs와 Index.html은 구글 시트에 붙어 돌아가는 앱스크립트 웹 앱이야.
 [과목: 기초글쓰기] [중간 보고서] 점수 조회 페이지로 바꿔 줘.
 - 평가 기준은 [5개: 주제·구성·근거·표현·형식], 기준마다 [4점]
@@ -2300,9 +2309,9 @@ function lookup(sid, code) {
 - 바꾼 Code.gs와 Index.html을 각각 전체 코드로, 따로따로 줘.
 - 시트 탭 이름과 1행 제목을 어떻게 고쳐야 하는지 마지막에 표 없이 목록으로 알려 줘.
 
-[여기에 Code.gs 붙여 넣기]
+<span class="gslot" data-src="src-score-code">[여기에 Code.gs 붙여 넣기]</span>
 
-[여기에 Index.html 붙여 넣기]</pre></div>
+<span class="gslot" data-src="src-score-index">[여기에 Index.html 붙여 넣기]</span></pre></div>
     <details class="gx"><summary>한 줄씩 더 고쳐 보기 (조회 기록 · 공개 기간)</summary><div class="prompt"><div class="label">한 줄 더 · 조회 기록</div><button class="copy">복사</button><pre>학생이 조회할 때마다 시트에 "조회기록" 탭을 만들어 시각과 학번을 한 줄씩 남겨 줘. 조회 코드는 기록하지 마.</pre></div><div class="prompt"><div class="label">한 줄 더 · 공개 기간</div><button class="copy">복사</button><pre>[12월 15일]부터 [12월 22일]까지만 조회되고, 그 밖의 기간에는 "조회 기간이 아니에요"가 보이게 해 줘.</pre></div></details></div></div>
 
   <details class="gx"><summary>🛟 막혔을 때</summary><ul>
@@ -2315,6 +2324,20 @@ function lookup(sid, code) {
   <h3 class="caseh" id="gas-h4">＋ 3~5번도 말로 만들어 보기</h3>
   <p>이번엔 처음부터 부탁해요. 받은 코드를 1~5단계처럼 붙여 넣고 배포하면 돼요. 결과가 이상하면 오류 문장을 그대로 복사해 "이 오류 고쳐 줘"라고 보내세요.</p>
   <details class="gx"><summary>부탁문 3개 펼치기 (QR 출석 · 면담 예약 · 장비 대여)</summary><div class="prompt"><div class="label">3 · QR 출석·출구 티켓</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 학생이 QR로 들어와 학번과 오늘의 단어 [4글자]를 넣으면 "출석" 탭에 시각·학번이 쌓이고, 교수 화면(주소 끝에 ?admin=비밀번호)에는 지금까지 출석한 인원 수가 10초마다 바뀌어 보이게. 같은 학번은 하루 한 번만. Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비와 배포 순서도 알려 줘.</pre></div><div class="prompt"><div class="label">4 · 면담 시간 예약 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "시간" 탭에 [다음 주 화·목 14~17시, 20분 단위] 칸이 있고, 학생이 학번·이름을 넣고 한 칸을 고르면 그 칸은 다른 학생 화면에서 사라져. 동시에 눌러도 겹치지 않게 LockService를 써 줘. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div><div class="prompt"><div class="label">5 · 실습실 장비 대여·반납 대장</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "장비" 탭에 [오실로스코프 4대, 멀티미터 10대]가 있고, 학생이 학번과 장비를 골라 대여하면 남은 수량이 줄고 반납 예정일(7일 뒤)이 기록돼. 첫 화면에 지금 빌려 간 장비와 반납이 늦은 목록이 보이게. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div></details>
+
+<script>
+(function(){
+  var sec=document.getElementById('gas'); if(!sec) return;
+  function fill(slot){ var src=document.getElementById(slot.getAttribute('data-src')); if(!src) return; slot.textContent=src.textContent; slot.classList.add('filled'); }
+  sec.addEventListener('click',function(e){
+    var b=e.target.closest('.gfill button'); if(!b) return;
+    var step=b.closest('.step'); var ids=b.getAttribute('data-src').split(',');
+    ids.forEach(function(id){ step.querySelectorAll('.gslot[data-src="'+id+'"]').forEach(fill); step.querySelectorAll('.gfill button').forEach(function(x){ if(x.getAttribute('data-src')===id && !x.classList.contains('on')) { x.classList.add('on'); x.textContent='✓ '+x.textContent.replace(/^[＋✓] /,'').replace(' 넣기','')+' 들어감'; } }); });
+    var all=step.querySelector('.gfill button.all'); var done=[].every.call(step.querySelectorAll('.gslot'),function(x){return x.classList.contains('filled')});
+    if(done&&all){ all.classList.add('on'); all.textContent='✓ 코드 둘 다 들어감 · 이제 복사!'; }
+  });
+})();
+</script>
 </section>
 <!-- 8: 백엔드·배포 -->
 <section id="more" class="wp wp-hashero">
