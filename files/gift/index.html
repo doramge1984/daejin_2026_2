@@ -9,6 +9,7 @@
 <li>Code.gs 내용을 모두 지우고 <b>Code.gs</b> 붙여 넣기 → <b>＋ → HTML</b>, 이름 <b>Index</b> → <b>Index.html</b> 붙여 넣기 → 💾 저장</li>
 <li><b>배포 → 새 배포 → 웹 앱</b> · 실행: 나 · 액세스: 모든 사용자 → 권한 허용(고급 → 이동 → 허용)</li>
 <li>나온 주소 = 교수님 참가 주소(QR) · 주소 끝에 <b>?admin=1106</b> = 강사 화면 (비밀번호는 Code.gs 맨 위에서 바꾸기)</li>
+<li>🔊 소리: 추첨할 때 똑딱 소리 + 당첨 팡파르 (강사 화면 위 버튼으로 끄고 켜기). Index.html을 바꾸면 <b>배포 관리 → ✏️ 수정 → 새 버전</b></li>
 <li>선물 이름·개수는 시트 <b>선물</b> 탭에서 바꾸면 바로 반영돼요 (다시 배포 필요 없음)</li></ol></div>
 <h2>① 무대형 추첨 (큰 화면에서 이름이 돌다 멈춤)</h2>
 <a class="btn" href="https://docs.google.com/spreadsheets/d/1eCJVcFdq5wPIQz_fHKqLQ2dWBEIA44a5Jsw-jz3DbM0/edit" target="_blank">📊 행운의 선물 추첨 시트 열기</a>
@@ -168,7 +169,7 @@ function draw(pw, giftName) {
 &lt;!-- 무대 화면 (?admin=비밀번호) --&gt;
 &lt;div id=&quot;stage&quot;&gt;
   &lt;div class=&quot;top&quot;&gt;
-    &lt;div&gt;&lt;span class=&quot;badge&quot;&gt;🎁 LUCKY DRAW&lt;/span&gt;&lt;h2 id=&quot;ttl&quot;&gt;행운의 선물 추첨&lt;/h2&gt;&lt;div class=&quot;count&quot;&gt;참가 &lt;b id=&quot;cnt&quot;&gt;0&lt;/b&gt;명 · 당첨 &lt;b id=&quot;wcnt&quot;&gt;0&lt;/b&gt;명&lt;/div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;badge&quot;&gt;🎁 LUCKY DRAW&lt;/span&gt;&lt;h2 id=&quot;ttl&quot;&gt;행운의 선물 추첨&lt;/h2&gt;&lt;div class=&quot;count&quot;&gt;참가 &lt;b id=&quot;cnt&quot;&gt;0&lt;/b&gt;명 · 당첨 &lt;b id=&quot;wcnt&quot;&gt;0&lt;/b&gt;명 &lt;button type=&quot;button&quot; id=&quot;snd&quot; style=&quot;margin-left:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer&quot;&gt;🔊 소리 켜짐&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
     &lt;div class=&quot;qr&quot;&gt;&lt;img id=&quot;qr&quot; alt=&quot;참가 QR&quot;&gt;&lt;small&gt;📱 아직 등록 안 하신 분은&lt;br&gt;QR로 이름만 넣어 주세요&lt;/small&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;gifts&quot; id=&quot;gifts&quot;&gt;&lt;/div&gt;
@@ -194,7 +195,7 @@ function draw(pw, giftName) {
       b.disabled=false;
       if(!r.ok){ $(&#x27;err&#x27;).textContent=r.msg; return; }
       $(&#x27;form&#x27;).style.display=&#x27;none&#x27;; $(&#x27;done&#x27;).style.display=&#x27;block&#x27;;
-      $(&#x27;doneMsg&#x27;).textContent=r.msg; $(&#x27;doneCnt&#x27;).textContent=&#x27;지금까지 &#x27;+r.count+&#x27;분이 등록했어요&#x27;;
+      $(&#x27;doneMsg&#x27;).textContent=r.msg; $(&#x27;doneCnt&#x27;).textContent=&#x27;지금까지 &#x27;+r.count+&#x27;분이 등록했어요&#x27;; sPop();
       burst(80);
     }).withFailureHandler(function(e){ b.disabled=false; $(&#x27;err&#x27;).textContent=&#x27;오류: &#x27;+e.message; })
       .register({name:$(&#x27;nm&#x27;).value, dept:$(&#x27;dp&#x27;).value});
@@ -229,12 +230,12 @@ function draw(pw, giftName) {
   });
   $(&#x27;go&#x27;).onclick=function(){
     if(!sel||spinning) return;
-    spinning=true; $(&#x27;go&#x27;).disabled=true; $(&#x27;smsg&#x27;).textContent=&#x27;&#x27;; $(&#x27;slot&#x27;).classList.remove(&#x27;win&#x27;); $(&#x27;dept&#x27;).textContent=&#x27;두구두구두구…&#x27;;
+    ac(); spinning=true; $(&#x27;go&#x27;).disabled=true; $(&#x27;smsg&#x27;).textContent=&#x27;&#x27;; $(&#x27;slot&#x27;).classList.remove(&#x27;win&#x27;); $(&#x27;dept&#x27;).textContent=&#x27;두구두구두구…&#x27;;
     var names=ST.people.map(function(p){return p.name}); if(!names.length) names=[&#x27;?&#x27;];
     var t0=Date.now(), i=0, delay=40, result=null, minTime=3200;
     google.script.run.withSuccessHandler(function(r){ result=r; }).withFailureHandler(function(e){ result={ok:false,msg:e.message}; }).draw(PW, sel);
     (function tick(){
-      $(&#x27;name&#x27;).innerHTML=esc(names[i++%names.length])+&#x27;&lt;small&gt;교수님&lt;/small&gt;&#x27;;
+      $(&#x27;name&#x27;).innerHTML=esc(names[i++%names.length])+&#x27;&lt;small&gt;교수님&lt;/small&gt;&#x27;; sTick();
       var el=Date.now()-t0;
       if(result &amp;&amp; el&gt;minTime){ delay*=1.18; }
       if(result &amp;&amp; delay&gt;420){ finish(result); return; }
@@ -246,8 +247,21 @@ function draw(pw, giftName) {
     if(!r.ok){ $(&#x27;name&#x27;).textContent=&#x27;🎁&#x27;; $(&#x27;dept&#x27;).textContent=&#x27;&#x27;; $(&#x27;smsg&#x27;).textContent=r.msg; render(); return; }
     $(&#x27;name&#x27;).innerHTML=esc(r.winner.name)+&#x27;&lt;small&gt;교수님&lt;/small&gt;&#x27;;
     $(&#x27;dept&#x27;).textContent=(r.winner.dept?r.winner.dept+&#x27; · &#x27;:&#x27;&#x27;)+&#x27;🎁 &#x27;+r.gift+&#x27; 당첨!&#x27;;
-    $(&#x27;slot&#x27;).classList.add(&#x27;win&#x27;); ST=r.stage; render(); burst(260);
+    $(&#x27;slot&#x27;).classList.add(&#x27;win&#x27;); ST=r.stage; render(); burst(260); sWin();
   }
+
+  /* ---- 소리 (파일 없이 브라우저가 만들어요) ---- */
+  var AC=null, MUTE=false;
+  function ac(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(AC&amp;&amp;AC.state===&#x27;suspended&#x27;) AC.resume(); return AC; }
+  function tone(f,t,d,type,vol){ var a=ac(); if(!a||MUTE) return; var o=a.createOscillator(), g=a.createGain(); o.type=type||&#x27;square&#x27;; o.frequency.setValueAtTime(f,a.currentTime+t);
+    g.gain.setValueAtTime(0.0001,a.currentTime+t); g.gain.exponentialRampToValueAtTime(vol||0.18,a.currentTime+t+0.01); g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+t+d);
+    o.connect(g); g.connect(a.destination); o.start(a.currentTime+t); o.stop(a.currentTime+t+d+0.02); }
+  function sTick(){ tone(880+Math.random()*220,0,0.05,&#x27;square&#x27;,0.08); }
+  function sWin(){ [523,659,784,1047].forEach(function(f,i){ tone(f,i*0.11,0.22,&#x27;triangle&#x27;,0.22); }); [1047,1319,1568].forEach(function(f){ tone(f,0.5,0.9,&#x27;triangle&#x27;,0.16); });
+    var a=ac(); if(!a||MUTE) return; var n=a.createBufferSource(), b=a.createBuffer(1,a.sampleRate*0.6,a.sampleRate), d=b.getChannelData(0); for(var i=0;i&lt;d.length;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,2);
+    var g=a.createGain(); g.gain.value=0.12; n.buffer=b; n.connect(g); g.connect(a.destination); n.start(a.currentTime+0.45); }
+  function sPop(){ tone(660,0,0.08,&#x27;sine&#x27;,0.2); tone(990,0.07,0.12,&#x27;sine&#x27;,0.18); }
+  function sLose(){ tone(392,0,0.18,&#x27;triangle&#x27;,0.15); tone(330,0.16,0.3,&#x27;triangle&#x27;,0.13); }
 
   /* ---- 꽃가루 ---- */
   var cv=$(&#x27;fx&#x27;), cx=cv.getContext(&#x27;2d&#x27;), P=[];
@@ -264,6 +278,7 @@ function draw(pw, giftName) {
     if(P.length) requestAnimationFrame(step); else { burst.on=false; cx.clearRect(0,0,cv.width,cv.height); }
   }
 
+  $(&#x27;snd&#x27;).onclick=function(){ MUTE=!MUTE; this.textContent=MUTE?&#x27;🔇 소리 꺼짐&#x27;:&#x27;🔊 소리 켜짐&#x27;; if(!MUTE){ ac(); sPop(); } };
   google.script.url.getLocation(function(loc){ if(loc.parameter &amp;&amp; loc.parameter.admin) startStage(loc.parameter.admin); });
 &lt;/script&gt;
 &lt;/body&gt;
@@ -416,7 +431,7 @@ function getBoard(pw) {
 &lt;div id=&quot;board&quot;&gt;
   &lt;div class=&quot;btop&quot;&gt;
     &lt;div&gt;&lt;span class=&quot;badge&quot;&gt;🎟️ LUCKY TICKET · 강사 화면&lt;/span&gt;&lt;h2 id=&quot;bt&quot;&gt;행운 복권&lt;/h2&gt;&lt;div class=&quot;cnt&quot;&gt;참여 &lt;b id=&quot;played&quot;&gt;0&lt;/b&gt;명 · 당첨 &lt;b id=&quot;won&quot;&gt;0&lt;/b&gt;명&lt;/div&gt;&lt;/div&gt;
-    &lt;div class=&quot;qr&quot;&gt;&lt;img id=&quot;qr&quot; alt=&quot;복권 QR&quot;&gt;&lt;small&gt;📱 QR을 찍고&lt;br&gt;이름 넣고 긁어 보세요&lt;/small&gt;&lt;/div&gt;
+    &lt;div class=&quot;qr&quot;&gt;&lt;img id=&quot;qr&quot; alt=&quot;복권 QR&quot;&gt;&lt;small&gt;📱 QR을 찍고&lt;br&gt;이름 넣고 긁어 보세요&lt;br&gt;&lt;span style=&quot;opacity:.7&quot;&gt;🔊 화면을 한 번 눌러 두면 당첨 소리가 나요&lt;/span&gt;&lt;/small&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;gs&quot; id=&quot;gs&quot;&gt;&lt;/div&gt;
   &lt;h3 style=&quot;margin:10px 0&quot;&gt;🏆 당첨자&lt;/h3&gt;
@@ -428,7 +443,7 @@ function getBoard(pw) {
   var R=null, revealed=false;
 
   $(&#x27;go&#x27;).onclick=function(){
-    var b=this; b.disabled=true; $(&#x27;err&#x27;).textContent=&#x27;&#x27;;
+    ac(); var b=this; b.disabled=true; $(&#x27;err&#x27;).textContent=&#x27;&#x27;;
     google.script.run.withSuccessHandler(function(r){
       b.disabled=false;
       if(!r.ok){ $(&#x27;err&#x27;).textContent=r.msg; return; }
@@ -454,7 +469,7 @@ function getBoard(pw) {
     ctx.globalCompositeOperation=&#x27;destination-out&#x27;;
     var down=false, moves=0;
     function pos(e){ var r=cv.getBoundingClientRect(), t=e.touches?e.touches[0]:e; return {x:t.clientX-r.left,y:t.clientY-r.top}; }
-    function scratch(e){ if(!down||revealed) return; e.preventDefault(); var p=pos(e); ctx.beginPath(); ctx.arc(p.x,p.y,24,0,Math.PI*2); ctx.fill(); if(++moves%12===0) check(); }
+    function scratch(e){ if(!down||revealed) return; e.preventDefault(); if(moves%6===0) tone(1500+Math.random()*900,0,0.03,&#x27;sawtooth&#x27;,0.03); var p=pos(e); ctx.beginPath(); ctx.arc(p.x,p.y,24,0,Math.PI*2); ctx.fill(); if(++moves%12===0) check(); }
     function check(){
       var d=ctx.getImageData(0,0,cv.width,cv.height).data, clear=0, step=16*4;
       for(var i=3;i&lt;d.length;i+=step){ if(d[i]===0) clear++; }
@@ -468,8 +483,8 @@ function getBoard(pw) {
     if(revealed) return; revealed=true;
     var cv=$(&#x27;sc&#x27;); cv.style.transition=&#x27;opacity .5s&#x27;; cv.style.opacity=0; setTimeout(function(){ cv.style.display=&#x27;none&#x27;; },500);
     $(&#x27;hint&#x27;).style.display=&#x27;none&#x27;; $(&#x27;after&#x27;).style.display=&#x27;block&#x27;;
-    if(R.win){ $(&#x27;at&#x27;).textContent=&#x27;🎉 당첨되셨습니다!&#x27;; $(&#x27;ap&#x27;).textContent=&#x27;쉬는 시간에 강사에게 이 화면을 보여 주세요. 선물은 그때 공개돼요!&#x27;; burst(220); if(navigator.vibrate) navigator.vibrate([80,40,120]); }
-    else { $(&#x27;at&#x27;).textContent=&#x27;🍀 아쉽지만 다음 기회에&#x27;; $(&#x27;ap&#x27;).textContent=&#x27;참여해 주셔서 고마워요!&#x27;; }
+    if(R.win){ $(&#x27;at&#x27;).textContent=&#x27;🎉 당첨되셨습니다!&#x27;; $(&#x27;ap&#x27;).textContent=&#x27;쉬는 시간에 강사에게 이 화면을 보여 주세요. 선물은 그때 공개돼요!&#x27;; burst(220); sWin(); if(navigator.vibrate) navigator.vibrate([80,40,120]); }
+    else { sLose(); $(&#x27;at&#x27;).textContent=&#x27;🍀 아쉽지만 다음 기회에&#x27;; $(&#x27;ap&#x27;).textContent=&#x27;참여해 주셔서 고마워요!&#x27;; }
   }
 
   /* 강사 현황판 */
@@ -482,11 +497,25 @@ function getBoard(pw) {
       if(!$(&#x27;qr&#x27;).src) $(&#x27;qr&#x27;).src=&#x27;https://api.qrserver.com/v1/create-qr-code/?size=240x240&amp;margin=8&amp;data=&#x27;+encodeURIComponent(r.url);
       $(&#x27;gs&#x27;).innerHTML=r.gifts.map(function(g){ var pct=g.total?Math.round(g.left/g.total*100):0; return &#x27;&lt;div class=&quot;g&quot;&gt;&lt;b&gt;🎁 &#x27;+esc(g.name)+&#x27;&lt;/b&gt;&lt;div class=&quot;n&quot;&gt;&#x27;+g.left+&#x27;&lt;small&gt; / &#x27;+g.total+&#x27; 남음&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;bar&quot;&gt;&lt;i style=&quot;width:&#x27;+pct+&#x27;%&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&#x27;; }).join(&#x27;&#x27;);
       $(&#x27;wl&#x27;).innerHTML=r.winners.length?r.winners.map(function(w){ return &#x27;&lt;div class=&quot;w&quot;&gt;🏆 &lt;b&gt;&#x27;+esc(w.name)+&#x27;&lt;/b&gt; 교수님 · &#x27;+esc(w.gift)+&#x27;&lt;/div&gt;&#x27;; }).join(&#x27;&#x27;):&#x27;&lt;p style=&quot;color:#7a5a45&quot;&gt;아직 당첨자가 없어요. 두근두근…&lt;/p&gt;&#x27;;
-      if(lastWon&gt;=0 &amp;&amp; r.winners.length&gt;lastWon) burst(180);
+      if(lastWon&gt;=0 &amp;&amp; r.winners.length&gt;lastWon){ burst(180); sWin(); }
       lastWon=r.winners.length;
     }).getBoard(pw); }
+    document.addEventListener(&#x27;click&#x27;,function(){ ac(); });
     load(); setInterval(load,4000);
   }
+
+  /* ---- 소리 (파일 없이 브라우저가 만들어요) ---- */
+  var AC=null, MUTE=false;
+  function ac(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(AC&amp;&amp;AC.state===&#x27;suspended&#x27;) AC.resume(); return AC; }
+  function tone(f,t,d,type,vol){ var a=ac(); if(!a||MUTE) return; var o=a.createOscillator(), g=a.createGain(); o.type=type||&#x27;square&#x27;; o.frequency.setValueAtTime(f,a.currentTime+t);
+    g.gain.setValueAtTime(0.0001,a.currentTime+t); g.gain.exponentialRampToValueAtTime(vol||0.18,a.currentTime+t+0.01); g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+t+d);
+    o.connect(g); g.connect(a.destination); o.start(a.currentTime+t); o.stop(a.currentTime+t+d+0.02); }
+  function sTick(){ tone(880+Math.random()*220,0,0.05,&#x27;square&#x27;,0.08); }
+  function sWin(){ [523,659,784,1047].forEach(function(f,i){ tone(f,i*0.11,0.22,&#x27;triangle&#x27;,0.22); }); [1047,1319,1568].forEach(function(f){ tone(f,0.5,0.9,&#x27;triangle&#x27;,0.16); });
+    var a=ac(); if(!a||MUTE) return; var n=a.createBufferSource(), b=a.createBuffer(1,a.sampleRate*0.6,a.sampleRate), d=b.getChannelData(0); for(var i=0;i&lt;d.length;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,2);
+    var g=a.createGain(); g.gain.value=0.12; n.buffer=b; n.connect(g); g.connect(a.destination); n.start(a.currentTime+0.45); }
+  function sPop(){ tone(660,0,0.08,&#x27;sine&#x27;,0.2); tone(990,0.07,0.12,&#x27;sine&#x27;,0.18); }
+  function sLose(){ tone(392,0,0.18,&#x27;triangle&#x27;,0.15); tone(330,0.16,0.3,&#x27;triangle&#x27;,0.13); }
 
   /* 꽃가루 */
   var fx=$(&#x27;fx&#x27;), cx=fx.getContext(&#x27;2d&#x27;), P=[];

@@ -83,7 +83,7 @@
 <!-- 무대 화면 (?admin=비밀번호) -->
 <div id="stage">
   <div class="top">
-    <div><span class="badge">🎁 LUCKY DRAW</span><h2 id="ttl">행운의 선물 추첨</h2><div class="count">참가 <b id="cnt">0</b>명 · 당첨 <b id="wcnt">0</b>명</div></div>
+    <div><span class="badge">🎁 LUCKY DRAW</span><h2 id="ttl">행운의 선물 추첨</h2><div class="count">참가 <b id="cnt">0</b>명 · 당첨 <b id="wcnt">0</b>명 <button type="button" id="snd" style="margin-left:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer">🔊 소리 켜짐</button></div></div>
     <div class="qr"><img id="qr" alt="참가 QR"><small>📱 아직 등록 안 하신 분은<br>QR로 이름만 넣어 주세요</small></div>
   </div>
   <div class="gifts" id="gifts"></div>
@@ -109,7 +109,7 @@
       b.disabled=false;
       if(!r.ok){ $('err').textContent=r.msg; return; }
       $('form').style.display='none'; $('done').style.display='block';
-      $('doneMsg').textContent=r.msg; $('doneCnt').textContent='지금까지 '+r.count+'분이 등록했어요';
+      $('doneMsg').textContent=r.msg; $('doneCnt').textContent='지금까지 '+r.count+'분이 등록했어요'; sPop();
       burst(80);
     }).withFailureHandler(function(e){ b.disabled=false; $('err').textContent='오류: '+e.message; })
       .register({name:$('nm').value, dept:$('dp').value});
@@ -144,12 +144,12 @@
   });
   $('go').onclick=function(){
     if(!sel||spinning) return;
-    spinning=true; $('go').disabled=true; $('smsg').textContent=''; $('slot').classList.remove('win'); $('dept').textContent='두구두구두구…';
+    ac(); spinning=true; $('go').disabled=true; $('smsg').textContent=''; $('slot').classList.remove('win'); $('dept').textContent='두구두구두구…';
     var names=ST.people.map(function(p){return p.name}); if(!names.length) names=['?'];
     var t0=Date.now(), i=0, delay=40, result=null, minTime=3200;
     google.script.run.withSuccessHandler(function(r){ result=r; }).withFailureHandler(function(e){ result={ok:false,msg:e.message}; }).draw(PW, sel);
     (function tick(){
-      $('name').innerHTML=esc(names[i++%names.length])+'<small>교수님</small>';
+      $('name').innerHTML=esc(names[i++%names.length])+'<small>교수님</small>'; sTick();
       var el=Date.now()-t0;
       if(result && el>minTime){ delay*=1.18; }
       if(result && delay>420){ finish(result); return; }
@@ -161,8 +161,21 @@
     if(!r.ok){ $('name').textContent='🎁'; $('dept').textContent=''; $('smsg').textContent=r.msg; render(); return; }
     $('name').innerHTML=esc(r.winner.name)+'<small>교수님</small>';
     $('dept').textContent=(r.winner.dept?r.winner.dept+' · ':'')+'🎁 '+r.gift+' 당첨!';
-    $('slot').classList.add('win'); ST=r.stage; render(); burst(260);
+    $('slot').classList.add('win'); ST=r.stage; render(); burst(260); sWin();
   }
+
+  /* ---- 소리 (파일 없이 브라우저가 만들어요) ---- */
+  var AC=null, MUTE=false;
+  function ac(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(AC&&AC.state==='suspended') AC.resume(); return AC; }
+  function tone(f,t,d,type,vol){ var a=ac(); if(!a||MUTE) return; var o=a.createOscillator(), g=a.createGain(); o.type=type||'square'; o.frequency.setValueAtTime(f,a.currentTime+t);
+    g.gain.setValueAtTime(0.0001,a.currentTime+t); g.gain.exponentialRampToValueAtTime(vol||0.18,a.currentTime+t+0.01); g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+t+d);
+    o.connect(g); g.connect(a.destination); o.start(a.currentTime+t); o.stop(a.currentTime+t+d+0.02); }
+  function sTick(){ tone(880+Math.random()*220,0,0.05,'square',0.08); }
+  function sWin(){ [523,659,784,1047].forEach(function(f,i){ tone(f,i*0.11,0.22,'triangle',0.22); }); [1047,1319,1568].forEach(function(f){ tone(f,0.5,0.9,'triangle',0.16); });
+    var a=ac(); if(!a||MUTE) return; var n=a.createBufferSource(), b=a.createBuffer(1,a.sampleRate*0.6,a.sampleRate), d=b.getChannelData(0); for(var i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,2);
+    var g=a.createGain(); g.gain.value=0.12; n.buffer=b; n.connect(g); g.connect(a.destination); n.start(a.currentTime+0.45); }
+  function sPop(){ tone(660,0,0.08,'sine',0.2); tone(990,0.07,0.12,'sine',0.18); }
+  function sLose(){ tone(392,0,0.18,'triangle',0.15); tone(330,0.16,0.3,'triangle',0.13); }
 
   /* ---- 꽃가루 ---- */
   var cv=$('fx'), cx=cv.getContext('2d'), P=[];
@@ -179,6 +192,7 @@
     if(P.length) requestAnimationFrame(step); else { burst.on=false; cx.clearRect(0,0,cv.width,cv.height); }
   }
 
+  $('snd').onclick=function(){ MUTE=!MUTE; this.textContent=MUTE?'🔇 소리 꺼짐':'🔊 소리 켜짐'; if(!MUTE){ ac(); sPop(); } };
   google.script.url.getLocation(function(loc){ if(loc.parameter && loc.parameter.admin) startStage(loc.parameter.admin); });
 </script>
 </body>
