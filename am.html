@@ -1649,6 +1649,13 @@ details.gmore[open]>summary::after{content:' ▾'}
 @keyframes spkShine{0%{left:-60%}60%,100%{left:130%}}
 @keyframes spkBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 @media (prefers-reduced-motion:reduce){.qbtn.dl.sparkle,.qbtn.dl.sparkle::after,.spk-tag{animation:none}}
+
+.qbtn.alt2.sparkle,.sylt button.sparkle{position:relative;overflow:hidden;animation:spkPulse2 1.6s ease-in-out infinite}
+.sylt button.sparkle{border-color:#d93025}
+.qbtn.alt2.sparkle::after,.sylt button.sparkle::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.7) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:spkShine 2.2s ease-in-out infinite;pointer-events:none}
+.sylt button.sparkle:not(.on)::after{background:linear-gradient(100deg,rgba(255,212,59,0) 0%,rgba(255,212,59,.55) 50%,rgba(255,212,59,0) 100%)}
+@keyframes spkPulse2{0%,100%{box-shadow:0 0 0 0 rgba(217,48,37,.45);transform:scale(1)}50%{box-shadow:0 0 0 9px rgba(217,48,37,0),0 6px 20px rgba(217,48,37,.35);transform:scale(1.05)}}
+@media (prefers-reduced-motion:reduce){.qbtn.alt2.sparkle,.sylt button.sparkle,.qbtn.alt2.sparkle::after,.sylt button.sparkle::after{animation:none}}
 </style>
 <details open id="gic1" class="gicstep gs1">
     <summary><span class="badge b-do">실습</span>① 웹페이지 열고 대화하기 <small>— 공지 요약</small></summary>
@@ -1676,13 +1683,13 @@ details.gmore[open]>summary::after{content:' ▾'}
     <div class="body">
       <div class="gicpill"><b>2 / 3</b><span>📄 PDF와 대화</span><em>PDF를 크롬 창에 끌어다 놓으면, 그 PDF를 읽고 답합니다.</em></div>
       <div class="gcard">
-      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">PDF 내려받기</p><p><a class="qbtn dl sparkle" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" download>📥 강의계획서 PDF <span class="spk-tag">여기부터!</span></a> <a class="qbtn dl alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" download>📥 영어 강의계획서 PDF</a> <a class="qbtn dl alt2" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" download>📥 논문 PDF</a></p><p class="gsub">내 강의계획서·논문 PDF가 있으면 그것으로 하셔도 됩니다. 한글 파일은 한글에서 <b>다른 이름으로 저장 → PDF</b>.<br>⚠️ 심사 중인 원고, 미공개 연구 데이터, 학생 개인정보가 담긴 PDF는 오늘 쓰지 않습니다.</p></div></div>
-      <div class="gstep"><span class="gnum">2</span><div class="gst"><p class="gtt">크롬에서 열기</p><p>내려받은 PDF를 <b>크롬 창에 끌어다 놓으면</b> 크롬에서 열립니다. 바로 열어 보려면 아래 버튼을 누르세요.</p><p><a class="qbtn" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" target="_blank" rel="noopener">📘 강의계획서 PDF 열기</a> <a class="qbtn alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" target="_blank" rel="noopener">🌍 영어 강의계획서 PDF 열기</a> <a class="qbtn alt2" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" target="_blank" rel="noopener">📄 논문 PDF 열기</a></p></div></div>
+      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">PDF 내려받기</p><p><a class="qbtn dl sparkle" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" download>📥 강의계획서 PDF <span class="spk-tag">여기부터!</span></a></p><p class="gsub">내 강의계획서·논문 PDF가 있으면 그것으로 하셔도 됩니다. 한글 파일은 한글에서 <b>다른 이름으로 저장 → PDF</b>.<br>⚠️ 심사 중인 원고, 미공개 연구 데이터, 학생 개인정보가 담긴 PDF는 오늘 쓰지 않습니다.</p></div></div>
+      <div class="gstep"><span class="gnum">2</span><div class="gst"><p class="gtt">크롬에서 열기</p><p>내려받은 강의계획서 PDF는 <b>크롬 창에 끌어다 놓으면</b> 크롬에서 열립니다. 영어 강의계획서와 논문은 아래 버튼으로 바로 엽니다.</p><p><a class="qbtn alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" target="_blank" rel="noopener">🌍 영어 강의계획서 PDF 열기</a> <a class="qbtn alt2 sparkle" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" target="_blank" rel="noopener">📄 논문 PDF 열기</a></p></div></div>
       <div class="gstep"><span class="gnum">3</span><div class="gst"><p class="gtt">프롬프트 고르고 복사</p><p class="gsub">목적에 맞는 카드를 고르세요. <b>빨간 칸을 눌러 내 과목으로 고친 뒤</b> 복사하면 됩니다. 한 칸을 고치면 다른 카드에도 함께 바뀝니다.</p><div class="sygroup"><div class="sylt" role="tablist">
         <button type="button" class="on" data-p="sy1">🔍 내 계획서 점검</button>
         <button type="button" data-p="sy2">🌍 다른 학교 참고</button>
         <button type="button" data-p="sy3">🎓 학생 눈으로 읽기</button>
-        <button type="button" data-p="sy4">📅 캘린더에 일정 넣기</button>
+        <button type="button" class="sparkle" data-p="sy4">📅 캘린더에 일정 넣기</button>
         <button type="button" data-p="sy5">📄 논문 읽기</button>
       </div>
       <div class="sylp on" id="sy1">
