@@ -1672,6 +1672,10 @@ details.shine4>summary::after{content:'';position:absolute;top:0;left:-40%;width
 @keyframes s4Glow{0%,100%{box-shadow:0 0 8px rgba(155,114,203,.25),0 0 18px rgba(66,133,244,.15)}50%{box-shadow:0 0 18px rgba(155,114,203,.55),0 0 36px rgba(244,180,0,.35)}}
 @keyframes spkShine{0%{left:-60%}60%,100%{left:130%}}
 @media (prefers-reduced-motion:reduce){details.shine4,details.shine4>summary::after{animation:none}}
+
+.gstep.gskill{background:#fffbea;border-radius:12px;padding:16px 12px;margin:6px -8px 4px;border:1.5px dashed #f2c94c}
+.gstep.gskill .gnum{background:#f2b705;color:#3d2b00}
+.gol{margin:4px 0 6px;padding-left:20px}.gol li{margin:6px 0;line-height:1.7}
 </style>
 <details open id="gic1" class="gicstep gs1">
     <summary><span class="badge b-do">실습</span>① 웹페이지 열고 대화하기 <small>— 공지 요약</small></summary>
@@ -1683,6 +1687,7 @@ details.shine4>summary::after{content:'';position:absolute;top:0;left:-40%;width
       <div class="gstep"><span class="gnum">3</span><div class="gst"><p class="gtt">붙여넣고 보내기</p><p>열린 공지 탭에서 오른쪽 위 <b>✦</b> → 패널에 <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</p><p class="gsub">✦가 안 보이면 아래 <b>실행 화면 · 도움말 보기</b>를 열어 보세요.</p></div></div>
       <div class="gstep"><span class="gnum">+</span><div class="gst"><p class="gtt">이어서 같은 패널에</p><p class="gsub">요약을 받은 뒤, 잘 모르는 내용도 회의에서 말할 수 있게 풀어 줍니다.</p><div class="prompt"><div class="label">이어서 · 회의 5분 전</div><pre>나는 이 내용을 하나도 몰라. 지금 회의 들어가기 5분 전이야. 이 내용을 잘 이해할 수 있게 쉽게 설명해 주고, 내가 발표할 수 있게 해 줘.</pre><button class="copy">복사</button></div></div></div>
       <div class="gstep"><span class="gnum">+</span><div class="gst"><p class="gtt">공모·사업 공고라면 이것도</p><p class="gsub">지원 자격·금액·마감·서류만 뽑고, 마감 전에 할 일을 날짜순으로 정리합니다. 연구재단 공고에서는 <b>연구자 신청 마감(12. 15.)</b>과 <b>소속기관 승인 마감(12. 17.)</b>을 구분하는지 보세요.</p><div class="prompt"><div class="label">공모·사업 공고 체크</div><pre>이 공고에서 지원 자격, 지원 금액, 신청 마감, 제출 서류, 문의처만 뽑아줘. 마감 전에 내가 해야 할 일을 날짜순으로 정리하고, 공고에 없는 내용은 '공고에 없음'이라고 적어줘.</pre><button class="copy">복사</button></div></div></div>
+      <div class="gstep gskill"><span class="gnum">★</span><div class="gst"><p class="gtt">이 프롬프트를 스킬로 저장하기</p><ol class="gol"><li><b>🏫 교내 공모 공지</b> 탭에서 위 <b>공고 체크</b> 프롬프트를 보내 봅니다.</li><li>결과가 마음에 들면, 패널의 대화 기록에서 그 프롬프트를 고르고 <b>스킬로 저장</b>을 누릅니다. 이름은 <b>공고 체크</b>, 이모지는 📋로 정합니다.</li><li><b>🏛️ 연구재단·외부 사업 공고</b> 탭으로 옮겨 가서 패널 입력창에 <kbd>/</kbd>를 입력하고 <b>공고 체크</b>를 고릅니다. 길게 다시 쓰지 않아도 같은 지시가 이 공고에 그대로 적용됩니다.</li></ol><p class="gsub">💡 이제 공고 페이지를 열 때마다 <kbd>/</kbd> 한 번이면 됩니다. 스킬은 실습 ⑤에서 더 만들어 봅니다.</p></div></div>
       </div>
       <details class="gmore"><summary>🖼️ 실행 화면 · 도움말 보기</summary><div class="gmore-b"><figure><img src="img/am-notice.png" alt="실습용 가상 공지 페이지 — 날짜·금액·제출 서류가 많아 요약 결과를 확인하기 좋습니다." loading="lazy"><figcaption>실습용 가상 공지 페이지 — 날짜·금액·제출 서류가 많아 요약 결과를 확인하기 좋습니다.</figcaption></figure><figure><img src="img/am-gic-panel.jpg" alt="제미나이 인 크롬 패널 실행 화면" loading="lazy"><figcaption>실제 실행 화면 — 왼쪽은 공지 페이지, 오른쪽은 제미나이 패널. 아래쪽 입력창 위에 <b>“…” 공유 중</b>이 보이면 지금 보는 페이지를 읽고 있다는 뜻입니다. 날짜·금액·제출처가 페이지와 같은지 꼭 대조해 보세요.</figcaption></figure><figure><img src="img/am-gic-meeting.jpg" alt="회의 5분 전 프롬프트 실행 결과" loading="lazy"><figcaption>실행 결과 — "누가·무엇을·언제까지"로 핵심을 풀어 주고, 그대로 읽을 수 있는 <b>30초 발표 대본</b>까지 만들어 줍니다. 대본 속 날짜·금액도 왼쪽 페이지와 한 번 대조하세요.</figcaption></figure><div class="callout blue fallback"><b class="t">✦ 버튼이 안 보이면</b>
         <ul>
