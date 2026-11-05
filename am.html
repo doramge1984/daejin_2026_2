@@ -12,6 +12,16 @@
 .goal b{display:block;color:var(--navy)}
 .where{font-size:13px;color:var(--muted);margin:-4px 0 10px}
 .fallback{font-size:14px}
+
+/* 제미나이 라이브 표 — 글로잉 */
+.tblwrap.live-glow{position:relative;padding:3px;border-radius:15px;margin:14px 0;background:linear-gradient(90deg,#4285f4,#9b72cb,#d96570,#f4b400,#4285f4);background-size:300% 100%;animation:liveBorder 6s linear infinite,liveGlow 2.8s ease-in-out infinite}
+.tblwrap.live-glow table{margin:0;width:100%;background:#fff;border-radius:12px}
+.tblwrap.live-glow tr:not(:first-child) td{transition:background .25s}
+.tblwrap.live-glow tr:not(:first-child):hover td{background:#f3f0ff}
+.tblwrap.live-glow tr:not(:first-child) td:first-child{font-weight:700;color:#5b3cc4}
+@keyframes liveBorder{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+@keyframes liveGlow{0%,100%{box-shadow:0 0 6px rgba(66,133,244,.25),0 0 14px rgba(155,114,203,.15)}50%{box-shadow:0 0 16px rgba(66,133,244,.55),0 0 34px rgba(217,101,112,.35)}}
+@media (prefers-reduced-motion:reduce){.tblwrap.live-glow{animation:none;box-shadow:0 0 14px rgba(66,133,244,.4)}}
 </style>
 <style>
 .dlbox{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:12px 14px;margin:12px 0}
@@ -1548,12 +1558,12 @@ header.hero{position:relative}
         <li>말로 대화합니다. 말을 끊고 끼어들어도 됩니다.</li>
         <li><b>카메라</b> 버튼을 누르면 보이는 것을 함께 보며, <b>화면 공유</b>를 누르면 휴대폰 화면을 보며 대화합니다.</li>
       </ol>
-      <div class="tblwrap"><table>
+      <div class="tblwrap live-glow"><table>
         <tr><th>해 볼 것</th><th>이렇게 말해 보세요</th></tr>
         <tr><td>강의 리허설</td><td>“지금부터 3분 동안 ‘상관과 인과’를 설명할게. 끝나면 학생 입장에서 헷갈렸을 부분 두 가지만 말해줘.”</td></tr>
         <tr><td>카메라로 묻기</td><td>(책상 위 자료를 비추며) “이 표에서 눈에 띄는 경향을 설명해줘.”</td></tr>
         <tr><td>외국어 연습</td><td>“다음 주 국제학회 질의응답을 연습하고 싶어. 영어로 질문 하나씩 해줘.”</td></tr>
-        <tr><td><b>외국인 학생과 통역</b></td><td>“지금부터 통역해 줘. 내가 한국어로 말하면 중국어로, 학생이 중국어로 말하면 한국어로 번역해 줘. 번역한 말만 해 줘.”</td></tr>
+        <tr><td>외국인 학생과 통역</td><td><span style="color:#d93025;font-weight:800">“지금부터 통역해 줘. 내가 한국어로 말하면 중국어로, 학생이 중국어로 말하면 한국어로 번역해 줘. 번역한 말만 해 줘.”</span></td></tr>
       </table></div>
       <div class="callout green"><b class="t">🌏 외국인 유학생과 대화할 때</b>
         <ol style="margin:6px 0 0;padding-left:20px">
