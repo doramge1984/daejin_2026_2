@@ -1979,6 +1979,8 @@ show();
 #gas ol.gtl>li::before{content:counter(g);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:#c99a1e;color:#fff;font-weight:900;display:grid;place-items:center}
 #gas ol.gtl>li>b{font-size:17px;color:var(--navy)}#gas ol.gtl>li>span{color:#4b5563;font-size:14.5px;flex:1 1 180px}
 #gas .gqr2{text-align:center}#gas .gqr2 img{width:150px;height:150px;border:1px solid var(--line);border-radius:10px;background:#fff}#gas .gqr2 small{display:block;color:#6b7280;margin-top:4px}
+#gas img{cursor:zoom-in}
+#gas .gsc img,#gas .gm img{transition:.15s}#gas .gsc:hover img{filter:brightness(1.03)}
 #gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
 #gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
 #gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
@@ -1990,7 +1992,7 @@ show();
   <h2 class="sec">6 · 앱스크립트 바이브코딩 · 시트로 돌아가는 웹 앱</h2>
   <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">폼은 <b>받기만</b> 해요. 앱스크립트는 시트를 <b>읽고 → 판단하고 → 보여 줘요.</b> 코드는 붙여 넣고, 고치는 건 말로 해요.</p><div class="wp-flow"><a href="#gas-h1"><em>STEP 1</em><b>👀 완성 화면 보기</b><span></span></a><a href="#gas-try"><em>STEP 2</em><b>🙋 학생이 되어 체험</b><span></span></a><a href="#gas-h2"><em>STEP 3</em><b>🛠️ 실습① ② 직접 만들기</b><span></span></a><a href="#gas-h4"><em>＋</em><b>⏳ 시간이 되면</b><span></span></a></div></div>
 
-  <h3 class="caseh" id="gas-h1">👀 오늘 만드는 것 · 완성하면 이렇게 나와요</h3>
+  <h3 class="caseh" id="gas-h1">👀 오늘 만드는 것 · 완성하면 이렇게 나와요 <small style="font-size:.6em;color:#6b7280;font-weight:600">🔍 이미지를 누르면 크게 보여요</small></h3>
   <div class="gshow">
     <a class="gsc" href="#gas-try"><img src="img/gas-prev-topic.png" alt="팀 프로젝트 주제 신청 보드 완성 화면" loading="lazy"><span class="gtag">실습①</span><b>팀 주제 선착순 보드</b><p>남은 자리가 실시간으로 줄고, 다 차면 <b>🔴 마감</b></p></a>
     <a class="gsc" href="#gas-try2"><img src="img/gas-prev-score.png" alt="내 점수·피드백 확인 완성 화면" loading="lazy"><span class="gtag p">실습②</span><b>내 점수·피드백 조회</b><p>학번 + 조회 코드 → <b>본인 것만</b> 보여요</p></a>
@@ -3262,6 +3264,12 @@ service cloud.firestore {
   });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
   function close(){ lb.hidden=true; document.body.style.overflow=''; }
+  document.addEventListener('click',function(e){
+    var t=e.target; if(t.tagName!=='IMG' || !t.closest('#gas') || t.closest('#lb')) return;
+    e.preventDefault(); e.stopPropagation();
+    im.src=t.currentSrc||t.src; im.alt=t.alt; cap.textContent=t.alt||'';
+    lb.hidden=false; document.body.style.overflow='hidden';
+  },true);
 })();
 </script>
 <div class="fontctl" id="fontCtl" role="group" aria-label="글자 크기">
