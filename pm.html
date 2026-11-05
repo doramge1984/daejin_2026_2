@@ -1967,6 +1967,18 @@ show();
 #gas .gm em{font-style:normal;font-weight:800;color:#16867a;font-size:14px}
 #gas .gthumb{display:block;width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;border:1px solid var(--line);margin:0 0 8px}
 #gas .gprev{margin:4px 0 14px}#gas .gprev img{display:block;width:100%;max-width:760px;border:1px solid #d7dce3;border-radius:12px;box-shadow:0 6px 18px rgba(20,30,60,.1)}#gas .gprev small{display:block;margin-top:6px;color:#5b6475;font-weight:700}
+#gas .gshow{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:10px 0 18px}
+#gas .gsc{display:block;text-decoration:none;color:inherit!important;background:#fff;border:2px solid var(--line);border-radius:18px;padding:12px;transition:.15s}
+#gas .gsc:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(20,30,60,.14);border-color:var(--gold)}
+#gas .gsc img{display:block;width:100%;height:210px;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--line);margin-bottom:10px}
+#gas .gtag{display:inline-block;font-size:12.5px;font-weight:900;color:#fff;background:#2f4a8a;border-radius:999px;padding:3px 12px}#gas .gtag.p{background:#6c4bd1}#gas .gtag.g{background:#16867a}
+#gas .gsc>b{display:block;font-size:18px;color:var(--navy);margin:8px 0 4px}#gas .gsc p{margin:0;font-size:15px;color:#4b5563}
+#gas .gtry2{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+#gas ol.gtl{flex:1 1 420px;list-style:none;margin:0;padding:0;counter-reset:g}
+#gas ol.gtl>li{counter-increment:g;position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px 12px 58px;margin:0 0 10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+#gas ol.gtl>li::before{content:counter(g);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:#c99a1e;color:#fff;font-weight:900;display:grid;place-items:center}
+#gas ol.gtl>li>b{font-size:17px;color:var(--navy)}#gas ol.gtl>li>span{color:#4b5563;font-size:14.5px;flex:1 1 180px}
+#gas .gqr2{text-align:center}#gas .gqr2 img{width:150px;height:150px;border:1px solid var(--line);border-radius:10px;background:#fff}#gas .gqr2 small{display:block;color:#6b7280;margin-top:4px}
 #gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
 #gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
 #gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
@@ -1976,37 +1988,30 @@ show();
 @keyframes spkShine{0%{left:-60%}60%,100%{left:130%}}
 </style>
   <h2 class="sec">6 · 앱스크립트 바이브코딩 · 시트로 돌아가는 웹 앱</h2>
-  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">구글 폼은 <b>받기만</b> 해요. 앱스크립트 웹 앱은 시트를 <b>읽고, 판단하고, 바로 보여 줘요.</b> "남은 자리 2팀", "본인 점수만 보기"처럼 폼으로는 안 되는 일을, 코드를 몰라도 <b>붙여 넣기와 말로 고치기</b>로 만들어요.</p><div class="wp-flow"><a href="#gas-try"><em>먼저</em><b>👀 체험하기</b><span></span></a><a href="#gas-h1"><em>PART 1</em><b>이런 게 된다 · 후보 5가지</b><span></span></a><a href="#gas-h2"><em>실습①</em><b>팀 주제 선착순 보드</b><span></span></a><a href="#gas-h3"><em>실습②</em><b>내 점수·피드백 조회</b><span></span></a><a href="#gas-h4"><em>＋ 시간이 되면</em><b>면담 예약 · QR 출석 · 장비 대여</b><span></span></a></div></div>
+  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">폼은 <b>받기만</b> 해요. 앱스크립트는 시트를 <b>읽고 → 판단하고 → 보여 줘요.</b> 코드는 붙여 넣고, 고치는 건 말로 해요.</p><div class="wp-flow"><a href="#gas-h1"><em>STEP 1</em><b>👀 완성 화면 보기</b><span></span></a><a href="#gas-try"><em>STEP 2</em><b>🙋 학생이 되어 체험</b><span></span></a><a href="#gas-h2"><em>STEP 3</em><b>🛠️ 실습① ② 직접 만들기</b><span></span></a><a href="#gas-h4"><em>＋</em><b>⏳ 시간이 되면</b><span></span></a></div></div>
 
+  <h3 class="caseh" id="gas-h1">👀 오늘 만드는 것 · 완성하면 이렇게 나와요</h3>
+  <div class="gshow">
+    <a class="gsc" href="#gas-try"><img src="img/gas-prev-topic.png" alt="팀 프로젝트 주제 신청 보드 완성 화면" loading="lazy"><span class="gtag">실습①</span><b>팀 주제 선착순 보드</b><p>남은 자리가 실시간으로 줄고, 다 차면 <b>🔴 마감</b></p></a>
+    <a class="gsc" href="#gas-try2"><img src="img/gas-prev-score.png" alt="내 점수·피드백 확인 완성 화면" loading="lazy"><span class="gtag p">실습②</span><b>내 점수·피드백 조회</b><p>학번 + 조회 코드 → <b>본인 것만</b> 보여요</p></a>
+    <a class="gsc" href="#gas-h4"><img src="img/gas-prev-meet.png" alt="면담 시간 예약 보드 완성 화면" loading="lazy"><span class="gtag g">시간이 되면</span><b>면담 시간 예약 보드</b><p>누가 고른 시간은 <b>바로 사라져요</b></p></a>
+  </div>
+  <div class="gflow"><div><b>📊 구글 시트</b><span>재료 · 쌓이는 곳</span></div><i>⇄</i><div><b>⚙️ Code.gs</b><span>읽고 · 판단하고 · 쓰기</span></div><i>→</i><div><b>🖥️ Index.html</b><span>학생이 보는 화면</span></div><i>→</i><div><b>🔗 주소 · QR</b><span>학생은 열기만</span></div></div>
 
   <div class="gtry" id="gas-try">
-    <div class="gtry-h">👀 실습① 먼저 체험하기 · 지금 무엇을 하는지 알고 시작해요 <small>5분</small></div>
-    <p class="gtry-lead">지금부터 <b>학생이 되어 팀 주제를 신청</b>해 봐요. 구글폼 없이 <b>시트 하나 + 웹 화면 하나</b>로 돌아가는 도구예요. 아래 순서대로 시트와 화면이 어떻게 이어지는지 눈으로 확인해 보세요.</p>
-    <div class="gprev"><img src="img/gas-prev-topic.png" alt="팀 프로젝트 주제 신청 보드 완성 화면" loading="lazy"><small>✅ 완성하면 이렇게 나와요 · 남은 자리 막대, 다 차면 🔴 마감, 신청하면 초록 완료 메시지</small></div>
-    <div class="gtry-grid">
-      <div class="gtry-s"><span class="gn">1</span><b>연결된 시트 먼저 보기</b>
-        <p><b>주제</b> 탭: 주제 6개와 정원(재료)<br><b>신청</b> 탭: 지금은 예시 두 줄뿐. 여기에 신청이 쌓여요.</p>
-        <a class="gbtn2" href="https://docs.google.com/spreadsheets/d/1_8K3vmGm8gH4chTKQqohdQ2SomEp_noRnwxyPj2UDBg/edit?usp=sharing" target="_blank" rel="noopener">📊 연결된 시트 열기 (보기 전용) ↗</a></div>
-      <div class="gtry-s"><span class="gn">2</span><b>웹 앱 열기</b>
-        <p>시트의 주제 탭이 <b>카드</b>로 보여요. 정원이 <b>'남은 자리'</b>로 바뀌어 나와요. 시트와 화면이 같은 내용인지 비교해 보세요.</p>
-        <a class="goldbtn" href="https://script.google.com/macros/s/AKfycbxfcDdgQxOgkWbK3DCKAkaVA6gJjtsSF5pQXFK4OgZrBaasZoOPxHOFLb3pHkgmg1Bv/exec" target="_blank" rel="noopener">✨ 학생이 되어 신청해 보기 ↗</a>
-        <div class="gqr"><img src="img/qr-topic-board.png" alt="팀 주제 신청 보드 QR" loading="lazy"><small>휴대폰으로 찍어도 돼요</small></div></div>
-      <div class="gtry-s"><span class="gn">3</span><b>신청하고 확인하기</b>
-        <p>팀 이름과 <b>아무 숫자 8자리</b>(학번 자리)를 넣고 신청 → 시트 <b>신청</b> 탭에 내 줄이 생기고, 카드의 남은 자리가 줄어들어요. 정원이 차면 <b>마감</b>!</p></div>
+    <div class="gtry-h">🙋 실습① 체험 · 학생이 되어 신청해 보기 <small>5분</small></div>
+    <div class="gtry2">
+      <ol class="gtl">
+        <li><b>시트 먼저 보기</b><span>주제 탭 = 재료 · 신청 탭 = 쌓이는 곳</span><a class="gbtn2" href="https://docs.google.com/spreadsheets/d/1_8K3vmGm8gH4chTKQqohdQ2SomEp_noRnwxyPj2UDBg/edit?usp=sharing" target="_blank" rel="noopener">📊 연결된 시트 열기 ↗</a></li>
+        <li><b>신청해 보기</b><span>팀 이름 + 아무 숫자 8자리</span><a class="goldbtn" href="https://script.google.com/macros/s/AKfycbxfcDdgQxOgkWbK3DCKAkaVA6gJjtsSF5pQXFK4OgZrBaasZoOPxHOFLb3pHkgmg1Bv/exec" target="_blank" rel="noopener">✨ 학생이 되어 신청 ↗</a></li>
+        <li><b>확인하기</b><span>시트에 <b>내 줄</b>이 생기고, 카드의 <b>남은 자리</b>가 줄어요</span></li>
+      </ol>
+      <div class="gqr2"><img src="img/qr-topic-board.png" alt="팀 주제 신청 보드 QR" loading="lazy"><small>📱 휴대폰으로 찍어도 돼요</small></div>
     </div>
-    <div class="gtry-sum"><b>정리</b> 폼은 <b>받기만</b> 해요. 이 도구는 시트를 <b>읽고 → 판단해서(마감·중복 막기) → 보여 줘요.</b> 이제 아래 실습①에서 이걸 직접 만들어 봅니다.</div>
-    <p class="gtry-note">⚠️ 지금은 가상 연습이라 시트를 보여 드려요. <b>실제 수업에서는 이 시트를 학생에게 공유하지 마세요.</b> 학번·이름이 다 보여요. 학생은 웹 앱 주소만 받으면 돼요.</p>
+    <p class="gtry-note">⚠️ 실제 수업에서는 시트를 학생에게 공유하지 마세요. 학생은 <b>웹 앱 주소만</b> 받아요.</p>
   </div>
-  <h3 class="caseh" id="gas-h1">👀 앱스크립트로 이런 게 된다</h3>
-  <div class="gas5">
-    <div class="pick"><img class="gthumb" src="img/gas-prev-topic.png" alt="주제 선착순 보드 완성 화면" loading="lazy"><span class="n">1 · 실습</span><b>팀 프로젝트 주제 선착순 보드</b><p>주제별 남은 자리가 실시간으로 보이고, 다 차면 마감</p><small>팀플 하는 모든 학과</small></div>
-    <div class="pick"><img class="gthumb" src="img/gas-prev-score.png" alt="점수 조회 페이지 완성 화면" loading="lazy"><span class="n">2 · 실습</span><b>내 점수·피드백 조회 페이지</b><p>학번과 개인 코드를 넣으면 본인 것만 보여요</p><small>"제 점수 왜요?" 메일이 많은 분</small></div>
-    <div><span class="n">3</span><b>QR 출석·출구 티켓</b><p>QR → 학번 입력 → 시각 기록, 교수 화면에 실시간 인원</p><small>대형 강의, 교양</small></div>
-    <div class="pick"><img class="gthumb" src="img/gas-prev-meet.png" alt="면담 예약 보드 완성 화면" loading="lazy"><span class="n">4 · 시간이 되면</span><b>면담 시간 예약 보드</b><p>누가 고른 시간은 다른 학생 화면에서 사라져요</p><small>상담·지도가 많은 학과</small></div>
-    <div><span class="n">5</span><b>실습실 장비 대여·반납 대장</b><p>지금 빌려 간 장비와 반납 예정일 현황판</p><small>공학·실험실 학과</small></div>
-  </div>
-  <div class="gflow"><div><b>📊 구글 시트</b><span>데이터 (주제·점수)</span></div><i>⇄</i><div><b>⚙️ Code.gs</b><span>시트 읽고 쓰기</span></div><i>→</i><div><b>🖥️ Index.html</b><span>학생이 보는 화면</span></div><i>→</i><div><b>🔗 웹 앱 주소 · QR</b><span>학생은 주소만 열면 끝</span></div></div>
-  <div class="callout gold"><b class="t">💡 주소가 바뀌지 않게 고치기 · 새 버전으로 다시 배포</b> 코드를 고칠 때는 <b>배포 → 배포 관리 → ✏️ 수정 → 버전: 새 버전 → 배포</b>로 하세요. 그래야 학생 화면에 반영되고 <b>주소는 그대로</b>예요.<br>⚠️ <b>'새 배포'를 다시 하면 주소가 새로 생겨서</b>, 미리 나눠 준 링크·QR이 예전 버전을 가리키게 돼요.</div>
+
+  <div class="callout gold"><b class="t">💡 주소가 바뀌지 않게 고치기</b> 코드를 고치면 <b>배포 → 배포 관리 → ✏️ 수정 → 버전: 새 버전 → 배포</b>. ⚠️ <b>'새 배포'</b>를 다시 하면 주소가 바뀌어서 나눠 준 링크·QR이 예전 버전을 가리켜요.</div>
 
   <details class="gpx" id="gas-h2"><summary class="gpart">실습① 팀 프로젝트 주제 선착순 보드<small>시트 사본 → 코드 두 개 붙여 넣기 → 배포 → QR</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   
