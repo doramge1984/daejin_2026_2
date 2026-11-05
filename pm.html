@@ -2484,7 +2484,7 @@ function book(form) {
   }
 }</pre></div></div></div>
   <div class="step"><div class="no">3</div><div><h4>HTML 파일 하나 더 만들고 붙여 넣기</h4>
-    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol><p style="margin:6px 0 10px"><img src="img/gas-editor-meet.png" alt="앱스크립트 편집기 — Code.gs와 Index.html 두 파일" loading="lazy" style="max-width:100%;border:1px solid #d7dce3;border-radius:10px"><br><small>✅ 왼쪽 파일 목록에 <b>Code.gs</b>와 <b>Index.html</b> 두 개가 보이면 성공!</small></p>
+    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol>
     <div class="prompt gcode"><div class="label">Index.html · 면담 시간 예약 (학생 화면)</div><button class="copy">복사</button><pre id="src-meet-index">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ko&quot;&gt;
 &lt;head&gt;
@@ -2677,7 +2677,7 @@ function getToday(pw) {
   return { ok: true, day: day, count: rows.length, recent: recent };
 }</pre></div></div></div>
   <div class="step"><div class="no">3</div><div><h4>HTML 파일 하나 더 만들고 붙여 넣기</h4>
-    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol><p style="margin:6px 0 10px"><img src="img/gas-editor-attend.png" alt="앱스크립트 편집기 — Code.gs와 Index.html 두 파일" loading="lazy" style="max-width:100%;border:1px solid #d7dce3;border-radius:10px"><br><small>✅ 왼쪽 파일 목록에 <b>Code.gs</b>와 <b>Index.html</b> 두 개가 보이면 성공!</small></p>
+    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol>
     <div class="prompt gcode"><div class="label">Index.html · QR 출석 (학생 화면)</div><button class="copy">복사</button><pre id="src-attend-index">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ko&quot;&gt;
 &lt;head&gt;
@@ -2880,7 +2880,7 @@ function giveBack(form) {
   }
 }</pre></div></div></div>
   <div class="step"><div class="no">3</div><div><h4>HTML 파일 하나 더 만들고 붙여 넣기</h4>
-    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol><p style="margin:6px 0 10px"><img src="img/gas-editor-equip.png" alt="앱스크립트 편집기 — Code.gs와 Index.html 두 파일" loading="lazy" style="max-width:100%;border:1px solid #d7dce3;border-radius:10px"><br><small>✅ 왼쪽 파일 목록에 <b>Code.gs</b>와 <b>Index.html</b> 두 개가 보이면 성공!</small></p>
+    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol>
     <div class="prompt gcode"><div class="label">Index.html · 장비 대여 (학생 화면)</div><button class="copy">복사</button><pre id="src-equip-index">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ko&quot;&gt;
 &lt;head&gt;
@@ -4080,10 +4080,10 @@ var CASES=[
       list.forEach(function(c){
         var t=tpl(c[0]); if(!t) return;
         var d=document.createElement("details"); d.className="ex case"; d.id="case-"+c[0];
-        var res=RES[c[0]]?'<figure><img src="img/res-'+c[0]+'.jpg" alt="'+esc(t[1])+' 리믹스 결과" loading="lazy" onerror="this.parentNode.remove()"><figcaption>리믹스 결과 ('+esc(c[3])+')</figcaption></figure>':'';
+        var res=RES[c[0]]?'<figure><figcaption>리믹스 결과 ('+esc(c[3])+')</figcaption></figure>':'';
         d.innerHTML='<summary><b>'+esc(t[1])+'</b> <span class="lvs lv'+t[3]+'">'+LV[t[3]]+'</span>'+(t[4]?' <span class="needs">'+esc(t[4])+'</span>':'')+' <small>예) '+esc(c[3])+'</small></summary><div class="body">'+
           '<p class="use"><b>이렇게 써요</b> '+esc(c[2])+'</p>'+(RES[c[0]]?'<p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/'+RES[c[0]]+'" target="_blank" rel="noopener">강사 완성본 열기 ↗</a></p>':'')+
-          '<div class="shots"><figure><img src="img/tpl-'+c[0]+'.jpg" alt="'+esc(t[1])+' 원본 화면" loading="lazy" onerror="this.parentNode.remove()"><figcaption>원본 화면 · <a href="'+URL+c[0]+'" target="_blank" rel="noopener">열어 보기 ↗</a></figcaption></figure>'+res+'</div>'+
+          '<div class="shots"><figure><figcaption>원본 화면 · <a href="'+URL+c[0]+'" target="_blank" rel="noopener">열어 보기 ↗</a></figcaption></figure>'+res+'</div>'+
           '<div class="prompt"><div class="label">예시 부탁문 · '+esc(c[3])+' (원본 화면 왼쪽 아래 칸에 붙여 넣고 Remix)</div><button class="copy">복사</button><pre>'+esc(full(t,c))+'</pre></div>'+
           '<h5 class="samph">이어서 고치기</h5><ul class="samplelist">'+c[7].map(function(x){return '<li><span class="tx">'+esc(x)+' 다른 부분은 그대로 둬.</span><button class="ex-copy" type="button">복사</button></li>';}).join('')+'</ul></div>';
         box.appendChild(d);
@@ -4104,7 +4104,7 @@ var CASES=[
     var d=document.createElement("details"); d.className="ex case"; d.id="case-x-"+x.id;
     var how=BASE[x.base]||x.base;
     var src=x.base.indexOf("new")===0?'AI 스튜디오 첫 화면 → '+(x.base==="new-game"?'<b>Create a game</b> 칩 → ':(x.base==="new-3d"?'<b>Three.js 3D scenes</b> 칩 → ':''))+'부탁문 붙여 넣고 보내기':'<a href="https://aistudio.google.com/apps/bundled/'+x.base+'" target="_blank" rel="noopener">원본 템플릿 열기 ↗</a> → 왼쪽 아래 칸에 부탁문 → Remix';
-    var figs=x.imgs.map(function(f){ var cap=/prompt/.test(f)?'만드는 과정: 부탁문을 넣은 화면':'완성 화면'; return '<figure><img src="img/'+f+'" alt="'+e(x.title)+' '+cap+'" loading="lazy"><figcaption>'+cap+'</figcaption></figure>'; }).join('');
+    var figs=x.imgs.map(function(f){ var cap=/prompt/.test(f)?'만드는 과정: 부탁문을 넣은 화면':'완성 화면'; return '<figure><figcaption>'+cap+'</figcaption></figure>'; }).join('');
     d.innerHTML='<summary><b>'+e(x.title)+'</b>'+(x.link||x.badge?'':' <span class="needs">부탁문만</span>')+(x.badge?' <span class="wowb">'+e(x.badge)+'</span>':'')+' <span class="needs">'+e(how)+'</span> <small>'+e(x.dept)+'</small></summary><div class="body">'+
       '<p class="use"><b>'+(x.link||x.badge?'이렇게 써요':'이렇게 만들 계획이에요')+'</b> '+e(x.use)+'</p>'+
       (x.link?'<p class="mylink"><a class="dl" href="https://aistudio.google.com/apps/'+x.link+'" target="_blank" rel="noopener">강사 완성본 열기 ↗</a></p>'+(x.note?'<p class="tip"><b>강사가 겪은 일</b> '+e(x.note)+'</p>':''):(x.badge&&x.imgs.length?'<p class="tip"><b>완성본은 연수 때 강사 화면으로 보여 드려요.</b></p>'+(x.note?'<p class="tip"><b>강사가 겪은 일</b> '+e(x.note)+'</p>':''):'<p class="tip">완성본은 준비 중이에요. '+(x.note?e(x.note):'아래 부탁문으로 먼저 직접 만들어 보세요.')+'</p>'))+
