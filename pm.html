@@ -466,7 +466,8 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
   <div class="step" id="canva-st6"><div class="no">4</div><div>
     <h4>이런 것도 같은 방식으로 · 수업에 바로 쓰는 쉬운 도구</h4>
     <p class="tip">부탁문 한두 줄이면 2~3분 만에 나와요. 오늘 몸풀기로 하나 골라 보세요.</p>
-    <details class="ex case hot"><summary><b>👥 랜덤 조 뽑기</b> <small>학생 입력 · 교수 모드 · 캔바 시트까지 완성해 본 예시</small></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 👥 랜덤 조 뽑기</div><button class="copy">복사</button><pre>이름들을 입력하면 원하는 인원수의 조로 랜덤하게 나눠주는 팀·조 뽑기 웹앱을 만들어줘. 결과는 큰 글씨 카드로, 다시 섞기 버튼도 넣어줘.</pre></div><p class="tip">⚠️ <b>강사가 해 보니</b> 위 부탁만 하면 <b>교수 혼자 이름을 입력하는</b> 도구가 돼요. 학생이 각자 휴대폰으로 이름을 넣게 하려면 아래처럼 한 번 더 부탁하세요.</p><div class="prompt"><div class="label">이어서 다듬기 · 학생이 이름·학과를 직접 입력하고, 교수만 조 나누기</div><button class="copy">복사</button><pre>학생들이 자기 이름과 학과를 입력할 수 있게 해줘.
+    <p class="cvhint">👇 카드를 누르면 바로 아래에 부탁문이 열려요</p><div class="cvg"><button type="button" class="cvc hot" data-t="cv-0"><span class="ce">👥</span><b>랜덤 조 뽑기</b><span class="cd">학생이 이름 등록 → 조 나누기 · 교수 모드까지</span><span class="ct">⭐ 완성 예시 있음</span></button><button type="button" class="cvc" data-t="cv-1"><span class="ce">🎤</span><b>발표 순서 뽑기</b><span class="cd">한 명씩 뽑히는 애니메이션, 끝난 사람 표시</span><span class="ct">2분</span></button><button type="button" class="cvc" data-t="cv-2"><span class="ce">🗳️</span><b>즉석 투표</b><span class="cd">누르면 막대그래프로 바로 결과</span><span class="ct">2분</span></button><button type="button" class="cvc" data-t="cv-3"><span class="ce">⏰</span><b>수업 활동 타이머</b><span class="cd">토론·발표 시간 재기, 끝나면 알림</span><span class="ct">2분</span></button></div>
+<details class="ex case hot cvp" id="cv-0"><summary><b>👥 랜덤 조 뽑기</b> <small>학생 입력 · 교수 모드 · 캔바 시트까지 완성해 본 예시</small></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 👥 랜덤 조 뽑기</div><button class="copy">복사</button><pre>이름들을 입력하면 원하는 인원수의 조로 랜덤하게 나눠주는 팀·조 뽑기 웹앱을 만들어줘. 결과는 큰 글씨 카드로, 다시 섞기 버튼도 넣어줘.</pre></div><p class="tip">⚠️ <b>강사가 해 보니</b> 위 부탁만 하면 <b>교수 혼자 이름을 입력하는</b> 도구가 돼요. 학생이 각자 휴대폰으로 이름을 넣게 하려면 아래처럼 한 번 더 부탁하세요.</p><div class="prompt"><div class="label">이어서 다듬기 · 학생이 이름·학과를 직접 입력하고, 교수만 조 나누기</div><button class="copy">복사</button><pre>학생들이 자기 이름과 학과를 입력할 수 있게 해줘.
 그렇게 입력하고 나면 교수인 나만 조 나누기를 누를 수 있게 해줘. 교수 비밀번호는 [숫자 4자리]로 되게 해주고,
 조를 나눌 때는 한 조에 같은 학과 학생이 몰리지 않게 골고루 섞어 줘.
 조 편성 결과는 조별로 이름과 학과를 함께 보여 주고, PDF로 저장하거나 캔바 시트에 저장되도록 해줘.</pre></div>
@@ -480,20 +481,21 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     <li>학생들이 입력한 이름·학과가 <b>캔바 시트</b>에 줄줄이 모여 있어요</li></ol>
     <div class="shots"><figure><img src="img/cc-data-btn.jpg" alt="앱 위 메뉴의 데이터 단추" loading="lazy"><figcaption>① 앱을 누르면 뜨는 메뉴에서 <b>데이터</b></figcaption></figure><figure><img src="img/cc-data-panel.jpg" alt="연결된 데이터 시트 열기" loading="lazy"><figcaption>② 왼쪽 데이터 창의 <b>연결된 데이터 시트 열기</b></figcaption></figure><figure><img src="img/cc-data-sheet.jpg" alt="연결된 캔바 시트" loading="lazy"><figcaption>③ 캔바 시트: 학생이 등록한 줄(student)에는 <b>과목·이름·학과·등록 시각</b>이, 조를 나눈 줄(team)에는 <b>조 번호와 조원</b>이 쌓여요. course 칸으로 과목별 명단이 나뉘어요 (이름 일부는 가렸어요)</figcaption></figure></div>
     <p class="tip">💡 이런 <b>안내 문구</b>를 놓치지 마세요. AI가 "이건 안 돼요"라고 알려 주는 부분이 곧 이 도구의 한계예요. 꼭 막아야 한다면 <span class="say">"조 나누기 단추도 교수 모드 안으로 옮겨 줘"</span>처럼 한 번 더 부탁하세요.</p>
-    <p class="tip">💡 이렇게 <b>내 수업 상황</b>(과목이 여러 개, 잘못 등록하는 학생)을 말해 주면, 몸풀기용 조 뽑기가 <b>한 학기 내내 쓰는 내 수업 도구</b>로 자라요.</p><p class="tip">💡 [숫자 4자리]에는 교수님만 아는 번호를 넣으세요. 이 비밀번호는 <b>학생이 실수로 누르지 않게 막는 정도</b>예요. 성적처럼 중요한 정보를 지키는 잠금은 아니에요. 학생 이름이 캔바 시트에 모이니, 수업이 끝나면 <b>데이터를 비워</b> 주세요.</p></div></details><details class="ex case"><summary><b>🎤 발표 순서 뽑기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🎤 발표 순서 뽑기</div><button class="copy">복사</button><pre>이름을 입력하면 발표 순서를 랜덤으로 정해주는 웹앱을 만들어줘. 한 명씩 뽑히는 애니메이션으로 보여주고, 발표가 끝난 사람은 표시할 수 있게 해줘.</pre></div></div></details><details class="ex case"><summary><b>🗳️ 즉석 투표</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🗳️ 즉석 투표</div><button class="copy">복사</button><pre>항목을 입력하면 사람들이 눌러서 투표하고 막대그래프로 결과를 보여주는 즉석 투표 웹앱을 만들어줘.</pre></div></div></details><details class="ex case"><summary><b>⏰ 수업 활동 타이머</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · ⏰ 수업 활동 타이머</div><button class="copy">복사</button><pre>활동 이름과 시간을 입력하면 활동별로 카운트다운 해주는 수업 타이머 웹앱을 만들어줘. 숫자는 강의실 뒤에서도 보이게 아주 크게, 시간이 끝나면 알려줘.</pre></div></div></details>
+    <p class="tip">💡 이렇게 <b>내 수업 상황</b>(과목이 여러 개, 잘못 등록하는 학생)을 말해 주면, 몸풀기용 조 뽑기가 <b>한 학기 내내 쓰는 내 수업 도구</b>로 자라요.</p><p class="tip">💡 [숫자 4자리]에는 교수님만 아는 번호를 넣으세요. 이 비밀번호는 <b>학생이 실수로 누르지 않게 막는 정도</b>예요. 성적처럼 중요한 정보를 지키는 잠금은 아니에요. 학생 이름이 캔바 시트에 모이니, 수업이 끝나면 <b>데이터를 비워</b> 주세요.</p></div></details><details class="ex case cvp" id="cv-1"><summary><b>🎤 발표 순서 뽑기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🎤 발표 순서 뽑기</div><button class="copy">복사</button><pre>이름을 입력하면 발표 순서를 랜덤으로 정해주는 웹앱을 만들어줘. 한 명씩 뽑히는 애니메이션으로 보여주고, 발표가 끝난 사람은 표시할 수 있게 해줘.</pre></div></div></details><details class="ex case cvp" id="cv-2"><summary><b>🗳️ 즉석 투표</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🗳️ 즉석 투표</div><button class="copy">복사</button><pre>항목을 입력하면 사람들이 눌러서 투표하고 막대그래프로 결과를 보여주는 즉석 투표 웹앱을 만들어줘.</pre></div></div></details><details class="ex case cvp" id="cv-3"><summary><b>⏰ 수업 활동 타이머</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · ⏰ 수업 활동 타이머</div><button class="copy">복사</button><pre>활동 이름과 시간을 입력하면 활동별로 카운트다운 해주는 수업 타이머 웹앱을 만들어줘. 숫자는 강의실 뒤에서도 보이게 아주 크게, 시간이 끝나면 알려줘.</pre></div></div></details>
   </div></div>
   <div class="step"><div class="no">5</div><div>
     <h4>대학 실무에 바로 쓰는 바이브코딩 · 계산기와 살아 있는 안내물</h4>
     <p class="tip">규칙이 들어가서 부탁문이 조금 길어요. <b>○○</b>에는 내 수업·학과 기준을 넣으세요.</p>
-    <details class="ex case"><summary><b>🧮 출석 점수 계산기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 출석 점수 계산기</div><button class="copy">복사</button><pre>결석·지각·조퇴 횟수를 입력하면 출석 점수를 계산해 주는 웹앱을 만들어줘.
+    <div class="cvsub">🧮 계산기 · 규칙만 넣으면 끝</div><div class="cvg"><button type="button" class="cvc" data-t="cv-4"><span class="ce">🧮</span><b>출석 점수 계산기</b><span class="cd">결석·지각 횟수 → 출석 점수</span><span class="ct">규칙 넣기</span></button><button type="button" class="cvc" data-t="cv-5"><span class="ce">🧮</span><b>과제 배점 합산 계산기</b><span class="cd">비율 × 점수 → 최종 점수 막대</span><span class="ct">규칙 넣기</span></button><button type="button" class="cvc" data-t="cv-6"><span class="ce">🧮</span><b>상대평가 비율 확인</b><span class="cd">학점별 인원 → 기준 넘는지 확인</span><span class="ct">규칙 넣기</span></button><button type="button" class="cvc" data-t="cv-7"><span class="ce">🧮</span><b>조별 점수 분배</b><span class="cd">조 점수 + 동료평가 → 조원별 점수</span><span class="ct">규칙 넣기</span></button></div><div class="cvsub">🖐️ 살아 있는 안내물 · 학과·학생 안내</div><div class="cvg"><button type="button" class="cvc" data-t="cv-8"><span class="ce">🖐️</span><b>학과 FAQ 안내판</b><span class="cd">검색 + 펼치는 질문 목록</span><span class="ct">안내물</span></button><button type="button" class="cvc" data-t="cv-9"><span class="ce">🖐️</span><b>신입생 체크리스트</b><span class="cd">체크하면 진행률 바가 차올라요</span><span class="ct">안내물</span></button><button type="button" class="cvc" data-t="cv-10"><span class="ce">🖐️</span><b>행사·과제 마감 D-day</b><span class="cd">마감까지 며칠? 크게 카운트</span><span class="ct">안내물</span></button></div><p class="cvhint">👇 카드를 누르면 바로 아래에 부탁문이 열려요</p>
+<details class="ex case cvp" id="cv-4"><summary><b>🧮 출석 점수 계산기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 출석 점수 계산기</div><button class="copy">복사</button><pre>결석·지각·조퇴 횟수를 입력하면 출석 점수를 계산해 주는 웹앱을 만들어줘.
 규칙: 만점 ○○점, 결석 1회당 ○점 감점, 지각 ○회 = 결석 1회, 결석 ○회 이상이면 경고 표시.
-규칙 숫자는 화면에서 바꿀 수 있게 하고, 결과 옆에 계산식도 보여줘. 학생 이름은 받지 마.</pre></div></div></details><details class="ex case"><summary><b>🧮 과제 배점 합산 계산기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 과제 배점 합산 계산기</div><button class="copy">복사</button><pre>과제 이름, 반영 비율(%), 받은 점수를 입력하면 최종 점수를 합산하고 항목별 비율을 막대로 보여주는 웹앱을 만들어줘.
-비율 합이 100%가 아니면 경고해 주고, 결과 옆에 계산식을 보여줘. 학생 이름은 받지 마.</pre></div></div></details><details class="ex case"><summary><b>🧮 상대평가 비율 확인</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 상대평가 비율 확인</div><button class="copy">복사</button><pre>수강 인원과 학점별 인원(A+, A, B+, B …)을 입력하면 비율을 계산해서, 기준(A학점 ○○% 이내, A+B학점 ○○% 이내)을 넘는지 색으로 알려주는 웹앱을 만들어줘.
-기준 비율은 화면에서 바꿀 수 있게 해줘.</pre></div></div></details><details class="ex case"><summary><b>🧮 조별 점수 분배</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 조별 점수 분배</div><button class="copy">복사</button><pre>조 점수와 조원별 기여도(동료평가 1~5점)를 입력하면 조원별 점수를 나눠주는 웹앱을 만들어줘.
-분배 방식(모두 같게 / 기여도에 비례)을 고를 수 있게 하고, 계산식을 보여줘. 이름 대신 1번, 2번 …으로.</pre></div></div></details><details class="ex case"><summary><b>🖐️ 학과 FAQ 안내판</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 학과 FAQ 안내판</div><button class="copy">복사</button><pre>질문과 답을 넣으면 검색창과, 누르면 펼쳐지는 목록으로 보여주는 학과 FAQ 안내 웹앱을 만들어줘.
+규칙 숫자는 화면에서 바꿀 수 있게 하고, 결과 옆에 계산식도 보여줘. 학생 이름은 받지 마.</pre></div></div></details><details class="ex case cvp" id="cv-5"><summary><b>🧮 과제 배점 합산 계산기</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 과제 배점 합산 계산기</div><button class="copy">복사</button><pre>과제 이름, 반영 비율(%), 받은 점수를 입력하면 최종 점수를 합산하고 항목별 비율을 막대로 보여주는 웹앱을 만들어줘.
+비율 합이 100%가 아니면 경고해 주고, 결과 옆에 계산식을 보여줘. 학생 이름은 받지 마.</pre></div></div></details><details class="ex case cvp" id="cv-6"><summary><b>🧮 상대평가 비율 확인</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 상대평가 비율 확인</div><button class="copy">복사</button><pre>수강 인원과 학점별 인원(A+, A, B+, B …)을 입력하면 비율을 계산해서, 기준(A학점 ○○% 이내, A+B학점 ○○% 이내)을 넘는지 색으로 알려주는 웹앱을 만들어줘.
+기준 비율은 화면에서 바꿀 수 있게 해줘.</pre></div></div></details><details class="ex case cvp" id="cv-7"><summary><b>🧮 조별 점수 분배</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🧮 조별 점수 분배</div><button class="copy">복사</button><pre>조 점수와 조원별 기여도(동료평가 1~5점)를 입력하면 조원별 점수를 나눠주는 웹앱을 만들어줘.
+분배 방식(모두 같게 / 기여도에 비례)을 고를 수 있게 하고, 계산식을 보여줘. 이름 대신 1번, 2번 …으로.</pre></div></div></details><details class="ex case cvp" id="cv-8"><summary><b>🖐️ 학과 FAQ 안내판</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 학과 FAQ 안내판</div><button class="copy">복사</button><pre>질문과 답을 넣으면 검색창과, 누르면 펼쳐지는 목록으로 보여주는 학과 FAQ 안내 웹앱을 만들어줘.
 질문 예시: 수강신청 기간, 휴학 방법, 졸업 요건, 장학금 문의처, 학과 사무실 위치 (답은 ○○로 비워 둬).
-휴대폰에서도 잘 보이게.</pre></div></div></details><details class="ex case"><summary><b>🖐️ 신입생 체크리스트</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 신입생 체크리스트</div><button class="copy">복사</button><pre>신입생이 해야 할 일을 체크하면 진행률 바가 차오르는 체크리스트 웹앱을 만들어줘.
-항목 예: 학생증 발급, 수강신청, 학과 오리엔테이션, 지도교수 면담, 동아리 둘러보기. 다 체크하면 축하 화면을 보여줘.</pre></div></div></details><details class="ex case"><summary><b>🖐️ 행사·과제 마감 D-day</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 행사·과제 마감 D-day</div><button class="copy">복사</button><pre>시작일과 마감일(또는 행사일)을 입력하면 마감까지 며칠 남았는지 D-day로 크게 보여주고, 진행률 바도 함께 보여주는 안내 카운터 웹앱을 만들어줘. 공지용으로 남색+금색 톤으로 깔끔하게.</pre></div></div></details>
+휴대폰에서도 잘 보이게.</pre></div></div></details><details class="ex case cvp" id="cv-9"><summary><b>🖐️ 신입생 체크리스트</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 신입생 체크리스트</div><button class="copy">복사</button><pre>신입생이 해야 할 일을 체크하면 진행률 바가 차오르는 체크리스트 웹앱을 만들어줘.
+항목 예: 학생증 발급, 수강신청, 학과 오리엔테이션, 지도교수 면담, 동아리 둘러보기. 다 체크하면 축하 화면을 보여줘.</pre></div></div></details><details class="ex case cvp" id="cv-10"><summary><b>🖐️ 행사·과제 마감 D-day</b></summary><div class="body"><div class="prompt"><div class="label">부탁문 · 🖐️ 행사·과제 마감 D-day</div><button class="copy">복사</button><pre>시작일과 마감일(또는 행사일)을 입력하면 마감까지 며칠 남았는지 D-day로 크게 보여주고, 진행률 바도 함께 보여주는 안내 카운터 웹앱을 만들어줘. 공지용으로 남색+금색 톤으로 깔끔하게.</pre></div></div></details>
   </div></div>
   <details class="ex case"><summary><b>강사가 해 보니 · 같은 부탁문, 도구마다 다른 결과</b> <small>제미나이·캔바·클로드 비교</small></summary><div class="body">
     <p class="use"><b>이렇게 비교했어요</b> 교육행정직 연수에서 똑같은 시간외수당 계산기 부탁문을 제미나이·캔바·클로드에 그대로 넣어 봤어요. 부탁문이 같아도 결과는 모두 달랐고, 그때는 클로드 결과가 계산 정확도와 디자인 모두 가장 완성도가 높았어요.</p>
@@ -569,6 +571,36 @@ document.querySelectorAll('#start .chip').forEach(function(c){c.addEventListener
     </div></details>
     <p class="tip">이 짧은 부탁문과, 다음 단계의 긴 수업용 부탁문을 비교해 보세요. <b>구체적으로 쓸수록 내 수업에 꼭 맞게</b> 나옵니다.</p>
   </div></details>
+<style>
+#canva .cvg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:8px 0 12px}
+#canva .cvc{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:3px;background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px;transition:.15s}
+#canva .cvc:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 8px 20px rgba(20,30,60,.12)}
+#canva .cvc.on{border-color:#1a56db;background:#f3f7ff}
+#canva .cvc.hot{border-color:#d9534f;background:#fff7f5}
+#canva .cvc .ce{font-size:30px;line-height:1}
+#canva .cvc b{font-size:16.5px;color:var(--navy);margin-top:4px}
+#canva .cvc .cd{font-size:13.5px;color:#4b5563;line-height:1.45}
+#canva .cvc .ct{align-self:flex-start;margin-top:6px;font-size:12px;font-weight:800;background:#eef3fb;color:#1a4fb4;border-radius:999px;padding:2px 10px}
+#canva .cvc.hot .ct{background:#d9534f;color:#fff}
+#canva .cvsub{font-weight:900;font-size:1.08em;color:var(--navy);margin:14px 0 2px}
+#canva .cvhint{margin:4px 0 6px;font-weight:700;color:#6b7280;font-size:14px}
+#canva details.cvp:not([open]){display:none}
+#canva details.cvp[open]{border:2px solid #1a56db;box-shadow:0 6px 18px rgba(26,86,219,.12)}
+</style>
+<script>
+(function(){
+  var sec=document.getElementById('canva'); if(!sec) return;
+  sec.addEventListener('click',function(e){
+    var c=e.target.closest('.cvc'); if(!c) return;
+    var d=document.getElementById(c.getAttribute('data-t')); if(!d) return;
+    var wasOpen=d.open;
+    sec.querySelectorAll('details.cvp').forEach(function(x){ x.open=false; });
+    sec.querySelectorAll('.cvc').forEach(function(x){ x.classList.remove('on'); });
+    if(!wasOpen){ d.open=true; c.classList.add('on'); setTimeout(function(){ d.scrollIntoView({behavior:'smooth',block:'start'}); },30); }
+  });
+  sec.querySelectorAll('details.cvp').forEach(function(d){ d.addEventListener('toggle',function(){ if(!d.open){ var c=sec.querySelector('.cvc[data-t="'+d.id+'"]'); if(c) c.classList.remove('on'); } }); });
+})();
+</script>
 </section>
 
 
