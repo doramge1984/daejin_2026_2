@@ -1694,6 +1694,11 @@ details.gicstep>summary small{font-size:.62em!important}
 .goldbtn::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.85),rgba(255,255,255,0));transform:skewX(-20deg);animation:spkShine 2.4s ease-in-out infinite;pointer-events:none}
 @keyframes goldGlow{0%,100%{box-shadow:0 0 6px rgba(224,178,58,.45),0 4px 12px rgba(201,154,30,.25)}50%{box-shadow:0 0 22px 6px rgba(240,196,60,.7),0 6px 20px rgba(201,154,30,.4)}}
 @media (prefers-reduced-motion:reduce){.goldbtn,.goldbtn::after{animation:none}}
+
+.tryb.tryglow{position:relative;border:2px solid transparent!important;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#4285f4,#9b72cb,#d96570,#f4b400,#4285f4) border-box!important;background-size:100% 100%,300% 100%!important;animation:s4Border 5s linear infinite,s4Glow 2.4s ease-in-out infinite}
+.tryb.tryglow>.mh{position:relative;overflow:hidden;font-size:1.2em}
+.tryb.tryglow>.mh::after{content:'';position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.9),rgba(255,255,255,0));transform:skewX(-20deg);animation:spkShine 2.6s ease-in-out infinite;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.tryb.tryglow,.tryb.tryglow>.mh::after{animation:none}}
 </style>
 <details id="gic1" class="gicstep gs1">
     <summary><span class="badge b-do">실습</span>① 웹페이지 열고 대화하기 <small>— 공고 정리</small></summary>
@@ -2004,7 +2009,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
   <details class="mth"><summary class="mh"><span class="mn">방법 3</span> 업로드하기 <em>스킬 파일로 한 번에</em></summary><div class="body">
   <ol class="steps-gap"><li><b>스킬 파일 내려받기</b> (압축 풀지 말고 그대로)<div style="margin:10px 0 14px"><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/rubric-grader.zip" download>⬇ rubric-grader.zip 내려받기</a></div></li><li>제미나이 ⚙ 설정 → <b>스킬</b> → 만들기 ▾ → <b>업로드하기</b> → 내려받은 파일 고르기</li><li>‘설치됨’에 <b>rubric-grader</b>이(가) 생기면 완료</li></ol></div></details>
 
-  <div class="tryb"><div class="mh">써 보기 · 루브릭과 학생 보고서로 채점</div>
+  <div class="tryb tryglow"><div class="mh">✨ 써 보기 · 루브릭과 학생 보고서로 채점</div>
   <ol class="steps-gap"><li><b>평가 루브릭</b>과 <b>학생 보고서</b> 버튼을 눌러 내 크롬에서 <b>한 번씩 열기</b> → 열어 보기만 하면 내 드라이브 최근 문서로 잡혀 제미나이가 가져올 수 있어요<div style="margin:10px 0 14px;display:flex;flex-wrap:wrap;gap:8px"><a class="dl" style="background:#1a73e8;color:#fff;border-color:#1a73e8" href="https://docs.google.com/document/d/1QcG8Oz_6FO65boVPzZqaYEsRqt12lzly9Dpas7usmzA/edit?usp=sharing" target="_blank" rel="noopener">평가 루브릭 열기 (구글 문서) ↗</a><a class="dl" href="https://docs.google.com/document/d/1USfXvuX4WcP47HX5kW5KnAUqSLO_uladzjddmeY-NO4/edit?usp=sharing" target="_blank" rel="noopener">학생 보고서 1 · 경영학과 ↗</a><a class="dl" href="https://docs.google.com/document/d/10Fxb75zbj4Y6Cp5omRe7Vzv6LvyKTngOScjFhlVXqJI/edit?usp=sharing" target="_blank" rel="noopener">학생 보고서 2 · 행정학과 ↗</a><a class="dl" href="https://docs.google.com/document/d/1Rjpk4SvnjHuG3RifFvuO9DnHGU0a87zkKViRoHW9wKo/edit?usp=sharing" target="_blank" rel="noopener">학생 보고서 3 · 미디어커뮤니케이션학과 ↗</a><a class="dl" href="https://docs.google.com/document/d/1fFhXRftqJ6TaJjuFxFhSgP3KoQxlKvsnonU4jFA94JA/edit?usp=sharing" target="_blank" rel="noopener">학생 보고서 4 · 자율전공학부 ↗</a></div></li><li>새 채팅 → <b>＋</b> → 드라이브에서 루브릭과 학생 보고서 고르기 (또는 문서 링크 붙여 넣기) → 아래 부탁문 보내기</li></ol>
   <div class="prompt"><div class="label">채점 부탁문</div><button class="copy">복사</button><pre>@rubric-grader 첨부한 평가 루브릭으로 첨부한 학생 보고서를 채점해 줘.</pre></div>
 
