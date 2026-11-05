@@ -66,9 +66,10 @@ function getStage(pw) {
   return { ok: true, title: TITLE, url: ScriptApp.getService().getUrl(), people: people, wins: wins, gifts: gifts };
 }
 
-// 추첨: 아직 당첨 안 된 사람 중에서 무작위로 한 명
-function draw(pw, giftName) {
+// 추첨: 아직 당첨 안 된 사람 중에서 무작위로 n명 (서로 다른 사람)
+function draw(pw, giftName, n) {
   if (String(pw) !== ADMIN_PW) return { ok: false, msg: &#x27;비밀번호가 맞지 않아요.&#x27; };
+  n = Math.max(1, Math.min(10, Number(n) || 1));
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
@@ -80,9 +81,13 @@ function draw(pw, giftName) {
     st.wins.forEach(function (w) { won[w.name + &#x27;|&#x27; + w.dept] = true; });
     const pool = st.people.filter(function (p) { return !won[p.name + &#x27;|&#x27; + p.dept]; });
     if (!pool.length) return { ok: false, msg: &#x27;추첨할 사람이 없어요. 모두 당첨됐어요!&#x27; };
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    sh_(&#x27;당첨&#x27;).appendRow([&quot;&#x27;&quot; + now_(), g.name, pick.name, pick.dept]);
-    return { ok: true, winner: pick, gift: g.name, stage: getStage(pw) };
+    n = Math.min(n, g.left, pool.length);
+    for (let i = pool.length - 1; i &gt; 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
+    const picks = pool.slice(0, n);
+    const t = now_();
+    sh_(&#x27;당첨&#x27;).getRange(sh_(&#x27;당첨&#x27;).getLastRow() + 1, 1, n, 4)
+      .setValues(picks.map(function (p) { return [&quot;&#x27;&quot; + t, g.name, p.name, p.dept]; }));
+    return { ok: true, winners: picks, gift: g.name, stage: getStage(pw) };
   } finally { lock.releaseLock(); }
 }</pre></div><div class="bx"><div class="lb">Index.html · 무대형 추첨<button onclick="cp(this)">복사</button></div><pre>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ko&quot;&gt;
@@ -128,12 +133,21 @@ function draw(pw, giftName) {
   .gift.on{border-color:#ffd978;background:rgba(255,217,120,.16);box-shadow:0 0 24px rgba(255,217,120,.3)}
   .gift.out{opacity:.35;cursor:not-allowed}
   .mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:20px 0}
-  .slot{position:relative;width:min(900px,90vw);height:200px;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:2px solid rgba(255,217,120,.55);box-shadow:0 0 60px rgba(255,200,90,.25),inset 0 0 40px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .slots{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;width:min(1200px,94vw)}
+  .slots.multi .slot{width:min(360px,44vw);height:170px}
+  .slots.multi .nm{font-size:clamp(34px,4.2vw,58px)}
+  .slots.multi .dp{font-size:16px}
+  .slot{flex-direction:column;position:relative;width:min(900px,90vw);height:200px;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:2px solid rgba(255,217,120,.55);box-shadow:0 0 60px rgba(255,200,90,.25),inset 0 0 40px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;overflow:hidden}
   .slot::before,.slot::after{content:&quot;&quot;;position:absolute;left:0;right:0;height:50px;z-index:2;pointer-events:none}
   .slot::before{top:0;background:linear-gradient(#0f1230cc,transparent)}.slot::after{bottom:0;background:linear-gradient(transparent,#0f1230cc)}
-  #name{font-size:clamp(44px,7vw,96px);font-weight:900;letter-spacing:.02em;white-space:nowrap}
-  #name small{font-size:.45em;font-weight:700;color:#ffd978;margin-left:.3em}
+  .nm{font-size:clamp(44px,7vw,96px);font-weight:900;letter-spacing:.02em;white-space:nowrap;z-index:1}
+  .nm small{font-size:.45em;font-weight:700;color:#ffd978;margin-left:.3em}
+  .dp{font-size:20px;color:#ffd978;min-height:1.3em;z-index:1;font-weight:700}
   #dept{font-size:22px;color:#c9c6ea;min-height:1.4em}
+  .cnts{display:flex;gap:8px;align-items:center;color:#c9c6ea;font-weight:700}
+  .cn{cursor:pointer;border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:8px 18px;font:inherit;font-weight:900;font-size:18px}
+  .cn.on{border-color:#ffd978;background:rgba(255,217,120,.18)}
+  .cn:disabled{opacity:.3;cursor:not-allowed}
   .slot.win{animation:winGlow 1.2s ease-in-out infinite}
   @keyframes winGlow{50%{box-shadow:0 0 110px rgba(255,210,100,.75),inset 0 0 40px rgba(0,0,0,.35)}}
   .go{padding:22px 64px;border:0;border-radius:999px;font:inherit;font-weight:900;font-size:28px;cursor:pointer;color:#3a2500;background:linear-gradient(135deg,#ffe58f,#f5b93a 55%,#ffd56b);box-shadow:0 14px 40px rgba(245,185,58,.45);transition:transform .12s}
@@ -174,7 +188,8 @@ function draw(pw, giftName) {
   &lt;/div&gt;
   &lt;div class=&quot;gifts&quot; id=&quot;gifts&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;mid&quot;&gt;
-    &lt;div class=&quot;slot&quot; id=&quot;slot&quot;&gt;&lt;div id=&quot;name&quot;&gt;🎁&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;cnts&quot;&gt;한 번에 &lt;button type=&quot;button&quot; class=&quot;cn on&quot; data-n=&quot;1&quot;&gt;1명&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;cn&quot; data-n=&quot;2&quot;&gt;2명&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;cn&quot; data-n=&quot;3&quot;&gt;3명&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;cn&quot; data-n=&quot;5&quot;&gt;5명&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;slots&quot; id=&quot;slots&quot;&gt;&lt;div class=&quot;slot&quot;&gt;&lt;div class=&quot;nm&quot;&gt;🎁&lt;/div&gt;&lt;div class=&quot;dp&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
     &lt;div id=&quot;dept&quot;&gt;&lt;/div&gt;
     &lt;button class=&quot;go&quot; id=&quot;go&quot; type=&quot;button&quot;&gt;🎉 추첨하기&lt;/button&gt;
     &lt;div class=&quot;msg&quot; id=&quot;smsg&quot;&gt;&lt;/div&gt;
@@ -184,7 +199,7 @@ function draw(pw, giftName) {
 &lt;div id=&quot;lock&quot; class=&quot;lock&quot; style=&quot;display:none&quot;&gt;&lt;h2&gt;🔒&lt;/h2&gt;&lt;p id=&quot;lockMsg&quot;&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;script&gt;
-  var PW=null, ST=null, sel=null, spinning=false;
+  var PW=null, ST=null, sel=null, spinning=false, N=1;
   function $(i){return document.getElementById(i)}
   function esc(s){return String(s).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g,function(c){return{&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27;}[c]})}
 
@@ -222,32 +237,54 @@ function draw(pw, giftName) {
       return &#x27;&lt;button type=&quot;button&quot; class=&quot;gift&#x27;+(g.name===sel?&#x27; on&#x27;:&#x27;&#x27;)+(g.left&lt;=0?&#x27; out&#x27;:&#x27;&#x27;)+&#x27;&quot; data-g=&quot;&#x27;+esc(g.name)+&#x27;&quot;&gt;🎁 &#x27;+esc(g.name)+&#x27;&lt;small&gt;남은 &#x27;+g.left+&#x27; / &#x27;+g.total+&#x27;&lt;/small&gt;&lt;/button&gt;&#x27;;
     }).join(&#x27;&#x27;);
     $(&#x27;wins&#x27;).innerHTML=ST.wins.map(function(w){ return &#x27;&lt;div class=&quot;w&quot;&gt;🏆 &lt;b&gt;&#x27;+esc(w.name)+&#x27;&lt;/b&gt; 교수님 · &#x27;+esc(w.gift)+&#x27;&lt;/div&gt;&#x27;; }).join(&#x27;&#x27;);
-    $(&#x27;go&#x27;).disabled=!sel || spinning;
+    var g0=ST.gifts.filter(function(g){return g.name===sel})[0], wonN=ST.wins.length, poolN=ST.people.length-wonN, maxN=Math.min(g0?g0.left:0, Math.max(0,poolN));
+    document.querySelectorAll(&#x27;.cn&#x27;).forEach(function(b){ var k=+b.getAttribute(&#x27;data-n&#x27;); b.disabled=spinning||k&gt;maxN; b.classList.toggle(&#x27;on&#x27;,k===N); });
+    if(N&gt;maxN &amp;&amp; maxN&gt;0){ N=[5,3,2,1].filter(function(k){return k&lt;=maxN})[0]; document.querySelectorAll(&#x27;.cn&#x27;).forEach(function(b){ b.classList.toggle(&#x27;on&#x27;,+b.getAttribute(&#x27;data-n&#x27;)===N); }); }
+    $(&#x27;go&#x27;).textContent=&#x27;🎉 &#x27;+N+&#x27;명 추첨하기&#x27;;
+    $(&#x27;go&#x27;).disabled=!sel || spinning || maxN&lt;1;
   }
+  document.querySelector(&#x27;.cnts&#x27;).addEventListener(&#x27;click&#x27;,function(e){ var b=e.target.closest(&#x27;.cn&#x27;); if(!b||b.disabled||spinning) return; N=+b.getAttribute(&#x27;data-n&#x27;); render(); });
   $(&#x27;gifts&#x27;).addEventListener(&#x27;click&#x27;,function(e){
     var b=e.target.closest(&#x27;.gift&#x27;); if(!b||b.classList.contains(&#x27;out&#x27;)||spinning) return;
     sel=b.getAttribute(&#x27;data-g&#x27;); render();
   });
+  function slotsFor(n){
+    var w=$(&#x27;slots&#x27;); w.className=&#x27;slots&#x27;+(n&gt;1?&#x27; multi&#x27;:&#x27;&#x27;); w.innerHTML=&#x27;&#x27;;
+    for(var k=0;k&lt;n;k++){ var d=document.createElement(&#x27;div&#x27;); d.className=&#x27;slot&#x27;; d.innerHTML=&#x27;&lt;div class=&quot;nm&quot;&gt;🎁&lt;/div&gt;&lt;div class=&quot;dp&quot;&gt;&lt;/div&gt;&#x27;; w.appendChild(d); }
+    return [].slice.call(w.children);
+  }
   $(&#x27;go&#x27;).onclick=function(){
     if(!sel||spinning) return;
-    ac(); spinning=true; $(&#x27;go&#x27;).disabled=true; $(&#x27;smsg&#x27;).textContent=&#x27;&#x27;; $(&#x27;slot&#x27;).classList.remove(&#x27;win&#x27;); $(&#x27;dept&#x27;).textContent=&#x27;두구두구두구…&#x27;;
+    ac(); spinning=true; render(); $(&#x27;smsg&#x27;).textContent=&#x27;&#x27;; $(&#x27;dept&#x27;).textContent=&#x27;두구두구두구…&#x27;;
     var names=ST.people.map(function(p){return p.name}); if(!names.length) names=[&#x27;?&#x27;];
-    var t0=Date.now(), i=0, delay=40, result=null, minTime=3200;
-    google.script.run.withSuccessHandler(function(r){ result=r; }).withFailureHandler(function(e){ result={ok:false,msg:e.message}; }).draw(PW, sel);
-    (function tick(){
-      $(&#x27;name&#x27;).innerHTML=esc(names[i++%names.length])+&#x27;&lt;small&gt;교수님&lt;/small&gt;&#x27;; sTick();
-      var el=Date.now()-t0;
-      if(result &amp;&amp; el&gt;minTime){ delay*=1.18; }
-      if(result &amp;&amp; delay&gt;420){ finish(result); return; }
-      setTimeout(tick, delay);
-    })();
+    var n=N, slots=slotsFor(n), result=null, t0=Date.now();
+    var BASE=150, MIN_TIME=1200, STOP_GAP=600;   // 이름 바뀌는 간격(ms) · 최소 도는 시간 · 칸마다 멈추는 간격
+    google.script.run.withSuccessHandler(function(r){ result=r; }).withFailureHandler(function(e){ result={ok:false,msg:e.message}; }).draw(PW, sel, n);
+    var stopped=0;
+    slots.forEach(function(el,k){
+      var i=Math.floor(Math.random()*names.length)+k*3, delay=BASE, slowing=false;
+      (function tick(){
+        if(result &amp;&amp; !result.ok){ if(k===0) finish(result); return; }
+        if(!slowing &amp;&amp; result &amp;&amp; Date.now()-t0&gt;MIN_TIME+k*STOP_GAP) slowing=true;
+        if(slowing) delay*=1.3;
+        if(slowing &amp;&amp; delay&gt;600){ land(el,k); return; }
+        el.querySelector(&#x27;.nm&#x27;).innerHTML=esc(names[i++%names.length])+&#x27;&lt;small&gt;교수님&lt;/small&gt;&#x27;; el.querySelector(&#x27;.dp&#x27;).textContent=&#x27;&#x27;;
+        if(k===0) sTick();
+        setTimeout(tick,delay);
+      })();
+    });
+    function land(el,k){
+      var w=result.winners[k];
+      if(!w){ el.querySelector(&#x27;.nm&#x27;).textContent=&#x27;—&#x27;; }
+      else { el.querySelector(&#x27;.nm&#x27;).innerHTML=esc(w.name)+&#x27;&lt;small&gt;교수님&lt;/small&gt;&#x27;; el.querySelector(&#x27;.dp&#x27;).textContent=w.dept||&#x27;&#x27;; el.classList.add(&#x27;win&#x27;); burst(n&gt;1?90:200); sWin(); }
+      if(++stopped===slots.length) finish(result);
+    }
   };
   function finish(r){
     spinning=false;
-    if(!r.ok){ $(&#x27;name&#x27;).textContent=&#x27;🎁&#x27;; $(&#x27;dept&#x27;).textContent=&#x27;&#x27;; $(&#x27;smsg&#x27;).textContent=r.msg; render(); return; }
-    $(&#x27;name&#x27;).innerHTML=esc(r.winner.name)+&#x27;&lt;small&gt;교수님&lt;/small&gt;&#x27;;
-    $(&#x27;dept&#x27;).textContent=(r.winner.dept?r.winner.dept+&#x27; · &#x27;:&#x27;&#x27;)+&#x27;🎁 &#x27;+r.gift+&#x27; 당첨!&#x27;;
-    $(&#x27;slot&#x27;).classList.add(&#x27;win&#x27;); ST=r.stage; render(); burst(260); sWin();
+    if(!r.ok){ slotsFor(1); $(&#x27;dept&#x27;).textContent=&#x27;&#x27;; $(&#x27;smsg&#x27;).textContent=r.msg; render(); return; }
+    $(&#x27;dept&#x27;).textContent=&#x27;🎁 &#x27;+r.gift+&#x27; 당첨! 축하드려요 🎉&#x27;;
+    ST=r.stage; render(); if(r.winners.length&gt;1) setTimeout(function(){ burst(260); },300);
   }
 
   /* ---- 소리 (파일 없이 브라우저가 만들어요) ---- */

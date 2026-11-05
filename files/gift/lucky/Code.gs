@@ -51,9 +51,10 @@ function getStage(pw) {
   return { ok: true, title: TITLE, url: ScriptApp.getService().getUrl(), people: people, wins: wins, gifts: gifts };
 }
 
-// 추첨: 아직 당첨 안 된 사람 중에서 무작위로 한 명
-function draw(pw, giftName) {
+// 추첨: 아직 당첨 안 된 사람 중에서 무작위로 n명 (서로 다른 사람)
+function draw(pw, giftName, n) {
   if (String(pw) !== ADMIN_PW) return { ok: false, msg: '비밀번호가 맞지 않아요.' };
+  n = Math.max(1, Math.min(10, Number(n) || 1));
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
@@ -65,8 +66,12 @@ function draw(pw, giftName) {
     st.wins.forEach(function (w) { won[w.name + '|' + w.dept] = true; });
     const pool = st.people.filter(function (p) { return !won[p.name + '|' + p.dept]; });
     if (!pool.length) return { ok: false, msg: '추첨할 사람이 없어요. 모두 당첨됐어요!' };
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    sh_('당첨').appendRow(["'" + now_(), g.name, pick.name, pick.dept]);
-    return { ok: true, winner: pick, gift: g.name, stage: getStage(pw) };
+    n = Math.min(n, g.left, pool.length);
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
+    const picks = pool.slice(0, n);
+    const t = now_();
+    sh_('당첨').getRange(sh_('당첨').getLastRow() + 1, 1, n, 4)
+      .setValues(picks.map(function (p) { return ["'" + t, g.name, p.name, p.dept]; }));
+    return { ok: true, winners: picks, gift: g.name, stage: getStage(pw) };
   } finally { lock.releaseLock(); }
 }
