@@ -1930,6 +1930,19 @@ show();
 #gas .gflow>i{font-style:normal;font-weight:900;color:#8a9bb8}
 #gas .gpart{font-size:1.45em;font-weight:900;color:#fff;background:linear-gradient(90deg,#1f2a44,#34508a);border-radius:14px;padding:14px 18px;margin:34px 0 12px}
 #gas .gpart small{display:block;font-size:.55em;font-weight:600;color:#c4d0e8;margin-top:2px}
+#gas .gtry{border:3px solid var(--gold);background:linear-gradient(180deg,#fffaf0,#fff);border-radius:18px;padding:18px 20px;margin:16px 0 26px;box-shadow:0 6px 20px rgba(201,154,30,.15)}
+#gas .gtry-h{font-size:1.35em;font-weight:900;color:var(--navy)}#gas .gtry-h small{font-size:.6em;background:var(--navy);color:#fff;border-radius:999px;padding:2px 10px;margin-left:6px;vertical-align:middle}
+#gas .gtry-lead{margin:8px 0 12px}
+#gas .gtry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+#gas .gtry-s{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+#gas .gtry-s>b{display:block;font-size:1.08em;color:var(--navy);margin:6px 0}
+#gas .gtry-s p{margin:0 0 10px;font-size:14.5px;line-height:1.6}
+#gas .gn{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#c99a1e;color:#fff;font-weight:900}
+#gas .gbtn2{display:inline-block;background:#1a7f4e;color:#fff!important;text-decoration:none;font-weight:800;border-radius:999px;padding:11px 18px}
+#gas .gtry .goldbtn{padding:11px 18px;font-size:1em}
+#gas .gqr{display:flex;align-items:center;gap:10px;margin-top:10px}#gas .gqr img{width:110px;height:110px;border:1px solid var(--line);border-radius:8px}#gas .gqr small{color:#6b7280}
+#gas .gtry-sum{margin-top:12px;background:#eef3fb;border-radius:12px;padding:10px 14px}
+#gas .gtry-note{margin:10px 0 0;font-size:14px;color:#a5372f}
 #gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
 #gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
 #gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
@@ -1939,8 +1952,26 @@ show();
 @keyframes spkShine{0%{left:-60%}60%,100%{left:130%}}
 </style>
   <h2 class="sec">6 · 앱스크립트 바이브코딩 · 시트로 돌아가는 웹 앱</h2>
-  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">구글 폼은 <b>받기만</b> 해요. 앱스크립트 웹 앱은 시트를 <b>읽고, 판단하고, 바로 보여 줘요.</b> "남은 자리 2팀", "본인 점수만 보기"처럼 폼으로는 안 되는 일을, 코드를 몰라도 <b>붙여 넣기와 말로 고치기</b>로 만들어요.</p><div class="wp-flow"><a href="#gas-h1"><em>PART 1</em><b>이런 게 된다 · 후보 5가지</b><span></span></a><a href="#gas-h2"><em>실습①</em><b>팀 주제 선착순 보드</b><span></span></a><a href="#gas-h3"><em>실습②</em><b>내 점수·피드백 조회</b><span></span></a><a href="#gas-h4"><em>＋</em><b>3~5번 직접 만들어 보기</b><span></span></a></div></div>
+  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">구글 폼은 <b>받기만</b> 해요. 앱스크립트 웹 앱은 시트를 <b>읽고, 판단하고, 바로 보여 줘요.</b> "남은 자리 2팀", "본인 점수만 보기"처럼 폼으로는 안 되는 일을, 코드를 몰라도 <b>붙여 넣기와 말로 고치기</b>로 만들어요.</p><div class="wp-flow"><a href="#gas-try"><em>먼저</em><b>👀 체험하기</b><span></span></a><a href="#gas-h1"><em>PART 1</em><b>이런 게 된다 · 후보 5가지</b><span></span></a><a href="#gas-h2"><em>실습①</em><b>팀 주제 선착순 보드</b><span></span></a><a href="#gas-h3"><em>실습②</em><b>내 점수·피드백 조회</b><span></span></a><a href="#gas-h4"><em>＋</em><b>3~5번 직접 만들어 보기</b><span></span></a></div></div>
 
+
+  <div class="gtry" id="gas-try">
+    <div class="gtry-h">👀 먼저 체험하기 · 지금 무엇을 하는지 알고 시작해요 <small>5분</small></div>
+    <p class="gtry-lead">지금부터 <b>학생이 되어 팀 주제를 신청</b>해 봐요. 구글폼 없이 <b>시트 하나 + 웹 화면 하나</b>로 돌아가는 도구예요. 아래 순서대로 시트와 화면이 어떻게 이어지는지 눈으로 확인해 보세요.</p>
+    <div class="gtry-grid">
+      <div class="gtry-s"><span class="gn">1</span><b>연결된 시트 먼저 보기</b>
+        <p><b>주제</b> 탭: 주제 6개와 정원(재료)<br><b>신청</b> 탭: 지금은 예시 두 줄뿐. 여기에 신청이 쌓여요.</p>
+        <a class="gbtn2" href="https://docs.google.com/spreadsheets/d/1_8K3vmGm8gH4chTKQqohdQ2SomEp_noRnwxyPj2UDBg/edit?usp=sharing" target="_blank" rel="noopener">📊 연결된 시트 열기 (보기 전용) ↗</a></div>
+      <div class="gtry-s"><span class="gn">2</span><b>웹 앱 열기</b>
+        <p>시트의 주제 탭이 <b>카드</b>로 보여요. 정원이 <b>'남은 자리'</b>로 바뀌어 나와요. 시트와 화면이 같은 내용인지 비교해 보세요.</p>
+        <a class="goldbtn" href="https://script.google.com/macros/s/AKfycbxfcDdgQxOgkWbK3DCKAkaVA6gJjtsSF5pQXFK4OgZrBaasZoOPxHOFLb3pHkgmg1Bv/exec" target="_blank" rel="noopener">✨ 학생이 되어 신청해 보기 ↗</a>
+        <div class="gqr"><img src="img/qr-topic-board.png" alt="팀 주제 신청 보드 QR" loading="lazy"><small>휴대폰으로 찍어도 돼요</small></div></div>
+      <div class="gtry-s"><span class="gn">3</span><b>신청하고 확인하기</b>
+        <p>팀 이름과 <b>아무 숫자 8자리</b>(학번 자리)를 넣고 신청 → 시트 <b>신청</b> 탭에 내 줄이 생기고, 카드의 남은 자리가 줄어들어요. 정원이 차면 <b>마감</b>!</p></div>
+    </div>
+    <div class="gtry-sum"><b>정리</b> 폼은 <b>받기만</b> 해요. 이 도구는 시트를 <b>읽고 → 판단해서(마감·중복 막기) → 보여 줘요.</b> 이제 아래 실습①에서 이걸 직접 만들어 봅니다.</div>
+    <p class="gtry-note">⚠️ 지금은 가상 연습이라 시트를 보여 드려요. <b>실제 수업에서는 이 시트를 학생에게 공유하지 마세요.</b> 학번·이름이 다 보여요. 학생은 웹 앱 주소만 받으면 돼요.</p>
+  </div>
   <h3 class="caseh" id="gas-h1">👀 앱스크립트로 이런 게 된다</h3>
   <div class="gas5">
     <div class="pick"><span class="n">1 · 실습</span><b>팀 프로젝트 주제 선착순 보드</b><p>주제별 남은 자리가 실시간으로 보이고, 다 차면 마감</p><small>팀플 하는 모든 학과</small></div>
