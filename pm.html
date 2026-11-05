@@ -1951,6 +1951,11 @@ show();
 #gas .gfill button.on{background:#1a7f4e;border-color:#1a7f4e;color:#fff}
 #gas .gslot{background:#fff3c4;border-radius:4px;padding:0 4px;font-weight:700;color:#8a5a00}
 #gas .gslot.filled{display:block;background:#fff;border:1px solid #d7dce3;border-left:4px solid #1a7f4e;color:#222;font-weight:400;font-family:ui-monospace,Consolas,monospace;font-size:12px;white-space:pre;max-height:160px;overflow:auto;padding:8px 10px;margin:4px 0}
+#gas details.gpx{margin:34px 0 12px;background:none;border:0;border-radius:0;overflow:visible}#gas details.gpx>summary.gpart{display:block;list-style:none;cursor:pointer;margin:0 0 12px;position:relative;padding:14px 160px 14px 18px;border-bottom:0}#gas details.gpx>summary.gpart::after{content:none}#gas details.gpx[open]>summary.gpart{background:linear-gradient(90deg,#1f2a44,#34508a);border-bottom:0}#gas summary.gpart small{display:block!important}
+#gas details.gpx>summary.gpart::-webkit-details-marker{display:none}
+#gas .gpchev{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:.55em;background:#f5c84c;color:#3d2b00;border-radius:999px;padding:6px 14px;font-weight:800}
+#gas details.gpx[open] .gpchev{background:rgba(255,255,255,.2);color:#fff}
+#gas details.gpx[open] .gpchev::after{content:''}
 #gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
 #gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
 #gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
@@ -1991,7 +1996,7 @@ show();
   <div class="gflow"><div><b>📊 구글 시트</b><span>데이터 (주제·점수)</span></div><i>⇄</i><div><b>⚙️ Code.gs</b><span>시트 읽고 쓰기</span></div><i>→</i><div><b>🖥️ Index.html</b><span>학생이 보는 화면</span></div><i>→</i><div><b>🔗 웹 앱 주소 · QR</b><span>학생은 주소만 열면 끝</span></div></div>
   <div class="callout gold"><b class="t">💡 주소가 바뀌지 않게 고치기 · 새 버전으로 다시 배포</b> 코드를 고칠 때는 <b>배포 → 배포 관리 → ✏️ 수정 → 버전: 새 버전 → 배포</b>로 하세요. 그래야 학생 화면에 반영되고 <b>주소는 그대로</b>예요.<br>⚠️ <b>'새 배포'를 다시 하면 주소가 새로 생겨서</b>, 미리 나눠 준 링크·QR이 예전 버전을 가리키게 돼요.</div>
 
-  <div class="gpart" id="gas-h2">실습① 팀 프로젝트 주제 선착순 보드<small>시트 사본 → 코드 두 개 붙여 넣기 → 배포 → QR</small></div>
+  <details class="gpx" id="gas-h2"><summary class="gpart">실습① 팀 프로젝트 주제 선착순 보드<small>시트 사본 → 코드 두 개 붙여 넣기 → 배포 → QR</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   
   <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
     <p class="mylink"><a class="goldbtn" href="https://docs.google.com/spreadsheets/d/16XfYJZpQ6ISQsnQpkikFbmXavGnDemiU2_8M0jGYLOI/copy" target="_blank" rel="noopener">✨ 팀 주제 선착순 보드 사본 만들기 ↗</a></p>
@@ -2181,8 +2186,9 @@ function apply(form) {
 
 <span class="gslot" data-src="src-topic-index">[여기에 Index.html 붙여 넣기]</span></pre></div>
     <details class="gx"><summary>한 줄씩 더 고쳐 보기 (마감 시간 · 취소)</summary><div class="prompt"><div class="label">한 줄 더 · 마감 시간</div><button class="copy">복사</button><pre>[11월 20일 18시]가 지나면 신청 버튼이 잠기고 "신청이 마감됐어요"가 보이게 해 줘. 바꾼 전체 코드를 줘.</pre></div><div class="prompt"><div class="label">한 줄 더 · 취소 기능</div><button class="copy">복사</button><pre>교수용 비밀번호 [4자리]를 넣으면 신청 한 줄을 취소할 수 있게 해 줘. 비밀번호는 Code.gs에만 두고 화면 코드에는 넣지 마.</pre></div></details></div></div>
+  </details>
 
-  <div class="gpart" id="gas-h3">실습② 내 점수·피드백 조회 페이지<small>오전 6탭 성적 시트와 이어져요 · 학번 + 조회 코드가 맞아야 본인 것만 보여요</small></div>
+  <details class="gpx" id="gas-h3"><summary class="gpart">실습② 내 점수·피드백 조회 페이지<small>오전 6탭 성적 시트와 이어져요 · 학번 + 조회 코드가 맞아야 본인 것만 보여요</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   
   <div class="gtry" id="gas-try2">
     <div class="gtry-h">👀 먼저 체험하기 · 학생이 되어 내 점수 조회해 보기 <small>3분</small></div>
@@ -2330,6 +2336,7 @@ function lookup(sid, code) {
 
 <span class="gslot" data-src="src-score-index">[여기에 Index.html 붙여 넣기]</span></pre></div>
     <details class="gx"><summary>한 줄씩 더 고쳐 보기 (조회 기록 · 공개 기간)</summary><div class="prompt"><div class="label">한 줄 더 · 조회 기록</div><button class="copy">복사</button><pre>학생이 조회할 때마다 시트에 "조회기록" 탭을 만들어 시각과 학번을 한 줄씩 남겨 줘. 조회 코드는 기록하지 마.</pre></div><div class="prompt"><div class="label">한 줄 더 · 공개 기간</div><button class="copy">복사</button><pre>[12월 15일]부터 [12월 22일]까지만 조회되고, 그 밖의 기간에는 "조회 기간이 아니에요"가 보이게 해 줘.</pre></div></details></div></div>
+  </details>
 
   <details class="gx"><summary>🛟 막혔을 때</summary><ul>
     <li><b>"확인되지 않은 앱"</b> → 고급 → (안전하지 않음)으로 이동 → 허용. 내가 만든 코드라서 나오는 화면이에요.</li>
@@ -2342,6 +2349,13 @@ function lookup(sid, code) {
   <p>이번엔 처음부터 부탁해요. 받은 코드를 1~5단계처럼 붙여 넣고 배포하면 돼요. 결과가 이상하면 오류 문장을 그대로 복사해 "이 오류 고쳐 줘"라고 보내세요.</p>
   <details class="gx"><summary>부탁문 3개 펼치기 (QR 출석 · 면담 예약 · 장비 대여)</summary><div class="prompt"><div class="label">3 · QR 출석·출구 티켓</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 학생이 QR로 들어와 학번과 오늘의 단어 [4글자]를 넣으면 "출석" 탭에 시각·학번이 쌓이고, 교수 화면(주소 끝에 ?admin=비밀번호)에는 지금까지 출석한 인원 수가 10초마다 바뀌어 보이게. 같은 학번은 하루 한 번만. Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비와 배포 순서도 알려 줘.</pre></div><div class="prompt"><div class="label">4 · 면담 시간 예약 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "시간" 탭에 [다음 주 화·목 14~17시, 20분 단위] 칸이 있고, 학생이 학번·이름을 넣고 한 칸을 고르면 그 칸은 다른 학생 화면에서 사라져. 동시에 눌러도 겹치지 않게 LockService를 써 줘. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div><div class="prompt"><div class="label">5 · 실습실 장비 대여·반납 대장</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "장비" 탭에 [오실로스코프 4대, 멀티미터 10대]가 있고, 학생이 학번과 장비를 골라 대여하면 남은 수량이 줄고 반납 예정일(7일 뒤)이 기록돼. 첫 화면에 지금 빌려 간 장비와 반납이 늦은 목록이 보이게. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div></details>
 
+<script>
+(function(){
+  var sec=document.getElementById('gas'); if(!sec) return;
+  sec.querySelectorAll('details.gpx').forEach(function(d){ var c=d.querySelector('.gpchev'); d.addEventListener('toggle',function(){ c.textContent=d.open?'접기 ▴':'눌러서 펼치기 ▾'; }); });
+  document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('a[href^="#gas-h"]'); if(!a) return; var d=document.getElementById(a.getAttribute('href').slice(1)); if(d&&d.tagName==='DETAILS') d.open=true; },true);
+})();
+</script>
 <script>
 (function(){
   var sec=document.getElementById('gas'); if(!sec) return;
