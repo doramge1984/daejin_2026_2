@@ -1680,6 +1680,15 @@ details.shine4>summary::after{content:'';position:absolute;top:0;left:-40%;width
 details.gicstep>summary{font-size:1.45em!important;font-weight:800!important;padding-top:16px!important;padding-bottom:16px!important;line-height:1.4}
 details.gicstep>summary .badge{font-size:.6em;vertical-align:middle}
 details.gicstep>summary small{font-size:.62em!important}
+
+/* 실습 제목 눈에 띄게 */
+#s1 details.gicstep>summary,#s1 details.shine4>summary{font-size:1.5em!important;font-weight:800!important;padding:18px 20px!important;line-height:1.4}
+#s1 details.gs1>summary{background:linear-gradient(90deg,#dce8fd,#f3f7ff)!important;color:#123f8c}
+#s1 details.gs2>summary{background:linear-gradient(90deg,#fde0dc,#fff4f2)!important;color:#9c1a12}
+#s1 details.gs3>summary{background:linear-gradient(90deg,#e9e1ff,#f7f3ff)!important;color:#46289c}
+#s1 details.gs5>summary{background:linear-gradient(90deg,#d9f2e2,#f2fbf5)!important;color:#0d5a2c}
+#s1 details.gicstep.gs5{border-left:6px solid #1e8e3e!important}
+#s1 details.gicstep>summary small{color:inherit;opacity:.7}
 </style>
 <details open id="gic1" class="gicstep gs1">
     <summary><span class="badge b-do">실습</span>① 웹페이지 열고 대화하기 <small>— 공고 정리</small></summary>
@@ -1833,7 +1842,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
     </div>
   </details>
 
-  <details open>
+  <details open class="gicstep gs5">
     <summary><span class="badge b-do">실습</span>⑤ 자주 쓰는 지시는 스킬로 저장 · <kbd>/</kbd>로 부르기</summary>
     <div class="body">
       <p>제미나이 인 크롬 패널에서 매번 길게 쓰던 지시문을 <b>스킬로 저장</b>해 두면, 어느 페이지에서든 입력창에 <kbd>/</kbd>만 눌러 다시 불러 <b>보고 있는 페이지에 그대로 적용</b>할 수 있어요. (제미나이 앱의 <kbd>@</kbd> 스킬은 다음 탭에서 다뤄요)</p>
