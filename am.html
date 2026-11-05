@@ -1676,6 +1676,10 @@ details.shine4>summary::after{content:'';position:absolute;top:0;left:-40%;width
 .gstep.gskill{background:#fffbea;border-radius:12px;padding:16px 12px;margin:6px -8px 4px;border:1.5px dashed #f2c94c}
 .gstep.gskill .gnum{background:#f2b705;color:#3d2b00}
 .gol{margin:4px 0 6px;padding-left:20px}.gol li{margin:6px 0;line-height:1.7}
+
+details.gicstep>summary{font-size:1.45em!important;font-weight:800!important;padding-top:16px!important;padding-bottom:16px!important;line-height:1.4}
+details.gicstep>summary .badge{font-size:.6em;vertical-align:middle}
+details.gicstep>summary small{font-size:.62em!important}
 </style>
 <details open id="gic1" class="gicstep gs1">
     <summary><span class="badge b-do">실습</span>① 웹페이지 열고 대화하기 <small>— 공고 정리</small></summary>
@@ -1702,14 +1706,12 @@ details.shine4>summary::after{content:'';position:absolute;top:0;left:-40%;width
     <div class="body">
       <div class="gicpill"><b>2 / 3</b><span>📄 PDF와 대화</span><em>PDF를 크롬 창에 끌어다 놓으면, 그 PDF를 읽고 답합니다.</em></div>
       <div class="gcard">
-      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">PDF 내려받기</p><p><a class="qbtn dl sparkle" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" download>📥 강의계획서 PDF <span class="spk-tag">여기부터!</span></a></p><p class="gsub">내 강의계획서·논문 PDF가 있으면 그것으로 하셔도 됩니다. 한글 파일은 한글에서 <b>다른 이름으로 저장 → PDF</b>.<br>⚠️ 심사 중인 원고, 미공개 연구 데이터, 학생 개인정보가 담긴 PDF는 오늘 쓰지 않습니다.</p></div></div>
-      <div class="gstep"><span class="gnum">2</span><div class="gst"><p class="gtt">크롬에서 열기</p><p>내려받은 강의계획서 PDF는 <b>크롬 창에 끌어다 놓으면</b> 크롬에서 열립니다. 영어 강의계획서와 논문은 아래 버튼으로 바로 엽니다.</p><p><a class="qbtn alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" target="_blank" rel="noopener">🌍 영어 강의계획서 PDF 열기</a> <a class="qbtn alt2 sparkle" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" target="_blank" rel="noopener">📄 논문 PDF 열기</a></p></div></div>
-      <div class="gstep"><span class="gnum">3</span><div class="gst"><p class="gtt">프롬프트 고르고 복사</p><p class="gsub">목적에 맞는 카드를 고르세요. <b>빨간 칸을 눌러 내 과목으로 고친 뒤</b> 복사하면 됩니다. 한 칸을 고치면 다른 카드에도 함께 바뀝니다.</p><div class="sygroup"><div class="sylt" role="tablist">
+      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">강의계획서 PDF 내려받기</p><p><a class="qbtn dl sparkle" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" download>📥 강의계획서 PDF <span class="spk-tag">여기부터!</span></a></p><p class="gsub">내려받은 PDF를 <b>크롬 창에 끌어다 놓으면</b> 크롬에서 열립니다.</p><p class="gsub">내 강의계획서·논문 PDF가 있으면 그것으로 하셔도 됩니다. 한글 파일은 한글에서 <b>다른 이름으로 저장 → PDF</b>.<br>⚠️ 심사 중인 원고, 미공개 연구 데이터, 학생 개인정보가 담긴 PDF는 오늘 쓰지 않습니다.</p></div></div>
+      <div class="gstep"><span class="gnum">2</span><div class="gst"><p class="gtt">강의계획서 프롬프트 고르고 보내기</p><p class="gsub">목적에 맞는 카드를 고르세요. <b>빨간 칸을 눌러 내 과목으로 고친 뒤</b> 복사하면 됩니다. 한 칸을 고치면 다른 카드에도 함께 바뀝니다.</p><div class="sygroup"><div class="sylt" role="tablist">
         <button type="button" class="on" data-p="sy1">🔍 내 계획서 점검</button>
         <button type="button" data-p="sy2">🌍 다른 학교 참고</button>
         <button type="button" data-p="sy3">🎓 학생 눈으로 읽기</button>
         <button type="button" class="sparkle" data-p="sy4">📅 캘린더에 일정 넣기</button>
-        <button type="button" data-p="sy5">📄 논문 읽기</button>
       </div>
       <div class="sylp on" id="sy1">
         <p class="syld">학습목표·평가·일정·AI 안내를 학생 입장에서 점검합니다. <b>실습용 PDF</b>로 할 때는 빨간 칸을 그대로 둬도 됩니다.</p>
@@ -1722,7 +1724,7 @@ details.shine4>summary::after{content:'';position:absolute;top:0;left:-40%;width
 항목별로 '잘된 점 / 고칠 점 / 고친 예시 문장'으로 나눠 정리해줘. 문서에 없는 내용은 추측하지 말고 '문서에 없음'이라고 적어줘. 내 과목의 전공 내용 자체는 고치지 말고, 계획서의 구성과 안내만 봐줘.</pre><button class="copy">복사</button></div>
       </div>
       <div class="sylp" id="sy2">
-        <p class="syld">다른 학교·해외 대학 계획서(영어도 OK)에서 내 수업에 가져올 아이디어를 뽑습니다. 위의 <b>영어 강의계획서 PDF</b>로 연습해 보세요.</p>
+        <p class="syld">다른 학교·해외 대학 계획서(영어도 OK)에서 내 수업에 가져올 아이디어를 뽑습니다. 아래 <b>영어 강의계획서 PDF</b>로 연습해 보세요.</p><p><a class="qbtn alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" target="_blank" rel="noopener">🌍 영어 강의계획서 PDF 열기</a></p>
         <div class="prompt"><div class="label">다른 학교 강의계획서 참고하기</div><pre>이 강의계획서는 다른 학교의 수업이야. 내 <span class="fillwrap">[과목명: <span class="fillin" contenteditable="plaintext-only" spellcheck="false" data-k="subj">AI융합</span>]</span> 수업(<span class="fillwrap">[수강생: <span class="fillin" contenteditable="plaintext-only" spellcheck="false" data-k="stu">2학년 전공 30명</span>]</span>)에 참고하려고 해.
 1) 이 수업의 구성(주차 흐름·평가 방식과 비율·과제 종류)을 한눈에 표로 정리해줘.
 2) 내 수업에 가져다 쓸 만한 아이디어 3가지를 골라, 왜 좋은지와 우리 학생에게 맞게 바꾸는 방법을 적어줘.
@@ -1758,13 +1760,8 @@ details.shine4>summary::after{content:'';position:absolute;top:0;left:-40%;width
         
         
       </div>
-      <div class="sylp" id="sy5">
-        <p class="syld">논문 PDF를 연 채로 차례로 보냅니다. <b>📄 논문 PDF</b>로 연습해 보세요.</p>
-        <div class="prompt" id="qp-paper"><div class="label">논문 먼저 쉽게 이해하기</div><pre>이 논문을 아주 쉽게 설명해줘.</pre><button class="copy">복사</button></div>
-        <p class="gsub" style="margin-top:12px">감을 잡았으면 <b>이어서 같은 패널에</b> 근거와 함께 정리합니다. 인용한 문장은 <kbd>Ctrl</kbd>+<kbd>F</kbd>로 PDF에서 찾아 확인하세요.</p>
-        <div class="prompt"><div class="label">논문 빠르게 읽기</div><pre>이 논문의 연구 질문, 연구 방법(대상·도구·분석), 핵심 결과, 한계를 표로 정리해줘. 각 항목 옆에 근거가 되는 쪽수나 문장을 짧게 인용해줘.</pre><button class="copy">복사</button></div>
-      </div></div></div></div>
-      <div class="gstep"><span class="gnum">4</span><div class="gst"><p class="gtt">붙여넣고 보내기</p><p>열린 PDF 탭에서 오른쪽 위 <b>✦</b> → 패널에 <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</p></div></div>
+      </div><p style="margin-top:10px">열린 PDF 탭에서 오른쪽 위 <b>✦</b> → 패널에 <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</p></div></div>
+      <div class="gstep"><span class="gnum">3</span><div class="gst"><p class="gtt">논문 PDF로 해 보기</p><p><a class="qbtn alt2 sparkle" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" target="_blank" rel="noopener">📄 논문 PDF 열기</a></p><p class="gsub">논문 PDF를 연 채로 차례로 보냅니다.</p><div class="prompt" id="qp-paper"><div class="label">논문 먼저 쉽게 이해하기</div><pre>이 논문을 아주 쉽게 설명해줘.</pre><button class="copy">복사</button></div><p class="gsub" style="margin-top:12px">감을 잡았으면 <b>이어서 같은 패널에</b> 근거와 함께 정리합니다. 인용한 문장은 <kbd>Ctrl</kbd>+<kbd>F</kbd>로 PDF에서 찾아 확인하세요.</p><div class="prompt"><div class="label">논문 빠르게 읽기</div><pre>이 논문의 연구 질문, 연구 방법(대상·도구·분석), 핵심 결과, 한계를 표로 정리해줘. 각 항목 옆에 근거가 되는 쪽수나 문장을 짧게 인용해줘.</pre><button class="copy">복사</button></div><p style="margin-top:10px">열린 PDF 탭에서 오른쪽 위 <b>✦</b> → 패널에 <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</p></div></div>
       </div>
       <details class="gmore"><summary>🖼️ 실행 화면 · 도움말 보기</summary><div class="gmore-b"><div class="imgrow"><figure><img src="img/am-syllabus.png" alt="가상 강의계획서 — 학습목표·평가·AI 사용 안내에 일부러 고칠 점을 넣어 두었습니다." loading="lazy"><figcaption>가상 강의계획서 — 학습목표·평가·AI 사용 안내에 일부러 고칠 점을 넣어 두었습니다.</figcaption></figure><figure><img src="img/am-syllabus-en.png" alt="가상 해외 대학 강의계획서(영어) — 평가와 학습목표 연결, AI 사용 신호등이 들어 있습니다." loading="lazy"><figcaption>가상 해외 대학 강의계획서(영어) — 평가·학습목표 연결표, AI 사용 신호등이 들어 있습니다. 영어 문서도 한국어로 물어보면 됩니다.</figcaption></figure></div><figure style="max-width:560px"><img src="img/am-paper.png" alt="가상 논문 — 쪽수가 있어 “근거 쪽수 인용”을 확인하기 좋습니다." loading="lazy"><figcaption>가상 논문 — 쪽수가 있어 “근거 쪽수 인용”을 확인하기 좋습니다.</figcaption></figure><figure><img src="img/am-gic-calendar.jpg" alt="강의계획서 PDF에서 캘린더 일정 표를 만든 결과" loading="lazy"><figcaption>실행 결과 — 크롬에서 연 PDF를 읽고 주차(3·5·8·10주)를 날짜로 바꿔 표로 먼저 보여 줍니다. 수업 요일·시간은 예시(화 10:30) 대신 <b>계획서에 적힌 목 10:00~12:50</b>을 썼고, 계획서에 없는 일정은 만들지 않았습니다. 날짜는 학사력과 한 번 대조하세요.</figcaption></figure><figure><img src="img/am-gic-calendar2.jpg" alt="캘린더 등록 전 일정 카드 확인 화면" loading="lazy"><figcaption>등록 직전 화면 — 일정마다 <b>[과목명] 일정 이름 · 날짜 · 시간 · 강의실</b>이 카드로 나오고, "지금 바로 생성할까요?"라고 한 번 더 묻습니다. 카드를 훑어봅니다.</figcaption></figure><figure><img src="img/am-gic-calendar3.jpg" alt="일정 추가 버튼" loading="lazy"><figcaption>카드 맨 아래 <b>"1개 더보기"</b>로 빠진 일정이 없는지 보고, <b>[일정 추가]</b>를 눌러야 캘린더에 들어갑니다. 누르기 전까지는 아무것도 등록되지 않습니다.</figcaption></figure><p class="tip">💡 <b>내 계획서와 나란히 보려면</b> 내 강의계획서도 다른 탭에 열어 두고, 패널 입력창에 <b>@</b>로 두 탭을 함께 붙인 뒤 "두 계획서를 비교해서, 내 계획서에 더하면 좋을 점만 알려줘"라고 이어서 물어보세요.</p></div></details>
       <style id="sylt-css">
