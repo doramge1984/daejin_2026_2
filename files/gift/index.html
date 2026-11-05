@@ -23,6 +23,7 @@
  */
 const ADMIN_PW = &#x27;1106&#x27;;            // ← 강사 화면 비밀번호 (꼭 바꾸세요)
 const TITLE = &#x27;대진대 교수 연수 · 행운의 선물 추첨&#x27;;
+const VERSION = &#x27;v3 · 인원 선택·소리·초기화&#x27;;
 
 function doGet() {
   return HtmlService.createHtmlOutputFromFile(&#x27;Index&#x27;)
@@ -63,7 +64,7 @@ function getStage(pw) {
       const used = wins.filter(function (w) { return w.gift === r[0]; }).length;
       return { name: r[0], total: Number(r[1]) || 0, left: Math.max(0, (Number(r[1]) || 0) - used) };
     });
-  return { ok: true, title: TITLE, url: ScriptApp.getService().getUrl(), people: people, wins: wins, gifts: gifts };
+  return { ok: true, version: VERSION, title: TITLE, url: ScriptApp.getService().getUrl(), people: people, wins: wins, gifts: gifts };
 }
 
 // 추첨: 아직 당첨 안 된 사람 중에서 무작위로 n명 (서로 다른 사람)
@@ -88,6 +89,18 @@ function draw(pw, giftName, n) {
     sh_(&#x27;당첨&#x27;).getRange(sh_(&#x27;당첨&#x27;).getLastRow() + 1, 1, n, 4)
       .setValues(picks.map(function (p) { return [&quot;&#x27;&quot; + t, g.name, p.name, p.dept]; }));
     return { ok: true, winners: picks, gift: g.name, stage: getStage(pw) };
+  } finally { lock.releaseLock(); }
+}
+
+// 초기화: what = &#x27;wins&#x27;(당첨만 지우기) | &#x27;all&#x27;(참가자와 당첨 모두 지우기)
+function resetData(pw, what) {
+  if (String(pw) !== ADMIN_PW) return { ok: false, msg: &#x27;비밀번호가 맞지 않아요.&#x27; };
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const tabs = what === &#x27;all&#x27; ? [&#x27;당첨&#x27;, &#x27;참가자&#x27;] : [&#x27;당첨&#x27;];
+    tabs.forEach(function (n) { const sh = sh_(n); const last = sh.getLastRow(); if (last &gt; 1) sh.deleteRows(2, last - 1); });
+    return { ok: true, stage: getStage(pw) };
   } finally { lock.releaseLock(); }
 }</pre></div><div class="bx"><div class="lb">Index.html · 무대형 추첨<button onclick="cp(this)">복사</button></div><pre>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ko&quot;&gt;
@@ -183,7 +196,7 @@ function draw(pw, giftName, n) {
 &lt;!-- 무대 화면 (?admin=비밀번호) --&gt;
 &lt;div id=&quot;stage&quot;&gt;
   &lt;div class=&quot;top&quot;&gt;
-    &lt;div&gt;&lt;span class=&quot;badge&quot;&gt;🎁 LUCKY DRAW&lt;/span&gt;&lt;h2 id=&quot;ttl&quot;&gt;행운의 선물 추첨&lt;/h2&gt;&lt;div class=&quot;count&quot;&gt;참가 &lt;b id=&quot;cnt&quot;&gt;0&lt;/b&gt;명 · 당첨 &lt;b id=&quot;wcnt&quot;&gt;0&lt;/b&gt;명 &lt;button type=&quot;button&quot; id=&quot;snd&quot; style=&quot;margin-left:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer&quot;&gt;🔊 소리 켜짐&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span class=&quot;badge&quot;&gt;🎁 LUCKY DRAW&lt;/span&gt;&lt;h2 id=&quot;ttl&quot;&gt;행운의 선물 추첨&lt;/h2&gt;&lt;div class=&quot;count&quot;&gt;참가 &lt;b id=&quot;cnt&quot;&gt;0&lt;/b&gt;명 · 당첨 &lt;b id=&quot;wcnt&quot;&gt;0&lt;/b&gt;명 &lt;button type=&quot;button&quot; id=&quot;rst&quot; style=&quot;margin-left:6px;border:1px solid rgba(255,140,140,.45);background:rgba(255,120,120,.12);color:#ffd0d0;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer&quot;&gt;🔄 초기화&lt;/button&gt;&lt;span id=&quot;ver&quot; style=&quot;margin-left:8px;font-size:12px;opacity:.5&quot;&gt;&lt;/span&gt;&lt;button type=&quot;button&quot; id=&quot;snd&quot; style=&quot;margin-left:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer&quot;&gt;🔊 소리 켜짐&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
     &lt;div class=&quot;qr&quot;&gt;&lt;img id=&quot;qr&quot; alt=&quot;참가 QR&quot;&gt;&lt;small&gt;📱 아직 등록 안 하신 분은&lt;br&gt;QR로 이름만 넣어 주세요&lt;/small&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;gifts&quot; id=&quot;gifts&quot;&gt;&lt;/div&gt;
@@ -228,7 +241,7 @@ function draw(pw, giftName, n) {
     }).getStage(PW);
   }
   function render(){
-    $(&#x27;ttl&#x27;).textContent=ST.title; $(&#x27;cnt&#x27;).textContent=ST.people.length; $(&#x27;wcnt&#x27;).textContent=ST.wins.length;
+    $(&#x27;ttl&#x27;).textContent=ST.title; if(ST.version) $(&#x27;ver&#x27;).textContent=ST.version; $(&#x27;cnt&#x27;).textContent=ST.people.length; $(&#x27;wcnt&#x27;).textContent=ST.wins.length;
     if(!$(&#x27;qr&#x27;).src) $(&#x27;qr&#x27;).src=&#x27;https://api.qrserver.com/v1/create-qr-code/?size=220x220&amp;margin=8&amp;data=&#x27;+encodeURIComponent(ST.url);
     if(!sel || !ST.gifts.some(function(g){return g.name===sel &amp;&amp; g.left&gt;0})){
       var g=ST.gifts.filter(function(g){return g.left&gt;0})[0]; sel=g?g.name:null;
@@ -315,6 +328,13 @@ function draw(pw, giftName, n) {
     if(P.length) requestAnimationFrame(step); else { burst.on=false; cx.clearRect(0,0,cv.width,cv.height); }
   }
 
+  $(&#x27;rst&#x27;).onclick=function(){
+    if(spinning) return;
+    var a=prompt(&#x27;초기화할 것을 숫자로 넣어 주세요.\n1 = 당첨 기록만 지우기 (참가자는 그대로, 다시 추첨)\n2 = 참가자와 당첨 모두 지우기 (처음부터)&#x27;,&#x27;1&#x27;);
+    if(a!==&#x27;1&#x27;&amp;&amp;a!==&#x27;2&#x27;) return;
+    if(!confirm(a===&#x27;2&#x27;?&#x27;참가자와 당첨 기록을 모두 지울까요? 되돌릴 수 없어요.&#x27;:&#x27;당첨 기록을 모두 지울까요?&#x27;)) return;
+    google.script.run.withSuccessHandler(function(r){ if(!r.ok){ alert(r.msg); return; } ST=r.stage; slotsFor(1); $(&#x27;dept&#x27;).textContent=&#x27;초기화했어요&#x27;; render(); }).resetData(PW, a===&#x27;2&#x27;?&#x27;all&#x27;:&#x27;wins&#x27;);
+  };
   $(&#x27;snd&#x27;).onclick=function(){ MUTE=!MUTE; this.textContent=MUTE?&#x27;🔇 소리 꺼짐&#x27;:&#x27;🔊 소리 켜짐&#x27;; if(!MUTE){ ac(); sPop(); } };
   google.script.url.getLocation(function(loc){ if(loc.parameter &amp;&amp; loc.parameter.admin) startStage(loc.parameter.admin); });
 &lt;/script&gt;

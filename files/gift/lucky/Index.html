@@ -92,7 +92,7 @@
 <!-- 무대 화면 (?admin=비밀번호) -->
 <div id="stage">
   <div class="top">
-    <div><span class="badge">🎁 LUCKY DRAW</span><h2 id="ttl">행운의 선물 추첨</h2><div class="count">참가 <b id="cnt">0</b>명 · 당첨 <b id="wcnt">0</b>명 <button type="button" id="snd" style="margin-left:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer">🔊 소리 켜짐</button></div></div>
+    <div><span class="badge">🎁 LUCKY DRAW</span><h2 id="ttl">행운의 선물 추첨</h2><div class="count">참가 <b id="cnt">0</b>명 · 당첨 <b id="wcnt">0</b>명 <button type="button" id="rst" style="margin-left:6px;border:1px solid rgba(255,140,140,.45);background:rgba(255,120,120,.12);color:#ffd0d0;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer">🔄 초기화</button><span id="ver" style="margin-left:8px;font-size:12px;opacity:.5"></span><button type="button" id="snd" style="margin-left:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer">🔊 소리 켜짐</button></div></div>
     <div class="qr"><img id="qr" alt="참가 QR"><small>📱 아직 등록 안 하신 분은<br>QR로 이름만 넣어 주세요</small></div>
   </div>
   <div class="gifts" id="gifts"></div>
@@ -137,7 +137,7 @@
     }).getStage(PW);
   }
   function render(){
-    $('ttl').textContent=ST.title; $('cnt').textContent=ST.people.length; $('wcnt').textContent=ST.wins.length;
+    $('ttl').textContent=ST.title; if(ST.version) $('ver').textContent=ST.version; $('cnt').textContent=ST.people.length; $('wcnt').textContent=ST.wins.length;
     if(!$('qr').src) $('qr').src='https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data='+encodeURIComponent(ST.url);
     if(!sel || !ST.gifts.some(function(g){return g.name===sel && g.left>0})){
       var g=ST.gifts.filter(function(g){return g.left>0})[0]; sel=g?g.name:null;
@@ -224,6 +224,13 @@
     if(P.length) requestAnimationFrame(step); else { burst.on=false; cx.clearRect(0,0,cv.width,cv.height); }
   }
 
+  $('rst').onclick=function(){
+    if(spinning) return;
+    var a=prompt('초기화할 것을 숫자로 넣어 주세요.\n1 = 당첨 기록만 지우기 (참가자는 그대로, 다시 추첨)\n2 = 참가자와 당첨 모두 지우기 (처음부터)','1');
+    if(a!=='1'&&a!=='2') return;
+    if(!confirm(a==='2'?'참가자와 당첨 기록을 모두 지울까요? 되돌릴 수 없어요.':'당첨 기록을 모두 지울까요?')) return;
+    google.script.run.withSuccessHandler(function(r){ if(!r.ok){ alert(r.msg); return; } ST=r.stage; slotsFor(1); $('dept').textContent='초기화했어요'; render(); }).resetData(PW, a==='2'?'all':'wins');
+  };
   $('snd').onclick=function(){ MUTE=!MUTE; this.textContent=MUTE?'🔇 소리 꺼짐':'🔊 소리 켜짐'; if(!MUTE){ ac(); sPop(); } };
   google.script.url.getLocation(function(loc){ if(loc.parameter && loc.parameter.admin) startStage(loc.parameter.admin); });
 </script>

@@ -8,6 +8,7 @@
  */
 const ADMIN_PW = '1106';            // ← 강사 화면 비밀번호 (꼭 바꾸세요)
 const TITLE = '대진대 교수 연수 · 행운의 선물 추첨';
+const VERSION = 'v3 · 인원 선택·소리·초기화';
 
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('Index')
@@ -48,7 +49,7 @@ function getStage(pw) {
       const used = wins.filter(function (w) { return w.gift === r[0]; }).length;
       return { name: r[0], total: Number(r[1]) || 0, left: Math.max(0, (Number(r[1]) || 0) - used) };
     });
-  return { ok: true, title: TITLE, url: ScriptApp.getService().getUrl(), people: people, wins: wins, gifts: gifts };
+  return { ok: true, version: VERSION, title: TITLE, url: ScriptApp.getService().getUrl(), people: people, wins: wins, gifts: gifts };
 }
 
 // 추첨: 아직 당첨 안 된 사람 중에서 무작위로 n명 (서로 다른 사람)
@@ -73,5 +74,17 @@ function draw(pw, giftName, n) {
     sh_('당첨').getRange(sh_('당첨').getLastRow() + 1, 1, n, 4)
       .setValues(picks.map(function (p) { return ["'" + t, g.name, p.name, p.dept]; }));
     return { ok: true, winners: picks, gift: g.name, stage: getStage(pw) };
+  } finally { lock.releaseLock(); }
+}
+
+// 초기화: what = 'wins'(당첨만 지우기) | 'all'(참가자와 당첨 모두 지우기)
+function resetData(pw, what) {
+  if (String(pw) !== ADMIN_PW) return { ok: false, msg: '비밀번호가 맞지 않아요.' };
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const tabs = what === 'all' ? ['당첨', '참가자'] : ['당첨'];
+    tabs.forEach(function (n) { const sh = sh_(n); const last = sh.getLastRow(); if (last > 1) sh.deleteRows(2, last - 1); });
+    return { ok: true, stage: getStage(pw) };
   } finally { lock.releaseLock(); }
 }
