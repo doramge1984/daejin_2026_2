@@ -1641,6 +1641,14 @@ details.gmore[open]>summary::after{content:' ▾'}
 .gmore-b{padding:0 16px 14px}
 @media(max-width:640px){.gcard{padding:6px 12px}.gnum{flex-basis:28px;height:28px;font-size:15px}}
 @media print{details.gmore{display:block}}
+
+.qbtn.dl.sparkle{position:relative;overflow:hidden;background:linear-gradient(135deg,#2f6fd6,#4f8cff)!important;color:#fff!important;border-color:#2f6fd6;animation:spkPulse 1.6s ease-in-out infinite}
+.qbtn.dl.sparkle::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:spkShine 2.2s ease-in-out infinite}
+.spk-tag{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:#ffd43b;color:#5a3d00;font-size:.8em;font-weight:800;animation:spkBounce 1.6s ease-in-out infinite}
+@keyframes spkPulse{0%,100%{box-shadow:0 0 0 0 rgba(47,111,214,.55),0 4px 12px rgba(47,111,214,.3);transform:scale(1)}50%{box-shadow:0 0 0 10px rgba(47,111,214,0),0 6px 22px rgba(47,111,214,.55);transform:scale(1.05)}}
+@keyframes spkShine{0%{left:-60%}60%,100%{left:130%}}
+@keyframes spkBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.qbtn.dl.sparkle,.qbtn.dl.sparkle::after,.spk-tag{animation:none}}
 </style>
 <details open id="gic1" class="gicstep gs1">
     <summary><span class="badge b-do">실습</span>① 웹페이지 열고 대화하기 <small>— 공지 요약</small></summary>
@@ -1668,7 +1676,7 @@ details.gmore[open]>summary::after{content:' ▾'}
     <div class="body">
       <div class="gicpill"><b>2 / 3</b><span>📄 PDF와 대화</span><em>PDF를 크롬 창에 끌어다 놓으면, 그 PDF를 읽고 답합니다.</em></div>
       <div class="gcard">
-      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">PDF 내려받기</p><p><a class="qbtn dl" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" download>📥 강의계획서 PDF</a> <a class="qbtn dl alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" download>📥 영어 강의계획서 PDF</a> <a class="qbtn dl alt2" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" download>📥 논문 PDF</a></p><p class="gsub">내 강의계획서·논문 PDF가 있으면 그것으로 하셔도 됩니다. 한글 파일은 한글에서 <b>다른 이름으로 저장 → PDF</b>.<br>⚠️ 심사 중인 원고, 미공개 연구 데이터, 학생 개인정보가 담긴 PDF는 오늘 쓰지 않습니다.</p></div></div>
+      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">PDF 내려받기</p><p><a class="qbtn dl sparkle" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" download>📥 강의계획서 PDF <span class="spk-tag">여기부터!</span></a> <a class="qbtn dl alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" download>📥 영어 강의계획서 PDF</a> <a class="qbtn dl alt2" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" download>📥 논문 PDF</a></p><p class="gsub">내 강의계획서·논문 PDF가 있으면 그것으로 하셔도 됩니다. 한글 파일은 한글에서 <b>다른 이름으로 저장 → PDF</b>.<br>⚠️ 심사 중인 원고, 미공개 연구 데이터, 학생 개인정보가 담긴 PDF는 오늘 쓰지 않습니다.</p></div></div>
       <div class="gstep"><span class="gnum">2</span><div class="gst"><p class="gtt">크롬에서 열기</p><p>내려받은 PDF를 <b>크롬 창에 끌어다 놓으면</b> 크롬에서 열립니다. 바로 열어 보려면 아래 버튼을 누르세요.</p><p><a class="qbtn" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" target="_blank" rel="noopener">📘 강의계획서 PDF 열기</a> <a class="qbtn alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" target="_blank" rel="noopener">🌍 영어 강의계획서 PDF 열기</a> <a class="qbtn alt2" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" target="_blank" rel="noopener">📄 논문 PDF 열기</a></p></div></div>
       <div class="gstep"><span class="gnum">3</span><div class="gst"><p class="gtt">프롬프트 고르고 복사</p><p class="gsub">목적에 맞는 카드를 고르세요. <b>빨간 칸을 눌러 내 과목으로 고친 뒤</b> 복사하면 됩니다. 한 칸을 고치면 다른 카드에도 함께 바뀝니다.</p><div class="sygroup"><div class="sylt" role="tablist">
         <button type="button" class="on" data-p="sy1">🔍 내 계획서 점검</button>
