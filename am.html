@@ -1915,9 +1915,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
   <h3 class="skt" id="s2b-h1" data-part="1">① 루브릭 채점 조교 · @rubric-grader<small>지난 연수의 채점 젬(Gem)을 스킬로 바꾼 것</small></h3>
   <p class="lead">루브릭을 주면 학생 과제를 항목별로 채점하고, 이의제기에 대비한 근거(쪽·단락)와 학생 전달용 피드백까지 써 줘요.</p>
 
-  <div class="mth"><div class="mh"><span class="mn">방법 1</span> 업로드하기 <em>가장 쉬워요</em></div>
-  <ol class="steps-gap"><li><b>스킬 파일 내려받기</b> (압축 풀지 말고 그대로)<div style="margin:10px 0 14px"><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/rubric-grader.zip" download>⬇ rubric-grader.zip 내려받기</a></div></li><li>제미나이 ⚙ 설정 → <b>스킬</b> → 만들기 ▾ → <b>업로드하기</b> → 내려받은 파일 고르기</li><li>‘설치됨’에 <b>rubric-grader</b>이(가) 생기면 완료</li></ol></div>
-  <details class="mth"><summary class="mh"><span class="mn">방법 2</span> Gemini로 만들기 <em>제미나이와 대화하며</em></summary><div class="body">
+  <details class="mth" open><summary class="mh"><span class="mn">방법 1</span> Gemini로 만들기 <em>제미나이와 대화하며</em></summary><div class="body">
   <p>만들기 ▾ → <b>Gemini로 만들기</b> → "Create a skill"이 자동으로 보내지면, 이어서 아래처럼 보내요. 제미나이가 이름·설명·지침을 정리해 저장까지 해 줘요.</p>
   <div class="prompt"><div class="label">강사가 실제로 보낸 내용 (젬 지침 원문 포함)</div><button class="copy">복사</button><pre style="max-height:320px;overflow:auto">과제 채점 지원 조교 (루브릭 기반) 를 만들거야. 대학 강의 과제를 제공된 루브릭 기준에 맞춰 객관적으로 채점하고, 학생 상담을 위한 증거 기반 보고서를 작성하는 지원 도구입니다.
 
@@ -1958,7 +1956,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 지침은 이거야. 그리고 여기에 평가 루브릭을 주면 이 루브릭을 기반으로 학생의 과제를 채점하는거야.</pre></div>
   <p class="tip">내 젬으로 할 때는 첫 문장과 <b># 역할 ~ 마지막 ---</b> 부분을 <b>내 젬의 지침</b>으로 바꿔 넣으세요. 젬 지침은 젬 편집 화면의 <b>안내</b> 칸에서 복사해요.</p>
 <p><a class="dl" href="https://share.gemini.google/UUIV0B3BzOYr" target="_blank" rel="noopener">강사가 만든 과정 보기 (제미나이 대화) ↗</a></p></div></details>
-  <details class="mth"><summary class="mh"><span class="mn">방법 3</span> 수동으로 만들기 <em>칸에 직접 붙여 넣기</em></summary><div class="body">
+  <details class="mth"><summary class="mh"><span class="mn">방법 2</span> 수동으로 만들기 <em>칸에 직접 붙여 넣기</em></summary><div class="body">
   <p>만들기 ▾ → <b>수동으로 만들기</b> → 이름·설명·지침 칸에 아래를 복사해 붙여 넣고 저장</p>
   <div class="prompt"><div class="label">이름 칸</div><button class="copy">복사</button><pre>rubric-grader</pre></div>
 <div class="prompt"><div class="label">설명 칸</div><button class="copy">복사</button><pre>대학 강의 과제를 제공된 루브릭에 맞춰 객관적으로 채점하고 증거 기반 보고서를 작성합니다. 평가 루브릭과 학생 과제 파일/텍스트가 주어질 때 사용하세요.</pre></div>
@@ -2003,6 +2001,8 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 - "안녕하세요, [이름] 학생. 제출한 과제는 [이런 점]이 훌륭했습니다. 다만 [이런 부분]을 보완한다면 향후 더 좋은 성과가 기대됩니다."
 ---</pre></div>
 </div></details>
+  <details class="mth"><summary class="mh"><span class="mn">방법 3</span> 업로드하기 <em>스킬 파일로 한 번에</em></summary><div class="body">
+  <ol class="steps-gap"><li><b>스킬 파일 내려받기</b> (압축 풀지 말고 그대로)<div style="margin:10px 0 14px"><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/rubric-grader.zip" download>⬇ rubric-grader.zip 내려받기</a></div></li><li>제미나이 ⚙ 설정 → <b>스킬</b> → 만들기 ▾ → <b>업로드하기</b> → 내려받은 파일 고르기</li><li>‘설치됨’에 <b>rubric-grader</b>이(가) 생기면 완료</li></ol></div></details>
 
   <div class="tryb"><div class="mh">써 보기 · 루브릭과 학생 보고서로 채점</div>
   <ol class="steps-gap"><li><b>평가 루브릭</b>과 <b>학생 보고서</b> 버튼을 눌러 내 크롬에서 <b>한 번씩 열기</b> → 열어 보기만 하면 내 드라이브 최근 문서로 잡혀 제미나이가 가져올 수 있어요<div style="margin:10px 0 14px;display:flex;flex-wrap:wrap;gap:8px"><a class="dl" style="background:#1a73e8;color:#fff;border-color:#1a73e8" href="https://docs.google.com/document/d/1QcG8Oz_6FO65boVPzZqaYEsRqt12lzly9Dpas7usmzA/edit?usp=sharing" target="_blank" rel="noopener">평가 루브릭 열기 (구글 문서) ↗</a><a class="dl" href="https://docs.google.com/document/d/1USfXvuX4WcP47HX5kW5KnAUqSLO_uladzjddmeY-NO4/edit?usp=sharing" target="_blank" rel="noopener">학생 보고서 1 · 경영학과 ↗</a><a class="dl" href="https://docs.google.com/document/d/10Fxb75zbj4Y6Cp5omRe7Vzv6LvyKTngOScjFhlVXqJI/edit?usp=sharing" target="_blank" rel="noopener">학생 보고서 2 · 행정학과 ↗</a><a class="dl" href="https://docs.google.com/document/d/1Rjpk4SvnjHuG3RifFvuO9DnHGU0a87zkKViRoHW9wKo/edit?usp=sharing" target="_blank" rel="noopener">학생 보고서 3 · 미디어커뮤니케이션학과 ↗</a><a class="dl" href="https://docs.google.com/document/d/1fFhXRftqJ6TaJjuFxFhSgP3KoQxlKvsnonU4jFA94JA/edit?usp=sharing" target="_blank" rel="noopener">학생 보고서 4 · 자율전공학부 ↗</a></div></li><li>새 채팅 → <b>＋</b> → 드라이브에서 루브릭과 학생 보고서 고르기 (또는 문서 링크 붙여 넣기) → 아래 부탁문 보내기</li></ol>
@@ -2017,13 +2017,11 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
   <h3 class="skt" id="s2b-h2" data-part="2">② 강의 공지 메일 · @강의-공지-메일<small>휴강·보강·과제·시험 공지를 3종으로</small></h3>
   <p class="lead">공지 내용을 말하면 <b>LMS 공지용 · 메일용 · 문자·단톡방용</b> 세 가지로 한 번에 써 줘요. 알려 주지 않은 강의실·마감 시간은 지어내지 않고 <b>[확인 필요]</b>로 남겨요.</p>
 
-  <div class="mth"><div class="mh"><span class="mn">방법 1</span> 업로드하기 <em>가장 쉬워요</em></div>
-  <ol class="steps-gap"><li><b>스킬 파일 내려받기</b> (압축 풀지 말고 그대로)<div style="margin:10px 0 14px"><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/lecture-notice-mail.zip" download>⬇ 강의-공지-메일 스킬 내려받기</a></div></li><li>제미나이 ⚙ 설정 → <b>스킬</b> → 만들기 ▾ → <b>업로드하기</b> → 내려받은 파일 고르기</li><li>‘설치됨’에 <b>강의-공지-메일</b>이(가) 생기면 완료</li></ol></div>
-  <details class="mth"><summary class="mh"><span class="mn">방법 2</span> Gemini로 만들기 <em>제미나이와 대화하며</em></summary><div class="body">
+  <details class="mth" open><summary class="mh"><span class="mn">방법 1</span> Gemini로 만들기 <em>제미나이와 대화하며</em></summary><div class="body">
   <p>만들기 ▾ → <b>Gemini로 만들기</b> → "Create a skill"이 자동으로 보내지면, 이어서 아래처럼 보내요. 제미나이가 이름·설명·지침을 정리해 저장까지 해 줘요.</p>
   <div class="prompt"><div class="label">이렇게 말하면 돼요 (예시)</div><button class="copy">복사</button><pre>강의 공지를 써 주는 스킬을 만들고 싶어. 휴강·보강·과제·시험 공지를 내가 알려 준 정보만으로 LMS 공지용(제목+본문 5~8줄), 메일용(제목·인사·본문·맺음말, 발신인은 [교수명]), 문자·단톡방용(2줄 요약) 세 가지로 한 번에 써 줘. 날짜는 M월 D일(요일)로 쓰고 요일이 맞는지 확인해 줘. 강의실·마감 시간처럼 내가 안 알려 준 건 지어내지 말고 [확인 필요: 항목명]으로 남겨 줘. 학생 이름·학번은 쓰지 마. 이름은 강의-공지-메일로 해 줘.</pre></div>
 <p><a class="dl" href="https://share.gemini.google/6D1IMF3ZE2Ya" target="_blank" rel="noopener">강사가 만든 과정 보기 (제미나이 대화) ↗</a></p></div></details>
-  <details class="mth"><summary class="mh"><span class="mn">방법 3</span> 수동으로 만들기 <em>칸에 직접 붙여 넣기</em></summary><div class="body">
+  <details class="mth"><summary class="mh"><span class="mn">방법 2</span> 수동으로 만들기 <em>칸에 직접 붙여 넣기</em></summary><div class="body">
   <p>만들기 ▾ → <b>수동으로 만들기</b> → 이름·설명·지침 칸에 아래를 복사해 붙여 넣고 저장</p>
   <div class="prompt"><div class="label">이름 칸</div><button class="copy">복사</button><pre>강의-공지-메일</pre></div>
 <div class="prompt"><div class="label">설명 칸</div><button class="copy">복사</button><pre>휴강·보강·과제·시험 같은 강의 공지와 학생 안내 메일을 작성합니다. "공지 써 줘", "학생들한테 메일 써 줘", "휴강 공지", "보강 안내", "과제 공지" 등의 요청이 있을 때 사용합니다.</pre></div>
@@ -2058,6 +2056,8 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 - **개인정보 배제**: 특정 학생의 이름이나 학번은 기재하지 않습니다.
 - **어조 및 언어**: 정중하고 명확한 톤을 유지하며 한국어로 작성합니다.</pre></div>
 </div></details>
+  <details class="mth"><summary class="mh"><span class="mn">방법 3</span> 업로드하기 <em>스킬 파일로 한 번에</em></summary><div class="body">
+  <ol class="steps-gap"><li><b>스킬 파일 내려받기</b> (압축 풀지 말고 그대로)<div style="margin:10px 0 14px"><a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/lecture-notice-mail.zip" download>⬇ 강의-공지-메일 스킬 내려받기</a></div></li><li>제미나이 ⚙ 설정 → <b>스킬</b> → 만들기 ▾ → <b>업로드하기</b> → 내려받은 파일 고르기</li><li>‘설치됨’에 <b>강의-공지-메일</b>이(가) 생기면 완료</li></ol></div></details>
 
   <div class="tryb"><div class="mh">써 보기 · 휴강 공지</div>
   <p>새 채팅 → 아래 부탁문 붙여 넣고 보내기 (내 과목·날짜로 바꿔도 돼요)</p>
