@@ -105,7 +105,7 @@
   function showTicket(){
     $('formCard').style.display='none'; $('ticketWrap').style.display='block';
     $('tname').textContent=$('nm').value+' 교수님';
-    if(R.win){ $('pic').textContent='🎉'; $('pt').textContent=R.gift+' 당첨!'; $('pp').textContent='축하드려요! 강사에게 이 화면을 보여 주세요'; }
+    if(R.win){ $('pic').textContent='🎉'; $('pt').textContent='당첨되셨습니다!'; $('pp').textContent='어떤 선물일지는 강사에게 이 화면을 보여 주세요 🎁'; }
     else { $('prize').classList.add('lose'); $('pic').textContent='🍀'; $('pt').textContent='다음 기회에!'; $('pp').textContent='오늘의 행운은 연수에서 찾아가세요'; }
     setupScratch();
     if(R.again){ $('hint').textContent='이미 받으신 복권이에요. 결과를 다시 보여 드려요.'; }
@@ -134,7 +134,7 @@
     if(revealed) return; revealed=true;
     var cv=$('sc'); cv.style.transition='opacity .5s'; cv.style.opacity=0; setTimeout(function(){ cv.style.display='none'; },500);
     $('hint').style.display='none'; $('after').style.display='block';
-    if(R.win){ $('at').textContent='🎉 '+R.gift+' 당첨!'; $('ap').textContent='쉬는 시간에 강사에게 이 화면을 보여 주세요.'; burst(220); if(navigator.vibrate) navigator.vibrate([80,40,120]); }
+    if(R.win){ $('at').textContent='🎉 당첨되셨습니다!'; $('ap').textContent='쉬는 시간에 강사에게 이 화면을 보여 주세요. 선물은 그때 공개돼요!'; burst(220); if(navigator.vibrate) navigator.vibrate([80,40,120]); }
     else { $('at').textContent='🍀 아쉽지만 다음 기회에'; $('ap').textContent='참여해 주셔서 고마워요!'; }
   }
 
