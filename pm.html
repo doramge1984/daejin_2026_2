@@ -2081,15 +2081,15 @@ show();
 - 규칙 (마감, 중복 막기, 본인만 보기 등)
 - 동시에 눌러도 꼬이지 않게 LockService
 - Code.gs와 Index.html을 따로 전체 코드로 달라는 말
-- 배포 순서 안내</pre></div><div class="prompt"><div class="label">🔍 ② 거꾸로 · 마음에 드는 화면을 보여 주며</div><button class="copy">복사</button><pre>[완성 화면 캡처를 붙여 넣기]
+- 배포 순서 안내</pre></div><div class="prompt"><div class="label">🔍 ② 리버스 프롬프트 · 완성 화면을 보여 주며 거꾸로 묻기</div><button class="copy">복사</button><pre>[완성 화면 캡처를 붙여 넣기]
 
 이 화면을 처음부터 만들 수 있는 <b style="color:#d93025">프롬프트를 써 줘</b>.
 구글 시트 + 앱스크립트 웹 앱으로 만들 거야.
 화면에 보이는 기능을 빠짐없이 적고, 시트 탭과 열 구조도 정해서 넣어 줘.</pre></div></div>
-    <p class="gtry-note" style="color:#5b6475">💡 시연 팁: 교수님 한 분의 실제 고민(예: "조교 근무 시간표를 짜고 싶어")으로 ①을 바로 돌려 보세요. AI가 질문을 던지는 장면이 가장 인상적이에요. 실습마다 완성 화면 아래 <b>🔍 리버스 프롬프트</b>도 있어요.</p>
+    <p class="gtry-note" style="color:#5b6475">💡 시연 팁: 교수님 한 분의 실제 고민(예: "조교 근무 시간표를 짜고 싶어")으로 ①을 바로 돌려 보세요. AI가 질문을 던지는 장면이 가장 인상적이에요. 실습마다 완성 화면 아래 <b>🧱 처음부터 한 번에 만드는 프롬프트</b>도 있어요. ②를 돌리면 나오는 결과예요.</p>
   </div>
   <div style="height:5em"></div>
-  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습① 팀 주제 선착순 보드</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 프롬프트예요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습① 팀 주제 선착순 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;팀 프로젝트 주제 신청 보드&#x27;.
+  <details class="gx grev"><summary>🧱 처음부터 한 번에 만드는 프롬프트 <small>실습① 팀 주제 선착순 보드</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 한 번에</b> 만들고 싶을 때 쓰는 프롬프트예요. 위 🪄 상자의 <b>② 리버스 프롬프트</b>(완성 화면을 보여 주며 "이걸 만들 프롬프트를 써 줘")를 돌리면 AI가 이런 프롬프트를 써 줘요. 강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 정리했어요.</p><div class="prompt"><div class="label">처음부터 만드는 프롬프트 · 실습① 팀 주제 선착순 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;팀 프로젝트 주제 신청 보드&#x27;.
 [시트] &#x27;주제&#x27; 탭: A 주제번호 | B 주제 | C 설명 | D 정원(팀 수)
        &#x27;신청&#x27; 탭: A 신청 시각 | B 팀 이름 | C 대표 학번 | D 대표 이름 | E 주제번호 | F 주제
 [화면] 주제마다 카드: 제목, 설명, 남은 자리 막대와 &#x27;남은 자리 1 / 2&#x27;, 신청한 팀 이름, &#x27;이 주제로 신청&#x27; 버튼.
@@ -2308,7 +2308,7 @@ function apply(form) {
     <p class="gtry-note">⚠️ 실제로 쓸 때는 조회 코드를 학생마다 <b>개별로</b>(LMS 쪽지·개인 메일) 알려 주세요. 실제 성적은 <b>학교 규정을 먼저 확인</b>하세요. [학교 기준 확인 필요]</p>
   </div>
 
-  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습② 내 점수·피드백 조회</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 프롬프트예요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습② 내 점수·피드백 조회</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;내 점수·피드백 확인&#x27;.
+  <details class="gx grev"><summary>🧱 처음부터 한 번에 만드는 프롬프트 <small>실습② 내 점수·피드백 조회</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 한 번에</b> 만들고 싶을 때 쓰는 프롬프트예요. 위 🪄 상자의 <b>② 리버스 프롬프트</b>(완성 화면을 보여 주며 "이걸 만들 프롬프트를 써 줘")를 돌리면 AI가 이런 프롬프트를 써 줘요. 강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 정리했어요.</p><div class="prompt"><div class="label">처음부터 만드는 프롬프트 · 실습② 내 점수·피드백 조회</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;내 점수·피드백 확인&#x27;.
 [시트] &#x27;점수&#x27; 탭: A 학번 | B 조회 코드 | C 이름 | D~G 기준별 점수(1행 제목이 기준 이름) | H 총점 | I 피드백
 [화면] 학번과 조회 코드(비밀번호처럼 가려서)를 넣고 &#x27;내 결과 보기&#x27;.
        맞으면 &#x27;OOO 학생의 결과&#x27;, 기준별 점수 줄, 총점 상자, 노란 피드백 상자.
@@ -2470,7 +2470,7 @@ function lookup(sid, code) {
   </div>
   <details class="gpx" id="gas-h5"><summary class="gpart">실습③ 면담 시간 예약 보드 <small>시간이 되면 · 실습①과 같은 순서 · 시간 탭만 바꾸면 내 면담표</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   <p style="margin:0 0 12px"><img src="img/gas-prev-meet.png?v=1106" alt="면담 시간 예약 보드 완성 화면" loading="lazy" style="max-width:520px;width:100%;border:1px solid #d7dce3;border-radius:12px"><br><small>✅ 완성하면 이렇게 나와요 · 남은 시간만 보이고, 예약한 칸은 사라져요</small></p>
-  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습③ 면담 시간 예약 보드</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 프롬프트예요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습③ 면담 시간 예약 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;교수 면담 시간 예약&#x27;.
+  <details class="gx grev"><summary>🧱 처음부터 한 번에 만드는 프롬프트 <small>실습③ 면담 시간 예약 보드</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 한 번에</b> 만들고 싶을 때 쓰는 프롬프트예요. 위 🪄 상자의 <b>② 리버스 프롬프트</b>(완성 화면을 보여 주며 "이걸 만들 프롬프트를 써 줘")를 돌리면 AI가 이런 프롬프트를 써 줘요. 강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 정리했어요.</p><div class="prompt"><div class="label">처음부터 만드는 프롬프트 · 실습③ 면담 시간 예약 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;교수 면담 시간 예약&#x27;.
 [시트] &#x27;시간&#x27; 탭: A 날짜(예: 11/10(화)) | B 시각(예: 14:00)
        &#x27;예약&#x27; 탭: A 예약 시각 | B 날짜 | C 시각 | D 학번 | E 이름 | F 면담 내용
 [화면] 날짜별 카드 안에 아직 비어 있는 시각만 버튼으로. 위쪽에 &#x27;남은 시간 N / 전체&#x27;.
@@ -2675,7 +2675,7 @@ function book(form) {
   </details>
   <details class="gpx" id="gas-h6"><summary class="gpart">실습④ QR 출석·출구 티켓 <small>시간이 되면 · 교수 화면은 주소 끝에 ?admin=비밀번호</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   <div class="gprev"><img src="img/gas-prev-attend.png?v=1106" alt="QR 출석 학생 화면과 교수 화면" loading="lazy"><small>✅ 완성하면 이렇게 나와요 · 왼쪽 학생 화면(출석 티켓) · 오른쪽 교수 화면(실시간 인원)</small></div>
-  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습④ QR 출석·출구 티켓</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 프롬프트예요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습④ QR 출석·출구 티켓</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;오늘 수업 출석&#x27;.
+  <details class="gx grev"><summary>🧱 처음부터 한 번에 만드는 프롬프트 <small>실습④ QR 출석·출구 티켓</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 한 번에</b> 만들고 싶을 때 쓰는 프롬프트예요. 위 🪄 상자의 <b>② 리버스 프롬프트</b>(완성 화면을 보여 주며 "이걸 만들 프롬프트를 써 줘")를 돌리면 AI가 이런 프롬프트를 써 줘요. 강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 정리했어요.</p><div class="prompt"><div class="label">처음부터 만드는 프롬프트 · 실습④ QR 출석·출구 티켓</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;오늘 수업 출석&#x27;.
 [시트] &#x27;설정&#x27; 탭: B1 오늘의 단어 | B2 교수 비밀번호
        &#x27;출석&#x27; 탭: A 출석 시각 | B 날짜 | C 학번 | D 이름
 [화면] 학생: 학번·이름·오늘의 단어를 넣고 &#x27;출석하기&#x27; → 점선 테두리 &#x27;출석 완료 티켓&#x27;(시각, 이름, 학번).
@@ -2862,7 +2862,7 @@ function getToday(pw) {
   </details>
   <details class="gpx" id="gas-h7"><summary class="gpart">실습⑤ 실습실 장비 대여·반납 대장 <small>시간이 되면 · 공학·실험·실기 학과</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   <div class="gprev"><img src="img/gas-prev-equip.png?v=1106" alt="실습실 장비 대여·반납 완성 화면" loading="lazy"><small>✅ 완성하면 이렇게 나와요 · 남은 수량 막대, 빌리기·반납하기, 연체는 빨간색 (빌린 사람 이름은 가려서)</small></div>
-  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습⑤ 실습실 장비 대여·반납 대장</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 프롬프트예요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습⑤ 실습실 장비 대여·반납 대장</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;실습실 장비 대여·반납&#x27;.
+  <details class="gx grev"><summary>🧱 처음부터 한 번에 만드는 프롬프트 <small>실습⑤ 실습실 장비 대여·반납 대장</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 한 번에</b> 만들고 싶을 때 쓰는 프롬프트예요. 위 🪄 상자의 <b>② 리버스 프롬프트</b>(완성 화면을 보여 주며 "이걸 만들 프롬프트를 써 줘")를 돌리면 AI가 이런 프롬프트를 써 줘요. 강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 정리했어요.</p><div class="prompt"><div class="label">처음부터 만드는 프롬프트 · 실습⑤ 실습실 장비 대여·반납 대장</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;실습실 장비 대여·반납&#x27;.
 [시트] &#x27;장비&#x27; 탭: A 장비 | B 보유 수량
        &#x27;대여&#x27; 탭: A 대여 시각 | B 장비 | C 학번 | D 이름 | E 반납 예정일 | F 반납 시각(비어 있으면 대여 중)
 [화면] 장비마다 카드: 남은 수량 막대와 &#x27;남은 수량 2 / 4&#x27;, 다 나가면 &#x27;모두 대여 중&#x27;.
