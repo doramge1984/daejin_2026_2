@@ -2924,8 +2924,9 @@ function 성적정리() {
   const name = sh.getName().replace(/'/g, "''");
   sum.getRange('A1:B1').setValues([['학점', '인원']]);
   const grades = ['A', 'B', 'C', 'D'];
-  sum.getRange(2, 1, 4, 2).setFormulas(grades.map(function (g, i) {
-    return [g, "=COUNTIF('" + name + "'!H2:H" + last + ",A" + (i + 2) + ")"];
+  sum.getRange(2, 1, 4, 1).setValues(grades.map(function (g) { return [g]; }));
+  sum.getRange(2, 2, 4, 1).setFormulas(grades.map(function (g, i) {
+    return ["=COUNTIF('" + name + "'!H2:H" + last + ",A" + (i + 2) + ")"];
   }));
   sum.getRange('D1:E1').setValues([['전체 평균 총점', '출석 80 미만 인원']]);
   sum.getRange('D2:E2').setFormulas([[
@@ -2934,7 +2935,7 @@ function 성적정리() {
   ]]);
   sum.getRange('A1:E1').setFontWeight('bold');
   sum.insertChart(sum.newChart().setChartType(Charts.ChartType.COLUMN)
-    .addRange(sum.getRange('A1:B5')).setPosition(4, 1, 0, 0)
+    .addRange(sum.getRange('A1:B5')).setPosition(8, 1, 0, 0)
     .setOption('title', '학점별 인원(초안)').build());
 
   ss.setActiveSheet(sum);
