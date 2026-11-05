@@ -2935,7 +2935,7 @@ function 성적정리() {
   ]]);
   sum.getRange('A1:E1').setFontWeight('bold');
   sum.insertChart(sum.newChart().setChartType(Charts.ChartType.COLUMN)
-    .addRange(sum.getRange('A1:B5')).setPosition(8, 1, 0, 0)
+    .addRange(sum.getRange('A1:B5')).setNumHeaders(1).setPosition(8, 1, 0, 0)
     .setOption('title', '학점별 인원(초안)').build());
 
   ss.setActiveSheet(sum);
