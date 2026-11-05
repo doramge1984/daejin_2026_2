@@ -1913,6 +1913,378 @@ show();
 </section>
 
 <!-- 막혔을 때 -->
+
+<!-- 6: 앱스크립트 바이브코딩 -->
+<section id="gas" class="wp wp-hashero" data-hide>
+<style>
+#gas .gas5{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:10px 0 6px}
+#gas .gas5>div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+#gas .gas5>div.pick{border:2px solid var(--gold);background:var(--gold-bg)}
+#gas .gas5 .n{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:1px 10px;font-weight:800;font-size:13px}
+#gas .gas5 .pick .n{background:#c99a1e}
+#gas .gas5 b{display:block;margin:6px 0 4px;font-size:16px;color:var(--navy)}
+#gas .gas5 p{margin:0;font-size:14px;color:#4b5563}#gas .gas5 small{display:block;margin-top:6px;color:#7a8091}
+#gas .gflow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0}
+#gas .gflow>div{flex:1 1 150px;background:#f3f7ff;border:1px solid #bcd0ee;border-radius:12px;padding:10px 12px;text-align:center}
+#gas .gflow>div b{display:block;color:var(--navy)}#gas .gflow>div span{font-size:13px;color:#5b6475}
+#gas .gflow>i{font-style:normal;font-weight:900;color:#8a9bb8}
+#gas .gpart{font-size:1.45em;font-weight:900;color:#fff;background:linear-gradient(90deg,#1f2a44,#34508a);border-radius:14px;padding:14px 18px;margin:34px 0 12px}
+#gas .gpart small{display:block;font-size:.55em;font-weight:600;color:#c4d0e8;margin-top:2px}
+#gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
+#gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
+#gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
+#gas .goldbtn{display:inline-block;padding:14px 30px;border-radius:999px;font-weight:800;font-size:1.12em;color:#3d2b00!important;text-decoration:none!important;background:linear-gradient(135deg,#f9e27a,#e0b23a 55%,#f7d76b);border:2px solid #c99a1e;position:relative;overflow:hidden;animation:goldGlow 2s ease-in-out infinite}
+#gas .goldbtn::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.85),rgba(255,255,255,0));transform:skewX(-20deg);animation:spkShine 2.4s ease-in-out infinite;pointer-events:none}
+@keyframes goldGlow{0%,100%{box-shadow:0 0 6px rgba(224,178,58,.45),0 4px 12px rgba(201,154,30,.25)}50%{box-shadow:0 0 22px 6px rgba(240,196,60,.7),0 6px 20px rgba(201,154,30,.4)}}
+@keyframes spkShine{0%{left:-60%}60%,100%{left:130%}}
+</style>
+  <h2 class="sec">6 · 앱스크립트 바이브코딩 · 시트로 돌아가는 웹 앱</h2>
+  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">구글 폼은 <b>받기만</b> 해요. 앱스크립트 웹 앱은 시트를 <b>읽고, 판단하고, 바로 보여 줘요.</b> "남은 자리 2팀", "본인 점수만 보기"처럼 폼으로는 안 되는 일을, 코드를 몰라도 <b>붙여 넣기와 말로 고치기</b>로 만들어요.</p><div class="wp-flow"><a href="#gas-h1"><em>PART 1</em><b>이런 게 된다 · 후보 5가지</b><span></span></a><a href="#gas-h2"><em>실습①</em><b>팀 주제 선착순 보드</b><span></span></a><a href="#gas-h3"><em>실습②</em><b>내 점수·피드백 조회</b><span></span></a><a href="#gas-h4"><em>＋</em><b>3~5번 직접 만들어 보기</b><span></span></a></div></div>
+
+  <h3 class="caseh" id="gas-h1">👀 앱스크립트로 이런 게 된다</h3>
+  <div class="gas5">
+    <div class="pick"><span class="n">1 · 실습</span><b>팀 프로젝트 주제 선착순 보드</b><p>주제별 남은 자리가 실시간으로 보이고, 다 차면 마감</p><small>팀플 하는 모든 학과</small></div>
+    <div class="pick"><span class="n">2 · 실습</span><b>내 점수·피드백 조회 페이지</b><p>학번과 개인 코드를 넣으면 본인 것만 보여요</p><small>"제 점수 왜요?" 메일이 많은 분</small></div>
+    <div><span class="n">3</span><b>QR 출석·출구 티켓</b><p>QR → 학번 입력 → 시각 기록, 교수 화면에 실시간 인원</p><small>대형 강의, 교양</small></div>
+    <div><span class="n">4</span><b>면담 시간 예약 보드</b><p>누가 고른 시간은 다른 학생 화면에서 사라져요</p><small>상담·지도가 많은 학과</small></div>
+    <div><span class="n">5</span><b>실습실 장비 대여·반납 대장</b><p>지금 빌려 간 장비와 반납 예정일 현황판</p><small>공학·실험실 학과</small></div>
+  </div>
+  <div class="gflow"><div><b>📊 구글 시트</b><span>데이터 (주제·점수)</span></div><i>⇄</i><div><b>⚙️ Code.gs</b><span>시트 읽고 쓰기</span></div><i>→</i><div><b>🖥️ Index.html</b><span>학생이 보는 화면</span></div><i>→</i><div><b>🔗 웹 앱 주소 · QR</b><span>학생은 주소만 열면 끝</span></div></div>
+  <div class="callout gold"><b class="t">고쳤는데 그대로예요? · 새 버전으로 다시 배포</b> 코드를 고친 뒤에는 <b>배포 → 배포 관리 → ✏️ 수정 → 버전: 새 버전 → 배포</b>를 해야 학생 화면에 반영돼요. 주소는 그대로예요.</div>
+
+  <div class="gpart" id="gas-h2">실습① 팀 프로젝트 주제 선착순 보드<small>시트 사본 → 코드 두 개 붙여 넣기 → 배포 → QR</small></div>
+  
+  <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
+    <p class="mylink"><a class="goldbtn" href="https://docs.google.com/spreadsheets/d/16XfYJZpQ6ISQsnQpkikFbmXavGnDemiU2_8M0jGYLOI/copy" target="_blank" rel="noopener">✨ 팀 주제 선착순 보드 사본 만들기 ↗</a></p>
+    <p>열린 창에서 <b>사본 만들기</b>를 누르면 내 드라이브에 내 시트가 생겨요. 시트 안의 탭과 1행 제목은 그대로 두세요.</p></div></div>
+  <div class="step"><div class="no">2</div><div><h4>앱스크립트 열고 Code.gs 붙여 넣기</h4>
+    <ol><li>내 사본 시트 메뉴에서 <b>확장 프로그램 → Apps Script</b></li><li>원래 있던 <code>function myFunction() { }</code>를 <b>모두 지우고</b> 아래 코드를 붙여 넣기</li></ol>
+    <div class="prompt gcode"><div class="label">Code.gs · 주제 선착순 보드 (서버)</div><button class="copy">복사</button><pre>/**
+ * 팀 프로젝트 주제 선착순 보드 — 서버 코드(Code.gs)
+ * 시트 탭: &#x27;주제&#x27; (A 주제번호 | B 주제 | C 설명 | D 정원(팀 수))
+ *          &#x27;신청&#x27; (A 신청 시각 | B 팀 이름 | C 대표 학번 | D 대표 이름 | E 주제번호 | F 주제)
+ * 배포: 배포 → 새 배포 → 웹 앱 → 실행 사용자 &#x27;나&#x27; · 액세스 &#x27;모든 사용자&#x27;
+ */
+const TOPIC_SHEET = &#x27;주제&#x27;;
+const APPLY_SHEET = &#x27;신청&#x27;;
+const BOARD_TITLE = &#x27;팀 프로젝트 주제 신청 보드&#x27;;
+
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile(&#x27;Index&#x27;)
+    .setTitle(BOARD_TITLE)
+    .addMetaTag(&#x27;viewport&#x27;, &#x27;width=device-width, initial-scale=1&#x27;);
+}
+
+// 주제별 정원과 지금까지 신청한 팀 목록을 돌려줍니다.
+function getBoard() {
+  const ss = SpreadsheetApp.getActive();
+  const topics = ss.getSheetByName(TOPIC_SHEET).getDataRange().getDisplayValues().slice(1)
+    .filter(function (r) { return String(r[0]).trim() !== &#x27;&#x27;; });
+  const applies = ss.getSheetByName(APPLY_SHEET).getDataRange().getDisplayValues().slice(1);
+  const list = topics.map(function (r) {
+    const id = String(r[0]).trim();
+    const teams = applies.filter(function (a) { return String(a[4]).trim() === id; })
+      .map(function (a) { return String(a[1]); });
+    return { id: id, title: String(r[1]), desc: String(r[2]), cap: Number(r[3]) || 1, teams: teams };
+  });
+  return { title: BOARD_TITLE, topics: list };
+}
+
+// 신청을 받습니다. 동시에 눌러도 정원을 넘지 않게 잠금을 겁니다.
+function apply(form) {
+  const team = String(form.team || &#x27;&#x27;).trim();
+  const sid = String(form.sid || &#x27;&#x27;).trim();
+  const name = String(form.name || &#x27;&#x27;).trim();
+  const topicId = String(form.topicId || &#x27;&#x27;).trim();
+  if (!team || !sid || !name || !topicId) return { ok: false, msg: &#x27;팀 이름, 대표 학번, 대표 이름, 주제를 모두 넣어 주세요.&#x27; };
+
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const sh = SpreadsheetApp.getActive().getSheetByName(APPLY_SHEET);
+    const rows = sh.getDataRange().getDisplayValues().slice(1);
+    if (rows.some(function (r) { return String(r[2]).trim() === sid; })) {
+      return { ok: false, msg: &#x27;이 학번으로 이미 신청했어요. 바꾸려면 교수님께 말씀해 주세요.&#x27;, board: getBoard() };
+    }
+    const board = getBoard();
+    const t = board.topics.filter(function (x) { return x.id === topicId; })[0];
+    if (!t) return { ok: false, msg: &#x27;주제를 찾을 수 없어요. 화면을 새로고침해 주세요.&#x27;, board: board };
+    if (t.teams.length &gt;= t.cap) return { ok: false, msg: &#x27;방금 마감됐어요. 다른 주제를 골라 주세요.&#x27;, board: board };
+    sh.appendRow([new Date(), team, &quot;&#x27;&quot; + sid, name, t.id, t.title]);
+    return { ok: true, msg: &#x27;&quot;&#x27; + t.title + &#x27;&quot; 주제로 신청됐어요!&#x27;, board: getBoard() };
+  } finally {
+    lock.releaseLock();
+  }
+}</pre></div></div></div>
+  <div class="step"><div class="no">3</div><div><h4>HTML 파일 하나 더 만들고 붙여 넣기</h4>
+    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol>
+    <div class="prompt gcode"><div class="label">Index.html · 주제 선착순 보드 (학생 화면)</div><button class="copy">복사</button><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;base target=&quot;_top&quot;&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;style&gt;
+  *{box-sizing:border-box}
+  body{margin:0;font-family:&quot;Pretendard&quot;,&quot;Noto Sans KR&quot;,&quot;Malgun Gothic&quot;,sans-serif;background:#f4f6fb;color:#1f2a3a}
+  header{background:linear-gradient(135deg,#1d2a46,#2f4a8a);color:#fff;padding:22px 20px 18px}
+  header h1{margin:0;font-size:22px}
+  header p{margin:6px 0 0;opacity:.85;font-size:14px}
+  .live{display:inline-block;margin-top:10px;font-size:12px;background:rgba(255,255,255,.15);border-radius:999px;padding:3px 10px}
+  main{max-width:960px;margin:0 auto;padding:18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 4px 14px rgba(20,30,60,.08);border:2px solid transparent}
+  .card.full{opacity:.6}
+  .card h2{margin:0 0 4px;font-size:17px}
+  .card .d{margin:0 0 10px;color:#5f6675;font-size:13.5px;line-height:1.5}
+  .bar{height:10px;border-radius:999px;background:#e8ecf4;overflow:hidden}
+  .bar i{display:block;height:100%;background:#2f6fd6;border-radius:999px}
+  .card.full .bar i{background:#d93025}
+  .left{margin:6px 0 8px;font-size:13px;font-weight:700}
+  .teams{margin:0;padding-left:18px;font-size:13px;color:#4a4f5c}
+  .pick{margin-top:10px;width:100%;padding:10px;border:0;border-radius:10px;background:#2f6fd6;color:#fff;font:inherit;font-weight:800;cursor:pointer}
+  .card.full .pick{background:#9aa3b2;cursor:not-allowed}
+  .card.sel{border-color:#f2b705}
+  form{background:#fff;border-radius:16px;padding:18px;margin:18px 0;box-shadow:0 4px 14px rgba(20,30,60,.08)}
+  form h3{margin:0 0 10px}
+  label{display:block;margin:8px 0 4px;font-size:13.5px;font-weight:700}
+  input,select{width:100%;padding:10px;border:1.5px solid #cfd6e4;border-radius:10px;font:inherit}
+  .go{margin-top:14px;width:100%;padding:12px;border:0;border-radius:12px;background:#f2b705;color:#3d2b00;font:inherit;font-weight:900;font-size:16px;cursor:pointer}
+  .msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-weight:700;display:none}
+  .msg.ok{display:block;background:#e6f4ea;color:#0d5a2c}
+  .msg.err{display:block;background:#fde8e7;color:#a50e0e}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+  &lt;h1 id=&quot;title&quot;&gt;팀 프로젝트 주제 신청 보드&lt;/h1&gt;
+  &lt;p&gt;주제마다 받을 수 있는 팀 수가 정해져 있어요. 자리가 다 차면 자동으로 마감돼요.&lt;/p&gt;
+  &lt;span class=&quot;live&quot; id=&quot;live&quot;&gt;불러오는 중…&lt;/span&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;div class=&quot;grid&quot; id=&quot;grid&quot;&gt;&lt;/div&gt;
+  &lt;form id=&quot;f&quot; onsubmit=&quot;send(event)&quot;&gt;
+    &lt;h3&gt;✍️ 우리 팀 신청하기 (대표 1명만)&lt;/h3&gt;
+    &lt;label&gt;주제&lt;/label&gt;&lt;select id=&quot;topic&quot; required&gt;&lt;/select&gt;
+    &lt;label&gt;팀 이름&lt;/label&gt;&lt;input id=&quot;team&quot; required placeholder=&quot;예: 데이터탐정단&quot;&gt;
+    &lt;label&gt;대표 학번&lt;/label&gt;&lt;input id=&quot;sid&quot; required inputmode=&quot;numeric&quot; placeholder=&quot;예: 20261234&quot;&gt;
+    &lt;label&gt;대표 이름&lt;/label&gt;&lt;input id=&quot;name&quot; required placeholder=&quot;예: 홍길동&quot;&gt;
+    &lt;button class=&quot;go&quot; id=&quot;go&quot; type=&quot;submit&quot;&gt;신청하기&lt;/button&gt;
+    &lt;div class=&quot;msg&quot; id=&quot;msg&quot;&gt;&lt;/div&gt;
+  &lt;/form&gt;
+&lt;/main&gt;
+&lt;script&gt;
+  var board = null;
+  function load() {
+    google.script.run.withSuccessHandler(draw).withFailureHandler(fail).getBoard();
+  }
+  function draw(b) {
+    board = b;
+    document.getElementById(&#x27;title&#x27;).textContent = b.title;
+    var grid = document.getElementById(&#x27;grid&#x27;), sel = document.getElementById(&#x27;topic&#x27;);
+    var keep = sel.value; grid.innerHTML = &#x27;&#x27;; sel.innerHTML = &#x27;&lt;option value=&quot;&quot;&gt;주제를 고르세요&lt;/option&gt;&#x27;;
+    b.topics.forEach(function (t) {
+      var left = t.cap - t.teams.length, full = left &lt;= 0;
+      var c = document.createElement(&#x27;div&#x27;); c.className = &#x27;card&#x27; + (full ? &#x27; full&#x27; : &#x27;&#x27;);
+      c.innerHTML = &#x27;&lt;h2&gt;&#x27; + esc(t.id) + &#x27;. &#x27; + esc(t.title) + &#x27;&lt;/h2&gt;&lt;p class=&quot;d&quot;&gt;&#x27; + esc(t.desc) + &#x27;&lt;/p&gt;&#x27; +
+        &#x27;&lt;div class=&quot;bar&quot;&gt;&lt;i style=&quot;width:&#x27; + Math.min(100, t.teams.length / t.cap * 100) + &#x27;%&quot;&gt;&lt;/i&gt;&lt;/div&gt;&#x27; +
+        &#x27;&lt;p class=&quot;left&quot;&gt;&#x27; + (full ? &#x27;🔴 마감&#x27; : &#x27;🟢 남은 자리 &#x27; + left + &#x27; / &#x27; + t.cap) + &#x27;&lt;/p&gt;&#x27; +
+        (t.teams.length ? &#x27;&lt;ul class=&quot;teams&quot;&gt;&#x27; + t.teams.map(function (x) { return &#x27;&lt;li&gt;&#x27; + esc(x) + &#x27;&lt;/li&gt;&#x27;; }).join(&#x27;&#x27;) + &#x27;&lt;/ul&gt;&#x27; : &#x27;&#x27;) +
+        &#x27;&lt;button type=&quot;button&quot; class=&quot;pick&quot;&#x27; + (full ? &#x27; disabled&#x27; : &#x27;&#x27;) + &#x27; onclick=&quot;choose(\&#x27;&#x27; + esc(t.id) + &#x27;\&#x27;)&quot;&gt;&#x27; + (full ? &#x27;마감됐어요&#x27; : &#x27;이 주제로 신청&#x27;) + &#x27;&lt;/button&gt;&#x27;;
+      grid.appendChild(c);
+      if (!full) { var o = document.createElement(&#x27;option&#x27;); o.value = t.id; o.textContent = t.id + &#x27;. &#x27; + t.title + &#x27; (남은 &#x27; + left + &#x27;)&#x27;; sel.appendChild(o); }
+    });
+    if (keep) sel.value = keep;
+    document.getElementById(&#x27;live&#x27;).textContent = &#x27;● 실시간 · &#x27; + new Date().toLocaleTimeString(&#x27;ko-KR&#x27;) + &#x27; 기준 (15초마다 새로고침)&#x27;;
+  }
+  function choose(id) {
+    document.getElementById(&#x27;topic&#x27;).value = id;
+    document.getElementById(&#x27;f&#x27;).scrollIntoView({ behavior: &#x27;smooth&#x27; });
+    document.getElementById(&#x27;team&#x27;).focus();
+  }
+  function send(e) {
+    e.preventDefault();
+    var btn = document.getElementById(&#x27;go&#x27;); btn.disabled = true; btn.textContent = &#x27;보내는 중…&#x27;;
+    google.script.run.withSuccessHandler(function (r) {
+      btn.disabled = false; btn.textContent = &#x27;신청하기&#x27;;
+      show(r.msg, r.ok); if (r.board) draw(r.board); if (r.ok) document.getElementById(&#x27;f&#x27;).reset();
+    }).withFailureHandler(function (err) { btn.disabled = false; btn.textContent = &#x27;신청하기&#x27;; fail(err); }).apply({
+      topicId: document.getElementById(&#x27;topic&#x27;).value, team: document.getElementById(&#x27;team&#x27;).value,
+      sid: document.getElementById(&#x27;sid&#x27;).value, name: document.getElementById(&#x27;name&#x27;).value
+    });
+  }
+  function show(t, ok) { var m = document.getElementById(&#x27;msg&#x27;); m.textContent = t; m.className = &#x27;msg &#x27; + (ok ? &#x27;ok&#x27; : &#x27;err&#x27;); }
+  function fail(err) { show(&#x27;오류가 났어요: &#x27; + (err &amp;&amp; err.message ? err.message : err), false); }
+  function esc(s) { return String(s).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, function (c) { return { &#x27;&amp;&#x27;: &#x27;&amp;amp;&#x27;, &#x27;&lt;&#x27;: &#x27;&amp;lt;&#x27;, &#x27;&gt;&#x27;: &#x27;&amp;gt;&#x27;, &#x27;&quot;&#x27;: &#x27;&amp;quot;&#x27;, &quot;&#x27;&quot;: &#x27;&amp;#39;&#x27; }[c]; }); }
+  load(); setInterval(load, 15000);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div></div>
+  <div class="step"><div class="no">4</div><div><h4>웹 앱으로 배포하기</h4>
+    <ol><li>오른쪽 위 <b>배포 → 새 배포</b></li><li>유형 선택 ⚙️ → <b>웹 앱</b></li><li>다음 사용자 인증 정보로 실행: <b>나</b> · 액세스 권한이 있는 사용자: <b>모든 사용자</b> → <b>배포</b></li>
+    <li><b>액세스 승인</b> → 내 계정 선택 → "확인되지 않은 앱" 화면이 나오면 <b>고급 → (안전하지 않음)으로 이동 → 허용</b><br><small>내가 만든 코드라서 구글이 아직 검사하지 않았다는 뜻이에요. 남이 준 코드라면 내용을 확인한 뒤 허용하세요.</small></li></ol></div></div>
+  <div class="step"><div class="no">5</div><div><h4>웹 앱 주소 열고 QR 만들기</h4>
+    <ol><li>배포가 끝나면 나오는 <b>웹 앱 URL</b>을 복사해 새 탭에서 열어 보기</li><li>크롬 ⋮ → <b>전송, 저장, 공유 → QR 코드 만들기</b> → 내려받아 수업 슬라이드에 넣기</li>
+    <li>학생이 되어 신청해 보고, 시트의 <b>신청</b> 탭에 한 줄이 쌓이는지 확인!</li></ol></div></div>
+  <div class="step"><div class="no">6</div><div><h4>✨ 바이브코딩 · 내 수업으로 바꿔 줘</h4>
+    <p>제미나이(또는 클로드)에 아래 부탁문을 보내고, [ ] 안을 내 수업으로 바꿔요. 받은 코드로 2·3번 칸을 바꿔 붙이고 <b>새 버전으로 다시 배포</b>하면 끝!</p>
+    <div class="prompt"><div class="label">⭐ 내 수업으로 바꿔 줘 · 제미나이에 보내기</div><button class="copy">복사</button><pre>아래 Code.gs와 Index.html은 구글 시트에 붙어 돌아가는 앱스크립트 웹 앱이야.
+[과목: 경영학원론] 수업의 [팀 발표 주제 신청 보드]로 바꿔 줘.
+- 주제는 [8개], 주제마다 정원은 [2팀]
+- 신청할 때 [팀원 학번 3명]까지 받아 줘
+- 화면 색은 [대진대 느낌의 남색]
+지켜 줄 것:
+- google.script.run으로 부르는 함수 이름(getBoard, apply)은 바꾸지 마.
+- 바꾼 Code.gs와 Index.html을 각각 전체 코드로, 따로따로 줘.
+- 시트 탭 이름과 1행 제목을 어떻게 고쳐야 하는지 마지막에 표 없이 목록으로 알려 줘.
+
+[여기에 Code.gs 붙여 넣기]
+
+[여기에 Index.html 붙여 넣기]</pre></div>
+    <details class="gx"><summary>한 줄씩 더 고쳐 보기 (마감 시간 · 취소)</summary><div class="prompt"><div class="label">한 줄 더 · 마감 시간</div><button class="copy">복사</button><pre>[11월 20일 18시]가 지나면 신청 버튼이 잠기고 "신청이 마감됐어요"가 보이게 해 줘. 바꾼 전체 코드를 줘.</pre></div><div class="prompt"><div class="label">한 줄 더 · 취소 기능</div><button class="copy">복사</button><pre>교수용 비밀번호 [4자리]를 넣으면 신청 한 줄을 취소할 수 있게 해 줘. 비밀번호는 Code.gs에만 두고 화면 코드에는 넣지 마.</pre></div></details></div></div>
+
+  <div class="gpart" id="gas-h3">실습② 내 점수·피드백 조회 페이지<small>오전 6탭 성적 시트와 이어져요 · 학번 + 조회 코드가 맞아야 본인 것만 보여요</small></div>
+  <div class="callout red"><b class="t">개인정보 · 꼭 지켜 주세요</b><ul><li>연수에서는 <b>가상 데이터</b>로만 해요. 실제 성적을 웹으로 조회하게 하려면 <b>학교의 개인정보·성적 처리 규정을 먼저 확인</b>하세요. [학교 기준 확인 필요]</li><li>'모든 사용자'로 배포하면 주소를 아는 누구나 접속할 수 있어요. 그래서 <b>조회 코드 없이는 아무것도 안 보이게</b> 만들었어요. 조회 코드는 학생마다 따로, 개별로 알려 주세요.</li><li>시트 자체의 공유는 <b>제한됨</b> 그대로 두세요. 학생은 웹 앱 주소로만 들어와요.</li></ul></div>
+  
+  <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
+    <p class="mylink"><a class="goldbtn" href="https://docs.google.com/spreadsheets/d/1pTPiKjpsC6LV649p67fX0mnYtsJDL10mBOD080qUpNQ/copy" target="_blank" rel="noopener">✨ 내 점수 조회 페이지 사본 만들기 ↗</a></p>
+    <p>열린 창에서 <b>사본 만들기</b>를 누르면 내 드라이브에 내 시트가 생겨요. 시트 안의 탭과 1행 제목은 그대로 두세요.</p></div></div>
+  <div class="step"><div class="no">2</div><div><h4>앱스크립트 열고 Code.gs 붙여 넣기</h4>
+    <ol><li>내 사본 시트 메뉴에서 <b>확장 프로그램 → Apps Script</b></li><li>원래 있던 <code>function myFunction() { }</code>를 <b>모두 지우고</b> 아래 코드를 붙여 넣기</li></ol>
+    <div class="prompt gcode"><div class="label">Code.gs · 내 점수 조회 (서버)</div><button class="copy">복사</button><pre>/**
+ * 내 점수·피드백 조회 페이지 — 서버 코드(Code.gs)
+ * 시트 탭: &#x27;점수&#x27; (A 학번 | B 조회 코드 | C 이름 | D~G 기준별 점수 | H 총점 | I 피드백)
+ *   - D~G·H 열의 제목(1행)이 그대로 화면에 나와요. 기준 이름을 바꾸려면 1행만 고치세요.
+ * 학번과 조회 코드가 둘 다 맞는 한 줄만 돌려줍니다. 다른 학생 정보는 화면으로 나가지 않아요.
+ * 배포: 배포 → 새 배포 → 웹 앱 → 실행 사용자 &#x27;나&#x27; · 액세스 &#x27;모든 사용자&#x27;
+ */
+const SCORE_SHEET = &#x27;점수&#x27;;
+const PAGE_TITLE = &#x27;내 점수·피드백 확인&#x27;;
+
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile(&#x27;Index&#x27;)
+    .setTitle(PAGE_TITLE)
+    .addMetaTag(&#x27;viewport&#x27;, &#x27;width=device-width, initial-scale=1&#x27;);
+}
+
+function lookup(sid, code) {
+  sid = String(sid || &#x27;&#x27;).trim();
+  code = String(code || &#x27;&#x27;).trim();
+  if (!sid || !code) return { ok: false, msg: &#x27;학번과 조회 코드를 모두 넣어 주세요.&#x27; };
+  Utilities.sleep(500); // 무작위로 계속 넣어 보는 것을 늦추기 위한 짧은 대기
+  const ss = SpreadsheetApp.getActive();
+  const sh = ss.getSheetByName(SCORE_SHEET) || ss.getSheets()[0]; // 탭 이름이 달라도 첫 탭을 읽어요
+  const v = sh.getDataRange().getDisplayValues();
+  const head = v[0];
+  const row = v.slice(1).filter(function (r) {
+    return String(r[0]).trim() === sid &amp;&amp; String(r[1]).trim() === code;
+  })[0];
+  if (!row) return { ok: false, msg: &#x27;학번 또는 조회 코드가 맞지 않아요. 다시 확인해 주세요.&#x27; };
+  const items = [];
+  for (let c = 3; c &lt;= 6; c++) items.push({ name: head[c], score: row[c] });
+  return { ok: true, title: PAGE_TITLE, name: row[2], items: items, totalName: head[7], total: row[7], feedback: row[8] };
+}</pre></div></div></div>
+  <div class="step"><div class="no">3</div><div><h4>HTML 파일 하나 더 만들고 붙여 넣기</h4>
+    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol>
+    <div class="prompt gcode"><div class="label">Index.html · 내 점수 조회 (학생 화면)</div><button class="copy">복사</button><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;base target=&quot;_top&quot;&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;style&gt;
+  *{box-sizing:border-box}
+  body{margin:0;font-family:&quot;Pretendard&quot;,&quot;Noto Sans KR&quot;,&quot;Malgun Gothic&quot;,sans-serif;background:#f6f4ef;color:#1f2a3a}
+  header{background:linear-gradient(135deg,#3b2a6b,#6c4bd1);color:#fff;padding:22px 20px 18px;text-align:center}
+  header h1{margin:0;font-size:22px}
+  header p{margin:6px 0 0;opacity:.85;font-size:14px}
+  main{max-width:520px;margin:0 auto;padding:18px}
+  .box{background:#fff;border-radius:18px;padding:20px;box-shadow:0 6px 18px rgba(40,30,80,.1);margin-bottom:16px}
+  label{display:block;margin:8px 0 4px;font-size:14px;font-weight:700}
+  input{width:100%;padding:12px;border:1.5px solid #d6d0e6;border-radius:12px;font:inherit;font-size:16px}
+  .go{margin-top:14px;width:100%;padding:13px;border:0;border-radius:12px;background:#6c4bd1;color:#fff;font:inherit;font-weight:900;font-size:16px;cursor:pointer}
+  .msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-weight:700;background:#fde8e7;color:#a50e0e;display:none}
+  .hi{margin:0 0 12px;font-size:18px;font-weight:800}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e6e1f2}
+  .row b{font-size:18px;color:#6c4bd1}
+  .total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding:14px;border-radius:14px;background:#f1edff;font-weight:800}
+  .total b{font-size:26px;color:#3b2a6b}
+  .fb{margin-top:14px;padding:14px;border-radius:14px;background:#fffbea;border:1.5px solid #f2d36b;line-height:1.7;white-space:pre-wrap}
+  .note{font-size:12.5px;color:#7a7f8c;text-align:center;margin-top:10px}
+  #res{display:none}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+  &lt;h1 id=&quot;title&quot;&gt;내 점수·피드백 확인&lt;/h1&gt;
+  &lt;p&gt;학번과 교수님께 받은 조회 코드를 넣으면 내 결과만 보여요.&lt;/p&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;form class=&quot;box&quot; onsubmit=&quot;find(event)&quot;&gt;
+    &lt;label&gt;학번&lt;/label&gt;&lt;input id=&quot;sid&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;off&quot; required placeholder=&quot;예: 2026001&quot;&gt;
+    &lt;label&gt;조회 코드&lt;/label&gt;&lt;input id=&quot;code&quot; type=&quot;password&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;off&quot; required placeholder=&quot;4자리 숫자&quot;&gt;
+    &lt;button class=&quot;go&quot; id=&quot;go&quot; type=&quot;submit&quot;&gt;내 결과 보기&lt;/button&gt;
+    &lt;div class=&quot;msg&quot; id=&quot;msg&quot;&gt;&lt;/div&gt;
+  &lt;/form&gt;
+  &lt;div class=&quot;box&quot; id=&quot;res&quot;&gt;&lt;/div&gt;
+  &lt;p class=&quot;note&quot;&gt;점수에 궁금한 점이 있으면 면담 시간에 이 화면을 보여 주세요.&lt;/p&gt;
+&lt;/main&gt;
+&lt;script&gt;
+  function find(e) {
+    e.preventDefault();
+    var btn = document.getElementById(&#x27;go&#x27;), msg = document.getElementById(&#x27;msg&#x27;);
+    btn.disabled = true; btn.textContent = &#x27;확인하는 중…&#x27;; msg.style.display = &#x27;none&#x27;;
+    google.script.run.withSuccessHandler(function (r) {
+      btn.disabled = false; btn.textContent = &#x27;내 결과 보기&#x27;;
+      var res = document.getElementById(&#x27;res&#x27;);
+      if (!r.ok) { res.style.display = &#x27;none&#x27;; msg.textContent = r.msg; msg.style.display = &#x27;block&#x27;; return; }
+      document.getElementById(&#x27;title&#x27;).textContent = r.title;
+      res.innerHTML = &#x27;&lt;p class=&quot;hi&quot;&gt;&#x27; + esc(r.name) + &#x27; 학생의 결과&lt;/p&gt;&#x27; +
+        r.items.map(function (it) { return &#x27;&lt;div class=&quot;row&quot;&gt;&lt;span&gt;&#x27; + esc(it.name) + &#x27;&lt;/span&gt;&lt;b&gt;&#x27; + esc(it.score) + &#x27;&lt;/b&gt;&lt;/div&gt;&#x27;; }).join(&#x27;&#x27;) +
+        &#x27;&lt;div class=&quot;total&quot;&gt;&lt;span&gt;&#x27; + esc(r.totalName) + &#x27;&lt;/span&gt;&lt;b&gt;&#x27; + esc(r.total) + &#x27;&lt;/b&gt;&lt;/div&gt;&#x27; +
+        (r.feedback ? &#x27;&lt;div class=&quot;fb&quot;&gt;💬 &#x27; + esc(r.feedback) + &#x27;&lt;/div&gt;&#x27; : &#x27;&#x27;);
+      res.style.display = &#x27;block&#x27;;
+      document.getElementById(&#x27;code&#x27;).value = &#x27;&#x27;;
+    }).withFailureHandler(function (err) {
+      btn.disabled = false; btn.textContent = &#x27;내 결과 보기&#x27;;
+      msg.textContent = &#x27;오류가 났어요: &#x27; + (err &amp;&amp; err.message ? err.message : err); msg.style.display = &#x27;block&#x27;;
+    }).lookup(document.getElementById(&#x27;sid&#x27;).value, document.getElementById(&#x27;code&#x27;).value);
+  }
+  function esc(s) { return String(s == null ? &#x27;&#x27; : s).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, function (c) { return { &#x27;&amp;&#x27;: &#x27;&amp;amp;&#x27;, &#x27;&lt;&#x27;: &#x27;&amp;lt;&#x27;, &#x27;&gt;&#x27;: &#x27;&amp;gt;&#x27;, &#x27;&quot;&#x27;: &#x27;&amp;quot;&#x27;, &quot;&#x27;&quot;: &#x27;&amp;#39;&#x27; }[c]; }); }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div></div>
+  <div class="step"><div class="no">4</div><div><h4>웹 앱으로 배포하기</h4>
+    <ol><li>오른쪽 위 <b>배포 → 새 배포</b></li><li>유형 선택 ⚙️ → <b>웹 앱</b></li><li>다음 사용자 인증 정보로 실행: <b>나</b> · 액세스 권한이 있는 사용자: <b>모든 사용자</b> → <b>배포</b></li>
+    <li><b>액세스 승인</b> → 내 계정 선택 → "확인되지 않은 앱" 화면이 나오면 <b>고급 → (안전하지 않음)으로 이동 → 허용</b><br><small>내가 만든 코드라서 구글이 아직 검사하지 않았다는 뜻이에요. 남이 준 코드라면 내용을 확인한 뒤 허용하세요.</small></li></ol></div></div>
+  <div class="step"><div class="no">5</div><div><h4>웹 앱 주소 열고 QR 만들기</h4>
+    <ol><li>배포가 끝나면 나오는 <b>웹 앱 URL</b>을 복사해 새 탭에서 열어 보기</li><li>크롬 ⋮ → <b>전송, 저장, 공유 → QR 코드 만들기</b> → 내려받아 수업 슬라이드에 넣기</li>
+    <li>학번 <b>2026001</b> · 조회 코드 <b>2186</b>을 넣어 보세요. 코드를 틀리게 넣으면 아무것도 안 보여요.</li></ol></div></div>
+  <div class="step"><div class="no">6</div><div><h4>✨ 바이브코딩 · 내 수업으로 바꿔 줘</h4>
+    <div class="prompt"><div class="label">⭐ 내 수업으로 바꿔 줘 · 제미나이에 보내기</div><button class="copy">복사</button><pre>아래 Code.gs와 Index.html은 구글 시트에 붙어 돌아가는 앱스크립트 웹 앱이야.
+[과목: 기초글쓰기] [중간 보고서] 점수 조회 페이지로 바꿔 줘.
+- 평가 기준은 [5개: 주제·구성·근거·표현·형식], 기준마다 [4점]
+- 총점 아래에 [반 평균]도 보여 줘 (다른 학생 이름·점수는 절대 보이지 않게)
+- 피드백 아래에 [면담 신청 링크] 버튼
+지켜 줄 것:
+- google.script.run으로 부르는 함수 이름(lookup)은 바꾸지 마.
+- 바꾼 Code.gs와 Index.html을 각각 전체 코드로, 따로따로 줘.
+- 시트 탭 이름과 1행 제목을 어떻게 고쳐야 하는지 마지막에 표 없이 목록으로 알려 줘.
+
+[여기에 Code.gs 붙여 넣기]
+
+[여기에 Index.html 붙여 넣기]</pre></div>
+    <details class="gx"><summary>한 줄씩 더 고쳐 보기 (조회 기록 · 공개 기간)</summary><div class="prompt"><div class="label">한 줄 더 · 조회 기록</div><button class="copy">복사</button><pre>학생이 조회할 때마다 시트에 "조회기록" 탭을 만들어 시각과 학번을 한 줄씩 남겨 줘. 조회 코드는 기록하지 마.</pre></div><div class="prompt"><div class="label">한 줄 더 · 공개 기간</div><button class="copy">복사</button><pre>[12월 15일]부터 [12월 22일]까지만 조회되고, 그 밖의 기간에는 "조회 기간이 아니에요"가 보이게 해 줘.</pre></div></details></div></div>
+
+  <details class="gx"><summary>🛟 막혔을 때</summary><ul>
+    <li><b>"확인되지 않은 앱"</b> → 고급 → (안전하지 않음)으로 이동 → 허용. 내가 만든 코드라서 나오는 화면이에요.</li>
+    <li><b>화면이 하얗거나 'Index' 오류</b> → HTML 파일 이름이 정확히 <b>Index</b>인지 확인하세요.</li>
+    <li><b>"주제를 찾을 수 없어요"·빈 화면</b> → 시트 탭 이름(주제·신청·점수)과 1행 제목이 그대로인지 확인하세요.</li>
+    <li><b>고쳤는데 그대로</b> → 새 버전으로 다시 배포했는지 확인하세요.</li>
+    <li><b>학교 계정에서 막힘</b> → 기관 설정 때문일 수 있어요. 개인 Gmail로 해 보세요.</li></ul></details>
+
+  <h3 class="caseh" id="gas-h4">＋ 3~5번도 말로 만들어 보기</h3>
+  <p>이번엔 처음부터 부탁해요. 받은 코드를 1~5단계처럼 붙여 넣고 배포하면 돼요. 결과가 이상하면 오류 문장을 그대로 복사해 "이 오류 고쳐 줘"라고 보내세요.</p>
+  <details class="gx"><summary>부탁문 3개 펼치기 (QR 출석 · 면담 예약 · 장비 대여)</summary><div class="prompt"><div class="label">3 · QR 출석·출구 티켓</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 학생이 QR로 들어와 학번과 오늘의 단어 [4글자]를 넣으면 "출석" 탭에 시각·학번이 쌓이고, 교수 화면(주소 끝에 ?admin=비밀번호)에는 지금까지 출석한 인원 수가 10초마다 바뀌어 보이게. 같은 학번은 하루 한 번만. Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비와 배포 순서도 알려 줘.</pre></div><div class="prompt"><div class="label">4 · 면담 시간 예약 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "시간" 탭에 [다음 주 화·목 14~17시, 20분 단위] 칸이 있고, 학생이 학번·이름을 넣고 한 칸을 고르면 그 칸은 다른 학생 화면에서 사라져. 동시에 눌러도 겹치지 않게 LockService를 써 줘. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div><div class="prompt"><div class="label">5 · 실습실 장비 대여·반납 대장</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "장비" 탭에 [오실로스코프 4대, 멀티미터 10대]가 있고, 학생이 학번과 장비를 골라 대여하면 남은 수량이 줄고 반납 예정일(7일 뒤)이 기록돼. 첫 화면에 지금 빌려 간 장비와 반납이 늦은 목록이 보이게. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div></details>
+</section>
 <!-- 8: 백엔드·배포 -->
 <section id="more" class="wp wp-hashero">
   <h2 class="sec">8 · 백엔드·배포 (파이어베이스 · 넷리파이 · 깃허브 · 버셀)</h2>
@@ -2221,6 +2593,7 @@ document.addEventListener('click',function(e){
     {id:'cases',label:'활용 사례',secs:['cases'],g:'4 AI 스튜디오'},
     {id:'help',label:'🛟 막혔을 때',secs:['help'],g:'4 AI 스튜디오'},
     {id:'nlm',label:'5 LM바이브',secs:['nlm']},
+    {id:'gas',label:'6 앱스크립트',secs:['gas']},
     {id:'live',label:'7 라이브 대시보드',secs:['live']},
     {id:'more',label:'8 배포',secs:['more'],adv:true}
   ];
@@ -2229,7 +2602,7 @@ document.addEventListener('click',function(e){
   var sub=document.createElement('div'); sub.className='wrap subtabs'; sub.id='subbar'; bar.parentNode.appendChild(sub); var gbtn={};
   function full(t){ return t.g?t.g.split(' ')[0]+' · '+t.label:t.label; }
   TABS.forEach(function(t,k){
-    var b=document.createElement('button'); b.type='button'; b.textContent=t.label; if(t.adv) b.className='adv'; if(['canva','canvas','nlm'].indexOf(t.id)>=0) b.classList.add('core');
+    var b=document.createElement('button'); b.type='button'; b.textContent=t.label; if(t.adv) b.className='adv'; if(['canva','canvas','nlm','gas'].indexOf(t.id)>=0) b.classList.add('core');
     b.onclick=function(){ show(k,null,true); }; t.btn=b;
     if(t.g){ sub.appendChild(b); if(!gbtn[t.g]){ var gb=document.createElement('button'); gb.type='button'; gb.textContent=t.g+' ▾'; gb.onclick=function(){ show(k,null,true); }; bar.appendChild(gb); gbtn[t.g]=gb; } t.gb=gbtn[t.g]; }
     else bar.appendChild(b);
