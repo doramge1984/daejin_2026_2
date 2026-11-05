@@ -2013,10 +2013,14 @@ show();
 #gas .gqr2{text-align:center}#gas .gqr2 img{width:150px;height:150px;border:1px solid var(--line);border-radius:10px;background:#fff}#gas .gqr2 small{display:block;color:#6b7280;margin-top:4px}
 #gas img{cursor:zoom-in}
 #gas .gsc img,#gas .gm img{transition:.15s}#gas .gsc:hover img{filter:brightness(1.03)}
-#gas #gas-try2{margin-top:2em}#gas .gsep{display:flex;align-items:center;gap:14px;margin:12em 0 0;color:#a07a1f;font-weight:900;font-size:1.1em}#gas .gsep::before,#gas .gsep::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,#d4ad52,transparent)}#gas #gas-h4{margin-top:2em}
+#gas #gas-try2{margin-top:2em}#gas .gsep{display:flex;align-items:center;gap:14px;margin:12em 0 7em;color:#a07a1f;font-weight:900;font-size:1.1em}#gas .gsep::before,#gas .gsep::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,#d4ad52,transparent)}#gas #gas-h4{margin-top:2em}
 #gas .gppt{display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:linear-gradient(135deg,#1f2a44,#34508a);color:#fff;border-radius:18px;padding:18px 22px;margin:18px 0 0}
 #gas .gppt>div{flex:1 1 320px}#gas .gppt b{display:block;font-size:1.25em}#gas .gppt span{display:block;color:#c4d0e8;font-size:14.5px;margin-top:4px}
 #gas .gpptb{border:0;border-radius:999px;padding:14px 26px;font:inherit;font-weight:900;font-size:1.05em;cursor:pointer;background:linear-gradient(135deg,#f9e27a,#e0b23a 55%,#f7d76b);color:#3d2b00;animation:goldGlow 2s ease-in-out infinite}
+#gas .grevbox{border:3px solid #9b72cb;background:linear-gradient(180deg,#f7f2ff,#fff);border-radius:18px;padding:18px 20px;margin:20px 0}
+#gas .grevh{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:10px}#gas .grevh>div{flex:1 1 320px}#gas .grevh b{display:block;font-size:1.3em;color:#3b2a6b}#gas .grevh span{display:block;color:#4b5563;margin-top:4px}
+#gas .grev2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+#gas details.grev{border-color:#c9b6ec;background:#faf7ff}#gas details.grev>summary{color:#5b3fa0}#gas details.grev>summary small{font-weight:600;color:#7a6aa0;margin-left:6px}
 #gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
 #gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
 #gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
@@ -2053,7 +2057,36 @@ show();
 
   <div class="callout gold"><b class="t">💡 주소가 바뀌지 않게 고치기</b> 코드를 고치면 <b>배포 → 배포 관리 → ✏️ 수정 → 버전: 새 버전 → 배포</b>. ⚠️ <b>'새 배포'</b>를 다시 하면 주소가 바뀌어서 나눠 준 링크·QR이 예전 버전을 가리켜요.</div>
 
+  <div class="grevbox" id="gas-rev">
+    <div class="grevh"><div><b>🪄 이걸 처음에 어떻게 부탁했을까? · 프롬프트도 AI가 써 줘요</b><span>프롬프트를 직접 짜지 말고 <b>"프롬프트를 써 줘"</b>라고 부탁하세요. AI가 먼저 질문하고, 답하면 완성 부탁문이 나와요.</span></div><button type="button" class="wppt-open gpptb" data-deck="revp">▶ 1분 설명 보기</button></div>
+    <div class="grev2"><div class="prompt"><div class="label">🪄 ① 프롬프트를 써 달라는 프롬프트 · [ ]만 내 고민으로</div><button class="copy">복사</button><pre>나는 [수업에서 팀 프로젝트 주제를 선착순으로 받고 싶어].
+구글 시트에 붙어 돌아가는 앱스크립트 웹 앱으로 만들고 싶은데, AI에게 줄 &#x27;완성 부탁문&#x27;을 써 줘.
+
+쓰기 전에 나에게 꼭 필요한 질문을 3개만 먼저 해 줘. 내가 답하면 그다음에 부탁문을 써 줘.
+부탁문에는 꼭 들어가야 해:
+- 시트 탭 이름과 열 순서
+- 학생 화면이 어떻게 보이는지
+- 규칙 (마감, 중복 막기, 본인만 보기 등)
+- 동시에 눌러도 꼬이지 않게 LockService
+- Code.gs와 Index.html을 따로 전체 코드로 달라는 말
+- 배포 순서 안내</pre></div><div class="prompt"><div class="label">🔍 ② 거꾸로 · 마음에 드는 화면을 보여 주며</div><button class="copy">복사</button><pre>[완성 화면 캡처를 붙여 넣기]
+
+이 화면을 처음부터 만들 수 있는 부탁문을 써 줘.
+구글 시트 + 앱스크립트 웹 앱으로 만들 거야.
+화면에 보이는 기능을 빠짐없이 적고, 시트 탭과 열 구조도 정해서 넣어 줘.</pre></div></div>
+    <p class="gtry-note" style="color:#5b6475">💡 시연 팁: 교수님 한 분의 실제 고민(예: "조교 근무 시간표를 짜고 싶어")으로 ①을 바로 돌려 보세요. AI가 질문을 던지는 장면이 가장 인상적이에요. 실습마다 완성 화면 아래 <b>🔍 리버스 프롬프트</b>도 있어요.</p>
+  </div>
+  <div style="height:5em"></div>
   <div class="gprev" style="margin-top:2em"><img src="img/gas-prev-topic.png" alt="실습① 완성 화면 · 팀 프로젝트 주제 신청 보드" loading="lazy"><small>⬇️ 실습①에서 이 화면을 직접 만들어요 (🔍 누르면 크게)</small></div>
+  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습① 팀 주제 선착순 보드</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 부탁문이에요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습① 팀 주제 선착순 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;팀 프로젝트 주제 신청 보드&#x27;.
+[시트] &#x27;주제&#x27; 탭: A 주제번호 | B 주제 | C 설명 | D 정원(팀 수)
+       &#x27;신청&#x27; 탭: A 신청 시각 | B 팀 이름 | C 대표 학번 | D 대표 이름 | E 주제번호 | F 주제
+[화면] 주제마다 카드: 제목, 설명, 남은 자리 막대와 &#x27;남은 자리 1 / 2&#x27;, 신청한 팀 이름, &#x27;이 주제로 신청&#x27; 버튼.
+       정원이 차면 카드가 흐려지고 빨간 막대와 &#x27;마감&#x27;. 아래에 신청 폼(주제, 팀 이름, 대표 학번, 대표 이름)과 노란 &#x27;신청하기&#x27; 버튼.
+       15초마다 자동 새로고침, 위쪽에 &#x27;실시간 · 몇 시 기준&#x27; 표시.
+[규칙] 같은 학번은 한 번만. 정원이 차면 &#x27;방금 마감됐어요&#x27;. 동시에 눌러도 정원을 넘지 않게 LockService. 신청하면 초록 완료 메시지.
+[디자인] 남색 헤더, 흰 카드, 휴대폰에서도 보기 좋게.
+Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비 방법과 배포 순서(배포 → 새 배포 → 웹 앱, 실행: 나, 액세스: 모든 사용자)도 알려 줘.</pre></div></details>
   <details class="gpx" id="gas-h2"><summary class="gpart">실습① 팀 프로젝트 주제 선착순 보드<small>시트 사본 → 코드 두 개 붙여 넣기 → 배포 → QR</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   
   <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
@@ -2265,6 +2298,15 @@ function apply(form) {
   </div>
 
   <div class="gprev" style="margin-top:2em"><img src="img/gas-prev-score.png" alt="실습② 완성 화면 · 내 점수·피드백 확인" loading="lazy" style="max-width:420px"><small>⬇️ 실습②에서 이 화면을 직접 만들어요 (🔍 누르면 크게)</small></div>
+  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습② 내 점수·피드백 조회</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 부탁문이에요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습② 내 점수·피드백 조회</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;내 점수·피드백 확인&#x27;.
+[시트] &#x27;점수&#x27; 탭: A 학번 | B 조회 코드 | C 이름 | D~G 기준별 점수(1행 제목이 기준 이름) | H 총점 | I 피드백
+[화면] 학번과 조회 코드(비밀번호처럼 가려서)를 넣고 &#x27;내 결과 보기&#x27;.
+       맞으면 &#x27;OOO 학생의 결과&#x27;, 기준별 점수 줄, 총점 상자, 노란 피드백 상자.
+       틀리면 &#x27;학번 또는 조회 코드가 맞지 않아요&#x27;만 보여 줘.
+[규칙] 학번과 코드가 둘 다 맞는 한 줄만 화면으로 보내고, 다른 학생 정보는 절대 보내지 마.
+       계속 넣어 보는 걸 늦추게 0.5초 기다리기. 기준 이름은 시트 1행을 그대로 쓰기.
+[디자인] 보라색 헤더, 가운데 좁은 카드, 휴대폰 화면 기준.
+Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비 방법과 배포 순서(배포 → 새 배포 → 웹 앱, 실행: 나, 액세스: 모든 사용자)도 알려 줘.</pre></div></details>
   <details class="gpx" id="gas-h3"><summary class="gpart">실습② 내 점수·피드백 조회 페이지<small>오전 6탭 성적 시트와 이어져요 · 학번 + 조회 코드가 맞아야 본인 것만 보여요</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   
   <div class="callout red"><b class="t">개인정보 · 꼭 지켜 주세요</b><ul><li>연수에서는 <b>가상 데이터</b>로만 해요. 실제 성적을 웹으로 조회하게 하려면 <b>학교의 개인정보·성적 처리 규정을 먼저 확인</b>하세요. [학교 기준 확인 필요]</li><li>'모든 사용자'로 배포하면 주소를 아는 누구나 접속할 수 있어요. 그래서 <b>조회 코드 없이는 아무것도 안 보이게</b> 만들었어요. 조회 코드는 학생마다 따로, 개별로 알려 주세요.</li><li>시트 자체의 공유는 <b>제한됨</b> 그대로 두세요. 학생은 웹 앱 주소로만 들어와요.</li></ul></div>
@@ -2417,6 +2459,15 @@ function lookup(sid, code) {
   </div>
   <details class="gpx" id="gas-h5"><summary class="gpart">실습③ 면담 시간 예약 보드 <small>시간이 되면 · 실습①과 같은 순서 · 시간 탭만 바꾸면 내 면담표</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   <p style="margin:0 0 12px"><img src="img/gas-prev-meet.png" alt="면담 시간 예약 보드 완성 화면" loading="lazy" style="max-width:520px;width:100%;border:1px solid #d7dce3;border-radius:12px"><br><small>✅ 완성하면 이렇게 나와요 · 남은 시간만 보이고, 예약한 칸은 사라져요</small></p>
+  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습③ 면담 시간 예약 보드</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 부탁문이에요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습③ 면담 시간 예약 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;교수 면담 시간 예약&#x27;.
+[시트] &#x27;시간&#x27; 탭: A 날짜(예: 11/10(화)) | B 시각(예: 14:00)
+       &#x27;예약&#x27; 탭: A 예약 시각 | B 날짜 | C 시각 | D 학번 | E 이름 | F 면담 내용
+[화면] 날짜별 카드 안에 아직 비어 있는 시각만 버튼으로. 위쪽에 &#x27;남은 시간 N / 전체&#x27;.
+       시간을 누르면 &#x27;선택한 시간: …&#x27;이 보이고, 학번·이름·면담 내용(선택)을 넣고 &#x27;예약하기&#x27;.
+[규칙] 누가 고른 시간은 다른 학생 화면에서 사라져. 같은 학번은 한 번만 예약.
+       동시에 같은 칸을 눌러도 한 명만 되게 LockService, 늦은 사람에게는 &#x27;방금 다른 학생이 예약했어요&#x27;. 15초마다 새로고침.
+[디자인] 초록 계열 헤더, 시간 버튼은 큼직하게, 휴대폰에서도 보기 좋게.
+Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비 방법과 배포 순서(배포 → 새 배포 → 웹 앱, 실행: 나, 액세스: 모든 사용자)도 알려 줘.</pre></div></details>
   
   <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
     <p class="mylink"><a class="goldbtn" href="https://docs.google.com/spreadsheets/d/1YeYm3CHRAdBmiYh3VE4LtF6z55vjjgjF1MCpytzCkbA/copy" target="_blank" rel="noopener">✨ 면담 시간 예약 보드 사본 만들기 ↗</a></p>
@@ -2613,6 +2664,15 @@ function book(form) {
   </details>
   <details class="gpx" id="gas-h6"><summary class="gpart">실습④ QR 출석·출구 티켓 <small>시간이 되면 · 교수 화면은 주소 끝에 ?admin=비밀번호</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   <div class="gprev"><img src="img/gas-prev-attend.png" alt="QR 출석 학생 화면과 교수 화면" loading="lazy"><small>✅ 완성하면 이렇게 나와요 · 왼쪽 학생 화면(출석 티켓) · 오른쪽 교수 화면(실시간 인원)</small></div>
+  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습④ QR 출석·출구 티켓</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 부탁문이에요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습④ QR 출석·출구 티켓</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;오늘 수업 출석&#x27;.
+[시트] &#x27;설정&#x27; 탭: B1 오늘의 단어 | B2 교수 비밀번호
+       &#x27;출석&#x27; 탭: A 출석 시각 | B 날짜 | C 학번 | D 이름
+[화면] 학생: 학번·이름·오늘의 단어를 넣고 &#x27;출석하기&#x27; → 점선 테두리 &#x27;출석 완료 티켓&#x27;(시각, 이름, 학번).
+       교수: 주소 끝에 ?admin=비밀번호를 붙이면 오늘 출석 인원을 아주 크게, 최근 출석 8명을 표로. 10초마다 새로고침.
+[규칙] 오늘의 단어가 틀리면 출석 안 됨. 같은 학번은 하루 한 번만. 동시에 눌러도 꼬이지 않게 LockService.
+       교수 화면 비밀번호는 Code.gs에서만 확인하고 화면 코드에는 넣지 마.
+[디자인] 파란 헤더, 휴대폰 화면 기준.
+Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비 방법과 배포 순서(배포 → 새 배포 → 웹 앱, 실행: 나, 액세스: 모든 사용자)도 알려 줘.</pre></div></details>
   <div class="callout blue" style="margin:0 0 12px"><b class="t">어떻게 쓰나요?</b> 수업 시작 때 화면에 <b>QR + 오늘의 단어</b>를 띄워요. 교실에 있는 학생만 단어를 알 수 있어서 대리 출석을 줄여요. 교수님은 <b>?admin=비밀번호</b> 주소로 인원이 올라가는 걸 봐요.</div>
   
   <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
@@ -2791,6 +2851,16 @@ function getToday(pw) {
   </details>
   <details class="gpx" id="gas-h7"><summary class="gpart">실습⑤ 실습실 장비 대여·반납 대장 <small>시간이 되면 · 공학·실험·실기 학과</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
   <div class="gprev"><img src="img/gas-prev-equip.png" alt="실습실 장비 대여·반납 완성 화면" loading="lazy"><small>✅ 완성하면 이렇게 나와요 · 남은 수량 막대, 빌리기·반납하기, 연체는 빨간색 (빌린 사람 이름은 가려서)</small></div>
+  <details class="gx grev"><summary>🔍 이걸 처음부터 만든다면? · 리버스 프롬프트 <small>실습⑤ 실습실 장비 대여·반납 대장</small></summary><p style="margin:4px 0 8px">이 완성 화면을 <b>처음부터 다시 만들 때</b> 이렇게 부탁하면 돼요. (강사가 여러 번 고쳐 만든 결과를 한 번에 나오도록 다시 정리한 부탁문이에요.)</p><div class="prompt"><div class="label">리버스 프롬프트 · 실습⑤ 실습실 장비 대여·반납 대장</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 이름은 &#x27;실습실 장비 대여·반납&#x27;.
+[시트] &#x27;장비&#x27; 탭: A 장비 | B 보유 수량
+       &#x27;대여&#x27; 탭: A 대여 시각 | B 장비 | C 학번 | D 이름 | E 반납 예정일 | F 반납 시각(비어 있으면 대여 중)
+[화면] 장비마다 카드: 남은 수량 막대와 &#x27;남은 수량 2 / 4&#x27;, 다 나가면 &#x27;모두 대여 중&#x27;.
+       &#x27;빌리기 / 반납하기&#x27; 탭, 장비·학번·이름 입력. 아래에 &#x27;지금 빌려 간 장비&#x27; 표(장비, 빌린 사람, 반납 예정일).
+[규칙] 남은 수량이 있을 때만 대여, 반납 예정일은 7일 뒤. 같은 학번은 같은 장비를 한 개만.
+       반납은 학번+장비가 맞는 줄에 반납 시각 기록. 예정일이 지나면 빨간 &#x27;⚠ 연체&#x27;.
+       빌린 사람 이름은 &#x27;김*늘&#x27;처럼 가려서. 동시에 눌러도 꼬이지 않게 LockService. 15초마다 새로고침.
+[디자인] 주황·갈색 헤더, 휴대폰에서도 보기 좋게.
+Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비 방법과 배포 순서(배포 → 새 배포 → 웹 앱, 실행: 나, 액세스: 모든 사용자)도 알려 줘.</pre></div></details>
   
   <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
     <p class="mylink"><a class="goldbtn" href="https://docs.google.com/spreadsheets/d/1vZ-2pJxc6uSY7fQZ8QUdHnLiMT0yCEHg5VPSnYqxBQg/copy" target="_blank" rel="noopener">✨ 장비 대여·반납 대장 사본 만들기 ↗</a></p>
@@ -4440,6 +4510,12 @@ WPPT_DECKS['gas']=[
 '<p class="k">배포하면 주소가 생겨요</p><h2>붙여 넣고 <em>다섯 번 누르면</em> 끝</h2><div class="steps good"><div><b>1</b>확장 프로그램 → Apps Script → 코드 두 개 붙여 넣고 저장</div><div><b>2</b>배포 → 새 배포 → 유형 ⚙️ 웹 앱</div><div><b>3</b>실행: 나 · 액세스: 모든 사용자 → 배포</div><div><b>4</b>"확인되지 않은 앱" → 고급 → 이동 → 허용</div><div><b>5</b>웹 앱 주소 복사 → 크롬에서 QR 만들기</div></div>',
 '<p class="k">꼭 기억할 세 가지</p><h2>고칠 땐 <em>말로</em>, 배포는 <em>새 버전</em>으로</h2><div class="row"><div class="card"><span class="ic">🗣️</span><b>말로 고치기</b><span>“주제 8개로, 팀원 3명까지” 부탁문에 코드를 넣어 제미나이에 보내요.</span></div><div class="card gold"><span class="ic">🔁</span><b>새 버전으로 다시 배포</b><span>배포 관리 → ✏️ 수정 → 새 버전. 주소는 그대로예요. ‘새 배포’는 주소가 바뀌어요.</span></div><div class="card bad"><span class="ic">🔒</span><b>시트는 공유하지 않기</b><span>학번·이름이 다 보여요. 학생은 웹 앱 주소만 받아요.</span></div></div>'
 ];
+WPPT_DECKS['revp']=[
+'<p class="k">🪄 궁금하시죠?</p><h2>이걸 <em>처음에</em> 뭐라고 부탁했을까?</h2><div class="row"><div class="card"><span class="ic">📋</span><b>주제 선착순 보드</b><span>남은 자리 · 마감</span></div><div class="card"><span class="ic">🔒</span><b>점수 조회</b><span>본인 것만</span></div><div class="card"><span class="ic">📅</span><b>면담 예약</b><span>고르면 사라짐</span></div></div>',
+'<p class="k">비밀</p><h2>프롬프트도 <em>AI에게</em> 써 달라고 해요</h2><div class="flow"><div class="card"><span class="ic">🗣️</span><b>원하는 것 한 줄</b><span>“팀 주제를 선착순으로 받고 싶어”</span></div><arr/><div class="card"><span class="ic">❓</span><b>AI가 질문 3개</b><span>몇 팀? 정원은? 중복은?</span></div><arr/><div class="card"><span class="ic">✍️</span><b>내가 답하기</b><span>내 수업 사정만 말하면 돼요</span></div><arr/><div class="card gold"><span class="ic">📜</span><b>완성 부탁문</b><span>시트 구조·규칙·배포까지</span></div></div>',
+'<p class="k">거꾸로도 돼요 · 리버스 프롬프트</p><h2>마음에 드는 화면을 보여 주며 <em>“이거 만들 부탁문 써 줘”</em></h2><div class="vs"><div class="card"><span class="ic">🖼️</span><b>완성 화면 캡처</b><span>남이 만든 앱, 오늘 본 예시, 다른 학교 사례</span></div><div class="mid">→</div><div class="card gold"><span class="ic">🔍</span><b>처음부터 만드는 부탁문</b><span>기능을 빠짐없이 적고, 시트 구조까지 정해 줘요</span></div></div>',
+'<p class="k">오늘의 공식</p><h2>내가 할 일은 <em>원하는 것 말하기</em>뿐</h2><div class="steps good"><div><b>1</b>원하는 것을 한 줄로 말하기</div><div><b>2</b>“프롬프트를 써 줘. 질문 먼저 해 줘”</div><div><b>3</b>받은 부탁문을 붙여 넣어 코드 받기</div><div><b>4</b>시트에 붙여 넣고 배포</div><div><b>5</b>마음에 안 들면 말로 고치기</div></div>'
+];
 /* ===== 탭별 1분 설명 ===== */
 WPPT_DECKS['chrome']=[
 '<p class="k">2 크롬 · 왜 크롬부터?</p><h2>오늘 쓰는 AI는 <em>대부분 크롬 안</em>에 있어요</h2><div class="row"><div class="card"><span class="ic">✦</span><b>제미나이 인 크롬</b><span>보는 화면 옆에서 질문</span></div><div class="card"><span class="ic">🔍</span><b>구글 렌즈</b><span>화면 속 글자·그림을 바로 검색</span></div><div class="card"><span class="ic">🔳</span><b>QR 만들기</b><span>주소창에서 바로 QR</span></div><div class="card gold"><span class="ic">👤</span><b>크롬 로그인</b><span>이게 되어 있어야 다 보여요</span></div></div><p class="note">그동안 크롬을 10%만 쓰셨다면, 오늘 나머지 90%를 켜는 시간이에요.</p>',
@@ -4508,7 +4584,7 @@ WPPT_DECKS['c-prompt']=[
 ];
 /* ===== 목록 ===== */
 WPPT_DECKS['lib']=[
-'<p class="k">☕ 기다리는 동안 보기</p><h2>보고 싶은 <em>설명</em>을 골라 주세요</h2><div class="lib"><h4>AI 개념</h4><button onclick="wpptOpen(\'c-token\')"><b>🧩 토큰</b><span>AI는 글을 조각으로 읽어요</span></button><button onclick="wpptOpen(\'c-context\')"><b>🗂️ 컨텍스트 윈도우</b><span>AI 책상의 크기</span></button><button onclick="wpptOpen(\'c-hallu\')"><b>🎭 지어내기(환각)</b><span>오늘 본 실제 사례로</span></button><button onclick="wpptOpen(\'c-ground\')"><b>📖 근거 자료 주기</b><span>오픈북 시험처럼</span></button><button onclick="wpptOpen(\'c-prompt\')"><b>✍️ 좋은 부탁문</b><span>네 가지 재료</span></button><h4>오전반 도구</h4><button onclick="wpptOpen(\'chrome\')"><b>2 크롬</b><span>왜 크롬부터?</span></button><button onclick="wpptOpen(\'gic\')"><b>3 제미나이 인 크롬</b><span>보는 화면 옆에서 묻기</span></button><button onclick="wpptOpen(\'skill\')"><b>4 스킬</b><span>@이름으로 불러 쓰기</span></button><button onclick="wpptOpen(\'grade\')"><b>7 노트북LM 채점</b><span>과제 전체를 근거로</span></button><button onclick="wpptOpen(\'form\')"><b>6 폼→시트</b><span>오후 대시보드의 재료</span></button><h4>오후반 도구</h4><button onclick="wpptOpen(\'canva\')"><b>2 캔바 코드</b><span>바이브코딩이란?</span></button><button onclick="wpptOpen(\'canvas\')"><b>3 캔버스</b><span>학생 과제로</span></button><button onclick="wpptOpen(\'lmvibe2\')"><b>5 LM바이브</b><span>내 자료대로 만들기</span></button><button onclick="wpptOpen(\'gas\')"><b>6 앱스크립트</b><span>시트가 앱이 되는 원리</span></button><button onclick="wpptOpen(\'live\')"><b>7 라이브 대시보드</b><span>근거로 다음 수업을</span></button><button onclick="drsOpenFromLib()"><b>🔎 딥리서치</b><span>강의계획서 만들기</span></button></div>'
+'<p class="k">☕ 기다리는 동안 보기</p><h2>보고 싶은 <em>설명</em>을 골라 주세요</h2><div class="lib"><h4>AI 개념</h4><button onclick="wpptOpen(\'c-token\')"><b>🧩 토큰</b><span>AI는 글을 조각으로 읽어요</span></button><button onclick="wpptOpen(\'c-context\')"><b>🗂️ 컨텍스트 윈도우</b><span>AI 책상의 크기</span></button><button onclick="wpptOpen(\'c-hallu\')"><b>🎭 지어내기(환각)</b><span>오늘 본 실제 사례로</span></button><button onclick="wpptOpen(\'c-ground\')"><b>📖 근거 자료 주기</b><span>오픈북 시험처럼</span></button><button onclick="wpptOpen(\'c-prompt\')"><b>✍️ 좋은 부탁문</b><span>네 가지 재료</span></button><h4>오전반 도구</h4><button onclick="wpptOpen(\'chrome\')"><b>2 크롬</b><span>왜 크롬부터?</span></button><button onclick="wpptOpen(\'gic\')"><b>3 제미나이 인 크롬</b><span>보는 화면 옆에서 묻기</span></button><button onclick="wpptOpen(\'skill\')"><b>4 스킬</b><span>@이름으로 불러 쓰기</span></button><button onclick="wpptOpen(\'grade\')"><b>7 노트북LM 채점</b><span>과제 전체를 근거로</span></button><button onclick="wpptOpen(\'form\')"><b>6 폼→시트</b><span>오후 대시보드의 재료</span></button><h4>오후반 도구</h4><button onclick="wpptOpen(\'canva\')"><b>2 캔바 코드</b><span>바이브코딩이란?</span></button><button onclick="wpptOpen(\'canvas\')"><b>3 캔버스</b><span>학생 과제로</span></button><button onclick="wpptOpen(\'lmvibe2\')"><b>5 LM바이브</b><span>내 자료대로 만들기</span></button><button onclick="wpptOpen(\'gas\')"><b>6 앱스크립트</b><span>시트가 앱이 되는 원리</span></button><button onclick="wpptOpen(\'revp\')"><b>🪄 프롬프트도 AI가</b><span>리버스 프롬프트</span></button><button onclick="wpptOpen(\'live\')"><b>7 라이브 대시보드</b><span>근거로 다음 수업을</span></button><button onclick="drsOpenFromLib()"><b>🔎 딥리서치</b><span>강의계획서 만들기</span></button></div>'
 ];
 
 </script>
