@@ -3085,22 +3085,8 @@ show();
       <div class="fillbox"><b>✏️ 내 수업으로 바꾸기</b> <span>수업명·주차를 적고 <b>넣기</b>를 누르면 아래 카드 프롬프트에 들어가요</span>
         <div class="fillrow"><label>수업명 <input type="text" data-k="sub" placeholder="예: 경영학원론"></label><label>주차 <input type="number" data-k="wk" min="1" max="16" placeholder="예: 8"></label><button type="button" class="fillgo">아래 프롬프트에 넣기</button><span class="fillok"></span></div></div>
       <p class="fcintro">아래 네 카드 중 <b>내 수업에 필요한 것 하나</b>를 골라 해 보세요.</p>
-      <div class="fcard" style="--fc:#4338ca"><div class="fch"><span class="fcb">A</span><b>중간 수업 피드백</b><em>학기 중간 · 익명</em></div>
-      <div class="prompt"><div class="label">카드 A · 중간 수업 피드백 (익명)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 중간 수업 피드백 설문을 만들어줘.
-- 이해도 1~5점 척도 1문항
-- 가장 어려웠던 개념: 단답형
-- 수업 속도: 객관식(느림 / 적당 / 빠름)
-- 개선 제안: 장문형(선택 응답)
-- 이름·학번은 받지 않는 익명 설문</pre><button class="copy">복사</button></div>
-      </div>
-
-      <div class="fcard" style="--fc:#0f766e"><div class="fch"><span class="fcb">B</span><b>면담 전 사전 질문지</b><em>면담 전 · 고민 미리 받기</em></div>
-      <div class="prompt"><div class="label">카드 B · 면담 전 사전 질문지</div><pre>교수 연구실 면담 전에 학생이 미리 적는 사전 질문지 폼을 만들어줘. 이름, 학과, 상담 주제(객관식: 진로 / 수업 / 과제 / 기타), 지금 가장 고민되는 점(장문형), 면담에서 꼭 듣고 싶은 것(단답형), 미리 보여 주고 싶은 자료 링크(단답형, 선택). 맨 아래에 개인정보 수집·이용 안내 문장을 한 줄 넣어줘.</pre><button class="copy">복사</button></div>
-      <div class="callout blue"><b class="t">면담 “시간”은 폼이 아니라 캘린더로</b> 구글 폼은 누가 한 시간대를 고르면 다른 사람에게서 그 칸을 막는 기능이 없어서, 같은 시간에 신청이 겹쳐요. 시간 예약은 구글 캘린더의 <b>예약 페이지</b>(캘린더 → ＋만들기 → 예약 일정)로 받으면 예약된 시간이 자동으로 사라져요. 폼은 이렇게 <b>면담 전에 고민을 미리 받는 용도</b>로 쓰고, 예약 페이지의 “예약 양식”에 이 폼 링크를 넣어 두면 깔끔해요.</div>
-      </div>
-
-      <div class="fcard" style="--fc:#b45309"><div class="fch"><span class="fcb">C</span><b>과제 수합</b><em>과제 마감 · PDF로 받아 채점까지</em></div>
-      <div class="prompt"><div class="label">카드 C · 과제 수합 (PDF 제출)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 과제 제출 폼을 만들어줘.
+      <div class="fcard" style="--fc:#b45309"><div class="fch"><span class="fcb">A</span><b>과제 수합</b><em>과제 마감 · PDF로 받아 채점까지</em></div>
+      <div class="prompt"><div class="label">카드 A · 과제 수합 (PDF 제출)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 과제 제출 폼을 만들어줘.
 - 학번: 단답형(숫자만)
 - 이름: 단답형
 - 과제 파일: 파일 업로드(PDF만, 최대 1개, 10MB)
@@ -3115,6 +3101,20 @@ show();
           <li>마감이 지나면 폼의 <b>응답 받기</b>를 끄면 돼요.</li>
           <li><b>PDF로 받는 이유</b>: 모인 과제를 <a href="#s2b">4 스킬의 @rubric-grader(루브릭 채점 조교)</a>에 그대로 첨부해 채점 초안을 받을 수 있어요. 앱 스킬은 워드·한글 파일을 못 읽어요.</li>
         </ul></div>
+      </div>
+
+      <div class="fcard" style="--fc:#4338ca"><div class="fch"><span class="fcb">B</span><b>중간 수업 피드백</b><em>학기 중간 · 익명</em></div>
+      <div class="prompt"><div class="label">카드 B · 중간 수업 피드백 (익명)</div><pre>'<span class="fill" data-k="sub">[수업명]</span>' <span class="fill" data-k="wk">[N]</span>주차 중간 수업 피드백 설문을 만들어줘.
+- 이해도 1~5점 척도 1문항
+- 가장 어려웠던 개념: 단답형
+- 수업 속도: 객관식(느림 / 적당 / 빠름)
+- 개선 제안: 장문형(선택 응답)
+- 이름·학번은 받지 않는 익명 설문</pre><button class="copy">복사</button></div>
+      </div>
+
+      <div class="fcard" style="--fc:#0f766e"><div class="fch"><span class="fcb">C</span><b>면담 전 사전 질문지</b><em>면담 전 · 고민 미리 받기</em></div>
+      <div class="prompt"><div class="label">카드 C · 면담 전 사전 질문지</div><pre>교수 연구실 면담 전에 학생이 미리 적는 사전 질문지 폼을 만들어줘. 이름, 학과, 상담 주제(객관식: 진로 / 수업 / 과제 / 기타), 지금 가장 고민되는 점(장문형), 면담에서 꼭 듣고 싶은 것(단답형), 미리 보여 주고 싶은 자료 링크(단답형, 선택). 맨 아래에 개인정보 수집·이용 안내 문장을 한 줄 넣어줘.</pre><button class="copy">복사</button></div>
+      <div class="callout blue"><b class="t">면담 “시간”은 폼이 아니라 캘린더로</b> 구글 폼은 누가 한 시간대를 고르면 다른 사람에게서 그 칸을 막는 기능이 없어서, 같은 시간에 신청이 겹쳐요. 시간 예약은 구글 캘린더의 <b>예약 페이지</b>(캘린더 → ＋만들기 → 예약 일정)로 받으면 예약된 시간이 자동으로 사라져요. 폼은 이렇게 <b>면담 전에 고민을 미리 받는 용도</b>로 쓰고, 예약 페이지의 “예약 양식”에 이 폼 링크를 넣어 두면 깔끔해요.</div>
       </div>
 
       <div class="fcard" style="--fc:#7c3aed"><div class="fch"><span class="fcb">D</span><b>첫 주 학생 배경 조사</b><em>학기 첫 주 · 수준 맞추기</em></div>
