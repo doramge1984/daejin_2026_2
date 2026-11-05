@@ -1621,62 +1621,59 @@ header.hero{position:relative}
 
 
 
-  <details open id="gic1" class="gicstep gs1">
+  <style id="gcard-css">
+.gcard{background:#fff;border:1.5px solid #e6e1d6;border-radius:16px;padding:10px 20px;margin:14px 0 12px;box-shadow:0 4px 16px rgba(20,30,60,.06)}
+.gstep{display:flex;gap:14px;padding:16px 0;border-bottom:1px dashed #e7e2d8}
+.gstep:last-child{border-bottom:0}
+.gnum{flex:0 0 34px;height:34px;border-radius:50%;background:#16233f;color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.gst{flex:1;min-width:0}
+.gst>p{margin:4px 0}
+.gtt{font-weight:800;font-size:1.12em;color:#16233f;margin:4px 0 8px!important}
+.gsub{color:#5f6675;font-size:.93em;line-height:1.6}
+.gst .prompt{margin:8px 0 4px}
+.gst .sylt{margin:10px 0 4px}
+details.gmore{margin:6px 0 18px;border:1px solid #e3e1da;border-radius:12px;background:#fafaf7}
+details.gmore>summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:700;color:#4a4f5c}
+details.gmore>summary::-webkit-details-marker{display:none}
+details.gmore>summary::after{content:' ▸';color:#9aa0ab}
+details.gmore[open]>summary::after{content:' ▾'}
+.gmore-b{padding:0 16px 14px}
+@media(max-width:640px){.gcard{padding:6px 12px}.gnum{flex-basis:28px;height:28px;font-size:15px}}
+@media print{details.gmore{display:block}}
+</style>
+<details open id="gic1" class="gicstep gs1">
     <summary><span class="badge b-do">실습</span>① 웹페이지 열고 대화하기 <small>— 공지 요약</small></summary>
     <div class="body">
       <div class="gicpill"><b>1 / 3</b><span>🌐 웹페이지와 대화</span><em>지금 보고 있는 웹페이지를 그 자리에서 읽고 답합니다.</em></div>
-      <div class="qbox"><p class="qh">⚡ 바로 해 보기 <span>버튼 두 번이면 끝</span></p><ol>
-<li><b>자료 열기</b> <a class="qbtn" href="files/am/notice.html" target="_blank" rel="noopener">🌐 가상 공지 페이지 열기</a></li>
-<li><b>프롬프트 복사</b> <button type="button" class="qcopy" data-src="qp-sum">📋 페이지 요약 프롬프트 복사</button><div class="qprev">이 페이지 내용을 교수 회의에서 30초 안에 보고할 수 있게 세 줄로 요약해줘. 날짜·숫자·기한은 빠뜨리지 말고, 페이지에 없는 내용은 덧붙이지 마.</div></li>
-<li><b>열린 공지 탭</b>에서 오른쪽 위 <b>✦</b> → 패널에 <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</li></ol></div>
-      <ol>
-        <li>아래 버튼을 눌러 실습용 공지 페이지를 새 탭으로 엽니다.<br><a class="notice-btn" href="files/am/notice.html" target="_blank" rel="noopener">📄 [가상] AI 활용 수업혁신 사례 공모 안내 열기 &nbsp;→</a><br> (아무 기사나 학과 공지 페이지로 하셔도 됩니다)</li>
-        <li>크롬 오른쪽 위의 <b>✦ Gemini 버튼</b>을 누릅니다. 오른쪽에 패널이 열립니다.</li>
-        <li>아래 프롬프트를 붙여넣습니다.</li>
-      </ol>
-      <figure><img src="img/am-notice.png" alt="실습용 가상 공지 페이지 — 날짜·금액·제출 서류가 많아 요약 결과를 확인하기 좋습니다." loading="lazy"><figcaption>실습용 가상 공지 페이지 — 날짜·금액·제출 서류가 많아 요약 결과를 확인하기 좋습니다.</figcaption></figure>
-            <div class="prompt" id="qp-sum"><div class="label">페이지 요약</div><pre>이 페이지 내용을 교수 회의에서 30초 안에 보고할 수 있게 세 줄로 요약해줘. 날짜·숫자·기한은 빠뜨리지 말고, 페이지에 없는 내용은 덧붙이지 마.</pre><button class="copy">복사</button></div>
-      <figure><img src="img/am-gic-panel.jpg" alt="제미나이 인 크롬 패널 실행 화면" loading="lazy"><figcaption>실제 실행 화면 — 왼쪽은 공지 페이지, 오른쪽은 제미나이 패널. 아래쪽 입력창 위에 <b>“…” 공유 중</b>이 보이면 지금 보는 페이지를 읽고 있다는 뜻입니다. 날짜·금액·제출처가 페이지와 같은지 꼭 대조해 보세요.</figcaption></figure>
-      <p style="margin:14px 0 6px"><b>이어서 같은 패널에</b> 아래 부탁을 하나 더 넣어 보세요. 요약을 받은 뒤, 내가 잘 모르는 내용도 회의에서 말할 수 있게 풀어 줍니다.</p>
-      <div class="prompt"><div class="label">이어서 · 회의 5분 전</div><pre>나는 이 내용을 하나도 몰라. 지금 회의 들어가기 5분 전이야. 이 내용을 잘 이해할 수 있게 쉽게 설명해 주고, 내가 발표할 수 있게 해 줘.</pre><button class="copy">복사</button></div>
-      <figure><img src="img/am-gic-meeting.jpg" alt="회의 5분 전 프롬프트 실행 결과" loading="lazy"><figcaption>실행 결과 — "누가·무엇을·언제까지"로 핵심을 풀어 주고, 그대로 읽을 수 있는 <b>30초 발표 대본</b>까지 만들어 줍니다. 대본 속 날짜·금액도 왼쪽 페이지와 한 번 대조하세요.</figcaption></figure>
-      <div class="callout blue fallback"><b class="t">✦ 버튼이 안 보이면</b>
+      <div class="gcard">
+      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">자료 열기</p><p><a class="qbtn" href="files/am/notice.html" target="_blank" rel="noopener">🌐 가상 공지 페이지 열기</a></p><p class="gsub">아무 기사나 학과 공지 페이지로 하셔도 됩니다.</p></div></div>
+      <div class="gstep"><span class="gnum">2</span><div class="gst"><p class="gtt">프롬프트 복사</p><div class="prompt" id="qp-sum"><div class="label">페이지 요약</div><pre>이 페이지 내용을 교수 회의에서 30초 안에 보고할 수 있게 세 줄로 요약해줘. 날짜·숫자·기한은 빠뜨리지 말고, 페이지에 없는 내용은 덧붙이지 마.</pre><button class="copy">복사</button></div></div></div>
+      <div class="gstep"><span class="gnum">3</span><div class="gst"><p class="gtt">붙여넣고 보내기</p><p>열린 공지 탭에서 오른쪽 위 <b>✦</b> → 패널에 <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</p><p class="gsub">✦가 안 보이면 아래 <b>실행 화면 · 도움말 보기</b>를 열어 보세요.</p></div></div>
+      <div class="gstep"><span class="gnum">+</span><div class="gst"><p class="gtt">이어서 같은 패널에</p><p class="gsub">요약을 받은 뒤, 잘 모르는 내용도 회의에서 말할 수 있게 풀어 줍니다.</p><div class="prompt"><div class="label">이어서 · 회의 5분 전</div><pre>나는 이 내용을 하나도 몰라. 지금 회의 들어가기 5분 전이야. 이 내용을 잘 이해할 수 있게 쉽게 설명해 주고, 내가 발표할 수 있게 해 줘.</pre><button class="copy">복사</button></div></div></div>
+      </div>
+      <details class="gmore"><summary>🖼️ 실행 화면 · 도움말 보기</summary><div class="gmore-b"><figure><img src="img/am-notice.png" alt="실습용 가상 공지 페이지 — 날짜·금액·제출 서류가 많아 요약 결과를 확인하기 좋습니다." loading="lazy"><figcaption>실습용 가상 공지 페이지 — 날짜·금액·제출 서류가 많아 요약 결과를 확인하기 좋습니다.</figcaption></figure><figure><img src="img/am-gic-panel.jpg" alt="제미나이 인 크롬 패널 실행 화면" loading="lazy"><figcaption>실제 실행 화면 — 왼쪽은 공지 페이지, 오른쪽은 제미나이 패널. 아래쪽 입력창 위에 <b>“…” 공유 중</b>이 보이면 지금 보는 페이지를 읽고 있다는 뜻입니다. 날짜·금액·제출처가 페이지와 같은지 꼭 대조해 보세요.</figcaption></figure><figure><img src="img/am-gic-meeting.jpg" alt="회의 5분 전 프롬프트 실행 결과" loading="lazy"><figcaption>실행 결과 — "누가·무엇을·언제까지"로 핵심을 풀어 주고, 그대로 읽을 수 있는 <b>30초 발표 대본</b>까지 만들어 줍니다. 대본 속 날짜·금액도 왼쪽 페이지와 한 번 대조하세요.</figcaption></figure><div class="callout blue fallback"><b class="t">✦ 버튼이 안 보이면</b>
         <ul>
           <li>크롬에 로그인되어 있는지(세팅) 확인합니다. <b>시크릿 창에서는 작동하지 않습니다.</b></li>
           <li>크롬을 최신으로 업데이트한 뒤 다시 시작합니다.</li>
           <li>설정 → <b>AI 혁신</b>(또는 Gemini) 메뉴에서 켜져 있는지 확인합니다. 메뉴 이름은 업데이트로 바뀔 수 있습니다.</li>
           <li>그래도 없으면 <b>gemini.google.com</b>에 페이지 주소나 내용을 붙여넣어 같은 질문을 하셔도 됩니다.</li>
         </ul>
-      </div>
+      </div></div></details>
     </div>
   </details>
 
-  <details open id="gic2" class="gicstep gs2">
+<details open id="gic2" class="gicstep gs2">
     <summary><span class="badge b-do">실습</span>② PDF를 크롬으로 가져와 대화하기 <small>— 강의계획서·논문</small></summary>
     <div class="body">
       <div class="gicpill"><b>2 / 3</b><span>📄 PDF와 대화</span><em>PDF를 크롬 창에 끌어다 놓으면, 그 PDF를 읽고 답합니다.</em></div>
-      <div class="qbox"><p class="qh">⚡ 바로 해 보기 <span>PDF를 내려받지 않고 크롬에서 바로 엽니다</span></p><ol>
-<li><b>PDF 열기</b> <a class="qbtn" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" target="_blank" rel="noopener">📘 강의계획서 PDF</a> <a class="qbtn alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" target="_blank" rel="noopener">🌍 영어 강의계획서 PDF</a> <a class="qbtn alt2" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" target="_blank" rel="noopener">📄 논문 PDF</a></li>
-<li><b>프롬프트 복사</b> <button type="button" class="qcopy" data-src="qp-syl" data-text="이 강의계획서를 점검해줘.&#10;1) 학습목표가 관찰·측정할 수 있는 동사로 쓰였는지&#10;2) 학습목표와 평가 방법이 서로 연결되는지&#10;3) 생성형 AI 사용 기준이 학생에게 분명하게 안내되어 있는지&#10;항목별로 &#x27;잘된 점 / 고칠 점 / 고친 예시 문장&#x27;으로 나눠 정리해줘. 문서에 없는 내용은 추측하지 말고 &#x27;문서에 없음&#x27;이라고 적어줘.">📋 강의계획서 점검 복사</button><div class="qprev">이 강의계획서를 점검해줘.
-1) 학습목표가 관찰·측정할 수 있는 동사로 쓰였는지
-2) 학습목표와 평가 방법이 서로 연결되는지
-3) 생성형 AI 사용 기준이 학생에게 분명하게 안내되어 있는지
-항목별로 '잘된 점 / 고칠 점 / 고친 예시 문장'으로 나눠 정리해줘. 문서에 없는 내용은 추측하지 말고 '문서에 없음'이라고 적어줘.</div> <button type="button" class="qcopy" data-src="qp-paper">📋 논문 쉽게 설명 복사</button><div class="qprev">이 논문을 아주 쉽게 설명해줘.</div></li>
-<li><b>열린 PDF 탭</b>에서 <b>✦</b> → <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기 <span class="qn">(내 PDF는 크롬 창에 끌어다 놓으면 똑같이 열립니다)</span></li></ol></div>
-      <p>PDF 파일을 크롬 창에 <b>끌어다 놓으면</b> 크롬에서 열립니다. 그 상태로 제미나이 패널에 질문합니다.</p>
-      <div class="dlbox"><b class="t">📥 내 파일이 없으면 이것으로</b><div class="dlgrid"><a class="dlbtn" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" download><span>[가상] 강의계획서 (2쪽)</span><small>PDF</small></a><a class="dlbtn" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" download><span>[가상] 해외 대학 강의계획서 · 영어 (2쪽)</span><small>PDF</small></a><a class="dlbtn" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" download><span>[가상] 논문 (4쪽)</span><small>PDF</small></a></div></div>
-      <div class="imgrow"><figure><img src="img/am-syllabus.png" alt="가상 강의계획서 — 학습목표·평가·AI 사용 안내에 일부러 고칠 점을 넣어 두었습니다." loading="lazy"><figcaption>가상 강의계획서 — 학습목표·평가·AI 사용 안내에 일부러 고칠 점을 넣어 두었습니다.</figcaption></figure><figure><img src="img/am-syllabus-en.png" alt="가상 해외 대학 강의계획서(영어) — 평가와 학습목표 연결, AI 사용 신호등이 들어 있습니다." loading="lazy"><figcaption>가상 해외 대학 강의계획서(영어) — 평가·학습목표 연결표, AI 사용 신호등이 들어 있습니다. 영어 문서도 한국어로 물어보면 됩니다.</figcaption></figure></div>
-      <ol>
-        <li>내 강의계획서 PDF 또는 내 분야 논문 PDF 하나를 크롬 창에 끌어다 놓습니다. (한글 파일은 한글에서 <b>다른 이름으로 저장 → PDF</b>)</li>
-        <li>제미나이 패널에서 아래 카드 중 하나를 고릅니다.</li>
-      </ol>
-      <h4 style="margin:26px 0 6px;font-size:1.08em">📘 강의계획서로 해 보기</h4>
-      <p style="margin:0 0 10px">강의계획서를 연 <b>목적</b>에 맞는 카드를 하나 고르세요. <b>빨간 칸을 눌러 내 과목으로 고친 뒤</b> 복사하면 됩니다. 한 칸을 고치면 네 카드에 함께 바뀝니다.</p>
-      <div class="sylt" role="tablist">
+      <div class="gcard">
+      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">PDF 열기</p><p><a class="qbtn" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" target="_blank" rel="noopener">📘 강의계획서 PDF</a> <a class="qbtn alt" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" target="_blank" rel="noopener">🌍 영어 강의계획서 PDF</a> <a class="qbtn alt2" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" target="_blank" rel="noopener">📄 논문 PDF</a></p><p class="gsub">내 PDF는 크롬 창에 <b>끌어다 놓으면</b> 열립니다. 한글 파일은 한글에서 <b>다른 이름으로 저장 → PDF</b>.<br>⚠️ 심사 중인 원고, 미공개 연구 데이터, 학생 개인정보가 담긴 PDF는 오늘 쓰지 않습니다.</p></div></div>
+      <div class="gstep"><span class="gnum">2</span><div class="gst"><p class="gtt">프롬프트 고르고 복사</p><p class="gsub">목적에 맞는 카드를 고르세요. <b>빨간 칸을 눌러 내 과목으로 고친 뒤</b> 복사하면 됩니다. 한 칸을 고치면 다른 카드에도 함께 바뀝니다.</p><div class="sygroup"><div class="sylt" role="tablist">
         <button type="button" class="on" data-p="sy1">🔍 내 계획서 점검</button>
         <button type="button" data-p="sy2">🌍 다른 학교 참고</button>
         <button type="button" data-p="sy3">🎓 학생 눈으로 읽기</button>
         <button type="button" data-p="sy4">📅 캘린더에 일정 넣기</button>
+        <button type="button" data-p="sy5">📄 논문 읽기</button>
       </div>
       <div class="sylp on" id="sy1">
         <p class="syld">학습목표·평가·일정·AI 안내를 학생 입장에서 점검합니다. <b>실습용 PDF</b>로 할 때는 빨간 칸을 그대로 둬도 됩니다.</p>
@@ -1694,9 +1691,9 @@ header.hero{position:relative}
 1) 이 수업의 구성(주차 흐름·평가 방식과 비율·과제 종류)을 한눈에 표로 정리해줘.
 2) 내 수업에 가져다 쓸 만한 아이디어 3가지를 골라, 왜 좋은지와 우리 학생에게 맞게 바꾸는 방법을 적어줘.
 페이지에 없는 내용은 덧붙이지 말고, 문장을 그대로 옮기지 말고 아이디어만 정리해줘.</pre><button class="copy">복사</button></div>
-        <p class="tip">💡 <b>내 계획서와 나란히 보려면</b> 내 강의계획서도 다른 탭에 열어 두고, 패널 입력창에 <b>@</b>로 두 탭을 함께 붙인 뒤 "두 계획서를 비교해서, 내 계획서에 더하면 좋을 점만 표로 알려줘"라고 이어서 물어보세요.</p>
-        <div class="callout gold"><b class="t">참고는 아이디어까지</b> 다른 학교 계획서의 문장·과제 설명을 그대로 옮기지 말고, 많이 빌려 온 부분은 출처를 밝혀 두세요.</div>
-      </div>
+        
+        
+      <p class="gsub">💡 다른 학교 계획서는 문장을 그대로 옮기지 말고 아이디어만 빌려 오세요.</p></div>
       <div class="sylp" id="sy3">
         <p class="syld">학생이 내 계획서를 AI로 읽으면 무엇이 보일까요? 미리 돌려 보면 학생이 헷갈릴 곳을 먼저 알 수 있고, 첫 수업에 학생에게 그대로 알려 줘도 좋습니다.</p>
         <div class="prompt"><div class="label">학생 입장 · 강의계획서 읽기</div><pre>나는 이 수업을 듣는 학생이야. 이 강의계획서를 보고 알려줘.
@@ -1713,13 +1710,22 @@ header.hero{position:relative}
 날짜가 '7주차'처럼 주차로만 적혀 있으면 개강일 <span class="fillwrap">[개강일: <span class="fillin" contenteditable="plaintext-only" spellcheck="false" data-k="start">2026-09-01</span>]</span>을 1주차 첫날로 보고 날짜를 계산해줘. 수업은 <span class="fillwrap">[요일·시간: <span class="fillin" contenteditable="plaintext-only" spellcheck="false" data-k="time">화 10:30~12:00</span>]</span>이야.
 먼저 '날짜 / 시간 / 일정 이름 / 계획서에 적힌 그대로 / 내가 계산했는지'를 표로 보여줘. 내가 확인하면 그때 내 구글 캘린더에 일정 이름 앞에 <span class="fillwrap">[<span class="fillin" contenteditable="plaintext-only" spellcheck="false" data-k="subj">AI융합</span>]</span>을 붙여 등록해줘.
 계획서에 없는 일정은 만들지 마.</pre><button class="copy">복사</button></div>
-        <figure><img src="img/am-gic-calendar.jpg" alt="강의계획서 PDF에서 캘린더 일정 표를 만든 결과" loading="lazy"><figcaption>실행 결과 — 크롬에서 연 PDF를 읽고 주차(3·5·8·10주)를 날짜로 바꿔 표로 먼저 보여 줍니다. 수업 요일·시간은 예시(화 10:30) 대신 <b>계획서에 적힌 목 10:00~12:50</b>을 썼고, 계획서에 없는 일정은 만들지 않았습니다. 날짜는 학사력과 한 번 대조하세요.</figcaption></figure>
-        <p style="margin:16px 0 6px"><b>표가 맞으면</b> 이어서 같은 패널에 이렇게 보냅니다.</p>
+        
+        <p class="gsub" style="margin-top:12px"><b>표가 맞으면</b> 이어서 같은 패널에 이렇게 보냅니다. 주차를 날짜로 바꾼 줄은 학사력과 한 번 대조하세요.</p>
         <div class="prompt"><div class="label">이어서 · 캘린더에 등록</div><pre>확인했어. 일정 이름 앞에 <span class="fillwrap">[<span class="fillin" contenteditable="plaintext-only" spellcheck="false" data-k="subj">AI융합</span>]</span>을 붙여서 내 구글 캘린더에 등록해줘.</pre><button class="copy">복사</button></div>
-        <figure><img src="img/am-gic-calendar2.jpg" alt="캘린더 등록 전 일정 카드 확인 화면" loading="lazy"><figcaption>등록 직전 화면 — 일정마다 <b>[과목명] 일정 이름 · 날짜 · 시간 · 강의실</b>이 카드로 나오고, "지금 바로 생성할까요?"라고 한 번 더 묻습니다. 카드를 훑어봅니다.</figcaption></figure>
-        <figure><img src="img/am-gic-calendar3.jpg" alt="일정 추가 버튼" loading="lazy"><figcaption>카드 맨 아래 <b>"1개 더보기"</b>로 빠진 일정이 없는지 보고, <b>[일정 추가]</b>를 눌러야 캘린더에 들어갑니다. 누르기 전까지는 아무것도 등록되지 않습니다.</figcaption></figure>
-        <div class="callout blue"><b class="t">표를 먼저 보고 등록하세요</b> 주차를 날짜로 바꿀 때 공휴일·보강일은 AI가 모를 수 있습니다. "내가 계산했는지" 칸에 표시된 줄은 학사력과 한 번 대조하세요. 캘린더 연동은 처음 쓸 때 연결 허용 창이 뜹니다.</div>
+        
+        
+        
       </div>
+      <div class="sylp" id="sy5">
+        <p class="syld">논문 PDF를 연 채로 차례로 보냅니다. <b>📄 논문 PDF</b>로 연습해 보세요.</p>
+        <div class="prompt" id="qp-paper"><div class="label">논문 먼저 쉽게 이해하기</div><pre>이 논문을 아주 쉽게 설명해줘.</pre><button class="copy">복사</button></div>
+        <p class="gsub" style="margin-top:12px">감을 잡았으면 <b>이어서 같은 패널에</b> 근거와 함께 정리합니다. 인용한 문장은 <kbd>Ctrl</kbd>+<kbd>F</kbd>로 PDF에서 찾아 확인하세요.</p>
+        <div class="prompt"><div class="label">논문 빠르게 읽기</div><pre>이 논문의 연구 질문, 연구 방법(대상·도구·분석), 핵심 결과, 한계를 표로 정리해줘. 각 항목 옆에 근거가 되는 쪽수나 문장을 짧게 인용해줘.</pre><button class="copy">복사</button></div>
+      </div></div></div></div>
+      <div class="gstep"><span class="gnum">3</span><div class="gst"><p class="gtt">붙여넣고 보내기</p><p>열린 PDF 탭에서 오른쪽 위 <b>✦</b> → 패널에 <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</p></div></div>
+      </div>
+      <details class="gmore"><summary>🖼️ 실행 화면 · 도움말 보기</summary><div class="gmore-b"><div class="imgrow"><figure><img src="img/am-syllabus.png" alt="가상 강의계획서 — 학습목표·평가·AI 사용 안내에 일부러 고칠 점을 넣어 두었습니다." loading="lazy"><figcaption>가상 강의계획서 — 학습목표·평가·AI 사용 안내에 일부러 고칠 점을 넣어 두었습니다.</figcaption></figure><figure><img src="img/am-syllabus-en.png" alt="가상 해외 대학 강의계획서(영어) — 평가와 학습목표 연결, AI 사용 신호등이 들어 있습니다." loading="lazy"><figcaption>가상 해외 대학 강의계획서(영어) — 평가·학습목표 연결표, AI 사용 신호등이 들어 있습니다. 영어 문서도 한국어로 물어보면 됩니다.</figcaption></figure></div><figure style="max-width:560px"><img src="img/am-paper.png" alt="가상 논문 — 쪽수가 있어 “근거 쪽수 인용”을 확인하기 좋습니다." loading="lazy"><figcaption>가상 논문 — 쪽수가 있어 “근거 쪽수 인용”을 확인하기 좋습니다.</figcaption></figure><figure><img src="img/am-gic-calendar.jpg" alt="강의계획서 PDF에서 캘린더 일정 표를 만든 결과" loading="lazy"><figcaption>실행 결과 — 크롬에서 연 PDF를 읽고 주차(3·5·8·10주)를 날짜로 바꿔 표로 먼저 보여 줍니다. 수업 요일·시간은 예시(화 10:30) 대신 <b>계획서에 적힌 목 10:00~12:50</b>을 썼고, 계획서에 없는 일정은 만들지 않았습니다. 날짜는 학사력과 한 번 대조하세요.</figcaption></figure><figure><img src="img/am-gic-calendar2.jpg" alt="캘린더 등록 전 일정 카드 확인 화면" loading="lazy"><figcaption>등록 직전 화면 — 일정마다 <b>[과목명] 일정 이름 · 날짜 · 시간 · 강의실</b>이 카드로 나오고, "지금 바로 생성할까요?"라고 한 번 더 묻습니다. 카드를 훑어봅니다.</figcaption></figure><figure><img src="img/am-gic-calendar3.jpg" alt="일정 추가 버튼" loading="lazy"><figcaption>카드 맨 아래 <b>"1개 더보기"</b>로 빠진 일정이 없는지 보고, <b>[일정 추가]</b>를 눌러야 캘린더에 들어갑니다. 누르기 전까지는 아무것도 등록되지 않습니다.</figcaption></figure><p class="tip">💡 <b>내 계획서와 나란히 보려면</b> 내 강의계획서도 다른 탭에 열어 두고, 패널 입력창에 <b>@</b>로 두 탭을 함께 붙인 뒤 "두 계획서를 비교해서, 내 계획서에 더하면 좋을 점만 알려줘"라고 이어서 물어보세요.</p><div class="dlbox"><b class="t">📥 내 파일이 없으면 이것으로</b><div class="dlgrid"><a class="dlbtn" href="files/am/[가상]교육과데이터리터러시_강의계획서.pdf" download><span>[가상] 강의계획서 (2쪽)</span><small>PDF</small></a><a class="dlbtn" href="files/am/[가상]해외대학_DATA210_강의계획서.pdf" download><span>[가상] 해외 대학 강의계획서 · 영어 (2쪽)</span><small>PDF</small></a><a class="dlbtn" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" download><span>[가상] 논문 (4쪽)</span><small>PDF</small></a></div></div></div></details>
       <style id="sylt-css">
       .sylt{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
       .sylt button{font:inherit;font-weight:800;font-size:15px;padding:9px 16px;border-radius:999px;border:1.5px solid #ef9a8f;background:#fff;color:#a8332a;cursor:pointer}
@@ -1741,66 +1747,34 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 })();</script>
 
       <script id="sylt-js">document.addEventListener('click',function(e){var b=e.target.closest('.sylt button');if(!b)return;var w=b.parentElement;[].forEach.call(w.children,function(x){x.classList.toggle('on',x===b)});var c=w.parentElement;[].forEach.call(c.querySelectorAll('.sylp'),function(p){p.classList.toggle('on',p.id===b.getAttribute('data-p'))});});</script>
-
-
-      <h4 style="margin:30px 0 8px;font-size:1.08em">📄 논문 PDF로 해 보기</h4>
-      <figure style="max-width:560px"><img src="img/am-paper.png" alt="가상 논문 — 쪽수가 있어 “근거 쪽수 인용”을 확인하기 좋습니다." loading="lazy"><figcaption>가상 논문 — 쪽수가 있어 “근거 쪽수 인용”을 확인하기 좋습니다.</figcaption></figure>
-      <p style="margin:8px 0 14px"><a class="notice-btn" href="files/am/[가상논문]AI성찰과제_학습몰입.pdf" download>📥 이 가상 논문 PDF 내려받기</a> → 크롬 창에 끌어다 놓고 아래 프롬프트를 차례로 넣으세요.</p>
-      <div class="prompt" id="qp-paper"><div class="label">논문 먼저 쉽게 이해하기</div><pre>이 논문을 아주 쉽게 설명해줘.</pre><button class="copy">복사</button></div>
-      <p style="margin:10px 0 6px">쉽게 감을 잡았으면, <b>이어서 같은 패널에</b> 아래 부탁으로 근거와 함께 정리합니다.</p>
-      <div class="prompt"><div class="label">논문 빠르게 읽기</div><pre>이 논문의 연구 질문, 연구 방법(대상·도구·분석), 핵심 결과, 한계를 표로 정리해줘. 각 항목 옆에 근거가 되는 쪽수나 문장을 짧게 인용해줘.</pre><button class="copy">복사</button></div>
-      <div class="callout gold"><b class="t">근거를 꼭 함께 달라고 하세요</b> “쪽수나 문장을 인용해줘”를 붙이면 내가 직접 확인할 수 있습니다. 인용한 문장이 실제 PDF에 있는지 <kbd>Ctrl</kbd>+<kbd>F</kbd>로 찾아보세요.</div>
-      <div class="callout red"><b class="t">올려도 되는 PDF인가요?</b> 심사 중인 원고, 미공개 연구 데이터, 학생 개인정보가 담긴 PDF는 오늘 쓰지 않습니다.</div>
       <p><b>여기까지 하셨으면 충분합니다.</b></p>
     </div>
   </details>
 
-  <details open id="gic3" class="gicstep gs3">
+<details open id="gic3" class="gicstep gs3">
     <summary><span class="badge b-do">실습</span>③ 문서 두 개 나란히 비교하기 <small>— @로 탭 붙이기</small></summary>
     <div class="body">
       <div class="gicpill"><b>3 / 3</b><span>🗂️ 두 문서 비교</span><em>열어 둔 탭 두 개를 @로 함께 붙여, 나란히 비교합니다.</em></div>
-      <div class="qbox"><p class="qh">⚡ 바로 해 보기 <span>탭 두 개를 열고 @로 붙이기</span></p><ol>
-<li><b>두 문서 열기</b> <a class="qbtn" href="files/syllabus-2025.html" target="_blank" rel="noopener">📘 2025-2 계획서</a> <a class="qbtn" href="files/syllabus-2026.html" target="_blank" rel="noopener">📘 2026-2 계획서</a> <br><span class="qn">해외와 비교하려면 2026-2 계획서와 함께 →</span> <a class="qbtn alt" href="files/syllabus-overseas.html" target="_blank" rel="noopener">🌍 해외 계획서</a></li>
-<li><b>프롬프트 복사</b> <button type="button" class="qcopy" data-src="qp-cmp">📋 작년·올해 비교 복사</button><div class="qprev">선택한 두 강의계획서를 비교해서 바뀐 점을 표로 정리해줘. 열은 '항목 / 2025-2 / 2026-2 / 무엇이 달라졌나'로 해줘. 마지막에 학생에게 안내해야 할 변경 사항 3가지를 한 문장씩 써줘.</div> <button type="button" class="qcopy" data-src="qp-ov">📋 해외와 비교 복사</button><div class="qprev">선택한 두 강의계획서 중 하나는 해외 대학 수업이고, 하나는 내 수업이야. 둘을 비교해서
-1) '항목 / 해외 수업 / 내 수업 / 차이' 표로 정리해줘. 항목은 학습목표, 평가 방식과 비율, 과제 마감, 늦은 제출·재제출 규칙, 생성형 AI 사용 규칙으로 해줘.
+      <div class="gcard">
+      <div class="gstep"><span class="gnum">1</span><div class="gst"><p class="gtt">두 문서 열기</p><p><a class="qbtn" href="files/syllabus-2025.html" target="_blank" rel="noopener">📘 2025-2 계획서</a> <a class="qbtn" href="files/syllabus-2026.html" target="_blank" rel="noopener">📘 2026-2 계획서</a> <a class="qbtn alt" href="files/syllabus-overseas.html" target="_blank" rel="noopener">🌍 해외 계획서 (영어)</a></p><p class="gsub">모두 가상 강의계획서입니다. 비교할 두 개를 각각 새 탭으로 엽니다.</p></div></div>
+      <div class="gstep"><span class="gnum">2</span><div class="gst"><p class="gtt">프롬프트 고르고 복사</p><div class="sygroup"><div class="sylt" role="tablist">
+        <button type="button" class="on" data-p="cp1">📅 작년·올해 비교</button>
+        <button type="button" data-p="cp2">🌍 해외 계획서와 비교</button>
+      </div>
+      <div class="sylp on" id="cp1"><p class="syld">📘 2025-2와 📘 2026-2 계획서 두 탭을 붙여서 보냅니다.</p><div class="prompt" id="qp-cmp"><div class="label">작년·올해 계획서 비교</div><pre>선택한 두 강의계획서를 비교해서 바뀐 점을 항목별로 정리해줘. 항목마다 '2025-2 → 2026-2'로 무엇이 달라졌는지 한두 줄로 써줘. 마지막에 학생에게 안내해야 할 변경 사항 3가지를 한 문장씩 써줘.</pre><button class="copy">복사</button></div></div>
+      <div class="sylp" id="cp2"><p class="syld">🌍 해외 계획서(영어)와 📘 2026-2 계획서 두 탭을 붙여서 보냅니다. 영어 문서도 한국어로 비교해 줍니다.</p><div class="prompt" id="qp-ov"><div class="label">해외 강의계획서와 비교</div><pre>선택한 두 강의계획서 중 하나는 해외 대학 수업이고, 하나는 내 수업이야. 둘을 비교해서
+1) 학습목표, 평가 방식과 비율, 과제 마감, 늦은 제출·재제출 규칙, 생성형 AI 사용 규칙을 항목별로 '해외 수업 / 내 수업 / 차이'로 나눠 정리해줘.
 2) 내 수업에 가져오면 좋을 점 3가지를 골라, 우리 학생에게 맞게 바꾼 예시 문장으로 써줘.
-영어 문서도 한국어로 정리하고, 두 문서에 없는 내용은 덧붙이지 마.</div></li>
-<li>한 탭에서 <b>✦</b> → 입력창에 <b>@</b>로 다른 탭 붙이기 → <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</li></ol></div>
-      <p>제미나이 인 크롬은 <b>열어 둔 여러 탭을 함께</b> 보고 비교할 수 있습니다. 작년과 올해 강의계획서, 두 기관의 공고문, 두 논문의 방법 비교에 쓰입니다.</p>
-      <ol>
-        <li>아래 두 실습 자료를 <b>각각 새 탭으로</b> 엽니다. (가상 강의계획서입니다)
-<br>
-          <a class="notice-btn" href="files/syllabus-2025.html" target="_blank" rel="noopener">📘 [가상] 데이터와 사회 2025-2 강의계획서</a>
-          <a class="notice-btn" href="files/syllabus-2026.html" target="_blank" rel="noopener">📘 [가상] 데이터와 사회 2026-2 강의계획서</a>
-        </li>
-        <li>제미나이 패널 입력창에 <b>@</b>를 치면 열린 탭 목록이 나옵니다. 두 탭을 모두 고릅니다. (입력창 왼쪽 <b>＋</b>로도 추가할 수 있습니다)</li>
-        <li>아래 프롬프트를 보냅니다.</li>
-      </ol>
-      <div class="prompt" id="qp-cmp"><div class="label">두 문서 대조</div><pre>선택한 두 강의계획서를 비교해서 바뀐 점을 표로 정리해줘. 열은 '항목 / 2025-2 / 2026-2 / 무엇이 달라졌나'로 해줘. 마지막에 학생에게 안내해야 할 변경 사항 3가지를 한 문장씩 써줘.</pre><button class="copy">복사</button></div>
-      <figure><img src="img/am-gic-compare.jpg" alt="강의계획서 두 탭 비교 결과" loading="lazy"><figcaption>실행 결과 — 입력창 위에 <b>"탭 2개 공유 중"</b>이 보이면 두 문서를 함께 읽고 있다는 뜻입니다. 수업 방식·학습목표처럼 바뀐 항목을 2025-2 / 2026-2 / 무엇이 달라졌나 표로 보여 줍니다. 표의 내용이 왼쪽 원문과 같은지 한두 줄 대조해 보세요.</figcaption></figure>
-
-
-      <h4 style="margin:30px 0 8px;font-size:1.08em">🌍 하나 더 · 해외 강의계획서와 내 계획서 나란히 보기</h4>
-      <p>이번에는 <b>영어로 된 해외 대학 강의계획서</b>와 우리 강의계획서를 함께 엽니다. 같은 "데이터와 사회" 과목인데, 평가 방식과 AI 사용 규칙이 꽤 다릅니다. 영어 문서도 한국어로 비교해 줍니다.</p>
-      <ol>
-        <li>두 자료를 각각 새 탭으로 엽니다.<br>
-          <a class="notice-btn" href="files/syllabus-overseas.html" target="_blank" rel="noopener">🌍 [가상] 해외 대학 DATA 210 강의계획서 (영어)</a>
-          <a class="notice-btn" style="background:#23303f;box-shadow:0 6px 16px rgba(35,48,63,.25)" href="files/syllabus-2026.html" target="_blank" rel="noopener">📘 [가상] 데이터와 사회 2026-2 강의계획서</a></li>
-        <li>패널 입력창에 <b>@</b>를 쳐서 두 탭을 고르고, 아래 프롬프트를 보냅니다.</li>
-      </ol>
-      <div class="prompt" id="qp-ov"><div class="label">해외 강의계획서와 비교</div><pre>선택한 두 강의계획서 중 하나는 해외 대학 수업이고, 하나는 내 수업이야. 둘을 비교해서
-1) '항목 / 해외 수업 / 내 수업 / 차이' 표로 정리해줘. 항목은 학습목표, 평가 방식과 비율, 과제 마감, 늦은 제출·재제출 규칙, 생성형 AI 사용 규칙으로 해줘.
-2) 내 수업에 가져오면 좋을 점 3가지를 골라, 우리 학생에게 맞게 바꾼 예시 문장으로 써줘.
-영어 문서도 한국어로 정리하고, 두 문서에 없는 내용은 덧붙이지 마.</pre><button class="copy">복사</button></div>
-      <p class="tip">💡 <b>볼 것:</b> 해외 계획서의 <b>AI 사용 신호등(초록·노랑·빨강)</b>, <b>유예일 3일</b>, <b>재제출 1회</b>처럼 우리 계획서에 없는 장치를 찾아내는지, 학습목표마다 평가가 연결된 표를 알아보는지 보세요.</p>
-      <div class="callout gold"><b class="t">➕ 이렇게 씁니다</b>
+영어 문서도 한국어로 정리하고, 두 문서에 없는 내용은 덧붙이지 마.</pre><button class="copy">복사</button></div></div></div></div></div>
+      <div class="gstep"><span class="gnum">3</span><div class="gst"><p class="gtt">@로 두 탭 붙이고 보내기</p><p>한 탭에서 <b>✦</b> → 입력창에 <b>@</b>를 쳐서 다른 탭 고르기 → <kbd>Ctrl</kbd>+<kbd>V</kbd> → 보내기</p><p class="gsub">입력창 왼쪽 <b>＋</b>로도 탭을 붙일 수 있습니다. 입력창 위에 <b>“탭 2개 공유 중”</b>이 보이면 됩니다.</p></div></div>
+      </div>
+      <details class="gmore"><summary>🖼️ 실행 화면 · 도움말 보기</summary><div class="gmore-b"><figure><img src="img/am-gic-compare.jpg" alt="강의계획서 두 탭 비교 결과" loading="lazy"><figcaption>실행 결과 — 입력창 위에 <b>"탭 2개 공유 중"</b>이 보이면 두 문서를 함께 읽고 있다는 뜻입니다. 수업 방식·학습목표처럼 바뀐 항목을 2025-2와 2026-2로 나눠 보여 줍니다. 결과가 왼쪽 원문과 같은지 한두 줄 대조해 보세요.</figcaption></figure><p class="tip">💡 <b>볼 것:</b> 해외 계획서의 <b>AI 사용 신호등(초록·노랑·빨강)</b>, <b>유예일 3일</b>, <b>재제출 1회</b>처럼 우리 계획서에 없는 장치를 찾아내는지, 학습목표마다 평가가 연결된 표를 알아보는지 보세요.</p><div class="callout gold"><b class="t">➕ 이렇게 씁니다</b>
         <ul>
-          <li>정부·재단 공모 공고 두세 개를 열어 “지원 자격·마감·예산 한도”를 한 표로</li>
-          <li>같은 주제 논문 세 편을 열어 “연구 대상과 방법” 비교표로</li>
+          <li>정부·재단 공모 공고 두세 개를 열어 “지원 자격·마감·예산 한도”를 한눈에</li>
+          <li>같은 주제 논문 세 편을 열어 “연구 대상과 방법” 비교로</li>
           <li>학과 규정 개정 전후 문서를 열어 “바뀐 조항만” 뽑기</li>
         </ul>
-      </div>
-      <div class="callout blue fallback"><b class="t">@·＋로 탭이 안 붙으면</b> 한 탭씩 요약을 받은 뒤, 두 요약을 제미나이 앱에 붙여넣고 “두 요약을 비교해서 표로”라고 하셔도 같은 결과를 얻습니다.</div>
+      </div><div class="callout blue fallback"><b class="t">@·＋로 탭이 안 붙으면</b> 한 탭씩 요약을 받은 뒤, 두 요약을 제미나이 앱에 붙여넣고 “두 요약을 비교해서 정리해줘”라고 하셔도 같은 결과를 얻습니다.</div></div></details>
       <p><b>여기까지 하셨으면 충분합니다.</b></p>
     </div>
   </details>
