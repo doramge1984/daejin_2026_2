@@ -1956,6 +1956,17 @@ show();
 #gas .gpchev{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:.55em;background:#f5c84c;color:#3d2b00;border-radius:999px;padding:6px 14px;font-weight:800}
 #gas details.gpx[open] .gpchev{background:rgba(255,255,255,.2);color:#fff}
 #gas details.gpx[open] .gpchev::after{content:''}
+#gas .gmore{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:10px 0 16px}
+#gas .gm{display:block;text-decoration:none;color:inherit!important;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;transition:.15s}
+#gas .gm:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(20,30,60,.12)}
+#gas .gm.hot{border:2px solid #16867a}
+#gas .gm img{display:block;width:100%;height:150px;object-fit:cover;object-position:top;border-radius:10px;border:1px solid var(--line);margin-bottom:10px}
+#gas .gmi{height:150px;display:grid;place-items:center;font-size:56px;background:#f3f7ff;border-radius:10px;margin-bottom:10px}
+#gas .gmt{display:inline-block;font-size:12px;font-weight:800;background:#e6f5f2;color:#0f5a52;border-radius:999px;padding:2px 10px}
+#gas .gm b{display:block;font-size:16.5px;color:var(--navy);margin:6px 0 4px}#gas .gm p{margin:0 0 8px;font-size:14px;color:#4b5563}
+#gas .gm em{font-style:normal;font-weight:800;color:#16867a;font-size:14px}
+#gas .gthumb{display:block;width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;border:1px solid var(--line);margin:0 0 8px}
+#gas .gprev{margin:4px 0 14px}#gas .gprev img{display:block;width:100%;max-width:760px;border:1px solid #d7dce3;border-radius:12px;box-shadow:0 6px 18px rgba(20,30,60,.1)}#gas .gprev small{display:block;margin-top:6px;color:#5b6475;font-weight:700}
 #gas .gcode pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:260px;overflow:auto;white-space:pre;word-break:normal}
 #gas details.gx{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
 #gas details.gx>summary{cursor:pointer;font-weight:800;color:var(--navy)}
@@ -1965,12 +1976,13 @@ show();
 @keyframes spkShine{0%{left:-60%}60%,100%{left:130%}}
 </style>
   <h2 class="sec">6 · 앱스크립트 바이브코딩 · 시트로 돌아가는 웹 앱</h2>
-  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">구글 폼은 <b>받기만</b> 해요. 앱스크립트 웹 앱은 시트를 <b>읽고, 판단하고, 바로 보여 줘요.</b> "남은 자리 2팀", "본인 점수만 보기"처럼 폼으로는 안 되는 일을, 코드를 몰라도 <b>붙여 넣기와 말로 고치기</b>로 만들어요.</p><div class="wp-flow"><a href="#gas-try"><em>먼저</em><b>👀 체험하기</b><span></span></a><a href="#gas-h1"><em>PART 1</em><b>이런 게 된다 · 후보 5가지</b><span></span></a><a href="#gas-h2"><em>실습①</em><b>팀 주제 선착순 보드</b><span></span></a><a href="#gas-h3"><em>실습②</em><b>내 점수·피드백 조회</b><span></span></a><a href="#gas-h4"><em>＋</em><b>3~5번 직접 만들어 보기</b><span></span></a></div></div>
+  <div class="wp-hero"><p class="k">오후반 · 6 앱스크립트</p><p class="t">구글 시트가 진짜 '앱'이 돼요</p><p class="d">구글 폼은 <b>받기만</b> 해요. 앱스크립트 웹 앱은 시트를 <b>읽고, 판단하고, 바로 보여 줘요.</b> "남은 자리 2팀", "본인 점수만 보기"처럼 폼으로는 안 되는 일을, 코드를 몰라도 <b>붙여 넣기와 말로 고치기</b>로 만들어요.</p><div class="wp-flow"><a href="#gas-try"><em>먼저</em><b>👀 체험하기</b><span></span></a><a href="#gas-h1"><em>PART 1</em><b>이런 게 된다 · 후보 5가지</b><span></span></a><a href="#gas-h2"><em>실습①</em><b>팀 주제 선착순 보드</b><span></span></a><a href="#gas-h3"><em>실습②</em><b>내 점수·피드백 조회</b><span></span></a><a href="#gas-h4"><em>＋ 시간이 되면</em><b>면담 예약 · QR 출석 · 장비 대여</b><span></span></a></div></div>
 
 
   <div class="gtry" id="gas-try">
-    <div class="gtry-h">👀 먼저 체험하기 · 지금 무엇을 하는지 알고 시작해요 <small>5분</small></div>
+    <div class="gtry-h">👀 실습① 먼저 체험하기 · 지금 무엇을 하는지 알고 시작해요 <small>5분</small></div>
     <p class="gtry-lead">지금부터 <b>학생이 되어 팀 주제를 신청</b>해 봐요. 구글폼 없이 <b>시트 하나 + 웹 화면 하나</b>로 돌아가는 도구예요. 아래 순서대로 시트와 화면이 어떻게 이어지는지 눈으로 확인해 보세요.</p>
+    <div class="gprev"><img src="img/gas-prev-topic.png" alt="팀 프로젝트 주제 신청 보드 완성 화면" loading="lazy"><small>✅ 완성하면 이렇게 나와요 · 남은 자리 막대, 다 차면 🔴 마감, 신청하면 초록 완료 메시지</small></div>
     <div class="gtry-grid">
       <div class="gtry-s"><span class="gn">1</span><b>연결된 시트 먼저 보기</b>
         <p><b>주제</b> 탭: 주제 6개와 정원(재료)<br><b>신청</b> 탭: 지금은 예시 두 줄뿐. 여기에 신청이 쌓여요.</p>
@@ -1987,10 +1999,10 @@ show();
   </div>
   <h3 class="caseh" id="gas-h1">👀 앱스크립트로 이런 게 된다</h3>
   <div class="gas5">
-    <div class="pick"><span class="n">1 · 실습</span><b>팀 프로젝트 주제 선착순 보드</b><p>주제별 남은 자리가 실시간으로 보이고, 다 차면 마감</p><small>팀플 하는 모든 학과</small></div>
-    <div class="pick"><span class="n">2 · 실습</span><b>내 점수·피드백 조회 페이지</b><p>학번과 개인 코드를 넣으면 본인 것만 보여요</p><small>"제 점수 왜요?" 메일이 많은 분</small></div>
+    <div class="pick"><img class="gthumb" src="img/gas-prev-topic.png" alt="주제 선착순 보드 완성 화면" loading="lazy"><span class="n">1 · 실습</span><b>팀 프로젝트 주제 선착순 보드</b><p>주제별 남은 자리가 실시간으로 보이고, 다 차면 마감</p><small>팀플 하는 모든 학과</small></div>
+    <div class="pick"><img class="gthumb" src="img/gas-prev-score.png" alt="점수 조회 페이지 완성 화면" loading="lazy"><span class="n">2 · 실습</span><b>내 점수·피드백 조회 페이지</b><p>학번과 개인 코드를 넣으면 본인 것만 보여요</p><small>"제 점수 왜요?" 메일이 많은 분</small></div>
     <div><span class="n">3</span><b>QR 출석·출구 티켓</b><p>QR → 학번 입력 → 시각 기록, 교수 화면에 실시간 인원</p><small>대형 강의, 교양</small></div>
-    <div><span class="n">4</span><b>면담 시간 예약 보드</b><p>누가 고른 시간은 다른 학생 화면에서 사라져요</p><small>상담·지도가 많은 학과</small></div>
+    <div class="pick"><img class="gthumb" src="img/gas-prev-meet.png" alt="면담 예약 보드 완성 화면" loading="lazy"><span class="n">4 · 시간이 되면</span><b>면담 시간 예약 보드</b><p>누가 고른 시간은 다른 학생 화면에서 사라져요</p><small>상담·지도가 많은 학과</small></div>
     <div><span class="n">5</span><b>실습실 장비 대여·반납 대장</b><p>지금 빌려 간 장비와 반납 예정일 현황판</p><small>공학·실험실 학과</small></div>
   </div>
   <div class="gflow"><div><b>📊 구글 시트</b><span>데이터 (주제·점수)</span></div><i>⇄</i><div><b>⚙️ Code.gs</b><span>시트 읽고 쓰기</span></div><i>→</i><div><b>🖥️ Index.html</b><span>학생이 보는 화면</span></div><i>→</i><div><b>🔗 웹 앱 주소 · QR</b><span>학생은 주소만 열면 끝</span></div></div>
@@ -2188,11 +2200,10 @@ function apply(form) {
     <details class="gx"><summary>한 줄씩 더 고쳐 보기 (마감 시간 · 취소)</summary><div class="prompt"><div class="label">한 줄 더 · 마감 시간</div><button class="copy">복사</button><pre>[11월 20일 18시]가 지나면 신청 버튼이 잠기고 "신청이 마감됐어요"가 보이게 해 줘. 바꾼 전체 코드를 줘.</pre></div><div class="prompt"><div class="label">한 줄 더 · 취소 기능</div><button class="copy">복사</button><pre>교수용 비밀번호 [4자리]를 넣으면 신청 한 줄을 취소할 수 있게 해 줘. 비밀번호는 Code.gs에만 두고 화면 코드에는 넣지 마.</pre></div></details></div></div>
   </details>
 
-  <details class="gpx" id="gas-h3"><summary class="gpart">실습② 내 점수·피드백 조회 페이지<small>오전 6탭 성적 시트와 이어져요 · 학번 + 조회 코드가 맞아야 본인 것만 보여요</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
-  
   <div class="gtry" id="gas-try2">
-    <div class="gtry-h">👀 먼저 체험하기 · 학생이 되어 내 점수 조회해 보기 <small>3분</small></div>
+    <div class="gtry-h">👀 실습② 먼저 체험하기 · 학생이 되어 내 점수 조회해 보기 <small>3분</small></div>
     <p class="gtry-lead">아래 학번과 조회 코드 중 <b>아무거나 골라</b> 넣어 보세요. 사람마다 <b>본인 점수와 피드백만</b> 보여요. 옆 사람과 다른 학번을 골라 화면을 비교해 보세요.</p>
+    <div class="gprev"><img src="img/gas-prev-score.png" alt="내 점수·피드백 확인 완성 화면" loading="lazy" style="max-width:420px"><small>✅ 완성하면 이렇게 나와요 · 기준별 점수, 총점, 피드백이 본인 것만</small></div>
     <div class="gtry-grid">
       <div class="gtry-s"><span class="gn">1</span><b>웹 앱 열기</b>
         <a class="goldbtn" href="https://script.google.com/macros/s/AKfycbw0_LFz2lceVByFCLCISNroi974PTI5gLWOGxdaX5RoJiiAEUF-MgWTtzNr7EuDwNdw/exec" target="_blank" rel="noopener">✨ 내 점수 조회해 보기 ↗</a>
@@ -2205,6 +2216,9 @@ function apply(form) {
     <div class="gtry-sum"><b>정리</b> 시트의 한 줄 = 학생 한 명의 화면이에요. 교수님이 시트에서 점수를 고치면 <b>다시 배포하지 않아도</b> 다음 조회부터 바로 바뀐 점수가 보여요.</div>
     <p class="gtry-note">⚠️ 실제로 쓸 때는 조회 코드를 학생마다 <b>개별로</b>(LMS 쪽지·개인 메일) 알려 주세요. 실제 성적은 <b>학교 규정을 먼저 확인</b>하세요. [학교 기준 확인 필요]</p>
   </div>
+
+  <details class="gpx" id="gas-h3"><summary class="gpart">실습② 내 점수·피드백 조회 페이지<small>오전 6탭 성적 시트와 이어져요 · 학번 + 조회 코드가 맞아야 본인 것만 보여요</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
+  
   <div class="callout red"><b class="t">개인정보 · 꼭 지켜 주세요</b><ul><li>연수에서는 <b>가상 데이터</b>로만 해요. 실제 성적을 웹으로 조회하게 하려면 <b>학교의 개인정보·성적 처리 규정을 먼저 확인</b>하세요. [학교 기준 확인 필요]</li><li>'모든 사용자'로 배포하면 주소를 아는 누구나 접속할 수 있어요. 그래서 <b>조회 코드 없이는 아무것도 안 보이게</b> 만들었어요. 조회 코드는 학생마다 따로, 개별로 알려 주세요.</li><li>시트 자체의 공유는 <b>제한됨</b> 그대로 두세요. 학생은 웹 앱 주소로만 들어와요.</li></ul></div>
   
   <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
@@ -2345,15 +2359,218 @@ function lookup(sid, code) {
     <li><b>고쳤는데 그대로</b> → 새 버전으로 다시 배포했는지 확인하세요.</li>
     <li><b>학교 계정에서 막힘</b> → 기관 설정 때문일 수 있어요. 개인 Gmail로 해 보세요.</li></ul></details>
 
-  <h3 class="caseh" id="gas-h4">＋ 3~5번도 말로 만들어 보기</h3>
-  <p>이번엔 처음부터 부탁해요. 받은 코드를 1~5단계처럼 붙여 넣고 배포하면 돼요. 결과가 이상하면 오류 문장을 그대로 복사해 "이 오류 고쳐 줘"라고 보내세요.</p>
-  <details class="gx"><summary>부탁문 3개 펼치기 (QR 출석 · 면담 예약 · 장비 대여)</summary><div class="prompt"><div class="label">3 · QR 출석·출구 티켓</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 학생이 QR로 들어와 학번과 오늘의 단어 [4글자]를 넣으면 "출석" 탭에 시각·학번이 쌓이고, 교수 화면(주소 끝에 ?admin=비밀번호)에는 지금까지 출석한 인원 수가 10초마다 바뀌어 보이게. 같은 학번은 하루 한 번만. Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비와 배포 순서도 알려 줘.</pre></div><div class="prompt"><div class="label">4 · 면담 시간 예약 보드</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "시간" 탭에 [다음 주 화·목 14~17시, 20분 단위] 칸이 있고, 학생이 학번·이름을 넣고 한 칸을 고르면 그 칸은 다른 학생 화면에서 사라져. 동시에 눌러도 겹치지 않게 LockService를 써 줘. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div><div class="prompt"><div class="label">5 · 실습실 장비 대여·반납 대장</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "장비" 탭에 [오실로스코프 4대, 멀티미터 10대]가 있고, 학생이 학번과 장비를 골라 대여하면 남은 수량이 줄고 반납 예정일(7일 뒤)이 기록돼. 첫 화면에 지금 빌려 간 장비와 반납이 늦은 목록이 보이게. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div></details>
+  <h3 class="caseh" id="gas-h4">＋ 시간이 되면 · 이런 것도 만들 수 있어요</h3>
+  <p>카드를 눌러 펼쳐 보세요. <b>면담 예약</b>은 사본·코드가 준비돼 있어서 실습①과 똑같이 따라 하면 되고, 나머지 둘은 부탁문으로 처음부터 만들어요.</p>
+  <div class="gmore">
+    <a class="gm hot" href="#gas-h5"><img src="img/gas-prev-meet.png" alt="면담 시간 예약 보드 완성 화면" loading="lazy"><span class="gmt">실습③ · 사본 준비됨</span><b>📅 면담 시간 예약 보드</b><p>누가 고른 시간은 다른 학생 화면에서 사라져요. 같은 학번은 한 번만.</p><em>펼쳐서 따라 하기 ▾</em></a>
+    <a class="gm" href="#gas-h6"><div class="gmi">📲</div><span class="gmt">부탁문으로</span><b>QR 출석·출구 티켓</b><p>QR → 학번 입력 → 시각 기록. 교수 화면에 실시간 인원.</p><em>부탁문 보기 ▾</em></a>
+    <a class="gm" href="#gas-h7"><div class="gmi">🔧</div><span class="gmt">부탁문으로</span><b>실습실 장비 대여·반납 대장</b><p>지금 빌려 간 장비와 반납 예정일 현황판.</p><em>부탁문 보기 ▾</em></a>
+  </div>
+  <details class="gpx" id="gas-h5"><summary class="gpart">실습③ 면담 시간 예약 보드 <small>시간이 되면 · 실습①과 같은 순서 · 시간 탭만 바꾸면 내 면담표</small><span class="gpchev">눌러서 펼치기 ▾</span></summary>
+  <p style="margin:0 0 12px"><img src="img/gas-prev-meet.png" alt="면담 시간 예약 보드 완성 화면" loading="lazy" style="max-width:520px;width:100%;border:1px solid #d7dce3;border-radius:12px"><br><small>✅ 완성하면 이렇게 나와요 · 남은 시간만 보이고, 예약한 칸은 사라져요</small></p>
+  
+  <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
+    <p class="mylink"><a class="goldbtn" href="https://docs.google.com/spreadsheets/d/1YeYm3CHRAdBmiYh3VE4LtF6z55vjjgjF1MCpytzCkbA/copy" target="_blank" rel="noopener">✨ 면담 시간 예약 보드 사본 만들기 ↗</a></p>
+    <p>열린 창에서 <b>사본 만들기</b>를 누르면 내 드라이브에 내 시트가 생겨요. <b>시간</b> 탭의 날짜·시각을 내 면담 시간으로 바꾸면 그대로 내 예약 보드가 돼요. 1행 제목은 그대로 두세요.</p></div></div>
+  <div class="step"><div class="no">2</div><div><h4>앱스크립트 열고 Code.gs 붙여 넣기</h4>
+    <ol><li>내 사본 시트 메뉴에서 <b>확장 프로그램 → Apps Script</b></li><li>원래 있던 <code>function myFunction() { }</code>를 <b>모두 지우고</b> 아래 코드를 붙여 넣기</li></ol>
+    <div class="prompt gcode"><div class="label">Code.gs · 면담 시간 예약 (서버)</div><button class="copy">복사</button><pre id="src-meet-code">/**
+ * 교수 면담 시간 예약 보드 — 서버 코드(Code.gs)
+ * 시트 탭: &#x27;시간&#x27; (A 날짜 | B 시각)          예: 11/10(화) | 14:00
+ *          &#x27;예약&#x27; (A 예약 시각 | B 날짜 | C 시각 | D 학번 | E 이름 | F 면담 내용)
+ * 누가 고른 시간은 다른 학생 화면에서 사라져요. 같은 학번은 한 번만 예약할 수 있어요.
+ * 배포: 배포 → 새 배포 → 웹 앱 → 실행 사용자 &#x27;나&#x27; · 액세스 &#x27;모든 사용자&#x27;
+ */
+const SLOT_SHEET = &#x27;시간&#x27;;
+const BOOK_SHEET = &#x27;예약&#x27;;
+const PAGE_TITLE = &#x27;교수 면담 시간 예약&#x27;;
+
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile(&#x27;Index&#x27;)
+    .setTitle(PAGE_TITLE)
+    .addMetaTag(&#x27;viewport&#x27;, &#x27;width=device-width, initial-scale=1&#x27;);
+}
+
+// 아직 아무도 고르지 않은 시간만 날짜별로 묶어 돌려줍니다.
+function getSlots() {
+  const ss = SpreadsheetApp.getActive();
+  const slots = ss.getSheetByName(SLOT_SHEET).getDataRange().getDisplayValues().slice(1)
+    .filter(function (r) { return String(r[0]).trim() &amp;&amp; String(r[1]).trim(); });
+  const taken = {};
+  ss.getSheetByName(BOOK_SHEET).getDataRange().getDisplayValues().slice(1).forEach(function (r) {
+    taken[String(r[1]).trim() + &#x27;|&#x27; + String(r[2]).trim()] = true;
+  });
+  const days = [];
+  const byDay = {};
+  let free = 0;
+  slots.forEach(function (r) {
+    const d = String(r[0]).trim(), t = String(r[1]).trim();
+    if (!byDay[d]) { byDay[d] = { date: d, times: [] }; days.push(byDay[d]); }
+    if (!taken[d + &#x27;|&#x27; + t]) { byDay[d].times.push(t); free++; }
+  });
+  return { title: PAGE_TITLE, days: days, free: free, total: slots.length };
+}
+
+// 예약을 받습니다. 동시에 눌러도 한 칸에 두 명이 들어가지 않게 잠금을 겁니다.
+function book(form) {
+  const sid = String(form.sid || &#x27;&#x27;).trim();
+  const name = String(form.name || &#x27;&#x27;).trim();
+  const date = String(form.date || &#x27;&#x27;).trim();
+  const time = String(form.time || &#x27;&#x27;).trim();
+  const memo = String(form.memo || &#x27;&#x27;).trim().slice(0, 200);
+  if (!sid || !name || !date || !time) return { ok: false, msg: &#x27;시간을 고르고 학번과 이름을 넣어 주세요.&#x27; };
+
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const sh = SpreadsheetApp.getActive().getSheetByName(BOOK_SHEET);
+    const rows = sh.getDataRange().getDisplayValues().slice(1);
+    const mine = rows.filter(function (r) { return String(r[3]).trim() === sid; })[0];
+    if (mine) return { ok: false, msg: &#x27;이미 &#x27; + mine[1] + &#x27; &#x27; + mine[2] + &#x27;에 예약했어요. 바꾸려면 교수님께 말씀해 주세요.&#x27;, board: getSlots() };
+    if (rows.some(function (r) { return String(r[1]).trim() === date &amp;&amp; String(r[2]).trim() === time; })) {
+      return { ok: false, msg: &#x27;방금 다른 학생이 예약했어요. 다른 시간을 골라 주세요.&#x27;, board: getSlots() };
+    }
+    const now = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), &#x27;yyyy-MM-dd HH:mm&#x27;);
+    sh.appendRow([now, &quot;&#x27;&quot; + date, &quot;&#x27;&quot; + time, &quot;&#x27;&quot; + sid, name, memo]);
+    return { ok: true, msg: date + &#x27; &#x27; + time + &#x27; 면담이 예약됐어요!&#x27;, board: getSlots() };
+  } finally {
+    lock.releaseLock();
+  }
+}</pre></div></div></div>
+  <div class="step"><div class="no">3</div><div><h4>HTML 파일 하나 더 만들고 붙여 넣기</h4>
+    <ol><li>왼쪽 <b>파일</b> 옆 <b>＋ → HTML</b></li><li>이름을 <b>Index</b>로 (대문자 I, .html은 저절로 붙어요)</li><li>안에 있던 내용을 지우고 아래 코드를 붙여 넣은 뒤 <b>💾 저장</b> (Ctrl+S)</li></ol><p style="margin:6px 0 10px"><img src="img/gas-editor-meet.png" alt="앱스크립트 편집기 — Code.gs와 Index.html 두 파일" loading="lazy" style="max-width:100%;border:1px solid #d7dce3;border-radius:10px"><br><small>✅ 왼쪽 파일 목록에 <b>Code.gs</b>와 <b>Index.html</b> 두 개가 보이면 성공!</small></p>
+    <div class="prompt gcode"><div class="label">Index.html · 면담 시간 예약 (학생 화면)</div><button class="copy">복사</button><pre id="src-meet-index">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;base target=&quot;_top&quot;&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;style&gt;
+  *{box-sizing:border-box}
+  body{margin:0;font-family:&quot;Pretendard&quot;,&quot;Noto Sans KR&quot;,&quot;Malgun Gothic&quot;,sans-serif;background:#f3f7f6;color:#1f2a3a}
+  header{background:linear-gradient(135deg,#0f5a52,#16867a);color:#fff;padding:22px 20px 18px}
+  header h1{margin:0;font-size:22px}
+  header p{margin:6px 0 0;opacity:.88;font-size:14px}
+  .live{display:inline-block;margin-top:10px;font-size:12px;background:rgba(255,255,255,.16);border-radius:999px;padding:3px 10px}
+  main{max-width:900px;margin:0 auto;padding:18px}
+  .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .day{background:#fff;border-radius:16px;padding:16px;box-shadow:0 4px 14px rgba(15,60,55,.08)}
+  .day h2{margin:0 0 4px;font-size:18px}
+  .day .left{margin:0 0 10px;font-size:13px;color:#5f6675;font-weight:700}
+  .times{display:flex;flex-wrap:wrap;gap:8px}
+  .t{border:2px solid #16867a;background:#fff;color:#0f5a52;border-radius:10px;padding:8px 12px;font:inherit;font-weight:800;cursor:pointer;min-width:74px}
+  .t:hover{background:#e6f5f2}
+  .t.sel{background:#16867a;color:#fff}
+  .none{color:#9aa3b2;font-size:14px;padding:6px 0}
+  form{background:#fff;border-radius:16px;padding:18px;margin:18px 0;box-shadow:0 4px 14px rgba(15,60,55,.08)}
+  form h3{margin:0 0 10px}
+  .pick{padding:10px 12px;border-radius:10px;background:#f1f4f8;font-weight:800;color:#5f6675}
+  .pick.on{background:#e6f5f2;color:#0f5a52}
+  label{display:block;margin:10px 0 4px;font-size:13.5px;font-weight:700}
+  input,textarea{width:100%;padding:10px;border:1.5px solid #cfd6e4;border-radius:10px;font:inherit}
+  textarea{min-height:64px;resize:vertical}
+  .go{margin-top:14px;width:100%;padding:12px;border:0;border-radius:12px;background:#f2b705;color:#3d2b00;font:inherit;font-weight:900;font-size:16px;cursor:pointer}
+  .go:disabled{opacity:.6;cursor:wait}
+  .msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-weight:700;display:none}
+  .msg.ok{display:block;background:#e6f4ea;color:#0d5a2c}
+  .msg.err{display:block;background:#fde8e7;color:#a50e0e}
+  .note{font-size:12.5px;color:#7a7f8c;text-align:center}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+  &lt;h1 id=&quot;title&quot;&gt;교수 면담 시간 예약&lt;/h1&gt;
+  &lt;p&gt;원하는 시간을 하나 고르세요. 누가 고른 시간은 다른 사람 화면에서 바로 사라져요.&lt;/p&gt;
+  &lt;span class=&quot;live&quot; id=&quot;live&quot;&gt;불러오는 중…&lt;/span&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;div class=&quot;days&quot; id=&quot;days&quot;&gt;&lt;/div&gt;
+  &lt;form id=&quot;f&quot; onsubmit=&quot;return false&quot;&gt;
+    &lt;h3&gt;📅 예약하기 (한 사람당 한 번)&lt;/h3&gt;
+    &lt;div class=&quot;pick&quot; id=&quot;pick&quot;&gt;위에서 시간을 먼저 골라 주세요&lt;/div&gt;
+    &lt;label for=&quot;sid&quot;&gt;학번&lt;/label&gt;&lt;input id=&quot;sid&quot; inputmode=&quot;numeric&quot; placeholder=&quot;예: 20261234&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;이름&lt;/label&gt;&lt;input id=&quot;name&quot; placeholder=&quot;예: 홍길동&quot;&gt;
+    &lt;label for=&quot;memo&quot;&gt;면담하고 싶은 내용 (선택)&lt;/label&gt;&lt;textarea id=&quot;memo&quot; placeholder=&quot;예: 기말 프로젝트 주제 상담&quot;&gt;&lt;/textarea&gt;
+    &lt;button class=&quot;go&quot; id=&quot;go&quot; type=&quot;button&quot;&gt;예약하기&lt;/button&gt;
+    &lt;div class=&quot;msg&quot; id=&quot;msg&quot;&gt;&lt;/div&gt;
+  &lt;/form&gt;
+  &lt;p class=&quot;note&quot;&gt;예약을 바꾸거나 취소하려면 교수님께 직접 말씀해 주세요.&lt;/p&gt;
+&lt;/main&gt;
+&lt;script&gt;
+  var cur = null, busy = false;
+  function esc(s){ return String(s).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g,function(c){return {&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27;}[c];}); }
+  function draw(b){
+    document.getElementById(&#x27;title&#x27;).textContent = b.title;
+    document.getElementById(&#x27;live&#x27;).textContent = &#x27;● 남은 시간 &#x27; + b.free + &#x27; / &#x27; + b.total + &#x27; · &#x27; + new Date().toLocaleTimeString() + &#x27; 기준 (15초마다 새로고침)&#x27;;
+    var still = false;
+    document.getElementById(&#x27;days&#x27;).innerHTML = b.days.map(function(d){
+      var btns = d.times.map(function(t){
+        var on = cur &amp;&amp; cur.date === d.date &amp;&amp; cur.time === t; if (on) still = true;
+        return &#x27;&lt;button type=&quot;button&quot; class=&quot;t&#x27; + (on ? &#x27; sel&#x27; : &#x27;&#x27;) + &#x27;&quot; data-d=&quot;&#x27; + esc(d.date) + &#x27;&quot; data-t=&quot;&#x27; + esc(t) + &#x27;&quot;&gt;&#x27; + esc(t) + &#x27;&lt;/button&gt;&#x27;;
+      }).join(&#x27;&#x27;);
+      return &#x27;&lt;div class=&quot;day&quot;&gt;&lt;h2&gt;&#x27; + esc(d.date) + &#x27;&lt;/h2&gt;&lt;p class=&quot;left&quot;&gt;남은 시간 &#x27; + d.times.length + &#x27;개&lt;/p&gt;&lt;div class=&quot;times&quot;&gt;&#x27; + (btns || &#x27;&lt;div class=&quot;none&quot;&gt;모두 예약됐어요&lt;/div&gt;&#x27;) + &#x27;&lt;/div&gt;&lt;/div&gt;&#x27;;
+    }).join(&#x27;&#x27;);
+    if (cur &amp;&amp; !still) { cur = null; }
+    showPick();
+  }
+  function showPick(){
+    var p = document.getElementById(&#x27;pick&#x27;);
+    if (cur) { p.textContent = &#x27;선택한 시간: &#x27; + cur.date + &#x27; &#x27; + cur.time; p.className = &#x27;pick on&#x27;; }
+    else { p.textContent = &#x27;위에서 시간을 먼저 골라 주세요&#x27;; p.className = &#x27;pick&#x27;; }
+  }
+  function msg(ok, t){ var m = document.getElementById(&#x27;msg&#x27;); m.textContent = t; m.className = &#x27;msg &#x27; + (ok ? &#x27;ok&#x27; : &#x27;err&#x27;); }
+  function load(){ if (busy) return; google.script.run.withSuccessHandler(draw).withFailureHandler(function(e){ msg(false, &#x27;불러오지 못했어요: &#x27; + e.message); }).getSlots(); }
+  document.getElementById(&#x27;days&#x27;).addEventListener(&#x27;click&#x27;, function(e){
+    var b = e.target.closest(&#x27;.t&#x27;); if (!b) return;
+    cur = { date: b.getAttribute(&#x27;data-d&#x27;), time: b.getAttribute(&#x27;data-t&#x27;) };
+    document.querySelectorAll(&#x27;.t&#x27;).forEach(function(x){ x.classList.toggle(&#x27;sel&#x27;, x === b); });
+    showPick(); document.getElementById(&#x27;sid&#x27;).focus();
+  });
+  document.getElementById(&#x27;go&#x27;).addEventListener(&#x27;click&#x27;, function(){
+    if (!cur) { msg(false, &#x27;위에서 시간을 먼저 골라 주세요.&#x27;); return; }
+    var g = this; g.disabled = true; busy = true;
+    google.script.run.withSuccessHandler(function(r){
+      g.disabled = false; busy = false; msg(r.ok, r.msg);
+      if (r.ok) { cur = null; document.getElementById(&#x27;memo&#x27;).value = &#x27;&#x27;; }
+      if (r.board) draw(r.board);
+    }).withFailureHandler(function(e){ g.disabled = false; busy = false; msg(false, &#x27;오류가 났어요: &#x27; + e.message); })
+      .book({ sid: document.getElementById(&#x27;sid&#x27;).value, name: document.getElementById(&#x27;name&#x27;).value, date: cur.date, time: cur.time, memo: document.getElementById(&#x27;memo&#x27;).value });
+  });
+  load(); setInterval(load, 15000);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div></div>
+  <div class="step"><div class="no">4</div><div><h4>웹 앱으로 배포하기</h4>
+    <ol><li>오른쪽 위 <b>배포 → 새 배포</b></li><li>유형 선택 ⚙️ → <b>웹 앱</b></li><li>다음 사용자 인증 정보로 실행: <b>나</b> · 액세스 권한이 있는 사용자: <b>모든 사용자</b> → <b>배포</b></li>
+    <li><b>액세스 승인</b> → 내 계정 선택 → "확인되지 않은 앱" 화면이 나오면 <b>고급 → (안전하지 않음)으로 이동 → 허용</b><br><small>내가 만든 코드라서 구글이 아직 검사하지 않았다는 뜻이에요. 남이 준 코드라면 내용을 확인한 뒤 허용하세요.</small></li></ol></div></div>
+  <div class="step"><div class="no">5</div><div><h4>웹 앱 주소 열고 QR 만들기</h4>
+    <ol><li>배포가 끝나면 나오는 <b>웹 앱 URL</b>을 복사해 새 탭에서 열어 보기</li><li>크롬 ⋮ → <b>전송, 저장, 공유 → QR 코드 만들기</b> → 내려받아 수업 슬라이드에 넣기</li>
+    <li>학생이 되어 시간 하나를 예약 → 그 칸이 화면에서 사라지고, 시트 <b>예약</b> 탭에 한 줄이 생기는지 확인! 같은 학번으로 또 예약하면 막혀요.</li></ol></div></div>
+  <div class="step"><div class="no">6</div><div><h4>✨ 바이브코딩 · 내 수업으로 바꿔 줘</h4>
+    <div class="gfill"><span>👇 먼저 누르세요 → 부탁문 안에 코드가 들어가요</span><button type="button" data-src="src-meet-code">＋ Code.gs 넣기</button><button type="button" data-src="src-meet-index">＋ Index.html 넣기</button><button type="button" class="all" data-src="src-meet-code,src-meet-index">⚡ 둘 다 넣기</button></div>
+    <div class="prompt"><div class="label">⭐ 내 수업으로 바꿔 줘 · 제미나이에 보내기</div><button class="copy">복사</button><pre>아래 Code.gs와 Index.html은 구글 시트에 붙어 돌아가는 앱스크립트 웹 앱이야.
+[과목: 캡스톤디자인] [기말 프로젝트 면담] 예약 보드로 바꿔 줘.
+- 면담은 [30분] 단위, 한 칸에 [팀 1개]
+- 예약할 때 [팀 이름과 팀원 수]도 받아 줘
+- 예약이 들어오면 교수에게 [메일 알림]이 오게 해 줘 (MailApp)
+지켜 줄 것:
+- google.script.run으로 부르는 함수 이름(getSlots, book)은 바꾸지 마.
+- 바꾼 Code.gs와 Index.html을 각각 전체 코드로, 따로따로 줘.
+- 시트 탭 이름과 1행 제목을 어떻게 고쳐야 하는지 마지막에 표 없이 목록으로 알려 줘.
+
+<span class="gslot" data-src="src-meet-code">[여기에 Code.gs 붙여 넣기]</span>
+
+<span class="gslot" data-src="src-meet-index">[여기에 Index.html 붙여 넣기]</span></pre></div>
+    <details class="gx"><summary>한 줄씩 더 고쳐 보기 (예약 마감 · 교수 화면)</summary><div class="prompt"><div class="label">한 줄 더 · 예약 마감</div><button class="copy">복사</button><pre>면담 하루 전 [18시]가 지나면 그날 시간은 화면에서 사라지게 해 줘. 바꾼 전체 코드를 줘.</pre></div><div class="prompt"><div class="label">한 줄 더 · 교수 화면</div><button class="copy">복사</button><pre>주소 끝에 ?admin=[4자리]를 붙이면 날짜별 예약자 명단과 면담 내용이 표로 보이게 해 줘. 비밀번호는 Code.gs에만 두고 화면 코드에는 넣지 마.</pre></div></details></div></div>
+  </details>
+  <details class="gx" id="gas-h6"><summary>📲 QR 출석·출구 티켓 · 부탁문</summary><p>받은 코드를 실습① 2~5단계처럼 붙여 넣고 배포하면 돼요. 결과가 이상하면 오류 문장을 그대로 복사해 "이 오류 고쳐 줘"라고 보내세요.</p><div class="prompt"><div class="label">QR 출석·출구 티켓 · 처음부터 만들기</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. 학생이 QR로 들어와 학번과 오늘의 단어 [4글자]를 넣으면 "출석" 탭에 시각·학번이 쌓이고, 교수 화면(주소 끝에 ?admin=비밀번호)에는 지금까지 출석한 인원 수가 10초마다 바뀌어 보이게. 같은 학번은 하루 한 번만. Code.gs와 Index.html을 따로 전체 코드로 주고, 시트 준비와 배포 순서도 알려 줘.</pre></div></details>
+  <details class="gx" id="gas-h7"><summary>🔧 실습실 장비 대여·반납 대장 · 부탁문</summary><p>받은 코드를 실습① 2~5단계처럼 붙여 넣고 배포하면 돼요.</p><div class="prompt"><div class="label">실습실 장비 대여·반납 대장 · 처음부터 만들기</div><button class="copy">복사</button><pre>구글 시트에 붙는 앱스크립트 웹 앱을 만들어 줘. "장비" 탭에 [오실로스코프 4대, 멀티미터 10대]가 있고, 학생이 학번과 장비를 골라 대여하면 남은 수량이 줄고 반납 예정일(7일 뒤)이 기록돼. 첫 화면에 지금 빌려 간 장비와 반납이 늦은 목록이 보이게. Code.gs와 Index.html을 따로 전체 코드로 줘.</pre></div></details>
+
 
 <script>
 (function(){
   var sec=document.getElementById('gas'); if(!sec) return;
   sec.querySelectorAll('details.gpx').forEach(function(d){ var c=d.querySelector('.gpchev'); d.addEventListener('toggle',function(){ c.textContent=d.open?'접기 ▴':'눌러서 펼치기 ▾'; }); });
-  document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('a[href^="#gas-h"]'); if(!a) return; var d=document.getElementById(a.getAttribute('href').slice(1)); if(d&&d.tagName==='DETAILS') d.open=true; },true);
+  document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('a[href^="#gas-h"]'); if(!a) return; var d=document.getElementById(a.getAttribute('href').slice(1)); if(d&&d.tagName==='DETAILS'){ d.open=true; if(a.classList.contains('gm')){ e.preventDefault(); e.stopPropagation(); d.scrollIntoView({behavior:'smooth',block:'start'}); } } },true);
 })();
 </script>
 <script>
