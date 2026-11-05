@@ -2841,13 +2841,105 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 
   
 
+  <details open class="shr">
+    <summary><span class="badge b-do">실습</span>② 내 응답 시트 공유하고 링크 모으기</summary>
+    <div class="body">
+      <p class="tip" style="margin-top:0">폼을 만들면 응답이 쌓일 <b>시트</b>를 연결하고, 그 시트를 <b>누구에게 어디까지</b> 보여 줄지 정해 봐요. 공유 설정은 앞으로 시트·문서·폼 모두에 똑같이 쓰여요.</p>
+      <ol class="steps-gap">
+        <li><b>시트 연결</b> — 내 폼의 <b>응답</b> 탭 → <b>Sheets에서 보기</b>(시트에 연결) → <b>새 스프레드시트 만들기</b></li>
+        <li><b>공유 설정</b> — 응답 시트 오른쪽 위 <b>공유</b> → 일반 액세스를 <b>링크가 있는 모든 사용자</b>로 → 역할 <b>뷰어</b> → <b>링크 복사</b></li>
+        <li><b>링크 모으기</b> — 아래 버튼으로 공유 시트를 열고, 내 번호 줄에 <b>이름 · 지메일 · 내 응답 시트 링크 · 공유 설정</b>을 적어 주세요.</li>
+      </ol>
+      <p><a class="goldbtn" href="https://docs.google.com/spreadsheets/d/1s1s_mNZ9WR4tcrZ3PM8JpE4F2Ro4YCxKK-U6NmyM68c/edit" target="_blank" rel="noopener">📝 링크 모으기 시트 열기</a></p>
+      <div class="shr-grid">
+        <div class="shr-c"><p class="shr-h">🔐 일반 액세스 · 누가 열 수 있나</p>
+          <dl><dt>제한됨</dt><dd>내가 추가한 사람만 열 수 있어요. 학생 성적·개인정보가 있는 파일은 이것으로.</dd>
+          <dt>링크가 있는 모든 사용자</dt><dd>링크만 알면 누구나 열어요. 링크가 퍼져도 괜찮은 자료만.</dd></dl></div>
+        <div class="shr-c"><p class="shr-h">✏️ 역할 · 열어서 무엇을 할 수 있나</p>
+          <dl><dt>뷰어</dt><dd>보기만 해요. 배포 자료, 결과 공유.</dd>
+          <dt>댓글 작성자</dt><dd>보고 댓글만 달아요. 검토·의견 받기.</dd>
+          <dt>편집자</dt><dd>내용을 고치고 다시 공유할 수도 있어요. 공동 작업자에게만.</dd></dl></div>
+      </div>
+      <div class="callout blue"><b class="t">더 안전하게 · 특정 사람에게만</b> 링크 공개 대신 공유 창의 <b>사용자 및 그룹 추가</b>에 상대 <b>지메일</b>을 넣으면 그 사람만 열 수 있어요. 일반 액세스는 <b>제한됨</b>으로 두세요.</div>
+      <div class="callout red"><b class="t">꼭 아세요</b> 링크 모으기 시트는 참석자 모두가 함께 보는 시트라 <b>적은 지메일이 서로 보여요.</b> 응답 시트에는 <b>연습용 데이터만</b> 넣고, 실제 학생 정보가 든 시트는 링크 공개로 바꾸지 마세요.</div>
+    </div>
+  </details>
+  <style id="shr-css">
+  #s3 .shr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+  #s3 .shr-c{background:#fff;border:1.5px solid #e6e1d6;border-radius:14px;padding:14px 16px}
+  #s3 .shr-h{margin:0 0 6px;font-weight:800;color:#16233f}
+  #s3 .shr-c dt{margin-top:10px;font-weight:800;color:#2f6fd6}#s3 .shr-c dd{margin:2px 0 0;color:#4a4f5c;line-height:1.6}
+  @media(max-width:700px){#s3 .shr-grid{grid-template-columns:1fr}}
+  </style>
+
   <details>
     <summary><span class="badge b-bonus">보너스</span><span class="badge b-home">집에서</span>④ 매 학기 같은 정리를 버튼 한 번에 — 앱스크립트 맛보기</summary>
     <div class="body">
-      <p>위에서 한 줄씩 시킨 정리를 <b>코드 한 덩어리로 저장해 두고 ▶ 한 번으로 다시 돌리는 도구</b>가 앱스크립트입니다. 코드는 제가 준비했고, 붙여넣고 실행만 하시면 됩니다.</p>
+      <p>시트 정리를 <b>코드 한 덩어리로 저장해 두고 ▶ 한 번으로 다시 돌리는 도구</b>가 앱스크립트입니다. 코드는 제가 준비했고, 붙여넣고 실행만 하시면 됩니다.</p>
       <ol>
-        <li><a href="files/성적_가상데이터.csv" download>성적_가상데이터.csv</a>를 새 시트에 엽니다.</li>
-        <li>시트 메뉴 <b>확장 프로그램 → Apps Script</b> → 기존 코드를 지우고 <a href="files/성적정리_앱스크립트.gs" download>성적정리_앱스크립트.gs</a> 내용을 붙여넣고 저장합니다.</li>
+        <li><b>가상 성적 시트 사본 만들기</b><br><a class="goldbtn" style="margin:8px 0 4px" href="https://docs.google.com/spreadsheets/d/11wpFydi21RGYhdQUqlt1NNWeRPHXq_hPuLaGXZyZ17U/copy" target="_blank" rel="noopener">📋 성적 가상데이터 시트 사본 만들기</a><br><span class="gsub">[사본 만들기]를 누르면 내 드라이브에 학생 12명 가상 성적 시트가 생겨요. (<a href="files/성적_가상데이터.csv" download>CSV로 받기</a>도 돼요)</span></li>
+        <li>시트 메뉴 <b>확장 프로그램 → Apps Script</b> → 기존 코드를 모두 지우고, 아래 코드를 <b>복사</b>해 붙여 넣은 뒤 저장(💾)합니다.<div class="prompt" style="margin:10px 0 4px"><div class="label">성적정리 앱스크립트 (전체 복사)</div><button class="copy">복사</button><pre style="max-height:320px;overflow:auto">/**
+ * 가상 성적 시트 한 방 정리
+ * 전제: 첫 번째 시트에 A~F열 = 학번, 이름, 출석률, 중간, 과제, 기말 (1행은 제목)
+ * 하는 일: 총점·학점(초안) 계산 → 출석 80 미만/총점 60 미만 표시 → 총점순 정렬 → '요약' 시트와 그래프 생성
+ * 이미 손으로 G·H열을 만들었어도 덮어씁니다. 메일 발송·외부 접근은 없습니다.
+ */
+function 성적정리() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sh = ss.getSheets()[0];
+  const last = sh.getLastRow();
+  if (last &lt; 2) { ss.toast('데이터가 없습니다. A1에 표를 먼저 붙여넣으세요.'); return; }
+  const n = last - 1;
+
+  // 1) 총점·학점(초안) — 출석 10%, 중간 30%, 과제 20%, 기말 40%
+  sh.getRange('G1:H1').setValues([['총점', '학점(초안)']]);
+  const f = [];
+  for (let r = 2; r &lt;= last; r++) {
+    f.push([
+      '=ROUND(C' + r + '*0.1+D' + r + '*0.3+E' + r + '*0.2+F' + r + '*0.4,1)',
+      '=IF(G' + r + '&gt;=90,"A",IF(G' + r + '&gt;=80,"B",IF(G' + r + '&gt;=70,"C","D")))'
+    ]);
+  }
+  sh.getRange(2, 7, n, 2).setFormulas(f);
+
+  // 2) 서식: 제목 줄, 출석 80 미만(빨강), 총점 60 미만(노랑)
+  sh.getRange('A1:H1').setFontWeight('bold').setBackground('#23303f').setFontColor('#ffffff');
+  const rules = [
+    SpreadsheetApp.newConditionalFormatRule().whenNumberLessThan(80)
+      .setBackground('#f4c7c3').setRanges([sh.getRange(2, 3, n, 1)]).build(),
+    SpreadsheetApp.newConditionalFormatRule().whenNumberLessThan(60)
+      .setBackground('#fce8b2').setRanges([sh.getRange(2, 7, n, 1)]).build()
+  ];
+  sh.setConditionalFormatRules(rules);
+
+  // 3) 총점 높은 순 정렬, 열 너비, 1행 고정
+  sh.getRange(2, 1, n, 8).sort({ column: 7, ascending: false });
+  sh.setFrozenRows(1);
+  sh.autoResizeColumns(1, 8);
+
+  // 4) 요약 시트 (있으면 지우고 다시 만듦)
+  let sum = ss.getSheetByName('요약');
+  if (sum) { sum.clear(); sum.getCharts().forEach(function (c) { sum.removeChart(c); }); }
+  else { sum = ss.insertSheet('요약'); }
+  const name = sh.getName().replace(/'/g, "''");
+  sum.getRange('A1:B1').setValues([['학점', '인원']]);
+  const grades = ['A', 'B', 'C', 'D'];
+  sum.getRange(2, 1, 4, 2).setFormulas(grades.map(function (g, i) {
+    return [g, "=COUNTIF('" + name + "'!H2:H" + last + ",A" + (i + 2) + ")"];
+  }));
+  sum.getRange('D1:E1').setValues([['전체 평균 총점', '출석 80 미만 인원']]);
+  sum.getRange('D2:E2').setFormulas([[
+    "=ROUND(AVERAGE('" + name + "'!G2:G" + last + "),1)",
+    "=COUNTIF('" + name + "'!C2:C" + last + ",\"&lt;80\")"
+  ]]);
+  sum.getRange('A1:E1').setFontWeight('bold');
+  sum.insertChart(sum.newChart().setChartType(Charts.ChartType.COLUMN)
+    .addRange(sum.getRange('A1:B5')).setPosition(4, 1, 0, 0)
+    .setOption('title', '학점별 인원(초안)').build());
+
+  ss.setActiveSheet(sum);
+  ss.toast('정리 완료! 학점 기준과 확정은 교수님이 직접 확인하세요.');
+}</pre></div></li>
         <li><b>▶ 실행</b> → 권한 검토 → 내 계정 → 고급 → (프로젝트)로 이동 → 허용.</li>
         <li>시트로 돌아오면 총점·학점(초안), 색 표시, 정렬, ‘요약’ 탭과 그래프가 한 번에 만들어집니다.</li>
       </ol>
