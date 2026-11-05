@@ -1942,6 +1942,7 @@ show();
 #gas .gtry .goldbtn{padding:11px 18px;font-size:1em}
 #gas .gqr{display:flex;align-items:center;gap:10px;margin-top:10px}#gas .gqr img{width:110px;height:110px;border:1px solid var(--line);border-radius:8px}#gas .gqr small{color:#6b7280}
 #gas .gtry-sum{margin-top:12px;background:#eef3fb;border-radius:12px;padding:10px 14px}
+#gas .gpair{width:100%;border-collapse:collapse;font-size:14.5px;white-space:nowrap}#gas .gpair th,#gas .gpair td{border:1px solid var(--line);padding:5px 8px;text-align:center}#gas .gpair th{background:#f1edff;color:#3b2a6b}#gas .gpair td b{font-family:ui-monospace,Consolas,monospace;font-size:15px}
 #gas .gtry-note{margin:10px 0 0;font-size:14px;color:#a5372f}
 #gas .gfill{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0;background:#f3f7ff;border:1px dashed #8fb0ec;border-radius:12px;padding:10px 12px}
 #gas .gfill span{font-weight:800;color:var(--navy);margin-right:4px}
@@ -2182,6 +2183,22 @@ function apply(form) {
     <details class="gx"><summary>한 줄씩 더 고쳐 보기 (마감 시간 · 취소)</summary><div class="prompt"><div class="label">한 줄 더 · 마감 시간</div><button class="copy">복사</button><pre>[11월 20일 18시]가 지나면 신청 버튼이 잠기고 "신청이 마감됐어요"가 보이게 해 줘. 바꾼 전체 코드를 줘.</pre></div><div class="prompt"><div class="label">한 줄 더 · 취소 기능</div><button class="copy">복사</button><pre>교수용 비밀번호 [4자리]를 넣으면 신청 한 줄을 취소할 수 있게 해 줘. 비밀번호는 Code.gs에만 두고 화면 코드에는 넣지 마.</pre></div></details></div></div>
 
   <div class="gpart" id="gas-h3">실습② 내 점수·피드백 조회 페이지<small>오전 6탭 성적 시트와 이어져요 · 학번 + 조회 코드가 맞아야 본인 것만 보여요</small></div>
+  
+  <div class="gtry" id="gas-try2">
+    <div class="gtry-h">👀 먼저 체험하기 · 학생이 되어 내 점수 조회해 보기 <small>3분</small></div>
+    <p class="gtry-lead">아래 학번과 조회 코드 중 <b>아무거나 골라</b> 넣어 보세요. 사람마다 <b>본인 점수와 피드백만</b> 보여요. 옆 사람과 다른 학번을 골라 화면을 비교해 보세요.</p>
+    <div class="gtry-grid">
+      <div class="gtry-s"><span class="gn">1</span><b>웹 앱 열기</b>
+        <a class="goldbtn" href="https://script.google.com/macros/s/AKfycbw0_LFz2lceVByFCLCISNroi974PTI5gLWOGxdaX5RoJiiAEUF-MgWTtzNr7EuDwNdw/exec" target="_blank" rel="noopener">✨ 내 점수 조회해 보기 ↗</a>
+        <div class="gqr"><img src="img/qr-score-page.png" alt="내 점수 조회 페이지 QR" loading="lazy"><small>휴대폰으로 찍어도 돼요</small></div></div>
+      <div class="gtry-s"><span class="gn">2</span><b>학번 + 조회 코드 넣기 <small style="color:#6b7280">(모두 가상 학생)</small></b>
+        <table class="gpair"><tr><th>학번</th><th>조회 코드</th><th>이름</th></tr><tr><td><b>2026001</b></td><td><b>2186</b></td><td>김하늘</td></tr><tr><td><b>2026002</b></td><td><b>1614</b></td><td>이도윤</td></tr><tr><td><b>2026007</b></td><td><b>4078</b></td><td>조하준</td></tr><tr><td><b>2026009</b></td><td><b>8424</b></td><td>장태오</td></tr><tr><td><b>2026017</b></td><td><b>6823</b></td><td>안채원</td></tr><tr><td><b>2026012</b></td><td><b>3702</b></td><td>오지호</td></tr></table></div>
+      <div class="gtry-s"><span class="gn">3</span><b>일부러 틀려 보기</b>
+        <p>학번 <b>2026001</b>에 코드 <b>1111</b>을 넣어 보세요. "맞지 않아요"만 뜨고 <b>아무것도 안 보여요.</b> 주소를 알아도 코드 없이는 남의 점수를 볼 수 없어요.</p></div>
+    </div>
+    <div class="gtry-sum"><b>정리</b> 시트의 한 줄 = 학생 한 명의 화면이에요. 교수님이 시트에서 점수를 고치면 <b>다시 배포하지 않아도</b> 다음 조회부터 바로 바뀐 점수가 보여요.</div>
+    <p class="gtry-note">⚠️ 실제로 쓸 때는 조회 코드를 학생마다 <b>개별로</b>(LMS 쪽지·개인 메일) 알려 주세요. 실제 성적은 <b>학교 규정을 먼저 확인</b>하세요. [학교 기준 확인 필요]</p>
+  </div>
   <div class="callout red"><b class="t">개인정보 · 꼭 지켜 주세요</b><ul><li>연수에서는 <b>가상 데이터</b>로만 해요. 실제 성적을 웹으로 조회하게 하려면 <b>학교의 개인정보·성적 처리 규정을 먼저 확인</b>하세요. [학교 기준 확인 필요]</li><li>'모든 사용자'로 배포하면 주소를 아는 누구나 접속할 수 있어요. 그래서 <b>조회 코드 없이는 아무것도 안 보이게</b> 만들었어요. 조회 코드는 학생마다 따로, 개별로 알려 주세요.</li><li>시트 자체의 공유는 <b>제한됨</b> 그대로 두세요. 학생은 웹 앱 주소로만 들어와요.</li></ul></div>
   
   <div class="step"><div class="no">1</div><div><h4>가상 데이터 시트 사본 만들기</h4>
