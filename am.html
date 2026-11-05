@@ -2873,79 +2873,66 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
   </style>
 
   <details>
-    <summary><span class="badge b-bonus">보너스</span><span class="badge b-home">집에서</span>④ 매 학기 같은 정리를 버튼 한 번에 — 앱스크립트 맛보기</summary>
+    <summary><span class="badge b-bonus">보너스</span>④ 제미나이 폼이 조금씩 틀린다면? — 앱스크립트로 <b>정확한 구글폼</b> 만들기</summary>
     <div class="body">
-      <p>시트 정리를 <b>코드 한 덩어리로 저장해 두고 ▶ 한 번으로 다시 돌리는 도구</b>가 앱스크립트입니다. 코드는 제가 준비했고, 붙여넣고 실행만 하시면 됩니다.</p>
-      <ol>
-        <li><b>가상 성적 시트 사본 만들기</b><br><a class="goldbtn" style="margin:8px 0 4px" href="https://docs.google.com/spreadsheets/d/11wpFydi21RGYhdQUqlt1NNWeRPHXq_hPuLaGXZyZ17U/copy" target="_blank" rel="noopener">📋 성적 가상데이터 시트 사본 만들기</a><br><span class="gsub">[사본 만들기]를 누르면 내 드라이브에 학생 12명 가상 성적 시트가 생겨요. (<a href="files/성적_가상데이터.csv" download>CSV로 받기</a>도 돼요)</span></li>
-        <li>시트 메뉴 <b>확장 프로그램 → Apps Script</b> → 기존 코드를 모두 지우고, 아래 코드를 <b>복사</b>해 붙여 넣은 뒤 저장(💾)합니다.<div class="prompt" style="margin:10px 0 4px"><div class="label">성적정리 앱스크립트 (전체 복사)</div><button class="copy">복사</button><pre style="max-height:320px;overflow:auto">/**
- * 가상 성적 시트 한 방 정리
- * 전제: 첫 번째 시트에 A~F열 = 학번, 이름, 출석률, 중간, 과제, 기말 (1행은 제목)
- * 하는 일: 총점·학점(초안) 계산 → 출석 80 미만/총점 60 미만 표시 → 총점순 정렬 → '요약' 시트와 그래프 생성
- * 이미 손으로 G·H열을 만들었어도 덮어씁니다. 메일 발송·외부 접근은 없습니다.
- */
-function 성적정리() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sh = ss.getSheets()[0];
-  const last = sh.getLastRow();
-  if (last &lt; 2) { ss.toast('데이터가 없습니다. A1에 표를 먼저 붙여넣으세요.'); return; }
-  const n = last - 1;
+      <p>제미나이로 만든 폼은 빠르지만 문항 유형·필수·선택지가 가끔 달라져요. <b>"이 문항 그대로 구글폼 만드는 앱스크립트 써 줘"</b>라고 부탁하면 적은 그대로 폼과 응답 시트가 한 번에 만들어져요. 매 학기 같은 폼을 다시 만들 때도 ▶ 한 번이에요.</p>
+      <div class="prompt"><div class="label">① 부탁문 · 제미나이에 보내기 ([ ] 안과 문항만 내 것으로)</div><button class="copy">복사</button><pre>아래 문항 그대로 구글 폼과 응답 시트를 만드는 앱스크립트(Apps Script) 코드를 써 줘.
+- script.new에 붙여 넣고 ▶ 실행만 하면 되게 함수 하나로
+- 문항 유형·필수 여부·선택지를 내가 적은 그대로 (바꾸거나 덧붙이지 마)
+- 이메일은 받지 않게, 응답 시트를 새로 만들어 연결
+- 실행 로그에 응답 주소, 폼 수정 주소, 응답 시트 주소를 보여 줘
 
-  // 1) 총점·학점(초안) — 출석 10%, 중간 30%, 과제 20%, 기말 40%
-  sh.getRange('G1:H1').setValues([['총점', '학점(초안)']]);
-  const f = [];
-  for (let r = 2; r &lt;= last; r++) {
-    f.push([
-      '=ROUND(C' + r + '*0.1+D' + r + '*0.3+E' + r + '*0.2+F' + r + '*0.4,1)',
-      '=IF(G' + r + '&gt;=90,"A",IF(G' + r + '&gt;=80,"B",IF(G' + r + '&gt;=70,"C","D")))'
-    ]);
-  }
-  sh.getRange(2, 7, n, 2).setFormulas(f);
-
-  // 2) 서식: 제목 줄, 출석 80 미만(빨강), 총점 60 미만(노랑)
-  sh.getRange('A1:H1').setFontWeight('bold').setBackground('#23303f').setFontColor('#ffffff');
-  const rules = [
-    SpreadsheetApp.newConditionalFormatRule().whenNumberLessThan(80)
-      .setBackground('#f4c7c3').setRanges([sh.getRange(2, 3, n, 1)]).build(),
-    SpreadsheetApp.newConditionalFormatRule().whenNumberLessThan(60)
-      .setBackground('#fce8b2').setRanges([sh.getRange(2, 7, n, 1)]).build()
-  ];
-  sh.setConditionalFormatRules(rules);
-
-  // 3) 총점 높은 순 정렬, 열 너비, 1행 고정
-  sh.getRange(2, 1, n, 8).sort({ column: 7, ascending: false });
-  sh.setFrozenRows(1);
-  sh.autoResizeColumns(1, 8);
-
-  // 4) 요약 시트 (있으면 지우고 다시 만듦)
-  let sum = ss.getSheetByName('요약');
-  if (sum) { sum.clear(); sum.getCharts().forEach(function (c) { sum.removeChart(c); }); }
-  else { sum = ss.insertSheet('요약'); }
-  const name = sh.getName().replace(/'/g, "''");
-  sum.getRange('A1:B1').setValues([['학점', '인원']]);
-  const grades = ['A', 'B', 'C', 'D'];
-  sum.getRange(2, 1, 4, 1).setValues(grades.map(function (g) { return [g]; }));
-  sum.getRange(2, 2, 4, 1).setFormulas(grades.map(function (g, i) {
-    return ["=COUNTIF('" + name + "'!H2:H" + last + ",A" + (i + 2) + ")"];
-  }));
-  sum.getRange('D1:E1').setValues([['전체 평균 총점', '출석 80 미만 인원']]);
-  sum.getRange('D2:E2').setFormulas([[
-    "=ROUND(AVERAGE('" + name + "'!G2:G" + last + "),1)",
-    "=COUNTIF('" + name + "'!C2:C" + last + ",\"&lt;80\")"
-  ]]);
-  sum.getRange('A1:E1').setFontWeight('bold');
-  sum.insertChart(sum.newChart().setChartType(Charts.ChartType.COLUMN)
-    .addRange(sum.getRange('A1:B5')).setNumHeaders(1).setPosition(8, 1, 0, 0)
-    .setOption('title', '학점별 인원(초안)').build());
-
-  ss.setActiveSheet(sum);
-  ss.toast('정리 완료! 학점 기준과 확정은 교수님이 직접 확인하세요.');
-}</pre></div></li>
-        <li><b>▶ 실행</b> → 권한 검토 → 내 계정 → 고급 → (프로젝트)로 이동 → 허용.</li>
-        <li>시트로 돌아오면 총점·학점(초안), 색 표시, 정렬, ‘요약’ 탭과 그래프가 한 번에 만들어집니다.</li>
+[폼 제목] 3주차 출구 질문
+[문항]
+1. 오늘 가장 기억에 남는 개념 (단답, 필수)
+2. 이해도 (1~5 척도, 필수, 1=거의 모르겠어요 · 5=잘 이해했어요)
+3. 더 설명이 필요한 부분 (객관식, 필수: 개념 설명 / 예제 풀이 / 과제 안내 / 기타 직접 입력)
+4. 질문이 있다면 (장문, 선택)</pre></div>
+      <ol class="steps-gap">
+        <li>받은 코드를 복사 → 새 탭 주소창에 <b>script.new</b> → 원래 있던 코드를 지우고 붙여 넣기 → 💾 저장</li>
+        <li>위쪽 함수 이름 옆 <b>▶ 실행</b> → 처음 한 번 <b>권한 검토 → 내 계정 → 고급 → (프로젝트)로 이동 → 허용</b></li>
+        <li>아래 <b>실행 로그</b>에 나온 <b>응답 주소</b>를 열면 완성! 내 드라이브에 폼과 응답 시트가 생겨요</li>
       </ol>
-      <div class="callout blue">🚀 <b>더 나아가기 · 오후반 6 앱스크립트</b> — 같은 앱스크립트로 <b>학생이 자기 점수만 조회하는 페이지</b>, <b>팀 주제 선착순 보드</b>까지 만들어요. <a href="pm.html#gas"><b>오후반 6 앱스크립트 탭 열기 →</b></a></div>
-      <div class="callout red"><b class="t">꼭 아세요</b> 권한 승인은 <b>내가 직접 붙여넣은 코드</b>일 때만 합니다. 실제 성적 파일에는 <b>복사본에서 먼저</b> 시험하세요. 학점 기준과 확정은 교수님이 직접 합니다.</div>
+      <details class="ex case"><summary>예시 코드 바로 써 보기 · 중간 강의 피드백 폼 (오후 7 라이브 대시보드와 같은 문항)</summary><div class="body">
+        <div class="prompt" style="margin:10px 0 4px"><div class="label">중간 강의 피드백 폼 만들기 (전체 복사 → script.new에 붙여 넣기)</div><button class="copy">복사</button><pre style="font-family:ui-monospace,Consolas,monospace;font-size:12.5px;max-height:300px;overflow:auto;white-space:pre">/**
+ * 중간 강의 피드백 · 구글 폼 + 응답 시트 자동 만들기
+ * 사용법: script.new → 이 코드를 모두 붙여 넣기 → 저장 → 위쪽에서 makeForm 고르고 ▶ 실행
+ *         (처음 한 번 권한 허용) → 아래 &#x27;실행 로그&#x27;에 나온 주소를 열어 보세요.
+ * 문항 이름은 오후반 7 라이브 대시보드와 같아요. 이 폼의 응답 시트로 대시보드를 바로 만들 수 있어요.
+ */
+function makeForm() {
+  const form = FormApp.create(&#x27;[과목명] 중간 강의 피드백 (익명 · 2분)&#x27;);
+  form.setDescription(&#x27;남은 수업을 더 좋게 만들려고 해요. 이름·학번은 받지 않아요.&#x27;);
+  form.setCollectEmail(false);
+  form.setAllowResponseEdits(false);
+  form.setConfirmationMessage(&#x27;응답 고마워요! 다음 수업에 반영할게요.&#x27;);
+  try { form.setRequireLogin(false); } catch (e) {} // 개인 계정에서는 그냥 넘어가요
+
+  form.addMultipleChoiceItem().setTitle(&#x27;학년&#x27;)
+    .setChoiceValues([&#x27;1학년&#x27;, &#x27;2학년&#x27;, &#x27;3학년&#x27;, &#x27;4학년&#x27;]).setRequired(true);
+  form.addMultipleChoiceItem().setTitle(&#x27;전공 구분&#x27;)
+    .setChoiceValues([&#x27;주전공&#x27;, &#x27;복수·부전공&#x27;, &#x27;교양으로 수강&#x27;]).showOtherOption(true).setRequired(true);
+  form.addScaleItem().setTitle(&#x27;이해도&#x27;)
+    .setBounds(1, 5).setLabels(&#x27;거의 모르겠어요&#x27;, &#x27;잘 이해했어요&#x27;).setRequired(true);
+  form.addMultipleChoiceItem().setTitle(&#x27;수업 속도&#x27;)
+    .setChoiceValues([&#x27;빠름&#x27;, &#x27;적당&#x27;, &#x27;느림&#x27;]).setRequired(true);
+  form.addMultipleChoiceItem().setTitle(&#x27;가장 어려웠던 개념&#x27;)
+    .setChoiceValues([&#x27;[개념 1]&#x27;, &#x27;[개념 2]&#x27;, &#x27;[개념 3]&#x27;, &#x27;[개념 4]&#x27;, &#x27;[개념 5]&#x27;]).showOtherOption(true).setRequired(true);
+  form.addCheckboxItem().setTitle(&#x27;도움이 된 활동 (여러 개 골라도 돼요)&#x27;)
+    .setChoiceValues([&#x27;강의 설명&#x27;, &#x27;예제 풀이&#x27;, &#x27;실습&#x27;, &#x27;퀴즈&#x27;, &#x27;조별 토론&#x27;]).showOtherOption(true);
+  form.addParagraphTextItem().setTitle(&#x27;개선 제안 (선택)&#x27;);
+
+  const ss = SpreadsheetApp.create(&#x27;[과목명] 중간 강의 피드백 · 응답&#x27;);
+  form.setDestination(FormApp.DestinationType.SPREADSHEET, ss.getId());
+
+  Logger.log(&#x27;① 학생에게 줄 응답 주소: &#x27; + form.getPublishedUrl());
+  Logger.log(&#x27;② 폼 수정 주소(교수용): &#x27; + form.getEditUrl());
+  Logger.log(&#x27;③ 응답 시트 주소: &#x27; + ss.getUrl());
+}</pre></div>
+        <p class="tip">[과목명]과 [개념 1~5]만 내 수업으로 바꿔 실행하세요. 이 폼의 응답 시트로 오후반 <b>7 라이브 대시보드</b>를 바로 만들 수 있어요.</p>
+      </div></details>
+      <div class="callout blue">🚀 <b>더 나아가기 · 오후반 6 앱스크립트</b> — 같은 앱스크립트로 <b>팀 주제 선착순 보드</b>, <b>내 점수 조회 페이지</b>, 성적처럼 매 학기 반복하는 <b>상대평가 정리</b>까지 해요. <a href="pm.html#gas"><b>오후반 6 앱스크립트 탭 열기 →</b></a></div>
+      <div class="callout red"><b class="t">꼭 아세요</b> 권한 승인은 <b>내가 직접 붙여 넣은 코드</b>일 때만 합니다. 학생 이름·학번을 받는 문항은 꼭 필요할 때만 넣으세요.</div>
     </div>
   </details>
 </section>
