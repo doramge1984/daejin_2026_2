@@ -1873,9 +1873,26 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
   <h2 class="sec">4 제미나이 앱 스킬 · <span style="font-family:inherit">@</span>로 부르는 나만의 업무 도우미</h2>
   <div class="wp-hero"><p class="k">오전반 · 4 스킬</p><p class="t">@로 부르는 나만의 업무 도우미</p><p class="d">젬처럼 일하는 방법을 한 번 넣어 두고, 채팅창에서 <b>@스킬이름</b>으로 불러 쓰는 기능이에요. 스킬마다 <b>업로드하기 · Gemini로 만들기 · 수동으로 만들기</b> 세 가지 방법이 있으니 편한 것 하나만 골라 설치하고 써 보세요.</p><div class="wp-flow"><a href="#s2b-h1"><em>PART 1</em><b>① 루브릭 채점 조교 · @rubric-gra…</b><span></span></a><a href="#s2b-h2"><em>PART 2</em><b>② 강의 공지 메일 · @강의-공지-메일휴강·…</b><span></span></a><button type="button" class="wppt-open" data-deck="skill">▶ 1분 설명 보기 · 스킬이란?</button></div></div>
 
-  <div class="callout red"><b class="t">시작 전에 확인하세요</b><ul style="margin:6px 0 0 18px;padding:0"><li><b>개인 Gmail</b>로 로그인 (학교 계정은 아직 스킬이 안 돼요, 만 18세 이상)</li><li>스킬은 <b>캔버스·딥리서치와 함께 쓸 수 없어요</b>. 일반 채팅에서 써요</li><li>첨부 파일은 PDF·이미지·텍스트(.md, .txt)만 돼요. 워드·엑셀은 안 돼요</li></ul></div>
-  <details open class="gem2skill">
-    <summary><span class="badge b-must">필수</span>젬(Gems)에서 스킬로 — 무엇이 바뀌나</summary>
+  <style id="skq-css">
+.skq{margin:16px 0 14px}
+.skq-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.skq-c{background:#fff;border:2px solid #e3d9fb;border-radius:16px;padding:16px 14px;text-align:center;box-shadow:0 4px 14px rgba(108,75,209,.08)}
+.skq-c b{display:block;font-size:1.25em;color:#3c2a8a;margin:4px 0 4px}
+.skq-c small{color:#5f6675;font-size:.92em;line-height:1.5}
+.skq-i{display:inline-flex;width:46px;height:46px;border-radius:50%;background:#efe9ff;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#6c4bd1}
+.skq-chk{margin:12px 2px 0;font-size:.95em;color:#4a4f5c}
+@media(max-width:640px){.skq-row{grid-template-columns:1fr}}
+</style>
+<div class="skq">
+    <div class="skq-row">
+      <div class="skq-c"><span class="skq-i">🔄</span><b>젬 → 스킬</b><small>11월 17일부터 자동 전환<br>따로 옮길 필요 없어요</small></div>
+      <div class="skq-c"><span class="skq-i">＠</span><b>대화창에 @</b><small>@스킬이름 으로 바로 불러요<br>여러 개를 함께 써도 돼요</small></div>
+      <div class="skq-c"><span class="skq-i">👤</span><b>개인 Gmail</b><small>만 18세 이상 개인 계정<br>학교 계정은 아직 안 돼요</small></div>
+    </div>
+    <p class="skq-chk">✔ 일반 채팅에서 써요 (캔버스·딥리서치와는 함께 안 돼요) &nbsp; ✔ 첨부는 PDF·이미지·텍스트만</p>
+  </div>
+  <details class="gem2skill">
+    <summary><span class="badge b-home">자세히</span>젬에서 스킬로 — 지난 연수 젬은 어떻게 되나요?</summary>
     <div class="body">
       <ul>
         <li>구글은 <b>2026년 11월 17일부터 젬(Gems)을 스킬로 자동 전환</b>한다고 안내하고 있습니다. 전환 전까지는 젬을 그대로 쓸 수 있습니다.</li>
@@ -1883,22 +1900,10 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
         <li>크롬 안의 제미나이에도 스킬이 있어(탭 1의 ⑤, <kbd>/</kbd>로 부름), <b>보고 있는 페이지에 저장한 지시를 그대로 적용</b>할 수 있습니다. 이 탭은 <b>제미나이 앱(gemini.google.com)</b>의 스킬이에요.</li>
       </ul>
       <div class="callout gold"><b class="t">지난 연수에 루브릭 채점 젬을 만드셨다면</b> 따로 옮기지 않으셔도 자동 전환됩니다. 아래 ①은 강사가 미리 직접 바꿔 본 것이에요. 다만 전환 후 <b>지시문과 첨부 파일이 그대로인지</b> 한 번 열어 확인해 보세요. [확인 필요: 연수일 기준 전환 상태]</div>
-      <div class="callout blue fallback"><b class="t">계정에 따라 다릅니다</b> 제미나이 앱 스킬은 <b>만 18세 이상 개인 구글 계정</b>부터 10월 중순~11월 중순에 순차 적용되고 있습니다. 대학(교육용) 계정은 아직 제공되지 않으며, 크롬 스킬도 지역·언어별로 순차 제공 중입니다. 오늘 화면에 없으면 바로 아래 “프롬프트 카드” 방식으로 똑같이 하시면 됩니다. [확인 필요: 연수일 기준 한국어 제공 범위]</div>
+      <div class="callout blue fallback"><b class="t">계정에 따라 다릅니다</b> 제미나이 앱 스킬은 <b>만 18세 이상 개인 구글 계정</b>부터 10월 중순~11월 중순에 순차 적용되고 있습니다. 대학(교육용) 계정은 아직 제공되지 않으며, 크롬 스킬도 지역·언어별로 순차 제공 중입니다. 오늘 화면에 없으면 스킬 지침을 일반 채팅에 붙여 넣어 똑같이 하시면 됩니다. [확인 필요: 연수일 기준 한국어 제공 범위]</div>
     </div>
   </details>
-  <details>
-    <summary><span class="badge b-home">대안</span>스킬이 안 보이면 — 프롬프트 카드로 똑같이</summary>
-    <div class="body">
-      <p>스킬의 핵심은 “좋은 지시문을 <b>한 번 다듬어 두고 계속 쓰는 것</b>”입니다. 메뉴가 없어도 같은 효과를 낼 수 있습니다.</p>
-      <ul>
-        <li><b>구글 킵(keep.google.com)</b>에 “프롬프트 카드” 라벨을 만들어 자주 쓰는 지시문을 저장해 둡니다. (<a href="#gift" title="선물">🎁</a> 탭의 구글 킵에서 다시 씁니다)</li>
-        <li>제미나이 앱 <b>설정 → 개인 맞춤 설정(Gemini에 요청할 사항)</b>에 늘 지켜야 할 규칙을 한 번 저장합니다.</li>
-      </ul>
-      <div class="prompt"><div class="label">늘 적용할 규칙 (설정에 저장)</div><pre>1. 확실한 근거가 없으면 '확인할 수 없습니다'라고 답하고 추측하지 마.
-2. 수치·법령·논문을 말할 때는 확인할 수 있는 출처를 함께 적어줘.
-3. 나는 대학 교수이고, 답은 한국어로, 핵심부터 짧게 해줘.</pre><button class="copy">복사</button></div>
-    </div>
-  </details>
+  
 
   <div class="sknav"><a href="#sk-rg" class="n1" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sk-rg').scrollIntoView({block:'start',behavior:'instant'})"><span>①</span>루브릭 채점 조교<small>@rubric-grader</small></a><a href="#sk-nt" class="n2" onclick="event.preventDefault();event.stopPropagation();document.getElementById('sk-nt').scrollIntoView({block:'start',behavior:'instant'})"><span>②</span>강의 공지 메일<small>@강의-공지-메일</small></a></div>
   <div class="skcard c1" id="sk-rg">
