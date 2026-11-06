@@ -2074,6 +2074,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
     <p class="ms-n">⏱ 시간 안에 다 못 만드셨다면 1번(스킬 이름과 이유)만 써 두셔도 됩니다.<br>🔒 스킬 지침에 실제 학생 이름·연락처는 넣지 마세요. 올려 주신 내용은 이름을 빼고 다른 연수 사례로 소개될 수 있어요.</p>
   </div>
   <style id="mission-css">
+  .xneed{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;background:#fff5f4;border:1.5px dashed #f0b7b3;border-radius:12px;padding:10px 14px;margin:8px 0 12px}.xneed span{font-size:.9em;color:#6b7280}.xneed .dl{margin:0}
   .mission{position:relative;margin:18px 0 22px;padding:20px 22px;border-radius:18px;border:2px solid transparent;background:linear-gradient(#fffdf3,#fffdf3) padding-box,linear-gradient(90deg,#f4b400,#f9e27a,#e0a800,#fff1a8,#f4b400) border-box;background-size:100% 100%,300% 100%;animation:s4Border 5s linear infinite,goldGlow 2.2s ease-in-out infinite}
   .ms-h{margin:0 0 6px;font-size:1.4em;font-weight:800;color:#5a3d00;position:relative;overflow:hidden}
   .ms-h::after{content:'';position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.9),rgba(255,255,255,0));transform:skewX(-20deg);animation:spkShine 2.6s ease-in-out infinite;pointer-events:none}
@@ -2139,6 +2140,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 
   <div class="xcard xc x1" id="sx2" data-g="prof">
     <div class="xh"><span class="xt">1순위</span><div class="xn">2. 추천서 초안 <code>@추천서-초안</code></div><div class="xo">학생 이력과 교수 메모로 과장 없는 국문·영문 추천서 초안</div></div>
+    <div class="xneed">📥 <b>이 스킬에 필요한 자료</b> <a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/resume-jeong-saebyeok.pdf" download>⬇ [가상] 정새벽 이력서 PDF</a> <span>② 테스트 때 ＋로 첨부해요</span></div>
     <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
     <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">추천서 초안을 써 주는 스킬을 만들고 싶어. 이름은 추천서-초안으로 해 줘.
 
@@ -2186,6 +2188,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 
   <div class="xcard xc x1" id="sx3" data-g="prof">
     <div class="xh"><span class="xt">1순위</span><div class="xn">3. 회의록 정리 <code>@회의록-정리</code></div><div class="xo">회의 메모·녹음 받아쓰기를 결정 사항·할 일·다음 안건으로</div></div>
+    <div class="xneed">📥 <b>이 스킬에 필요한 자료</b> <a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/meeting-transcript-1104.txt" download>⬇ [가상] 11/4 회의 녹음 받아쓰기 TXT</a> <span>② 테스트 때 ＋로 첨부해요</span></div>
     <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
     <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">회의록을 정리해 주는 스킬을 만들고 싶어. 이름은 회의록-정리로 해 줘.
 
@@ -2225,6 +2228,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 
   <div class="xcard xc x2" id="sx4" data-g="prof">
     <div class="xh"><span class="xt">2순위</span><div class="xn">4. 시험 문제 출제 <code>@시험문제-출제</code></div><div class="xo">강의 자료로 객관식·서술형 문항·정답·해설·출제 근거</div></div>
+    <div class="xneed">📥 <b>이 스킬에 필요한 자료</b> <a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/lecture-stp-week5.pdf" download>⬇ [가상] 5주차 강의 자료 PDF</a> <span>② 테스트 때 ＋로 첨부해요</span></div>
     <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
     <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">강의 자료로 시험 문제를 만들어 주는 스킬을 만들고 싶어. 이름은 시험문제-출제로 해 줘.
 
@@ -2266,6 +2270,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 
   <div class="xcard xc x2" id="sx5" data-g="prof">
     <div class="xh"><span class="xt">2순위</span><div class="xn">5. 강의계획서 점검 <code>@강의계획서-점검</code></div><div class="xo">학습목표·주차별 내용·평가 방법이 서로 맞는지 점검</div></div>
+    <div class="xneed">📥 <b>이 스킬에 필요한 자료</b> <a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/syllabus-data-literacy.pdf" download>⬇ [가상] 데이터 리터러시 강의계획서 PDF</a> <span>② 테스트 때 ＋로 첨부해요</span></div>
     <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
     <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">강의계획서를 점검해 주는 스킬을 만들고 싶어. 이름은 강의계획서-점검으로 해 줘.
 
@@ -2354,6 +2359,7 @@ document.addEventListener('paste',function(e){var t=e.target;if(!t.classList||!t
 
   <div class="xcard xc x1" id="sx7" data-g="prof">
     <div class="xh"><span class="xt">1순위</span><div class="xn">7. 루브릭 만들기 <code>@루브릭-만들기</code></div><div class="xo">과제 안내만 주면 점수 구간이 있는 채점 루브릭과 학생용 안내판까지</div></div>
+    <div class="xneed">📥 <b>이 스킬에 필요한 자료</b> <a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/assignment-brief-stats-news.pdf" download>⬇ [가상] 통계 뉴스 과제 안내문 PDF</a> <span>② 테스트 때 ＋로 첨부해요</span></div>
     <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
     <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">과제 채점 루브릭을 만들어 주는 스킬을 만들고 싶어. 이름은 루브릭-만들기로 해 줘.
 
@@ -2434,6 +2440,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 
   <div class="xcard xc x3" id="sx9" data-g="staff">
     <div class="xh"><span class="xt">교직원</span><div class="xn">9. 규정 근거 답변 <code>@규정-근거-답변</code></div><div class="xo">학칙·학사 규정을 근거로 조항을 인용해 답변</div></div>
+    <div class="xneed">📥 <b>이 스킬에 필요한 자료</b> <a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/regulation-academic.pdf" download>⬇ [가상] 학사 규정 PDF</a> <span>② 테스트 때 ＋로 첨부해요</span></div>
     <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
     <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">학칙이나 학사 규정을 근거로 질문에 답해 주는 스킬을 만들고 싶어. 이름은 규정-근거-답변으로 해 줘.
 
@@ -2467,6 +2474,7 @@ AI 사용: 아이디어 정리에는 허용, 본문은 직접 작성. AI 쓴 부
 
   <div class="xcard xc x3" id="sx10" data-g="staff">
     <div class="xh"><span class="xt">교직원</span><div class="xn">10. 민원 응대 답변 <code>@민원-응대-답변</code></div><div class="xo">학생·학부모 문의·항의에 절차 안내형 답변 초안</div></div>
+    <div class="xneed">📥 <b>이 스킬에 필요한 자료</b> <a class="dl" style="background:#d93025;color:#fff;border-color:#d93025;font-weight:700" href="files/skill/test/complaint-guide-faq.pdf" download>⬇ [가상] 민원 응대 기준·FAQ PDF</a> <span>② 테스트 때 ＋로 첨부해요</span></div>
     <div class="xs"><span class="st">1</span> 만들기 프롬프트 <em>Gemini로 만들기 → "Create a skill" 다음에 보내기</em></div>
     <div class="prompt"><div class="label">만들기 프롬프트</div><button class="copy">복사</button><pre style="max-height:300px;overflow:auto">학생·학부모 민원에 답변 초안을 써 주는 스킬을 만들고 싶어. 이름은 민원-응대-답변으로 해 줘.
 
